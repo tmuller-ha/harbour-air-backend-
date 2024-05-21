@@ -1,0 +1,54 @@
+name: Harbour Air strapi build check and dev deploy 
+env:
+  HOST: ${{ secrets.HOST }}
+  PORT: ${{ secrets.PORT }}
+  APP_KEYS: ${{ secrets.APP_KEYS }}
+  API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+  ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+  TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
+  DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
+  DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Strapi
+        run: yarn build
+
+  deploy_dev:
+    runs-on: self-hosted
+    needs: build
+    if: github.ref == 'refs/heads/dev'
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: dev
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Strapi
+        run: yarn build
+
+      - name: Start Strapi with PM2
+        run: pm2 start yarn --name "strapi" -- start
+
