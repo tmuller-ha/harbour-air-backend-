@@ -66,9 +66,6 @@ jobs:
       - name: Build Strapi
         run: yarn build
 
-      - name: Install PM2
-        run: npm install -g pm2
-
       - name: Start Strapi with PM2
-        run: pm2 start yarn --name "strapi" -- start
+        run: pm2 restart strapi
 
