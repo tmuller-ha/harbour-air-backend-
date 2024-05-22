@@ -7,7 +7,11 @@ env:
   ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
   TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
   DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-  DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
+  DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+  DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+  DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+  DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+  DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 
@@ -26,6 +30,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
       - name: Install dependencies
         run: yarn install
 
@@ -37,17 +49,25 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/dev'
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          ref: dev
+          node-version: '20'
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
 
       - name: Build Strapi
         run: yarn build
+
+      - name: Install PM2
+        run: npm install -g pm2
 
       - name: Start Strapi with PM2
         run: pm2 start yarn --name "strapi" -- start
