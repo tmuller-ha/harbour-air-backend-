@@ -1,4 +1,4 @@
-name: Harbour Air strapi build check and dev deploy 
+name: Build | Dev Deploy 
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
