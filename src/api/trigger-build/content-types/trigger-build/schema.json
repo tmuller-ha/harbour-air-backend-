@@ -12,16 +12,17 @@
   },
   "pluginOptions": {
     "content-manager": {
-      "visible": false
+      "visible": true
     },
     "content-type-builder": {
-      "visible": false
+      "visible": true
     }
   },
   "attributes": {
     "isTriggerBuild": {
       "type": "boolean",
-      "configurable": false
+      "configurable": false,
+      "default": false
     }
   }
 }

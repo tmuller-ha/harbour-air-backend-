@@ -848,14 +848,14 @@ export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   };
   pluginOptions: {
     'content-manager': {
-      visible: false;
+      visible: true;
     };
     'content-type-builder': {
-      visible: false;
+      visible: true;
     };
   };
   attributes: {
-    isTriggerBuild: Attribute.Boolean;
+    isTriggerBuild: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
