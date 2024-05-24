@@ -848,10 +848,10 @@ export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   };
   pluginOptions: {
     'content-manager': {
-      visible: true;
+      visible: false;
     };
     'content-type-builder': {
-      visible: true;
+      visible: false;
     };
   };
   attributes: {
