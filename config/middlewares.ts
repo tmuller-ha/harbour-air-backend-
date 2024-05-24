@@ -33,6 +33,15 @@ export default [
       },
     },
   },
+
+  // TODO: Update cors config to match your requirements
+  {
+    name: "strapi::cors",
+    config: {
+      origin: '*',
+      headers: '*',
+    }
+  },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
