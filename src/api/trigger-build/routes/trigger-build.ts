@@ -10,7 +10,7 @@ export default {
       },
     },
     {
-      method: 'GET',
+      method: 'POST',
       path: '/trigger-build/true',
       handler: 'trigger-build.triggerBuildTrue',
       config: {
