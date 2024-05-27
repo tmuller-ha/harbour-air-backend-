@@ -1,4 +1,4 @@
-name: Harbour Air strapi build check and dev deploy 
+name: Build | Dev Deploy 
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
@@ -7,9 +7,12 @@ env:
   ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
   TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
   DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-  DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
-
 
 on:
   pull_request:
@@ -25,6 +28,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+    
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
@@ -37,11 +48,33 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/dev'
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          ref: dev
+          node-version: '20'
+
+      - name: Create .env file
+        run: |
+          touch .env
+          echo HOST=${{ secrets.HOST }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo APP_KEYS=${{ secrets.APP_KEYS }} >> .env
+          echo API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }} >> .env
+          echo ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} >> .env
+          echo TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }} >> .env
+          echo DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }} >> .env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
+          echo AWS_ACCESS_SECRET=${{ secrets.AWS_ACCESS_SECRET }} >> .env
+          echo AWS_REGION=${{ secrets.AWS_REGION }} >> .env
+          echo AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
@@ -50,5 +83,5 @@ jobs:
         run: yarn build
 
       - name: Start Strapi with PM2
-        run: pm2 start yarn --name "strapi" -- start
+        run: pm2 restart strapi
 
