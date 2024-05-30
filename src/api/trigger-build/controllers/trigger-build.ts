@@ -4,7 +4,7 @@
 'use strict'
 
 export default {
-  find: async (ctx, next) => {
+  find: async () => {
     try {
       const item = await strapi.service("api::trigger-build.trigger-build").find();
       return item;
@@ -13,7 +13,7 @@ export default {
     }
   },
 
-  triggerBuildTrue: async (ctx, next) => {
+  triggerBuildTrue: async () => {
     try {
       const item = await strapi.service("api::trigger-build.trigger-build").triggerBuildTrue();
       return item;
@@ -22,7 +22,7 @@ export default {
     }
   },
 
-  triggerBuildFalse: async (ctx, next) => {
+  triggerBuildFalse: async () => {
     try {
       const item = await strapi.service("api::trigger-build.trigger-build").triggerBuildFalse();
       return item

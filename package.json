@@ -7,9 +7,17 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "lint": "eslint . --ext .js,.ts,.tsx --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "8.57.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.5"
+  },
   "dependencies": {
     "@strapi/plugin-cloud": "4.24.2",
     "@strapi/plugin-i18n": "4.24.2",
@@ -33,5 +41,10 @@
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ]
+  }
 }
