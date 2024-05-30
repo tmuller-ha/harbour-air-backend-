@@ -1,0 +1,30 @@
+name: Daily Branch Management
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  branch-management:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Delete and create dev branch
+        run: |
+          # Set the starting branch
+          starting_branch="staging"
+
+          # Set the dev branch name
+          dev_branch="dev"
+
+          # Delete the existing dev branch if it exists
+          git branch -D $dev_branch || true
+
+          # Create a new dev branch from the starting branch
+          git checkout -b $dev_branch $starting_branch
+
+          # Push the new dev branch to the remote repository
+          git push origin $dev_branch
