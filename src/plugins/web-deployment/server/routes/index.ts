@@ -1,10 +1,5 @@
-export default [
-  {
-    method: 'GET',
-    path: '/',
-    handler: 'myController.index',
-    config: {
-      policies: [],
-    },
-  },
-];
+import deployment from "./deployment";
+
+export default {
+  deployment,
+};

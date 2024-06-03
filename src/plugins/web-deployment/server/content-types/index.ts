@@ -1,1 +1,5 @@
-export default {};
+import deployment from "./deployment";
+
+export default {
+  deployment,
+};
