@@ -13,6 +13,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  STRAPI_ADMIN_GITHUB_TOKEN: ${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }}
 
 on:
   pull_request:
