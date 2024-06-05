@@ -77,8 +77,8 @@ const Table = (props: TableProps) => {
           return (
             <Tr key={id}>
               <TableBodyCell cellData={user || "-"} />
-              <TableBodyCell cellData={createdAt?.split("T")[0]} />
-              <TableBodyCell cellData={updatedAt?.split("T")[0]} />
+              <TableBodyCell cellData={new Date(createdAt).toLocaleString()} />
+              <TableBodyCell cellData={new Date(updatedAt).toLocaleString()} />
               <TableBodyCell cellData={status || "-"} />
             </Tr>
           );
