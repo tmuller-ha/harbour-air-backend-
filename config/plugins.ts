@@ -3,6 +3,24 @@ module.exports = ({ env }) => ({
     enabled: true,
     resolve: "./src/plugins/web-deployment",
   },
+  "preview-button": {
+    config: {
+      contentTypes: [
+        {
+          uid: "api::home.home",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "home",
+            },
+          },
+          published: {
+            url: env("WEB_PREVIEW_URL"),
+          },
+        },
+      ],
+    },
+  },
   upload: {
     config: {
       provider: "aws-s3",
