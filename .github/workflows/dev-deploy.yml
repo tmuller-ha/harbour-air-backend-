@@ -1,4 +1,4 @@
-name: Build | Dev Deploy
+name: Build & Dev Deployment
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
@@ -13,6 +13,8 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  STRAPI_ADMIN_GITHUB_TOKEN: ${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }}
+  WEB_PREVIEW_URL: ${{ secrets.WEB_PREVIEW_URL }}
 
 on:
   pull_request:
@@ -72,12 +74,17 @@ jobs:
           echo AWS_REGION=${{ secrets.AWS_REGION }} >> .env
           echo AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }} >> .env
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+          echo STRAPI_ADMIN_GITHUB_TOKEN=${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }} >> .env
+          echo WEB_PREVIEW_URL=${{ secrets.WEB_PREVIEW_URL }} >> .env
 
       - name: Install Yarn
         run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Plugin
+        run: cd src/plugins/web-deployment && yarn install && yarn build
 
       - name: Build Strapi
         run: yarn build
