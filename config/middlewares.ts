@@ -1,6 +1,6 @@
 export default [
-  'strapi::logger',
-  'strapi::errors',
+  "strapi::logger",
+  "strapi::errors",
   {
     name: "strapi::security",
     config: {
@@ -14,7 +14,7 @@ export default [
             "blob:",
             "strapi.io",
             "market-assets.strapi.io",
-            'dl.airtable.com',
+            "dl.airtable.com",
             `${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com`,
             `${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
           ],
@@ -24,7 +24,7 @@ export default [
             "blob:",
             "strapi.io",
             "market-assets.strapi.io",
-            'dl.airtable.com',
+            "dl.airtable.com",
             `${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com`,
             `${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
           ],
@@ -38,15 +38,19 @@ export default [
   {
     name: "strapi::cors",
     config: {
-      origin: '*',
-      headers: '*',
-    }
+      origin: "*",
+      headers: "*",
+    },
   },
-  'strapi::cors',
-  'strapi::poweredBy',
-  'strapi::query',
-  'strapi::body',
-  'strapi::session',
-  'strapi::favicon',
-  'strapi::public',
+  "strapi::cors",
+  "strapi::poweredBy",
+  "strapi::query",
+  "strapi::body",
+  "strapi::session",
+  "strapi::favicon",
+  "strapi::public",
+  {
+    // custom resolve to find a package or a path
+    resolve: "./src/middlewares/upload.js",
+  },
 ];
