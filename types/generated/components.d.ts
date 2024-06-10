@@ -121,15 +121,5 @@ export interface SeoSeo extends Schema.Component {
 }
 
 declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
-      'blocks.carousel-content': BlocksCarouselContent;
-      'elements.button': ElementsButton;
-      'elements.drop-down-data': ElementsDropDownData;
-      'elements.harbour-air-services': ElementsHarbourAirServices;
-      'home.description': HomeDescription;
-      'home.grab-deals': HomeGrabDeals;
-      'seo.seo': SeoSeo;
-    }
-  }
+  export module Shared {}
 }
