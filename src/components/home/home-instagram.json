@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_blocks_home_instagrams",
+  "info": {
+    "displayName": "HomeInstagram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "followUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "instaImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isVisible": {
+      "type": "boolean"
+    }
+  }
+}

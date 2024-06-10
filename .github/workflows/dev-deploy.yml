@@ -1,4 +1,4 @@
-name: Build | Dev Deploy
+name: Build | Dev Deploy 
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
@@ -17,22 +17,22 @@ env:
 on:
   pull_request:
     branches:
-      - "*"
+      - '*'
   push:
     branches:
       - dev
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+    
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install Yarn
         run: npm install -g yarn
@@ -53,8 +53,11 @@ jobs:
 
       - name: Install Node.js
         uses: actions/setup-node@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Create .env file
         run: |
@@ -79,8 +82,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Plugin
+        run: cd src/plugins/web-deployment && yarn install && yarn build
+
       - name: Build Strapi
         run: yarn build
 
       - name: Start Strapi with PM2
         run: pm2 restart strapi
+

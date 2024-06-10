@@ -19,6 +19,22 @@
     },
     "title": {
       "type": "string"
+    },
+    "instagramSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-instagram"
+    },
+    "stayUpToDateSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-stay-update"
+    },
+    "harbourAirArticle": {
+      "displayName": "HarbourAirArticle",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.harbour-air-article"
     }
   }
 }
