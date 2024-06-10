@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_elements_carousel_contents",
+  "info": {
+    "displayName": "carouselContent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "origin": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "string"
+    },
+    "departure": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "string"
+    },
+    "route": {
+      "type": "string"
+    },
+    "moreFlights": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "priceTitle": {
+      "type": "string"
+    },
+    "calendarImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

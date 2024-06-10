@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_blocks_grab_deals",
+  "info": {
+    "displayName": "GrabDeals",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "deals": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.drop-down-data"
+    },
+    "filterBy": {
+      "type": "string"
+    },
+    "carouselElements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.carousel-content",
+      "max": 5
+    },
+    "isVisible": {
+      "type": "boolean"
+    },
+    "moreDeals": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    }
+  }
+}
