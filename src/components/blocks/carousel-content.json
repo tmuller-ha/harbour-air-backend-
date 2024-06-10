@@ -51,14 +51,18 @@
       "type": "string"
     },
     "calendarImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "flightTravelNature": {
+      "type": "string"
     }
   }
 }

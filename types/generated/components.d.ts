@@ -20,6 +20,7 @@ export interface BlocksCarouselContent extends Schema.Component {
     slug: Attribute.String;
     priceTitle: Attribute.String;
     calendarImg: Attribute.Media;
+    flightTravelNature: Attribute.String;
   };
 }
 
