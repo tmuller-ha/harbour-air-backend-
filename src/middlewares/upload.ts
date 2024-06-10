@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs").promises;
 const os = require("os");
-const { exec } = require("child_process");
+const webp = require("webp-converter");
 
 module.exports = (config, { strapi }) => {
   return async (context, next) => {
@@ -9,6 +9,7 @@ module.exports = (config, { strapi }) => {
       context.request.method === "POST" &&
       context.request.url.startsWith("/upload")
     ) {
+      webp.grant_permission();
       // Function to convert images to WebP format
       const convertImageToWebP = async (file) => {
         if (file.type.startsWith("image/")) {
@@ -20,29 +21,16 @@ module.exports = (config, { strapi }) => {
             const outputDir = os.tmpdir(); // Use OS-specific temporary directory
             const outputPath = path.join(outputDir, outputName);
 
-            // Construct the command based on OS
-            let command;
-            if (os.platform() === "win32") {
-              // Windows
-              command = `magick convert "${file.path}" "${outputPath}"`;
-            } else {
-              // Other platforms (assuming Unix-like)
-              command = `convert "${file.path}" "${outputPath}"`;
-            }
-
-            // Execute the conversion command
-            await new Promise<void>((resolve, reject) => {
-              exec(command, (err) => {
-                if (err) {
-                  reject(err);
-                } else {
-                  resolve();
-                }
-              });
+            // Convert image to WebP format using imagemagick
+            const result = webp.cwebp(file.path, outputPath, "-q 80");
+            result.then((response) => {
+              console.log(response);
             });
 
             // Delete the original file
-            await fs.unlink(file.path);
+            setTimeout(async () => {
+              await fs.unlink(file.path);
+            }, 1000);
 
             // Update file properties
             context.request.body.fileInfo = { name: outputName };
