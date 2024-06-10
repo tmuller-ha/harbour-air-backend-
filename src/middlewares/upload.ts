@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs").promises;
 const os = require("os");
-const im = require("imagemagick");
+const { exec } = require("child_process");
 
 module.exports = (config, { strapi }) => {
   return async (context, next) => {
@@ -20,9 +20,19 @@ module.exports = (config, { strapi }) => {
             const outputDir = os.tmpdir(); // Use OS-specific temporary directory
             const outputPath = path.join(outputDir, outputName);
 
-            // Convert image to WebP format using imagemagick
+            // Construct the command based on OS
+            let command;
+            if (os.platform() === "win32") {
+              // Windows
+              command = `magick convert "${file.path}" "${outputPath}"`;
+            } else {
+              // Other platforms (assuming Unix-like)
+              command = `convert "${file.path}" "${outputPath}"`;
+            }
+
+            // Execute the conversion command
             await new Promise<void>((resolve, reject) => {
-              im.convert([file.path, outputPath], (err) => {
+              exec(command, (err) => {
                 if (err) {
                   reject(err);
                 } else {
