@@ -590,6 +590,46 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginWebDeploymentDeployment extends Schema.CollectionType {
+  collectionName: 'deployments';
+  info: {
+    singularName: 'deployment';
+    pluralName: 'deployments';
+    displayName: 'Deployment';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    user: Attribute.String & Attribute.Required;
+    status: Attribute.Enumeration<['Failed', 'Deployed', 'In-Progress']> &
+      Attribute.DefaultTo<'In-Progress'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::web-deployment.deployment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::web-deployment.deployment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -925,6 +965,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
