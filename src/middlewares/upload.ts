@@ -21,16 +21,11 @@ module.exports = (config, { strapi }) => {
             const outputDir = os.tmpdir(); // Use OS-specific temporary directory
             const outputPath = path.join(outputDir, outputName);
 
-            // Convert image to WebP format using imagemagick
-            const result = webp.cwebp(file.path, outputPath, "-q 80");
-            result.then((response) => {
-              console.log(response);
-            });
+            // Convert image to WebP format using webp-converter
+            await webp.cwebp(file.path, outputPath, "-q 80");
 
             // Delete the original file
-            setTimeout(async () => {
-              await fs.unlink(file.path);
-            }, 1000);
+            await fs.unlink(file.path);
 
             // Update file properties
             context.request.body.fileInfo = { name: outputName };
