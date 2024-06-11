@@ -46,7 +46,7 @@ jobs:
         run: cd src/plugins/web-deployment && yarn install && yarn build
 
       - name: Build Strapi
-        run: cd - && yarn build
+        run: yarn build
 
       - name: Build Strapi
         run: yarn build
@@ -93,7 +93,7 @@ jobs:
         run: cd src/plugins/web-deployment && yarn install && yarn build
 
       - name: Build Strapi
-        run: cd - && yarn build
+        run: yarn build
 
       - name: Start Strapi with PM2
         run: pm2 restart strapi
