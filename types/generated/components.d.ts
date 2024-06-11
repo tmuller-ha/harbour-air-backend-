@@ -177,6 +177,33 @@ export interface HomeHarbourAirArticle extends Schema.Component {
   };
 }
 
+export interface HomeHeroCarousel extends Schema.Component {
+  collectionName: 'components_home_hero_carousels';
+  info: {
+    displayName: 'HeroCarousel';
+    description: '';
+  };
+  attributes: {
+    isVisible: Attribute.Boolean;
+    carousels: Attribute.Component<'home.home-carousel', true>;
+  };
+}
+
+export interface HomeHomeCarousel extends Schema.Component {
+  collectionName: 'components_home_home_carousels';
+  info: {
+    displayName: 'HomeCarousel';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    btnText: Attribute.String;
+    slug: Attribute.String;
+    image: Attribute.Media;
+  };
+}
+
 export interface HomeHomeInstagram extends Schema.Component {
   collectionName: 'components_blocks_home_instagrams';
   info: {
@@ -240,6 +267,8 @@ declare module '@strapi/types' {
       'home.description': HomeDescription;
       'home.grab-deals': HomeGrabDeals;
       'home.harbour-air-article': HomeHarbourAirArticle;
+      'home.hero-carousel': HomeHeroCarousel;
+      'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
       'home.home-stay-update': HomeHomeStayUpdate;
       'seo.seo': SeoSeo;

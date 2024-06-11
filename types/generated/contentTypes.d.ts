@@ -877,6 +877,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     seo: Attribute.Component<'seo.seo'>;
     title: Attribute.String;
+    homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
     stayUpToDateSection: Attribute.Component<'home.home-stay-update'>;
     harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;

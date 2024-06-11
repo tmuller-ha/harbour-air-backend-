@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_hero_carousels",
+  "info": {
+    "displayName": "HeroCarousel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "isVisible": {
+      "type": "boolean"
+    },
+    "carousels": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.home-carousel"
+    }
+  }
+}
