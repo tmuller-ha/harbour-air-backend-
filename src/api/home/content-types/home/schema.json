@@ -19,6 +19,11 @@
     },
     "title": {
       "type": "string"
+    },
+    "homePageCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.hero-carousel"
     }
   }
 }

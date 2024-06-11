@@ -842,6 +842,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     seo: Attribute.Component<'seo.seo'>;
     title: Attribute.String;
+    homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
