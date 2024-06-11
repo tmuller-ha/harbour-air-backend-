@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_footer_bottom_contents",
+  "info": {
+    "displayName": "bottomContent"
+  },
+  "options": {},
+  "attributes": {
+    "harbourairLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "copyrights": {
+      "type": "string"
+    },
+    "bottomLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.link"
+    }
+  }
+}
