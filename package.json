@@ -5,7 +5,7 @@
   "description": "A Strapi application",
   "license": "MIT",
   "author": {
-    "name": "A Strapi developer"
+    "name": "Harbour CMS dev"
   },
   "scripts": {
     "build": "strapi build",
