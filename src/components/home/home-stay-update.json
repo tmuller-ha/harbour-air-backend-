@@ -20,7 +20,7 @@
       "repeatable": false,
       "component": "elements.button"
     },
-    "isVisible": {
+    "show": {
       "type": "boolean"
     }
   }

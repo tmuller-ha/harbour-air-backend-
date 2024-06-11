@@ -136,7 +136,7 @@ export interface HomeDescription extends Schema.Component {
         },
         number
       >;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
   };
 }
 
@@ -157,7 +157,7 @@ export interface HomeGrabDeals extends Schema.Component {
         },
         number
       >;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
   };
 }
@@ -172,7 +172,7 @@ export interface HomeHarbourAirArticle extends Schema.Component {
     title: Attribute.String;
     image: Attribute.Media;
     description: Attribute.String;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
     bgImage: Attribute.Media;
   };
 }
@@ -184,7 +184,7 @@ export interface HomeHeroCarousel extends Schema.Component {
     description: '';
   };
   attributes: {
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
     carousels: Attribute.Component<'home.home-carousel', true>;
   };
 }
@@ -215,7 +215,7 @@ export interface HomeHomeInstagram extends Schema.Component {
     description: Attribute.String;
     followUs: Attribute.Component<'elements.button'>;
     instaImages: Attribute.Media;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
   };
 }
 
@@ -230,7 +230,7 @@ export interface HomeHomeStayUpdate extends Schema.Component {
     description: Attribute.String;
     unsubscribeText: Attribute.String;
     subscribe: Attribute.Component<'elements.button'>;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
   };
 }
 

@@ -23,7 +23,7 @@
       "component": "blocks.carousel-content",
       "max": 5
     },
-    "isVisible": {
+    "show": {
       "type": "boolean"
     },
     "moreDeals": {

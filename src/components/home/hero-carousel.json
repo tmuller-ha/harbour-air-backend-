@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "isVisible": {
+    "show": {
       "type": "boolean"
     },
     "carousels": {
