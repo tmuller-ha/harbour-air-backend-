@@ -877,9 +877,12 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     seo: Attribute.Component<'seo.seo'>;
     title: Attribute.String;
+    homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
     stayUpToDateSection: Attribute.Component<'home.home-stay-update'>;
     harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
+    HarbourAirDescription: Attribute.Component<'home.description'>;
+    GrabDeals: Attribute.Component<'home.grab-deals'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
