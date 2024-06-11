@@ -828,6 +828,41 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    footerlinks: Attribute.Component<'footer.footer-links', true>;
+    footerlogos: Attribute.Component<'footer.footer-logo-links'>;
+    harbourairLogo: Attribute.Media;
+    copyrights: Attribute.String;
+    bottomLinks: Attribute.Component<'footer.link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeaderHeader extends Schema.SingleType {
   collectionName: 'headers';
   info: {
@@ -880,6 +915,12 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     seo: Attribute.Component<'seo.seo'>;
     title: Attribute.String;
+    homePageCarousel: Attribute.Component<'home.hero-carousel'>;
+    instagramSection: Attribute.Component<'home.home-instagram'>;
+    stayUpToDateSection: Attribute.Component<'home.home-stay-update'>;
+    harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
+    HarbourAirDescription: Attribute.Component<'home.description'>;
+    GrabDeals: Attribute.Component<'home.grab-deals'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -970,6 +1011,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
