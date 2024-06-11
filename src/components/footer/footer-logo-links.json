@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_footer_footer_logo_links",
+  "info": {
+    "displayName": "FooterLogoLinks"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.footer-logos"
+    }
+  }
+}

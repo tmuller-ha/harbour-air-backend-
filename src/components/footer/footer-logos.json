@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_footer_footer_logos",
+  "info": {
+    "displayName": "FooterLogos",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logos": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}
