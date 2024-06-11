@@ -24,6 +24,32 @@
       "type": "component",
       "repeatable": false,
       "component": "home.hero-carousel"
+    },
+    "instagramSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-instagram"
+    },
+    "stayUpToDateSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-stay-update"
+    },
+    "harbourAirArticle": {
+      "displayName": "HarbourAirArticle",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.harbour-air-article"
+    },
+    "HarbourAirDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.description"
+    },
+    "GrabDeals": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.grab-deals"
     }
   }
 }
