@@ -234,6 +234,32 @@ export interface HomeHomeStayUpdate extends Schema.Component {
   };
 }
 
+export interface MenuDropdown extends Schema.Component {
+  collectionName: 'components_menu_dropdowns';
+  info: {
+    displayName: 'Dropdown';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    navigationLinks: Attribute.Component<'menu.link', true>;
+    slug: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.Required;
+  };
+}
+
+export interface MenuLink extends Schema.Component {
+  collectionName: 'components_menu_links';
+  info: {
+    displayName: 'Link';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -271,6 +297,8 @@ declare module '@strapi/types' {
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
       'home.home-stay-update': HomeHomeStayUpdate;
+      'menu.dropdown': MenuDropdown;
+      'menu.link': MenuLink;
       'seo.seo': SeoSeo;
     }
   }
