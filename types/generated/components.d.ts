@@ -1,37 +1,10 @@
-import type { Schema, Attribute } from "@strapi/strapi";
-
-export interface HomeHeroCarousel extends Schema.Component {
-  collectionName: "components_home_hero_carousels";
-  info: {
-    displayName: "HeroCarousel";
-    description: "";
-  };
-  attributes: {
-    isVisible: Attribute.Boolean;
-    carousels: Attribute.Component<"home.home-carousel", true>;
-  };
-}
-
-export interface HomeHomeCarousel extends Schema.Component {
-  collectionName: "components_home_home_carousels";
-  info: {
-    displayName: "HomeCarousel";
-    description: "";
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    btnText: Attribute.String;
-    slug: Attribute.String;
-    image: Attribute.Media;
-  };
-}
+import type { Schema, Attribute } from '@strapi/strapi';
 
 export interface BlocksCarouselContent extends Schema.Component {
-  collectionName: "components_elements_carousel_contents";
+  collectionName: 'components_elements_carousel_contents';
   info: {
-    displayName: "carouselContent";
-    description: "";
+    displayName: 'carouselContent';
+    description: '';
   };
   attributes: {
     image: Attribute.Media;
@@ -52,10 +25,10 @@ export interface BlocksCarouselContent extends Schema.Component {
 }
 
 export interface ElementsButton extends Schema.Component {
-  collectionName: "components_elements_buttons";
+  collectionName: 'components_elements_buttons';
   info: {
-    displayName: "Button";
-    description: "";
+    displayName: 'Button';
+    description: '';
   };
   attributes: {
     buttonText: Attribute.String;
@@ -64,10 +37,10 @@ export interface ElementsButton extends Schema.Component {
 }
 
 export interface ElementsDropDownData extends Schema.Component {
-  collectionName: "components_elements_drop_down_data";
+  collectionName: 'components_elements_drop_down_data';
   info: {
-    displayName: "dropDownData";
-    description: "";
+    displayName: 'dropDownData';
+    description: '';
   };
   attributes: {
     data: Attribute.String;
@@ -75,10 +48,10 @@ export interface ElementsDropDownData extends Schema.Component {
 }
 
 export interface ElementsHarbourAirServices extends Schema.Component {
-  collectionName: "components_elements_harbour_air_services";
+  collectionName: 'components_elements_harbour_air_services';
   info: {
-    displayName: "HarbourAirServices";
-    description: "";
+    displayName: 'HarbourAirServices';
+    description: '';
   };
   attributes: {
     icon: Attribute.Media;
@@ -88,45 +61,45 @@ export interface ElementsHarbourAirServices extends Schema.Component {
 }
 
 export interface FooterBottomContent extends Schema.Component {
-  collectionName: "components_footer_bottom_contents";
+  collectionName: 'components_footer_bottom_contents';
   info: {
-    displayName: "bottomContent";
+    displayName: 'bottomContent';
   };
   attributes: {
     harbourairLogo: Attribute.Media;
     copyrights: Attribute.String;
-    bottomLinks: Attribute.Component<"footer.link", true>;
+    bottomLinks: Attribute.Component<'footer.link', true>;
   };
 }
 
 export interface FooterFooterLinks extends Schema.Component {
-  collectionName: "components_footer_footer_links";
+  collectionName: 'components_footer_footer_links';
   info: {
-    displayName: "FooterLinks";
-    description: "";
+    displayName: 'FooterLinks';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    links: Attribute.Component<"footer.link", true>;
+    links: Attribute.Component<'footer.link', true>;
   };
 }
 
 export interface FooterFooterLogoLinks extends Schema.Component {
-  collectionName: "components_footer_footer_logo_links";
+  collectionName: 'components_footer_footer_logo_links';
   info: {
-    displayName: "FooterLogoLinks";
+    displayName: 'FooterLogoLinks';
   };
   attributes: {
     title: Attribute.String;
-    logos: Attribute.Component<"footer.footer-logos", true>;
+    logos: Attribute.Component<'footer.footer-logos', true>;
   };
 }
 
 export interface FooterFooterLogos extends Schema.Component {
-  collectionName: "components_footer_footer_logos";
+  collectionName: 'components_footer_footer_logos';
   info: {
-    displayName: "FooterLogos";
-    description: "";
+    displayName: 'FooterLogos';
+    description: '';
   };
   attributes: {
     logos: Attribute.Media;
@@ -135,9 +108,9 @@ export interface FooterFooterLogos extends Schema.Component {
 }
 
 export interface FooterLink extends Schema.Component {
-  collectionName: "components_footer_links";
+  collectionName: 'components_footer_links';
   info: {
-    displayName: "Link";
+    displayName: 'Link';
   };
   attributes: {
     link: Attribute.String;
@@ -146,15 +119,15 @@ export interface FooterLink extends Schema.Component {
 }
 
 export interface HomeDescription extends Schema.Component {
-  collectionName: "components_blocks_descriptions";
+  collectionName: 'components_blocks_descriptions';
   info: {
-    displayName: "HarbourAirDescription";
-    description: "";
+    displayName: 'HarbourAirDescription';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     HarbourAirService: Attribute.Component<
-      "elements.harbour-air-services",
+      'elements.harbour-air-services',
       true
     > &
       Attribute.SetMinMax<
@@ -168,16 +141,16 @@ export interface HomeDescription extends Schema.Component {
 }
 
 export interface HomeGrabDeals extends Schema.Component {
-  collectionName: "components_blocks_grab_deals";
+  collectionName: 'components_blocks_grab_deals';
   info: {
-    displayName: "GrabDeals";
-    description: "";
+    displayName: 'GrabDeals';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    deals: Attribute.Component<"elements.drop-down-data", true>;
+    deals: Attribute.Component<'elements.drop-down-data', true>;
     filterBy: Attribute.String;
-    carouselElements: Attribute.Component<"blocks.carousel-content", true> &
+    carouselElements: Attribute.Component<'blocks.carousel-content', true> &
       Attribute.SetMinMax<
         {
           max: 5;
@@ -185,15 +158,15 @@ export interface HomeGrabDeals extends Schema.Component {
         number
       >;
     isVisible: Attribute.Boolean;
-    moreDeals: Attribute.Component<"elements.button">;
+    moreDeals: Attribute.Component<'elements.button'>;
   };
 }
 
 export interface HomeHarbourAirArticle extends Schema.Component {
-  collectionName: "components_home_harbour_air_articles";
+  collectionName: 'components_home_harbour_air_articles';
   info: {
-    displayName: "HarbourAirArticle";
-    description: "";
+    displayName: 'HarbourAirArticle';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -204,42 +177,69 @@ export interface HomeHarbourAirArticle extends Schema.Component {
   };
 }
 
-export interface HomeHomeInstagram extends Schema.Component {
-  collectionName: "components_blocks_home_instagrams";
+export interface HomeHeroCarousel extends Schema.Component {
+  collectionName: 'components_home_hero_carousels';
   info: {
-    displayName: "HomeInstagram";
-    description: "";
+    displayName: 'HeroCarousel';
+    description: '';
+  };
+  attributes: {
+    isVisible: Attribute.Boolean;
+    carousels: Attribute.Component<'home.home-carousel', true>;
+  };
+}
+
+export interface HomeHomeCarousel extends Schema.Component {
+  collectionName: 'components_home_home_carousels';
+  info: {
+    displayName: 'HomeCarousel';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    followUs: Attribute.Component<"elements.button">;
+    btnText: Attribute.String;
+    slug: Attribute.String;
+    image: Attribute.Media;
+  };
+}
+
+export interface HomeHomeInstagram extends Schema.Component {
+  collectionName: 'components_blocks_home_instagrams';
+  info: {
+    displayName: 'HomeInstagram';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    followUs: Attribute.Component<'elements.button'>;
     instaImages: Attribute.Media;
     isVisible: Attribute.Boolean;
   };
 }
 
 export interface HomeHomeStayUpdate extends Schema.Component {
-  collectionName: "components_blocks_home_stay_updates";
+  collectionName: 'components_blocks_home_stay_updates';
   info: {
-    displayName: "HomeStayUpdate";
-    description: "";
+    displayName: 'HomeStayUpdate';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
     unsubscribeText: Attribute.String;
-    subscribe: Attribute.Component<"elements.button">;
+    subscribe: Attribute.Component<'elements.button'>;
     isVisible: Attribute.Boolean;
   };
 }
 
 export interface SeoSeo extends Schema.Component {
-  collectionName: "components_seo_seos";
+  collectionName: 'components_seo_seos';
   info: {
-    displayName: "SEO";
-    icon: "search";
-    description: "";
+    displayName: 'SEO';
+    icon: 'search';
+    description: '';
   };
   attributes: {
     metaKeyword: Attribute.String;
@@ -252,26 +252,26 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
-declare module "@strapi/types" {
+declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      "home.hero-carousel": HomeHeroCarousel;
-      "home.home-carousel": HomeHomeCarousel;
-      "blocks.carousel-content": BlocksCarouselContent;
-      "elements.button": ElementsButton;
-      "elements.drop-down-data": ElementsDropDownData;
-      "elements.harbour-air-services": ElementsHarbourAirServices;
-      "footer.bottom-content": FooterBottomContent;
-      "footer.footer-links": FooterFooterLinks;
-      "footer.footer-logo-links": FooterFooterLogoLinks;
-      "footer.footer-logos": FooterFooterLogos;
-      "footer.link": FooterLink;
-      "home.description": HomeDescription;
-      "home.grab-deals": HomeGrabDeals;
-      "home.harbour-air-article": HomeHarbourAirArticle;
-      "home.home-instagram": HomeHomeInstagram;
-      "home.home-stay-update": HomeHomeStayUpdate;
-      "seo.seo": SeoSeo;
+      'blocks.carousel-content': BlocksCarouselContent;
+      'elements.button': ElementsButton;
+      'elements.drop-down-data': ElementsDropDownData;
+      'elements.harbour-air-services': ElementsHarbourAirServices;
+      'footer.bottom-content': FooterBottomContent;
+      'footer.footer-links': FooterFooterLinks;
+      'footer.footer-logo-links': FooterFooterLogoLinks;
+      'footer.footer-logos': FooterFooterLogos;
+      'footer.link': FooterLink;
+      'home.description': HomeDescription;
+      'home.grab-deals': HomeGrabDeals;
+      'home.harbour-air-article': HomeHarbourAirArticle;
+      'home.hero-carousel': HomeHeroCarousel;
+      'home.home-carousel': HomeHomeCarousel;
+      'home.home-instagram': HomeHomeInstagram;
+      'home.home-stay-update': HomeHomeStayUpdate;
+      'seo.seo': SeoSeo;
     }
   }
 }
