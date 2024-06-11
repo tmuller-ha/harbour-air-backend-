@@ -876,13 +876,9 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
   attributes: {
     mobileLogo: Attribute.Media & Attribute.Required;
-    searchIcon: Attribute.Media & Attribute.Required;
-    userIcon: Attribute.Media & Attribute.Required;
     menus: Attribute.Component<'menu.dropdown', true>;
     desktopLogo: Attribute.Media & Attribute.Required;
-    hamBurgerIcon: Attribute.Media & Attribute.Required;
-    userAccountText: Attribute.String & Attribute.Required;
-    closeIcon: Attribute.Media & Attribute.Required;
+    profileButtonText: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

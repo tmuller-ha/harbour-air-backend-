@@ -20,22 +20,6 @@
         "images"
       ]
     },
-    "searchIcon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "userIcon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "menus": {
       "type": "component",
       "repeatable": true,
@@ -49,25 +33,9 @@
         "images"
       ]
     },
-    "hamBurgerIcon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "userAccountText": {
+    "profileButtonText": {
       "type": "string",
       "required": true
-    },
-    "closeIcon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
     }
   }
 }

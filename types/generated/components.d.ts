@@ -243,6 +243,8 @@ export interface MenuDropdown extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     navigationLinks: Attribute.Component<'menu.link', true>;
+    slug: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.Required;
   };
 }
 
