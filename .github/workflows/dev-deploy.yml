@@ -48,9 +48,6 @@ jobs:
       - name: Build Strapi
         run: yarn build
 
-      - name: Build Strapi
-        run: yarn build
-
   deploy_dev:
     runs-on: self-hosted
     needs: build
