@@ -119,6 +119,7 @@ export interface SeoSeo extends Schema.Component {
   info: {
     displayName: 'SEO';
     icon: 'search';
+    description: '';
   };
   attributes: {
     metaKeyword: Attribute.String;
