@@ -18,6 +18,30 @@ module.exports = ({ env }) => ({
             url: env("WEB_PREVIEW_URL"),
           },
         },
+        {
+          uid: "api::footer.footer",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "footer",
+            },
+          },
+          published: {
+            url: env("WEB_PREVIEW_URL"),
+          },
+        },
+        {
+          uid: "api::header.header",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "header",
+            },
+          },
+          published: {
+            url: env("WEB_PREVIEW_URL"),
+          },
+        },
       ],
     },
   },
