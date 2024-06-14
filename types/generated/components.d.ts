@@ -21,6 +21,7 @@ export interface BlocksCarouselContent extends Schema.Component {
     priceTitle: Attribute.String;
     calendarImg: Attribute.Media;
     flightTravelNature: Attribute.String;
+    countryID: Attribute.String;
   };
 }
 
@@ -161,13 +162,7 @@ export interface HomeGrabDeals extends Schema.Component {
     title: Attribute.String;
     deals: Attribute.Component<'elements.drop-down-data', true>;
     filterBy: Attribute.String;
-    carouselElements: Attribute.Component<'blocks.carousel-content', true> &
-      Attribute.SetMinMax<
-        {
-          max: 5;
-        },
-        number
-      >;
+    carouselElements: Attribute.Component<'blocks.carousel-content', true>;
     show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
   };
