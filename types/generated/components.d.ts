@@ -60,6 +60,17 @@ export interface ElementsHarbourAirServices extends Schema.Component {
   };
 }
 
+export interface ElementsInstagramImages extends Schema.Component {
+  collectionName: 'components_elements_instagram_images';
+  info: {
+    displayName: 'InstagramImages';
+  };
+  attributes: {
+    instaImage: Attribute.Media;
+    slug: Attribute.String;
+  };
+}
+
 export interface FooterBottomContent extends Schema.Component {
   collectionName: 'components_footer_bottom_contents';
   info: {
@@ -214,8 +225,8 @@ export interface HomeHomeInstagram extends Schema.Component {
     title: Attribute.String;
     description: Attribute.String;
     followUs: Attribute.Component<'elements.button'>;
-    instaImages: Attribute.Media;
     show: Attribute.Boolean;
+    instaImages: Attribute.Component<'elements.instagram-images', true>;
   };
 }
 
@@ -285,6 +296,7 @@ declare module '@strapi/types' {
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.instagram-images': ElementsInstagramImages;
       'footer.bottom-content': FooterBottomContent;
       'footer.footer-links': FooterFooterLinks;
       'footer.footer-logo-links': FooterFooterLogoLinks;

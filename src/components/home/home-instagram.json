@@ -17,16 +17,13 @@
       "repeatable": false,
       "component": "elements.button"
     },
-    "instaImages": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "show": {
       "type": "boolean"
+    },
+    "instaImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.instagram-images"
     }
   }
 }
