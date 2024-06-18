@@ -29,6 +29,11 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.button"
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::country.country"
     }
   }
 }

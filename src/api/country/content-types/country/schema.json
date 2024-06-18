@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "links",
+  "collectionName": "countries",
   "info": {
-    "singularName": "link",
-    "pluralName": "links",
-    "displayName": "link",
+    "singularName": "country",
+    "pluralName": "countries",
+    "displayName": "country",
     "description": ""
   },
   "options": {
@@ -12,11 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "name": {
+      "type": "string"
     },
-    "slug": {
+    "code": {
       "type": "string"
     }
   }

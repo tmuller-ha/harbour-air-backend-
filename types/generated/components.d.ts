@@ -165,6 +165,11 @@ export interface HomeGrabDeals extends Schema.Component {
     carouselElements: Attribute.Component<'blocks.carousel-content', true>;
     show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
+    countries: Attribute.Relation<
+      'home.grab-deals',
+      'oneToMany',
+      'api::country.country'
+    >;
   };
 }
 
