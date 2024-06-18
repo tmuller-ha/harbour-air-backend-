@@ -20,8 +20,7 @@
     "carouselElements": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.carousel-content",
-      "max": 5
+      "component": "blocks.carousel-content"
     },
     "show": {
       "type": "boolean"
@@ -30,6 +29,11 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.button"
+    },
+    "countries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::country.country"
     }
   }
 }
