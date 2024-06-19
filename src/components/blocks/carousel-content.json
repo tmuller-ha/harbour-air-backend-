@@ -57,6 +57,9 @@
     },
     "flightTravelNature": {
       "type": "string"
+    },
+    "countryID": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_instagram_images",
+  "info": {
+    "displayName": "InstagramImages"
+  },
+  "options": {},
+  "attributes": {
+    "instaImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

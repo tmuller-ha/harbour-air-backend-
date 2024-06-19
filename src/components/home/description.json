@@ -15,7 +15,7 @@
       "component": "elements.harbour-air-services",
       "max": 5
     },
-    "isVisible": {
+    "show": {
       "type": "boolean"
     }
   }

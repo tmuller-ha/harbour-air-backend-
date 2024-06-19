@@ -21,6 +21,7 @@ export interface BlocksCarouselContent extends Schema.Component {
     priceTitle: Attribute.String;
     calendarImg: Attribute.Media;
     flightTravelNature: Attribute.String;
+    countryID: Attribute.String;
   };
 }
 
@@ -57,6 +58,17 @@ export interface ElementsHarbourAirServices extends Schema.Component {
     icon: Attribute.Media;
     subtitle: Attribute.String;
     description: Attribute.Text;
+  };
+}
+
+export interface ElementsInstagramImages extends Schema.Component {
+  collectionName: 'components_elements_instagram_images';
+  info: {
+    displayName: 'InstagramImages';
+  };
+  attributes: {
+    instaImage: Attribute.Media;
+    slug: Attribute.String;
   };
 }
 
@@ -118,6 +130,47 @@ export interface FooterLink extends Schema.Component {
   };
 }
 
+export interface HeaderDropdown extends Schema.Component {
+  collectionName: 'components_header_dropdowns';
+  info: {
+    displayName: 'Dropdown';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    dropdownMenus: Attribute.Relation<
+      'header.dropdown',
+      'oneToMany',
+      'api::dropdown-menu.dropdown-menu'
+    >;
+  };
+}
+
+export interface HeaderLink extends Schema.Component {
+  collectionName: 'components_header_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface HeaderMediaLinks extends Schema.Component {
+  collectionName: 'components_header_media_links';
+  info: {
+    displayName: 'Media Link';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface HomeDescription extends Schema.Component {
   collectionName: 'components_blocks_descriptions';
   info: {
@@ -136,7 +189,7 @@ export interface HomeDescription extends Schema.Component {
         },
         number
       >;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
   };
 }
 
@@ -150,15 +203,14 @@ export interface HomeGrabDeals extends Schema.Component {
     title: Attribute.String;
     deals: Attribute.Component<'elements.drop-down-data', true>;
     filterBy: Attribute.String;
-    carouselElements: Attribute.Component<'blocks.carousel-content', true> &
-      Attribute.SetMinMax<
-        {
-          max: 5;
-        },
-        number
-      >;
-    isVisible: Attribute.Boolean;
+    carouselElements: Attribute.Component<'blocks.carousel-content', true>;
+    show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
+    countries: Attribute.Relation<
+      'home.grab-deals',
+      'oneToMany',
+      'api::country.country'
+    >;
   };
 }
 
@@ -172,7 +224,7 @@ export interface HomeHarbourAirArticle extends Schema.Component {
     title: Attribute.String;
     image: Attribute.Media;
     description: Attribute.String;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
     bgImage: Attribute.Media;
   };
 }
@@ -184,7 +236,7 @@ export interface HomeHeroCarousel extends Schema.Component {
     description: '';
   };
   attributes: {
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
     carousels: Attribute.Component<'home.home-carousel', true>;
   };
 }
@@ -214,8 +266,8 @@ export interface HomeHomeInstagram extends Schema.Component {
     title: Attribute.String;
     description: Attribute.String;
     followUs: Attribute.Component<'elements.button'>;
-    instaImages: Attribute.Media;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
+    instaImages: Attribute.Component<'elements.instagram-images', true>;
   };
 }
 
@@ -230,33 +282,7 @@ export interface HomeHomeStayUpdate extends Schema.Component {
     description: Attribute.String;
     unsubscribeText: Attribute.String;
     subscribe: Attribute.Component<'elements.button'>;
-    isVisible: Attribute.Boolean;
-  };
-}
-
-export interface MenuDropdown extends Schema.Component {
-  collectionName: 'components_menu_dropdowns';
-  info: {
-    displayName: 'Dropdown';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    navigationLinks: Attribute.Component<'menu.link', true>;
-    slug: Attribute.String & Attribute.Required;
-    show: Attribute.Boolean & Attribute.Required;
-  };
-}
-
-export interface MenuLink extends Schema.Component {
-  collectionName: 'components_menu_links';
-  info: {
-    displayName: 'Link';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    slug: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean;
   };
 }
 
@@ -285,11 +311,15 @@ declare module '@strapi/types' {
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.instagram-images': ElementsInstagramImages;
       'footer.bottom-content': FooterBottomContent;
       'footer.footer-links': FooterFooterLinks;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-logos': FooterFooterLogos;
       'footer.link': FooterLink;
+      'header.dropdown': HeaderDropdown;
+      'header.link': HeaderLink;
+      'header.media-links': HeaderMediaLinks;
       'home.description': HomeDescription;
       'home.grab-deals': HomeGrabDeals;
       'home.harbour-air-article': HomeHarbourAirArticle;
@@ -297,8 +327,6 @@ declare module '@strapi/types' {
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
       'home.home-stay-update': HomeHomeStayUpdate;
-      'menu.dropdown': MenuDropdown;
-      'menu.link': MenuLink;
       'seo.seo': SeoSeo;
     }
   }
