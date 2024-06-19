@@ -828,6 +828,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
+  collectionName: 'dropdown_menus';
+  info: {
+    singularName: 'dropdown-menu';
+    pluralName: 'dropdown-menus';
+    displayName: 'Dropdown Menu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    dropdownLinks: Attribute.DynamicZone<['header.link', 'header.media-links']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dropdown-menu.dropdown-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dropdown-menu.dropdown-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCountryCountry extends Schema.CollectionType {
   collectionName: 'countries';
   info: {
@@ -865,7 +897,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
   info: {
     singularName: 'footer';
     pluralName: 'footers';
-    displayName: 'footer';
+    displayName: 'Footer';
     description: '';
   };
   options: {
@@ -908,9 +940,10 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
   attributes: {
     mobileLogo: Attribute.Media & Attribute.Required;
-    menus: Attribute.Component<'menu.dropdown', true>;
     desktopLogo: Attribute.Media & Attribute.Required;
     profileButtonText: Attribute.String & Attribute.Required;
+    navigationLinks: Attribute.DynamicZone<['header.dropdown', 'header.link']> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -934,7 +967,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   info: {
     singularName: 'home';
     pluralName: 'homes';
-    displayName: 'home';
+    displayName: 'Home';
     description: '';
   };
   options: {
@@ -964,7 +997,7 @@ export interface ApiLinkLink extends Schema.CollectionType {
   info: {
     singularName: 'link';
     pluralName: 'links';
-    displayName: 'link';
+    displayName: 'Link';
     description: '';
   };
   options: {
@@ -979,6 +1012,38 @@ export interface ApiLinkLink extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNoticeNotice extends Schema.CollectionType {
+  collectionName: 'notices';
+  info: {
+    singularName: 'notice';
+    pluralName: 'notices';
+    displayName: 'Notice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subTitle: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notice.notice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notice.notice',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1040,11 +1105,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::country.country': ApiCountryCountry;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
+      'api::notice.notice': ApiNoticeNotice;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
   }
