@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dropdown_menus",
+  "info": {
+    "singularName": "dropdown-menu",
+    "pluralName": "dropdown-menus",
+    "displayName": "Dropdown Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "dropdownLinks": {
+      "type": "dynamiczone",
+      "components": [
+        "header.link",
+        "header.media-links"
+      ]
+    }
+  }
+}
