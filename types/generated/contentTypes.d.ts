@@ -828,6 +828,107 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCountryCountry extends Schema.CollectionType {
+  collectionName: 'countries';
+  info: {
+    singularName: 'country';
+    pluralName: 'countries';
+    displayName: 'country';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    footerlinks: Attribute.Component<'footer.footer-links', true>;
+    footerlogos: Attribute.Component<'footer.footer-logo-links'>;
+    harbourairLogo: Attribute.Media;
+    copyrights: Attribute.String;
+    bottomLinks: Attribute.Component<'footer.link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHeaderHeader extends Schema.SingleType {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mobileLogo: Attribute.Media & Attribute.Required;
+    menus: Attribute.Component<'menu.dropdown', true>;
+    desktopLogo: Attribute.Media & Attribute.Required;
+    profileButtonText: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Schema.SingleType {
   collectionName: 'homes';
   info: {
@@ -842,6 +943,12 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     seo: Attribute.Component<'seo.seo'>;
     title: Attribute.String;
+    homePageCarousel: Attribute.Component<'home.hero-carousel'>;
+    instagramSection: Attribute.Component<'home.home-instagram'>;
+    stayUpToDateSection: Attribute.Component<'home.home-stay-update'>;
+    harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
+    HarbourAirDescription: Attribute.Component<'home.description'>;
+    GrabDeals: Attribute.Component<'home.grab-deals'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -858,6 +965,7 @@ export interface ApiLinkLink extends Schema.CollectionType {
     singularName: 'link';
     pluralName: 'links';
     displayName: 'link';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -932,6 +1040,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::country.country': ApiCountryCountry;
+      'api::footer.footer': ApiFooterFooter;
+      'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

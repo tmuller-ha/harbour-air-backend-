@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blocks_home_stay_updates",
+  "info": {
+    "displayName": "HomeStayUpdate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "unsubscribeText": {
+      "type": "string"
+    },
+    "subscribe": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

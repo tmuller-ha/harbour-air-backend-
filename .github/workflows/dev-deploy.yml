@@ -42,6 +42,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Plugin
+        run: cd src/plugins/web-deployment && yarn install && yarn build
+
       - name: Build Strapi
         run: yarn build
 
@@ -52,6 +55,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
 
       - name: Install Node.js
         uses: actions/setup-node@v2
@@ -76,6 +82,9 @@ jobs:
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
           echo STRAPI_ADMIN_GITHUB_TOKEN=${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }} >> .env
           echo WEB_PREVIEW_URL=${{ secrets.WEB_PREVIEW_URL }} >> .env
+
+      - name: Stop Strapi with PM2
+        run: pm2 stop strapi
 
       - name: Install Yarn
         run: npm install -g yarn
