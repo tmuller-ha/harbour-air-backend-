@@ -833,7 +833,7 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   info: {
     singularName: 'country';
     pluralName: 'countries';
-    displayName: 'country';
+    displayName: 'Country';
     description: '';
   };
   options: {
