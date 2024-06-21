@@ -282,7 +282,7 @@ export interface HomeHomeStayUpdate extends Schema.Component {
     description: Attribute.String;
     unsubscribeText: Attribute.String;
     subscribe: Attribute.Component<'elements.button'>;
-    isVisible: Attribute.Boolean;
+    show: Attribute.Boolean;
   };
 }
 

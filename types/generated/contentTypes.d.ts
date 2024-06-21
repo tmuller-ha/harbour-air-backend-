@@ -828,38 +828,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
-  collectionName: 'dropdown_menus';
-  info: {
-    singularName: 'dropdown-menu';
-    pluralName: 'dropdown-menus';
-    displayName: 'Dropdown Menu';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    dropdownLinks: Attribute.DynamicZone<['header.link', 'header.media-links']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::dropdown-menu.dropdown-menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::dropdown-menu.dropdown-menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCountryCountry extends Schema.CollectionType {
   collectionName: 'countries';
   info: {
@@ -885,6 +853,38 @@ export interface ApiCountryCountry extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
+  collectionName: 'dropdown_menus';
+  info: {
+    singularName: 'dropdown-menu';
+    pluralName: 'dropdown-menus';
+    displayName: 'Dropdown Menu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    dropdownLinks: Attribute.DynamicZone<['header.link', 'header.media-links']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dropdown-menu.dropdown-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dropdown-menu.dropdown-menu',
       'oneToOne',
       'admin::user'
     > &
@@ -1105,8 +1105,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::country.country': ApiCountryCountry;
+      'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
