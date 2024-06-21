@@ -20,11 +20,6 @@
         "images"
       ]
     },
-    "menus": {
-      "type": "component",
-      "repeatable": true,
-      "component": "menu.dropdown"
-    },
     "desktopLogo": {
       "type": "media",
       "multiple": false,
@@ -35,6 +30,14 @@
     },
     "profileButtonText": {
       "type": "string",
+      "required": true
+    },
+    "navigationLinks": {
+      "type": "dynamiczone",
+      "components": [
+        "header.dropdown",
+        "header.link"
+      ],
       "required": true
     }
   }

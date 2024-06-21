@@ -1,11 +1,15 @@
 {
-  "collectionName": "components_menu_links",
+  "collectionName": "components_header_links",
   "info": {
-    "displayName": "Link",
-    "description": ""
+    "displayName": "Link"
   },
   "options": {},
   "attributes": {
+    "show": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
     "title": {
       "type": "string",
       "required": true

@@ -130,6 +130,47 @@ export interface FooterLink extends Schema.Component {
   };
 }
 
+export interface HeaderDropdown extends Schema.Component {
+  collectionName: 'components_header_dropdowns';
+  info: {
+    displayName: 'Dropdown';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    dropdownMenus: Attribute.Relation<
+      'header.dropdown',
+      'oneToMany',
+      'api::dropdown-menu.dropdown-menu'
+    >;
+  };
+}
+
+export interface HeaderLink extends Schema.Component {
+  collectionName: 'components_header_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface HeaderMediaLinks extends Schema.Component {
+  collectionName: 'components_header_media_links';
+  info: {
+    displayName: 'Media Link';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface HomeDescription extends Schema.Component {
   collectionName: 'components_blocks_descriptions';
   info: {
@@ -245,32 +286,6 @@ export interface HomeHomeStayUpdate extends Schema.Component {
   };
 }
 
-export interface MenuDropdown extends Schema.Component {
-  collectionName: 'components_menu_dropdowns';
-  info: {
-    displayName: 'Dropdown';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    navigationLinks: Attribute.Component<'menu.link', true>;
-    slug: Attribute.String & Attribute.Required;
-    show: Attribute.Boolean & Attribute.Required;
-  };
-}
-
-export interface MenuLink extends Schema.Component {
-  collectionName: 'components_menu_links';
-  info: {
-    displayName: 'Link';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    slug: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -302,6 +317,9 @@ declare module '@strapi/types' {
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-logos': FooterFooterLogos;
       'footer.link': FooterLink;
+      'header.dropdown': HeaderDropdown;
+      'header.link': HeaderLink;
+      'header.media-links': HeaderMediaLinks;
       'home.description': HomeDescription;
       'home.grab-deals': HomeGrabDeals;
       'home.harbour-air-article': HomeHarbourAirArticle;
@@ -309,8 +327,6 @@ declare module '@strapi/types' {
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
       'home.home-stay-update': HomeHomeStayUpdate;
-      'menu.dropdown': MenuDropdown;
-      'menu.link': MenuLink;
       'seo.seo': SeoSeo;
     }
   }
