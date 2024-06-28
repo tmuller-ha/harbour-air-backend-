@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_faq_accordions",
+  "info": {
+    "displayName": "Accordion",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "accordionData": {
+      "displayName": "AccordionData",
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.accordion-data"
+    }
+  }
+}
