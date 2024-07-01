@@ -72,6 +72,75 @@ export interface ElementsInstagramImages extends Schema.Component {
   };
 }
 
+export interface FaqAccordionData extends Schema.Component {
+  collectionName: 'components_faq_accordion_data';
+  info: {
+    displayName: 'AccordionDataSection';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media;
+    showImage: Attribute.Boolean;
+    faq_contents: Attribute.Relation<
+      'faq.accordion-data',
+      'oneToMany',
+      'api::faq-content.faq-content'
+    >;
+  };
+}
+
+export interface FaqAccordion extends Schema.Component {
+  collectionName: 'components_faq_accordions';
+  info: {
+    displayName: 'Accordion';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    accordionData: Attribute.Component<'faq.accordion-data', true>;
+  };
+}
+
+export interface FaqButtonWithBoolean extends Schema.Component {
+  collectionName: 'components_faq_button_with_booleans';
+  info: {
+    displayName: 'ButtonWithBoolean';
+  };
+  attributes: {
+    buttonText: Attribute.String;
+    showButton: Attribute.Boolean;
+  };
+}
+
+export interface FaqKnowBefore extends Schema.Component {
+  collectionName: 'components_faq_know_befores';
+  info: {
+    displayName: 'knowBefore';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    showImage: Attribute.Boolean;
+  };
+}
+
+export interface FaqQuestions extends Schema.Component {
+  collectionName: 'components_faq_questions';
+  info: {
+    displayName: 'Questions';
+    description: '';
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    faq_content: Attribute.Relation<
+      'faq.questions',
+      'oneToOne',
+      'api::faq-content.faq-content'
+    >;
+  };
+}
+
 export interface FooterBottomContent extends Schema.Component {
   collectionName: 'components_footer_bottom_contents';
   info: {
@@ -116,6 +185,20 @@ export interface FooterFooterLogos extends Schema.Component {
   attributes: {
     logos: Attribute.Media;
     slug: Attribute.String;
+  };
+}
+
+export interface FooterFooterStayUpdate extends Schema.Component {
+  collectionName: 'components_footer_footer_stay_updates';
+  info: {
+    displayName: 'FooterStayUpdate';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    title: Attribute.String;
+    description: Attribute.String;
+    unsubscribeText: Attribute.String;
+    subscribe: Attribute.Component<'elements.button'>;
   };
 }
 
@@ -271,21 +354,6 @@ export interface HomeHomeInstagram extends Schema.Component {
   };
 }
 
-export interface HomeHomeStayUpdate extends Schema.Component {
-  collectionName: 'components_blocks_home_stay_updates';
-  info: {
-    displayName: 'HomeStayUpdate';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    unsubscribeText: Attribute.String;
-    subscribe: Attribute.Component<'elements.button'>;
-    show: Attribute.Boolean;
-  };
-}
-
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -312,10 +380,16 @@ declare module '@strapi/types' {
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
+      'faq.accordion-data': FaqAccordionData;
+      'faq.accordion': FaqAccordion;
+      'faq.button-with-boolean': FaqButtonWithBoolean;
+      'faq.know-before': FaqKnowBefore;
+      'faq.questions': FaqQuestions;
       'footer.bottom-content': FooterBottomContent;
       'footer.footer-links': FooterFooterLinks;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-logos': FooterFooterLogos;
+      'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
       'header.dropdown': HeaderDropdown;
       'header.link': HeaderLink;
@@ -326,7 +400,6 @@ declare module '@strapi/types' {
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
-      'home.home-stay-update': HomeHomeStayUpdate;
       'seo.seo': SeoSeo;
     }
   }

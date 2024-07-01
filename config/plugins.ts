@@ -42,6 +42,18 @@ module.exports = ({ env }) => ({
             url: env("WEB_PREVIEW_URL"),
           },
         },
+        {
+          uid: "api::faq.faq",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "faq",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/faq`,
+          },
+        },
       ],
     },
   },
