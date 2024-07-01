@@ -7,13 +7,7 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "questions": {
-      "displayName": "Questions",
-      "type": "component",
-      "repeatable": true,
-      "component": "faq.questions",
+      "type": "string",
       "required": true
     },
     "image": {
@@ -29,6 +23,11 @@
     },
     "showImage": {
       "type": "boolean"
+    },
+    "faq_contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq-content.faq-content"
     }
   }
 }

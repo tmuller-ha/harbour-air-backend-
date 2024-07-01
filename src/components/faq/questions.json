@@ -1,12 +1,14 @@
 {
   "collectionName": "components_faq_questions",
   "info": {
-    "displayName": "Questions"
+    "displayName": "Questions",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "question": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "faq_content": {
       "type": "relation",

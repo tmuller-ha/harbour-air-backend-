@@ -79,10 +79,14 @@ export interface FaqAccordionData extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    questions: Attribute.Component<'faq.questions', true> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
     image: Attribute.Media;
     showImage: Attribute.Boolean;
+    faq_contents: Attribute.Relation<
+      'faq.accordion-data',
+      'oneToMany',
+      'api::faq-content.faq-content'
+    >;
   };
 }
 
@@ -125,9 +129,10 @@ export interface FaqQuestions extends Schema.Component {
   collectionName: 'components_faq_questions';
   info: {
     displayName: 'Questions';
+    description: '';
   };
   attributes: {
-    question: Attribute.String;
+    question: Attribute.String & Attribute.Required;
     faq_content: Attribute.Relation<
       'faq.questions',
       'oneToOne',
