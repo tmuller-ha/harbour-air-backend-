@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_inside_location_starting_points",
+  "info": {
+    "displayName": "startingPoint",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "youtubeUrl": {
+      "type": "string"
+    }
+  }
+}

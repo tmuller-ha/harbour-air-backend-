@@ -286,6 +286,67 @@ export interface HomeHomeStayUpdate extends Schema.Component {
   };
 }
 
+export interface InsideLocationAdditionalInformation extends Schema.Component {
+  collectionName: 'components_inside_location_additional_informations';
+  info: {
+    displayName: 'AdditionalInformation';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    details: Attribute.Component<
+      'inside-location.additionalinfo-details',
+      true
+    >;
+  };
+}
+
+export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
+  collectionName: 'components_inside_location_additionalinfo_details';
+  info: {
+    displayName: 'AdditionalInformationDetails';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    images: Attribute.Media;
+    btnName: Attribute.String;
+    slug: Attribute.String;
+  };
+}
+
+export interface InsideLocationDirection extends Schema.Component {
+  collectionName: 'components_inside_location_directions';
+  info: {
+    displayName: 'Address';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    directionsBtn: Attribute.Component<'elements.button'>;
+    startingPoint: Attribute.Component<'inside-location.starting-point', true>;
+    chooseStartingPointTitle: Attribute.String;
+    addressTitle: Attribute.String;
+    addressDetails: Attribute.Blocks;
+    googleMapUrl: Attribute.String;
+    addressMapUrl: Attribute.String;
+  };
+}
+
+export interface InsideLocationStartingPoint extends Schema.Component {
+  collectionName: 'components_inside_location_starting_points';
+  info: {
+    displayName: 'startingPoint';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    youtubeUrl: Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -327,6 +388,10 @@ declare module '@strapi/types' {
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
       'home.home-stay-update': HomeHomeStayUpdate;
+      'inside-location.additional-information': InsideLocationAdditionalInformation;
+      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
+      'inside-location.direction': InsideLocationDirection;
+      'inside-location.starting-point': InsideLocationStartingPoint;
       'seo.seo': SeoSeo;
     }
   }

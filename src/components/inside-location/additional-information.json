@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_inside_location_additional_informations",
+  "info": {
+    "displayName": "AdditionalInformation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inside-location.additionalinfo-details"
+    }
+  }
+}

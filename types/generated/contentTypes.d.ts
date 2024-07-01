@@ -1016,6 +1016,80 @@ export interface ApiLinkLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    directions: Attribute.Component<'inside-location.direction'>;
+    slug: Attribute.UID & Attribute.Required;
+    additionalInformation: Attribute.Component<'inside-location.additional-information'>;
+    name: Attribute.String;
+    description: Attribute.Blocks;
+    heroImage: Attribute.Media;
+    locationPhotos: Attribute.Media;
+    locationVideo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMainLocationMainLocation extends Schema.SingleType {
+  collectionName: 'main_locations';
+  info: {
+    singularName: 'main-location';
+    pluralName: 'main-locations';
+    displayName: 'MainLocation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    locations: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToMany',
+      'api::location.location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNoticeNotice extends Schema.CollectionType {
   collectionName: 'notices';
   info: {
@@ -1111,6 +1185,8 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
+      'api::location.location': ApiLocationLocation;
+      'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
