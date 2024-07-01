@@ -347,6 +347,25 @@ export interface InsideLocationStartingPoint extends Schema.Component {
   };
 }
 
+export interface MainLocationLocations extends Schema.Component {
+  collectionName: 'components_main_location_locations';
+  info: {
+    displayName: 'locations';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    learnMoreButton: Attribute.Component<'elements.button'>;
+    location: Attribute.Relation<
+      'main-location.locations',
+      'oneToOne',
+      'api::location.location'
+    >;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -392,6 +411,7 @@ declare module '@strapi/types' {
       'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'inside-location.direction': InsideLocationDirection;
       'inside-location.starting-point': InsideLocationStartingPoint;
+      'main-location.locations': MainLocationLocations;
       'seo.seo': SeoSeo;
     }
   }

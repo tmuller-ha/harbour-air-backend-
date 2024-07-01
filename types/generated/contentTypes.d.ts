@@ -1067,11 +1067,11 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   };
   attributes: {
     title: Attribute.String;
-    locations: Attribute.Relation<
-      'api::main-location.main-location',
-      'oneToMany',
-      'api::location.location'
-    >;
+    heroSectionButton: Attribute.Component<'elements.button'>;
+    locations: Attribute.Component<'main-location.locations', true>;
+    video: Attribute.Media;
+    description: Attribute.Blocks;
+    bookFlightNow: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
