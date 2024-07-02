@@ -860,6 +860,39 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   };
 }
 
+export interface ApiDealDeal extends Schema.CollectionType {
+  collectionName: 'deals';
+  info: {
+    singularName: 'deal';
+    pluralName: 'deals';
+    displayName: 'Deal';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dealImage: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    fare: Attribute.String & Attribute.Required;
+    origin: Attribute.String & Attribute.Required;
+    destination: Attribute.String & Attribute.Required;
+    bookNowButton: Attribute.Component<'elements.button'> & Attribute.Required;
+    route: Attribute.Text & Attribute.Required;
+    date: Attribute.String & Attribute.Required;
+    summary: Attribute.Blocks & Attribute.Required;
+    active: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
   collectionName: 'dropdown_menus';
   info: {
@@ -1075,6 +1108,48 @@ export interface ApiLinkLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainDealMainDeal extends Schema.SingleType {
+  collectionName: 'main_deals';
+  info: {
+    singularName: 'main-deal';
+    pluralName: 'main-deals';
+    displayName: 'Main Deal';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    selectAllText: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'All'>;
+    customizedText: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Customized'>;
+    searchButton: Attribute.Component<'elements.button'> & Attribute.Required;
+    deals: Attribute.Relation<
+      'api::main-deal.main-deal',
+      'oneToMany',
+      'api::deal.deal'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-deal.main-deal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-deal.main-deal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNoticeNotice extends Schema.CollectionType {
   collectionName: 'notices';
   info: {
@@ -1165,6 +1240,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::country.country': ApiCountryCountry;
+      'api::deal.deal': ApiDealDeal;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
@@ -1172,6 +1248,7 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
+      'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::notice.notice': ApiNoticeNotice;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }

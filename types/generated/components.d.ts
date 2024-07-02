@@ -354,6 +354,55 @@ export interface HomeHomeInstagram extends Schema.Component {
   };
 }
 
+export interface HomeHomeStayUpdate extends Schema.Component {
+  collectionName: 'components_blocks_home_stay_updates';
+  info: {
+    displayName: 'HomeStayUpdate';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    unsubscribeText: Attribute.String;
+    subscribe: Attribute.Component<'elements.button'>;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface MainDealsDeals extends Schema.Component {
+  collectionName: 'components_main_deals_deals';
+  info: {
+    displayName: 'Deals';
+    description: '';
+  };
+  attributes: {
+    dealMedia: Attribute.Media & Attribute.Required;
+    destination: Attribute.String & Attribute.Required;
+    travelDescription: Attribute.Text & Attribute.Required;
+    price: Attribute.String & Attribute.Required;
+    departingText: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Departing'>;
+    origin: Attribute.String & Attribute.Required;
+    taxes: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Price all-in incl. taxes and fees'>;
+    termsApply: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<'Terms and conditions apply.'>;
+    dealTitle: Attribute.Text & Attribute.Required;
+    dealDate: Attribute.String & Attribute.Required;
+    bookNowButton: Attribute.Component<'elements.button'>;
+    dealDescription: Attribute.Text & Attribute.Required;
+    dealOverview: Attribute.Text & Attribute.Required;
+    termsAndConditionsText: Attribute.Text;
+    terms: Attribute.Component<'elements.drop-down-data', true>;
+    title: Attribute.Text & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    calendarIcon: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -400,6 +449,8 @@ declare module '@strapi/types' {
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
+      'home.home-stay-update': HomeHomeStayUpdate;
+      'main-deals.deals': MainDealsDeals;
       'seo.seo': SeoSeo;
     }
   }
