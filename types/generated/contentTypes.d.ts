@@ -892,6 +892,65 @@ export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.SingleType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'Faq';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    knowBeforeTitle: Attribute.String;
+    accordionSection: Attribute.Component<'faq.accordion'>;
+    searchButton: Attribute.Component<'faq.button-with-boolean'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqContentFaqContent extends Schema.CollectionType {
+  collectionName: 'faq_contents';
+  info: {
+    singularName: 'faq-content';
+    pluralName: 'faq-contents';
+    displayName: 'Faq Content';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    question: Attribute.String;
+    answer: Attribute.Blocks & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faq-content.faq-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faq-content.faq-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -909,6 +968,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
     harbourairLogo: Attribute.Media;
     copyrights: Attribute.String;
     bottomLinks: Attribute.Component<'footer.link', true>;
+    stayUpToDateSection: Attribute.Component<'footer.footer-stay-update'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -978,7 +1038,6 @@ export interface ApiHomeHome extends Schema.SingleType {
     title: Attribute.String;
     homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
-    stayUpToDateSection: Attribute.Component<'home.home-stay-update'>;
     harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
@@ -1182,6 +1241,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::country.country': ApiCountryCountry;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
+      'api::faq.faq': ApiFaqFaq;
+      'api::faq-content.faq-content': ApiFaqContentFaqContent;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

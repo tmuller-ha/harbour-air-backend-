@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_contents",
+  "info": {
+    "singularName": "faq-content",
+    "pluralName": "faq-contents",
+    "displayName": "Faq Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

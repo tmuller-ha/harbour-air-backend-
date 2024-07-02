@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "Faq",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "knowBeforeTitle": {
+      "type": "string"
+    },
+    "accordionSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "faq.accordion"
+    },
+    "searchButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "faq.button-with-boolean"
+    }
+  }
+}
