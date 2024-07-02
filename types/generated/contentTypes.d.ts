@@ -1072,6 +1072,7 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
     video: Attribute.Media;
     description: Attribute.Blocks;
     bookFlightNow: Attribute.String;
+    backgroundImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
