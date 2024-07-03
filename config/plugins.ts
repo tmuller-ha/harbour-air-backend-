@@ -59,11 +59,11 @@ module.exports = ({ env }) => ({
           draft: {
             url: `${env("WEB_PREVIEW_URL")}/api/draft`,
             query: {
-              type: "main-deal",
+              type: "deals",
             },
           },
           published: {
-            url: `${env("WEB_PREVIEW_URL")}/main-deal`,
+            url: `${env("WEB_PREVIEW_URL")}/deals`,
           },
         },
         {
@@ -71,11 +71,11 @@ module.exports = ({ env }) => ({
           draft: {
             url: `${env("WEB_PREVIEW_URL")}/api/draft`,
             query: {
-              type: "main-location",
+              type: "locations",
             },
           },
           published: {
-            url: `${env("WEB_PREVIEW_URL")}/main-location`,
+            url: `${env("WEB_PREVIEW_URL")}/locations`,
           },
         },
       ],
