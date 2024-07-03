@@ -58,6 +58,12 @@
         "images",
         "videos"
       ]
+    },
+    "learnMoreBtnText": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
     }
   }
 }

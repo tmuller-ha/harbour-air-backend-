@@ -1095,6 +1095,8 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     heroImage: Attribute.Media;
     locationPhotos: Attribute.Media;
     locationVideo: Attribute.Media;
+    learnMoreBtnText: Attribute.String;
+    shortDescription: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1127,11 +1129,15 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     heroSectionButton: Attribute.Component<'elements.button'>;
-    locations: Attribute.Component<'main-location.locations', true>;
     video: Attribute.Media;
     description: Attribute.Blocks;
     bookFlightNow: Attribute.String;
     backgroundImage: Attribute.Media;
+    locations: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToMany',
+      'api::location.location'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
