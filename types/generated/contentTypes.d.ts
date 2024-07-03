@@ -1121,7 +1121,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
   attributes: {
     directions: Attribute.Component<'inside-location.direction'>;
-    slug: Attribute.UID & Attribute.Required;
+    slug: Attribute.UID<'api::location.location', 'name'> & Attribute.Required;
     additionalInformation: Attribute.Component<'inside-location.additional-information'>;
     name: Attribute.String;
     description: Attribute.Blocks;
