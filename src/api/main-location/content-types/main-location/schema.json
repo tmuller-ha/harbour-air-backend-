@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_locations",
+  "info": {
+    "singularName": "main-location",
+    "pluralName": "main-locations",
+    "displayName": "MainLocation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heroSectionButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "bookFlightNow": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location"
+    }
+  }
+}
