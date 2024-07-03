@@ -1,0 +1,94 @@
+{
+  "collectionName": "components_main_deals_deals",
+  "info": {
+    "displayName": "Deals",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "dealMedia": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "destination": {
+      "type": "string",
+      "required": true
+    },
+    "travelDescription": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "departingText": {
+      "type": "string",
+      "default": "Departing",
+      "required": true
+    },
+    "origin": {
+      "type": "string",
+      "required": true
+    },
+    "taxes": {
+      "type": "string",
+      "required": true,
+      "default": "Price all-in incl. taxes and fees"
+    },
+    "termsApply": {
+      "type": "text",
+      "default": "Terms and conditions apply.",
+      "required": true
+    },
+    "dealTitle": {
+      "type": "text",
+      "required": true
+    },
+    "dealDate": {
+      "type": "string",
+      "required": true
+    },
+    "bookNowButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "dealDescription": {
+      "type": "text",
+      "required": true
+    },
+    "dealOverview": {
+      "type": "text",
+      "required": true
+    },
+    "termsAndConditionsText": {
+      "type": "text"
+    },
+    "terms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.drop-down-data"
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "calendarIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
