@@ -354,21 +354,6 @@ export interface HomeHomeInstagram extends Schema.Component {
   };
 }
 
-export interface HomeHomeStayUpdate extends Schema.Component {
-  collectionName: 'components_blocks_home_stay_updates';
-  info: {
-    displayName: 'HomeStayUpdate';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    unsubscribeText: Attribute.String;
-    subscribe: Attribute.Component<'elements.button'>;
-    show: Attribute.Boolean;
-  };
-}
-
 export interface MainDealsDeals extends Schema.Component {
   collectionName: 'components_main_deals_deals';
   info: {
@@ -449,7 +434,6 @@ declare module '@strapi/types' {
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
-      'home.home-stay-update': HomeHomeStayUpdate;
       'main-deals.deals': MainDealsDeals;
       'seo.seo': SeoSeo;
     }

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IconButton,
   Flex,
@@ -15,10 +14,8 @@ import {
   Tooltip,
 } from "@strapi/design-system";
 
-interface ColumnType {
-  label: string;
-  id: string;
-}
+import { columns } from "../Workflow/types";
+
 
 export interface TableProps {
   data: any;
@@ -32,26 +29,7 @@ const TableBodyCell = ({ cellData }: any) => {
   );
 };
 
-const columns = [
-  {
-    label: "User",
-    id: "user",
-  },
-  {
-    label: "Created At",
-    id: "createdAt",
-  },
-  {
-    label: "Updated At",
-    id: "updatedAt",
-  },
-  {
-    label: "Status",
-    id: "status",
-  },
-];
-
-// TODO: Need to implement the sorting and filtering functionality
+//TODO: Need to implement the sorting and filtering functionality
 
 const Table = (props: TableProps) => {
   const { data } = props;

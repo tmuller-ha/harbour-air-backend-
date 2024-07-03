@@ -2,10 +2,7 @@ import { Strapi } from "@strapi/strapi";
 
 export default ({ strapi }: { strapi: Strapi }) => ({
   async findAll(ctx) {
-    ctx.body = await strapi
-      .plugin("web-deployment")
-      .service("deployment")
-      .findAll();
+    return strapi.plugin("web-deployment").service("deployment").findAll(ctx);
   },
 
   async create(ctx) {
