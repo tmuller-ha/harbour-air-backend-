@@ -60,6 +60,20 @@
     },
     "active": {
       "type": "boolean"
+    },
+    "countryID": {
+      "type": "string",
+      "required": true
+    },
+    "travelType": {
+      "type": "string",
+      "default": "one-way",
+      "required": true
+    },
+    "fareText": {
+      "type": "string",
+      "default": "Starting from",
+      "required": true
     }
   }
 }

@@ -17,11 +17,6 @@
     "filterBy": {
       "type": "string"
     },
-    "carouselElements": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blocks.carousel-content"
-    },
     "show": {
       "type": "boolean"
     },
@@ -34,6 +29,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::country.country"
+    },
+    "cardDeals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deal.deal"
     }
   }
 }

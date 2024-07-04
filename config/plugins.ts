@@ -43,6 +43,18 @@ module.exports = ({ env }) => ({
           },
         },
         {
+          uid: "api::main-deal.main-deal",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "deals",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/deals`,
+          },
+        },
+        {
           uid: "api::faq.faq",
           draft: {
             url: `${env("WEB_PREVIEW_URL")}/api/draft`,

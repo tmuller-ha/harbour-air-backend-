@@ -1,30 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface BlocksCarouselContent extends Schema.Component {
-  collectionName: 'components_elements_carousel_contents';
-  info: {
-    displayName: 'carouselContent';
-    description: '';
-  };
-  attributes: {
-    image: Attribute.Media;
-    origin: Attribute.String;
-    subtitle: Attribute.String;
-    cost: Attribute.String;
-    departure: Attribute.String;
-    destination: Attribute.String;
-    terms: Attribute.String;
-    route: Attribute.String;
-    moreFlights: Attribute.String;
-    buttonText: Attribute.String;
-    slug: Attribute.String;
-    priceTitle: Attribute.String;
-    calendarImg: Attribute.Media;
-    flightTravelNature: Attribute.String;
-    countryID: Attribute.String;
-  };
-}
-
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -286,13 +261,17 @@ export interface HomeGrabDeals extends Schema.Component {
     title: Attribute.String;
     deals: Attribute.Component<'elements.drop-down-data', true>;
     filterBy: Attribute.String;
-    carouselElements: Attribute.Component<'blocks.carousel-content', true>;
     show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
     countries: Attribute.Relation<
       'home.grab-deals',
       'oneToMany',
       'api::country.country'
+    >;
+    cardDeals: Attribute.Relation<
+      'home.grab-deals',
+      'oneToMany',
+      'api::deal.deal'
     >;
   };
 }
@@ -489,7 +468,6 @@ export interface SeoSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'blocks.carousel-content': BlocksCarouselContent;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-services': ElementsHarbourAirServices;
