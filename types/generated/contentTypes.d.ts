@@ -883,6 +883,13 @@ export interface ApiDealDeal extends Schema.CollectionType {
     date: Attribute.String & Attribute.Required;
     summary: Attribute.Blocks & Attribute.Required;
     active: Attribute.Boolean;
+    countryID: Attribute.String & Attribute.Required;
+    travelType: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'one-way'>;
+    fareText: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Starting from'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1172,6 +1179,7 @@ export interface ApiMainDealMainDeal extends Schema.SingleType {
       'oneToMany',
       'api::deal.deal'
     >;
+    dealsBanner: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
