@@ -4,7 +4,7 @@
   "info": {
     "singularName": "location",
     "pluralName": "locations",
-    "displayName": "location",
+    "displayName": "Location",
     "description": ""
   },
   "options": {
@@ -19,7 +19,8 @@
     },
     "slug": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "name"
     },
     "additionalInformation": {
       "type": "component",
