@@ -1,7 +1,7 @@
 {
   "collectionName": "components_home_harbour_air_articles",
   "info": {
-    "displayName": "HarbourAirArticle",
+    "displayName": "Article",
     "description": ""
   },
   "options": {},
@@ -20,16 +20,11 @@
     "description": {
       "type": "string"
     },
-    "show": {
-      "type": "boolean"
+    "buttonText": {
+      "type": "string"
     },
-    "bgImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "buttonSlug": {
+      "type": "string"
     }
   }
 }

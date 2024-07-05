@@ -1078,9 +1078,9 @@ export interface ApiHomeHome extends Schema.SingleType {
     title: Attribute.String;
     homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
-    harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
+    harbourAirArticle: Attribute.Component<'home.article-carousel'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
