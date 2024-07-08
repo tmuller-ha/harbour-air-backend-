@@ -11394,6 +11394,11 @@ strapi-plugin-preview-button@^2.2.2:
     react-copy-to-clipboard "5.1.0"
     react-redux "8.1.1"
 
+strapi-plugin-responsive-image@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-responsive-image/-/strapi-plugin-responsive-image-1.2.0.tgz#f01b319f23f30fb0031e900af8364a3b646b8b69"
+  integrity sha512-8+0W2A10fFGuEZW8fl8bilcJeosMJpnBxEF6NpJxxigpCo2kfKzHQ/gnV5TOw1nynRGEqHdUShvrnwLa2uLceA==
+
 stream-browserify@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/stream-browserify/-/stream-browserify-3.0.0.tgz"
