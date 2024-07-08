@@ -30,12 +30,6 @@
       "repeatable": false,
       "component": "home.home-instagram"
     },
-    "harbourAirArticle": {
-      "displayName": "HarbourAirArticle",
-      "type": "component",
-      "repeatable": false,
-      "component": "home.harbour-air-article"
-    },
     "HarbourAirDescription": {
       "type": "component",
       "repeatable": false,
@@ -45,6 +39,11 @@
       "type": "component",
       "repeatable": false,
       "component": "home.grab-deals"
+    },
+    "harbourAirArticle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.article-carousel"
     }
   }
 }

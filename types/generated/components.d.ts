@@ -23,6 +23,21 @@ export interface ElementsDropDownData extends Schema.Component {
   };
 }
 
+export interface ElementsHarbourAirArticle extends Schema.Component {
+  collectionName: 'components_home_harbour_air_articles';
+  info: {
+    displayName: 'Article';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    description: Attribute.String;
+    buttonText: Attribute.String;
+    buttonSlug: Attribute.String;
+  };
+}
+
 export interface ElementsHarbourAirServices extends Schema.Component {
   collectionName: 'components_elements_harbour_air_services';
   info: {
@@ -229,6 +244,18 @@ export interface HeaderMediaLinks extends Schema.Component {
   };
 }
 
+export interface HomeArticleCarousel extends Schema.Component {
+  collectionName: 'components_home_article_carousels';
+  info: {
+    displayName: 'ArticleCarousel';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    article: Attribute.Component<'elements.harbour-air-article', true>;
+  };
+}
+
 export interface HomeDescription extends Schema.Component {
   collectionName: 'components_blocks_descriptions';
   info: {
@@ -276,21 +303,6 @@ export interface HomeGrabDeals extends Schema.Component {
   };
 }
 
-export interface HomeHarbourAirArticle extends Schema.Component {
-  collectionName: 'components_home_harbour_air_articles';
-  info: {
-    displayName: 'HarbourAirArticle';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    image: Attribute.Media;
-    description: Attribute.String;
-    show: Attribute.Boolean;
-    bgImage: Attribute.Media;
-  };
-}
-
 export interface HomeHeroCarousel extends Schema.Component {
   collectionName: 'components_home_hero_carousels';
   info: {
@@ -330,6 +342,10 @@ export interface HomeHomeInstagram extends Schema.Component {
     followUs: Attribute.Component<'elements.button'>;
     show: Attribute.Boolean;
     instaImages: Attribute.Component<'elements.instagram-images', true>;
+    quote: Attribute.Text;
+    authorName: Attribute.String;
+    authorAddress: Attribute.String;
+    instaProfileImage: Attribute.Media;
   };
 }
 
@@ -470,6 +486,7 @@ declare module '@strapi/types' {
     export interface Components {
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
+      'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
       'faq.accordion-data': FaqAccordionData;
@@ -486,9 +503,9 @@ declare module '@strapi/types' {
       'header.dropdown': HeaderDropdown;
       'header.link': HeaderLink;
       'header.media-links': HeaderMediaLinks;
+      'home.article-carousel': HomeArticleCarousel;
       'home.description': HomeDescription;
       'home.grab-deals': HomeGrabDeals;
-      'home.harbour-air-article': HomeHarbourAirArticle;
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
