@@ -884,12 +884,9 @@ export interface ApiDealDeal extends Schema.CollectionType {
     summary: Attribute.Blocks & Attribute.Required;
     active: Attribute.Boolean;
     countryID: Attribute.String & Attribute.Required;
-    travelType: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'one-way'>;
     fareText: Attribute.String &
       Attribute.Required &
-      Attribute.DefaultTo<'Starting from'>;
+      Attribute.DefaultTo<'One Way fares from'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1078,9 +1075,9 @@ export interface ApiHomeHome extends Schema.SingleType {
     title: Attribute.String;
     homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
-    harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
+    harbourAirArticle: Attribute.Component<'home.article-carousel'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

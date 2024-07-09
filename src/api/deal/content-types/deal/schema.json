@@ -65,14 +65,9 @@
       "type": "string",
       "required": true
     },
-    "travelType": {
-      "type": "string",
-      "default": "one-way",
-      "required": true
-    },
     "fareText": {
       "type": "string",
-      "default": "Starting from",
+      "default": "One Way fares from",
       "required": true
     }
   }

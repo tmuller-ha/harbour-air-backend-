@@ -24,6 +24,25 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.instagram-images"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "authorName": {
+      "type": "string"
+    },
+    "authorAddress": {
+      "type": "string"
+    },
+    "instaProfileImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
