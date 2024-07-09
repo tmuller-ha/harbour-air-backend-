@@ -884,12 +884,9 @@ export interface ApiDealDeal extends Schema.CollectionType {
     summary: Attribute.Blocks & Attribute.Required;
     active: Attribute.Boolean;
     countryID: Attribute.String & Attribute.Required;
-    travelType: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'one-way'>;
     fareText: Attribute.String &
       Attribute.Required &
-      Attribute.DefaultTo<'Starting from'>;
+      Attribute.DefaultTo<'One Way fares from'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
