@@ -90,6 +90,19 @@ module.exports = ({ env }) => ({
             url: `${env("WEB_PREVIEW_URL")}/locations`,
           },
         },
+        {
+          uid: "api::location.location",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "locations",
+              slug: "{slug}",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/locations/{slug}`,
+          },
+        },
       ],
     },
   },
