@@ -3,22 +3,20 @@
  * HomePage
  *
  */
-
-import React, { useEffect, useState } from "react";
-import pluginId from "../../pluginId";
+const qs = require("qs");
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import {
   Layout,
   ContentLayout,
   BaseHeaderLayout,
   Button,
   Flex,
-  ModalLayout,
-  DatePicker,
-  Typography,
 } from "@strapi/design-system";
-import Table from "./Table";
+import { useQueryParams } from "@strapi/helper-plugin";
+import HomePageContent from "../Workflow/HomePageContent";
 import deploymentService from "../../api/deployment";
 import { request } from "@strapi/helper-plugin";
+import { ColumnType, columns } from "../Workflow/types";
 
 interface Role {
   code: string;
@@ -42,14 +40,62 @@ interface UserResponse {
 }
 
 const HomePage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ColumnType[]>([]);
   const [currentUser, setCurrentUser] = useState<UserResponse>();
+
+  const [{ query }, setQuery] = useQueryParams();
+  const { page = 1, pageSize = 10 } = query || {};
+  const [totalWorkFlowCount, setTotalWorkFlowCount] = useState<number>(0);
+
+  const paginationNumber = useMemo(() => page - 1, [page]);
+
+  const startingPage = useMemo(
+    () => pageSize * paginationNumber,
+    [pageSize, paginationNumber]
+  );
+
+  const totalPageCount = useMemo(
+    () => Math.ceil(totalWorkFlowCount / pageSize),
+    [totalWorkFlowCount, pageSize]
+  );
+
+  const getAllWorkFlowPagination = useCallback(() => {
+    const getQuery = () =>
+      qs.stringify({
+        page: startingPage,
+        pageSize: pageSize,
+      });
+
+    return getQuery();
+  }, [startingPage, pageSize]);
+
+  useEffect(() => {
+    setQuery({
+      ...query,
+      page: 1,
+      pageSize: 10,
+    });
+  }, []);
+
+  const pagination = useMemo(
+    () => ({
+      page,
+      pageCount: totalPageCount,
+      pageSize,
+      total: totalWorkFlowCount,
+    }),
+    [page, totalPageCount, totalWorkFlowCount, pageSize]
+  );
 
   // TODO: Implement the fetchData function with react query
   const fetchData = async () => {
-    deploymentService.getDeployments().then((response) => {
-      setData(response.data);
-    });
+    deploymentService
+      .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}`)
+      .then((response: any) => {
+        setData(response.data);
+        setTotalWorkFlowCount(response.totalCount || 0);
+        getAllWorkFlowPagination();
+      });
   };
 
   const fetchWorkFlowStatus = async () => {
@@ -62,19 +108,18 @@ const HomePage = () => {
       setCurrentUser(response.data);
     });
     fetchWorkFlowStatus();
-  }, []);
+  }, [page, pageSize]);
 
   const onTriggerDeploy = async () => {
     try {
       const deployment = await deploymentService.createDeployment({
         user: `${currentUser?.firstname || ""} ${currentUser?.lastname || ""}`,
       });
-      console.log(deployment);
       await deploymentService.triggerDeploy(`${deployment?.data?.id}`);
       fetchData();
     } catch (error) {
       /**
-       * TODO: Notify the user that the deployment failed
+       * //TODO: Notify the user that the deployment failed
        */
       console.error(error);
     }
@@ -87,7 +132,13 @@ const HomePage = () => {
         <Button onClick={onTriggerDeploy}>Trigger Deploy</Button>
       </Flex>
       <ContentLayout>
-        <Table data={data} />
+        <HomePageContent
+          pagination={pagination}
+          columns={columns}
+          showNoDataMessage={!Boolean(data?.length)}
+          data={data}
+          noDataMessage="You don't have any queries yet"
+        />
       </ContentLayout>
     </Layout>
   );

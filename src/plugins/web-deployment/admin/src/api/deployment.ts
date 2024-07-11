@@ -1,4 +1,5 @@
 import axios from "axios";
+import { request } from "@strapi/helper-plugin";
 
 /**
  * // TODO: Need to move these values to env or conf file
@@ -32,8 +33,10 @@ const deploymentService = {
     return axios.post("/api/web-deployment/deployment", deployment);
   },
 
-  async getDeployments() {
-    return axios.get("/api/web-deployment/deployment");
+  getDeployments: async (query: string) => {
+    return await request(`/api/web-deployment/deployment?${query}`, {
+      method: "GET",
+    });
   },
 
   /**
