@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_article_carousels",
+  "info": {
+    "displayName": "ArticleCarousel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "article": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.harbour-air-article"
+    }
+  }
+}

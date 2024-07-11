@@ -43,6 +43,18 @@ module.exports = ({ env }) => ({
           },
         },
         {
+          uid: "api::main-deal.main-deal",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "deals",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/deals`,
+          },
+        },
+        {
           uid: "api::faq.faq",
           draft: {
             url: `${env("WEB_PREVIEW_URL")}/api/draft`,
@@ -52,6 +64,43 @@ module.exports = ({ env }) => ({
           },
           published: {
             url: `${env("WEB_PREVIEW_URL")}/faq`,
+          },
+        },
+        {
+          uid: "api::main-deal.main-deal",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "deals",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/deals`,
+          },
+        },
+        {
+          uid: "api::main-location.main-location",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "locations",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/locations`,
+          },
+        },
+        {
+          uid: "api::location.location",
+          draft: {
+            url: `${env("WEB_PREVIEW_URL")}/api/draft`,
+            query: {
+              type: "locations",
+              slug: "{slug}",
+            },
+          },
+          published: {
+            url: `${env("WEB_PREVIEW_URL")}/locations/{slug}`,
           },
         },
       ],

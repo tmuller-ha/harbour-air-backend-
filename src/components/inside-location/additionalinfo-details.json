@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_inside_location_additionalinfo_details",
+  "info": {
+    "displayName": "AdditionalInformationDetails",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "btnName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

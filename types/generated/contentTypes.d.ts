@@ -883,6 +883,10 @@ export interface ApiDealDeal extends Schema.CollectionType {
     date: Attribute.String & Attribute.Required;
     summary: Attribute.Blocks & Attribute.Required;
     active: Attribute.Boolean;
+    countryID: Attribute.String & Attribute.Required;
+    fareText: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'One Way fares from'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1071,9 +1075,9 @@ export interface ApiHomeHome extends Schema.SingleType {
     title: Attribute.String;
     homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
-    harbourAirArticle: Attribute.Component<'home.harbour-air-article'>;
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
+    harbourAirArticle: Attribute.Component<'home.article-carousel'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1108,6 +1112,46 @@ export interface ApiLinkLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'Location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    directions: Attribute.Component<'inside-location.direction'>;
+    slug: Attribute.UID<'api::location.location', 'name'> & Attribute.Required;
+    additionalInformation: Attribute.Component<'inside-location.additional-information'>;
+    name: Attribute.String;
+    description: Attribute.Blocks;
+    heroImage: Attribute.Media;
+    locationPhotos: Attribute.Media;
+    locationVideo: Attribute.Media;
+    learnMoreBtnText: Attribute.String;
+    shortDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -1132,6 +1176,7 @@ export interface ApiMainDealMainDeal extends Schema.SingleType {
       'oneToMany',
       'api::deal.deal'
     >;
+    dealsBanner: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1143,6 +1188,47 @@ export interface ApiMainDealMainDeal extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::main-deal.main-deal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMainLocationMainLocation extends Schema.SingleType {
+  collectionName: 'main_locations';
+  info: {
+    singularName: 'main-location';
+    pluralName: 'main-locations';
+    displayName: 'MainLocation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    heroSectionButton: Attribute.Component<'elements.button'>;
+    video: Attribute.Media;
+    description: Attribute.Blocks;
+    bookFlightNow: Attribute.String;
+    backgroundImage: Attribute.Media;
+    locations: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToMany',
+      'api::location.location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-location.main-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-location.main-location',
       'oneToOne',
       'admin::user'
     > &
@@ -1248,7 +1334,9 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
+      'api::location.location': ApiLocationLocation;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
+      'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
