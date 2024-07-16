@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_chartered_flight_pricing_tables",
+  "info": {
+    "displayName": "pricingTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "pricing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::table.table"
+    }
+  }
+}

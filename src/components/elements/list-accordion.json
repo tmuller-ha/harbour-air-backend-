@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_list_accordions",
+  "info": {
+    "displayName": "flightOption",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mainheader": {
+      "type": "string"
+    },
+    "mainDescription": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
