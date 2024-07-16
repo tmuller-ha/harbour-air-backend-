@@ -1209,7 +1209,6 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     heroSectionButton: Attribute.Component<'elements.button'>;
-    video: Attribute.Media;
     description: Attribute.Blocks;
     bookFlightNow: Attribute.String;
     backgroundImage: Attribute.Media;
@@ -1264,6 +1263,38 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTourTour extends Schema.SingleType {
+  collectionName: 'tours';
+  info: {
+    singularName: 'tour';
+    pluralName: 'tours';
+    displayName: 'Tours';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Blocks;
+    heroSectionButton: Attribute.Component<'elements.button', true>;
+    bookFlightsNow: Attribute.String;
+    heroBackgroundImage: Attribute.Media;
+    tripAdvisorComments: Attribute.Component<'elements.trip-advisor', true>;
+    fareTitle: Attribute.String;
+    fareDescription: Attribute.String;
+    fareButton: Attribute.Component<'elements.button'>;
+    fareBackgroundImage: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1338,6 +1369,7 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
+      'api::tour.tour': ApiTourTour;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
   }

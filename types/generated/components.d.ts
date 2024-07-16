@@ -1,10 +1,10 @@
-import type { Schema, Attribute } from "@strapi/strapi";
+import type { Schema, Attribute } from '@strapi/strapi';
 
 export interface ElementsButton extends Schema.Component {
-  collectionName: "components_elements_buttons";
+  collectionName: 'components_elements_buttons';
   info: {
-    displayName: "Button";
-    description: "";
+    displayName: 'Button';
+    description: '';
   };
   attributes: {
     buttonText: Attribute.String;
@@ -13,10 +13,10 @@ export interface ElementsButton extends Schema.Component {
 }
 
 export interface ElementsDropDownData extends Schema.Component {
-  collectionName: "components_elements_drop_down_data";
+  collectionName: 'components_elements_drop_down_data';
   info: {
-    displayName: "dropDownData";
-    description: "";
+    displayName: 'dropDownData';
+    description: '';
   };
   attributes: {
     data: Attribute.String;
@@ -24,10 +24,10 @@ export interface ElementsDropDownData extends Schema.Component {
 }
 
 export interface ElementsHarbourAirArticle extends Schema.Component {
-  collectionName: "components_home_harbour_air_articles";
+  collectionName: 'components_home_harbour_air_articles';
   info: {
-    displayName: "Article";
-    description: "";
+    displayName: 'Article';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -39,10 +39,10 @@ export interface ElementsHarbourAirArticle extends Schema.Component {
 }
 
 export interface ElementsHarbourAirServices extends Schema.Component {
-  collectionName: "components_elements_harbour_air_services";
+  collectionName: 'components_elements_harbour_air_services';
   info: {
-    displayName: "HarbourAirServices";
-    description: "";
+    displayName: 'HarbourAirServices';
+    description: '';
   };
   attributes: {
     icon: Attribute.Media;
@@ -52,9 +52,9 @@ export interface ElementsHarbourAirServices extends Schema.Component {
 }
 
 export interface ElementsInstagramImages extends Schema.Component {
-  collectionName: "components_elements_instagram_images";
+  collectionName: 'components_elements_instagram_images';
   info: {
-    displayName: "InstagramImages";
+    displayName: 'InstagramImages';
   };
   attributes: {
     instaImage: Attribute.Media;
@@ -62,40 +62,67 @@ export interface ElementsInstagramImages extends Schema.Component {
   };
 }
 
-export interface FaqAccordionData extends Schema.Component {
-  collectionName: "components_faq_accordion_data";
+export interface ElementsTourCard extends Schema.Component {
+  collectionName: 'components_elements_tour_cards';
   info: {
-    displayName: "AccordionDataSection";
-    description: "";
+    displayName: 'TourCard';
+  };
+  attributes: {
+    title: Attribute.String;
+    backgroundImage: Attribute.Media;
+    description: Attribute.String;
+    learnMoreBtn: Attribute.Component<'elements.button'>;
+  };
+}
+
+export interface ElementsTripAdvisor extends Schema.Component {
+  collectionName: 'components_elements_trip_advisors';
+  info: {
+    displayName: 'TripAdvisor';
+  };
+  attributes: {
+    tripAdvisorLogo: Attribute.Media & Attribute.Required;
+    comment: Attribute.String;
+    authorName: Attribute.String;
+    backgroundImage: Attribute.Media;
+    quoteImage: Attribute.Media;
+  };
+}
+
+export interface FaqAccordionData extends Schema.Component {
+  collectionName: 'components_faq_accordion_data';
+  info: {
+    displayName: 'AccordionDataSection';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     image: Attribute.Media;
     showImage: Attribute.Boolean;
     faq_contents: Attribute.Relation<
-      "faq.accordion-data",
-      "oneToMany",
-      "api::faq-content.faq-content"
+      'faq.accordion-data',
+      'oneToMany',
+      'api::faq-content.faq-content'
     >;
   };
 }
 
 export interface FaqAccordion extends Schema.Component {
-  collectionName: "components_faq_accordions";
+  collectionName: 'components_faq_accordions';
   info: {
-    displayName: "Accordion";
-    description: "";
+    displayName: 'Accordion';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    accordionData: Attribute.Component<"faq.accordion-data", true>;
+    accordionData: Attribute.Component<'faq.accordion-data', true>;
   };
 }
 
 export interface FaqButtonWithBoolean extends Schema.Component {
-  collectionName: "components_faq_button_with_booleans";
+  collectionName: 'components_faq_button_with_booleans';
   info: {
-    displayName: "ButtonWithBoolean";
+    displayName: 'ButtonWithBoolean';
   };
   attributes: {
     buttonText: Attribute.String;
@@ -104,10 +131,10 @@ export interface FaqButtonWithBoolean extends Schema.Component {
 }
 
 export interface FaqKnowBefore extends Schema.Component {
-  collectionName: "components_faq_know_befores";
+  collectionName: 'components_faq_know_befores';
   info: {
-    displayName: "knowBefore";
-    description: "";
+    displayName: 'knowBefore';
+    description: '';
   };
   attributes: {
     image: Attribute.Media;
@@ -116,61 +143,61 @@ export interface FaqKnowBefore extends Schema.Component {
 }
 
 export interface FaqQuestions extends Schema.Component {
-  collectionName: "components_faq_questions";
+  collectionName: 'components_faq_questions';
   info: {
-    displayName: "Questions";
-    description: "";
+    displayName: 'Questions';
+    description: '';
   };
   attributes: {
     question: Attribute.String & Attribute.Required;
     faq_content: Attribute.Relation<
-      "faq.questions",
-      "oneToOne",
-      "api::faq-content.faq-content"
+      'faq.questions',
+      'oneToOne',
+      'api::faq-content.faq-content'
     >;
   };
 }
 
 export interface FooterBottomContent extends Schema.Component {
-  collectionName: "components_footer_bottom_contents";
+  collectionName: 'components_footer_bottom_contents';
   info: {
-    displayName: "bottomContent";
+    displayName: 'bottomContent';
   };
   attributes: {
     harbourairLogo: Attribute.Media;
     copyrights: Attribute.String;
-    bottomLinks: Attribute.Component<"footer.link", true>;
+    bottomLinks: Attribute.Component<'footer.link', true>;
   };
 }
 
 export interface FooterFooterLinks extends Schema.Component {
-  collectionName: "components_footer_footer_links";
+  collectionName: 'components_footer_footer_links';
   info: {
-    displayName: "FooterLinks";
-    description: "";
+    displayName: 'FooterLinks';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    links: Attribute.Component<"footer.link", true>;
+    links: Attribute.Component<'footer.link', true>;
   };
 }
 
 export interface FooterFooterLogoLinks extends Schema.Component {
-  collectionName: "components_footer_footer_logo_links";
+  collectionName: 'components_footer_footer_logo_links';
   info: {
-    displayName: "FooterLogoLinks";
+    displayName: 'FooterLogoLinks';
   };
   attributes: {
     title: Attribute.String;
-    logos: Attribute.Component<"footer.footer-logos", true>;
+    logos: Attribute.Component<'footer.footer-logos', true>;
   };
 }
 
 export interface FooterFooterLogos extends Schema.Component {
-  collectionName: "components_footer_footer_logos";
+  collectionName: 'components_footer_footer_logos';
   info: {
-    displayName: "FooterLogos";
-    description: "";
+    displayName: 'FooterLogos';
+    description: '';
   };
   attributes: {
     logos: Attribute.Media;
@@ -179,23 +206,23 @@ export interface FooterFooterLogos extends Schema.Component {
 }
 
 export interface FooterFooterStayUpdate extends Schema.Component {
-  collectionName: "components_footer_footer_stay_updates";
+  collectionName: 'components_footer_footer_stay_updates';
   info: {
-    displayName: "FooterStayUpdate";
+    displayName: 'FooterStayUpdate';
   };
   attributes: {
     show: Attribute.Boolean;
     title: Attribute.String;
     description: Attribute.String;
     unsubscribeText: Attribute.String;
-    subscribe: Attribute.Component<"elements.button">;
+    subscribe: Attribute.Component<'elements.button'>;
   };
 }
 
 export interface FooterLink extends Schema.Component {
-  collectionName: "components_footer_links";
+  collectionName: 'components_footer_links';
   info: {
-    displayName: "Link";
+    displayName: 'Link';
   };
   attributes: {
     link: Attribute.String;
@@ -204,25 +231,25 @@ export interface FooterLink extends Schema.Component {
 }
 
 export interface HeaderDropdown extends Schema.Component {
-  collectionName: "components_header_dropdowns";
+  collectionName: 'components_header_dropdowns';
   info: {
-    displayName: "Dropdown";
-    description: "";
+    displayName: 'Dropdown';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     dropdownMenus: Attribute.Relation<
-      "header.dropdown",
-      "oneToMany",
-      "api::dropdown-menu.dropdown-menu"
+      'header.dropdown',
+      'oneToMany',
+      'api::dropdown-menu.dropdown-menu'
     >;
   };
 }
 
 export interface HeaderLink extends Schema.Component {
-  collectionName: "components_header_links";
+  collectionName: 'components_header_links';
   info: {
-    displayName: "Link";
+    displayName: 'Link';
   };
   attributes: {
     show: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
@@ -232,10 +259,10 @@ export interface HeaderLink extends Schema.Component {
 }
 
 export interface HeaderMediaLinks extends Schema.Component {
-  collectionName: "components_header_media_links";
+  collectionName: 'components_header_media_links';
   info: {
-    displayName: "Media Link";
-    description: "";
+    displayName: 'Media Link';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -245,27 +272,27 @@ export interface HeaderMediaLinks extends Schema.Component {
 }
 
 export interface HomeArticleCarousel extends Schema.Component {
-  collectionName: "components_home_article_carousels";
+  collectionName: 'components_home_article_carousels';
   info: {
-    displayName: "ArticleCarousel";
-    description: "";
+    displayName: 'ArticleCarousel';
+    description: '';
   };
   attributes: {
     show: Attribute.Boolean;
-    article: Attribute.Component<"elements.harbour-air-article", true>;
+    article: Attribute.Component<'elements.harbour-air-article', true>;
   };
 }
 
 export interface HomeDescription extends Schema.Component {
-  collectionName: "components_blocks_descriptions";
+  collectionName: 'components_blocks_descriptions';
   info: {
-    displayName: "HarbourAirDescription";
-    description: "";
+    displayName: 'HarbourAirDescription';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     HarbourAirService: Attribute.Component<
-      "elements.harbour-air-services",
+      'elements.harbour-air-services',
       true
     > &
       Attribute.SetMinMax<
@@ -279,47 +306,47 @@ export interface HomeDescription extends Schema.Component {
 }
 
 export interface HomeGrabDeals extends Schema.Component {
-  collectionName: "components_blocks_grab_deals";
+  collectionName: 'components_blocks_grab_deals';
   info: {
-    displayName: "GrabDeals";
-    description: "";
+    displayName: 'GrabDeals';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    deals: Attribute.Component<"elements.drop-down-data", true>;
+    deals: Attribute.Component<'elements.drop-down-data', true>;
     filterBy: Attribute.String;
     show: Attribute.Boolean;
-    moreDeals: Attribute.Component<"elements.button">;
+    moreDeals: Attribute.Component<'elements.button'>;
     countries: Attribute.Relation<
-      "home.grab-deals",
-      "oneToMany",
-      "api::country.country"
+      'home.grab-deals',
+      'oneToMany',
+      'api::country.country'
     >;
     cardDeals: Attribute.Relation<
-      "home.grab-deals",
-      "oneToMany",
-      "api::deal.deal"
+      'home.grab-deals',
+      'oneToMany',
+      'api::deal.deal'
     >;
   };
 }
 
 export interface HomeHeroCarousel extends Schema.Component {
-  collectionName: "components_home_hero_carousels";
+  collectionName: 'components_home_hero_carousels';
   info: {
-    displayName: "HeroCarousel";
-    description: "";
+    displayName: 'HeroCarousel';
+    description: '';
   };
   attributes: {
     show: Attribute.Boolean;
-    carousels: Attribute.Component<"home.home-carousel", true>;
+    carousels: Attribute.Component<'home.home-carousel', true>;
   };
 }
 
 export interface HomeHomeCarousel extends Schema.Component {
-  collectionName: "components_home_home_carousels";
+  collectionName: 'components_home_home_carousels';
   info: {
-    displayName: "HomeCarousel";
-    description: "";
+    displayName: 'HomeCarousel';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -331,17 +358,17 @@ export interface HomeHomeCarousel extends Schema.Component {
 }
 
 export interface HomeHomeInstagram extends Schema.Component {
-  collectionName: "components_blocks_home_instagrams";
+  collectionName: 'components_blocks_home_instagrams';
   info: {
-    displayName: "HomeInstagram";
-    description: "";
+    displayName: 'HomeInstagram';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    followUs: Attribute.Component<"elements.button">;
+    followUs: Attribute.Component<'elements.button'>;
     show: Attribute.Boolean;
-    instaImages: Attribute.Component<"elements.instagram-images", true>;
+    instaImages: Attribute.Component<'elements.instagram-images', true>;
     quote: Attribute.Text;
     authorName: Attribute.String;
     authorAddress: Attribute.String;
@@ -350,25 +377,25 @@ export interface HomeHomeInstagram extends Schema.Component {
 }
 
 export interface InsideLocationAdditionalInformation extends Schema.Component {
-  collectionName: "components_inside_location_additional_informations";
+  collectionName: 'components_inside_location_additional_informations';
   info: {
-    displayName: "AdditionalInformation";
-    description: "";
+    displayName: 'AdditionalInformation';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     details: Attribute.Component<
-      "inside-location.additionalinfo-details",
+      'inside-location.additionalinfo-details',
       true
     >;
   };
 }
 
 export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
-  collectionName: "components_inside_location_additionalinfo_details";
+  collectionName: 'components_inside_location_additionalinfo_details';
   info: {
-    displayName: "AdditionalInformationDetails";
-    description: "";
+    displayName: 'AdditionalInformationDetails';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -380,16 +407,16 @@ export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
 }
 
 export interface InsideLocationDirection extends Schema.Component {
-  collectionName: "components_inside_location_directions";
+  collectionName: 'components_inside_location_directions';
   info: {
-    displayName: "Address";
-    description: "";
+    displayName: 'Address';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    directionsBtn: Attribute.Component<"elements.button">;
-    startingPoint: Attribute.Component<"inside-location.starting-point", true>;
+    directionsBtn: Attribute.Component<'elements.button'>;
+    startingPoint: Attribute.Component<'inside-location.starting-point', true>;
     chooseStartingPointTitle: Attribute.String;
     addressTitle: Attribute.String;
     addressDetails: Attribute.Blocks;
@@ -399,10 +426,10 @@ export interface InsideLocationDirection extends Schema.Component {
 }
 
 export interface InsideLocationStartingPoint extends Schema.Component {
-  collectionName: "components_inside_location_starting_points";
+  collectionName: 'components_inside_location_starting_points';
   info: {
-    displayName: "startingPoint";
-    description: "";
+    displayName: 'startingPoint';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
@@ -411,10 +438,10 @@ export interface InsideLocationStartingPoint extends Schema.Component {
 }
 
 export interface MainDealsDeals extends Schema.Component {
-  collectionName: "components_main_deals_deals";
+  collectionName: 'components_main_deals_deals';
   info: {
-    displayName: "Deals";
-    description: "";
+    displayName: 'Deals';
+    description: '';
   };
   attributes: {
     dealMedia: Attribute.Media & Attribute.Required;
@@ -423,21 +450,21 @@ export interface MainDealsDeals extends Schema.Component {
     price: Attribute.String & Attribute.Required;
     departingText: Attribute.String &
       Attribute.Required &
-      Attribute.DefaultTo<"Departing">;
+      Attribute.DefaultTo<'Departing'>;
     origin: Attribute.String & Attribute.Required;
     taxes: Attribute.String &
       Attribute.Required &
-      Attribute.DefaultTo<"Price all-in incl. taxes and fees">;
+      Attribute.DefaultTo<'Price all-in incl. taxes and fees'>;
     termsApply: Attribute.Text &
       Attribute.Required &
-      Attribute.DefaultTo<"Terms and conditions apply.">;
+      Attribute.DefaultTo<'Terms and conditions apply.'>;
     dealTitle: Attribute.Text & Attribute.Required;
     dealDate: Attribute.String & Attribute.Required;
-    bookNowButton: Attribute.Component<"elements.button">;
+    bookNowButton: Attribute.Component<'elements.button'>;
     dealDescription: Attribute.Text & Attribute.Required;
     dealOverview: Attribute.Text & Attribute.Required;
     termsAndConditionsText: Attribute.Text;
-    terms: Attribute.Component<"elements.drop-down-data", true>;
+    terms: Attribute.Component<'elements.drop-down-data', true>;
     title: Attribute.Text & Attribute.Required;
     description: Attribute.String & Attribute.Required;
     calendarIcon: Attribute.Media & Attribute.Required;
@@ -445,30 +472,30 @@ export interface MainDealsDeals extends Schema.Component {
 }
 
 export interface MainLocationLocations extends Schema.Component {
-  collectionName: "components_main_location_locations";
+  collectionName: 'components_main_location_locations';
   info: {
-    displayName: "locations";
-    description: "";
+    displayName: 'locations';
+    description: '';
   };
   attributes: {
     image: Attribute.Media;
     title: Attribute.String;
     description: Attribute.String;
-    learnMoreButton: Attribute.Component<"elements.button">;
+    learnMoreButton: Attribute.Component<'elements.button'>;
     location: Attribute.Relation<
-      "main-location.locations",
-      "oneToOne",
-      "api::location.location"
+      'main-location.locations',
+      'oneToOne',
+      'api::location.location'
     >;
   };
 }
 
 export interface SeoSeo extends Schema.Component {
-  collectionName: "components_seo_seos";
+  collectionName: 'components_seo_seos';
   info: {
-    displayName: "SEO";
-    icon: "search";
-    description: "";
+    displayName: 'SEO';
+    icon: 'search';
+    description: '';
   };
   attributes: {
     metaKeyword: Attribute.String;
@@ -481,41 +508,43 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
-declare module "@strapi/types" {
+declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      "elements.button": ElementsButton;
-      "elements.drop-down-data": ElementsDropDownData;
-      "elements.harbour-air-article": ElementsHarbourAirArticle;
-      "elements.harbour-air-services": ElementsHarbourAirServices;
-      "elements.instagram-images": ElementsInstagramImages;
-      "faq.accordion-data": FaqAccordionData;
-      "faq.accordion": FaqAccordion;
-      "faq.button-with-boolean": FaqButtonWithBoolean;
-      "faq.know-before": FaqKnowBefore;
-      "faq.questions": FaqQuestions;
-      "footer.bottom-content": FooterBottomContent;
-      "footer.footer-links": FooterFooterLinks;
-      "footer.footer-logo-links": FooterFooterLogoLinks;
-      "footer.footer-logos": FooterFooterLogos;
-      "footer.footer-stay-update": FooterFooterStayUpdate;
-      "footer.link": FooterLink;
-      "header.dropdown": HeaderDropdown;
-      "header.link": HeaderLink;
-      "header.media-links": HeaderMediaLinks;
-      "home.article-carousel": HomeArticleCarousel;
-      "home.description": HomeDescription;
-      "home.grab-deals": HomeGrabDeals;
-      "home.hero-carousel": HomeHeroCarousel;
-      "home.home-carousel": HomeHomeCarousel;
-      "home.home-instagram": HomeHomeInstagram;
-      "inside-location.additional-information": InsideLocationAdditionalInformation;
-      "inside-location.additionalinfo-details": InsideLocationAdditionalinfoDetails;
-      "inside-location.direction": InsideLocationDirection;
-      "inside-location.starting-point": InsideLocationStartingPoint;
-      "main-deals.deals": MainDealsDeals;
-      "main-location.locations": MainLocationLocations;
-      "seo.seo": SeoSeo;
+      'elements.button': ElementsButton;
+      'elements.drop-down-data': ElementsDropDownData;
+      'elements.harbour-air-article': ElementsHarbourAirArticle;
+      'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.instagram-images': ElementsInstagramImages;
+      'elements.tour-card': ElementsTourCard;
+      'elements.trip-advisor': ElementsTripAdvisor;
+      'faq.accordion-data': FaqAccordionData;
+      'faq.accordion': FaqAccordion;
+      'faq.button-with-boolean': FaqButtonWithBoolean;
+      'faq.know-before': FaqKnowBefore;
+      'faq.questions': FaqQuestions;
+      'footer.bottom-content': FooterBottomContent;
+      'footer.footer-links': FooterFooterLinks;
+      'footer.footer-logo-links': FooterFooterLogoLinks;
+      'footer.footer-logos': FooterFooterLogos;
+      'footer.footer-stay-update': FooterFooterStayUpdate;
+      'footer.link': FooterLink;
+      'header.dropdown': HeaderDropdown;
+      'header.link': HeaderLink;
+      'header.media-links': HeaderMediaLinks;
+      'home.article-carousel': HomeArticleCarousel;
+      'home.description': HomeDescription;
+      'home.grab-deals': HomeGrabDeals;
+      'home.hero-carousel': HomeHeroCarousel;
+      'home.home-carousel': HomeHomeCarousel;
+      'home.home-instagram': HomeHomeInstagram;
+      'inside-location.additional-information': InsideLocationAdditionalInformation;
+      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
+      'inside-location.direction': InsideLocationDirection;
+      'inside-location.starting-point': InsideLocationStartingPoint;
+      'main-deals.deals': MainDealsDeals;
+      'main-location.locations': MainLocationLocations;
+      'seo.seo': SeoSeo;
     }
   }
 }

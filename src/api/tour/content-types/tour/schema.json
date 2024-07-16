@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tours",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "heroSectionButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.button"
+    },
+    "bookFlightsNow": {
+      "type": "string"
+    },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tripAdvisorComments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.trip-advisor"
+    },
+    "fareTitle": {
+      "type": "string"
+    },
+    "fareDescription": {
+      "type": "string"
+    },
+    "fareButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "fareBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
