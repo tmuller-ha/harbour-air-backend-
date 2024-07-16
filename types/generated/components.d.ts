@@ -508,6 +508,41 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
+export interface ToursFareDetails extends Schema.Component {
+  collectionName: 'components_tours_fare_details';
+  info: {
+    displayName: 'fareDetails';
+  };
+  attributes: {
+    fareText: Attribute.String;
+    fare: Attribute.String;
+    person: Attribute.String;
+  };
+}
+
+export interface ToursTourCards extends Schema.Component {
+  collectionName: 'components_tours_tour_cards';
+  info: {
+    displayName: 'TourLocationCard';
+    description: '';
+  };
+  attributes: {
+    locationImage: Attribute.Media;
+    title: Attribute.String;
+    duration: Attribute.String;
+    offers: Attribute.String;
+    description: Attribute.String;
+    bookingButton: Attribute.Component<'elements.button'>;
+    makeitPrivateButton: Attribute.Component<'elements.button'>;
+    fareDetail: Attribute.Component<'tours.fare-details'>;
+    tourLocationDetail: Attribute.Relation<
+      'tours.tour-cards',
+      'oneToOne',
+      'api::tour-location-detail.tour-location-detail'
+    >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -545,6 +580,8 @@ declare module '@strapi/types' {
       'main-deals.deals': MainDealsDeals;
       'main-location.locations': MainLocationLocations;
       'seo.seo': SeoSeo;
+      'tours.fare-details': ToursFareDetails;
+      'tours.tour-cards': ToursTourCards;
     }
   }
 }

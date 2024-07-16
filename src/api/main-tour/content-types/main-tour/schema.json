@@ -2,9 +2,9 @@
   "kind": "singleType",
   "collectionName": "tours",
   "info": {
-    "singularName": "tour",
-    "pluralName": "tours",
-    "displayName": "Tours",
+    "singularName": "main-tour",
+    "pluralName": "main-tours",
+    "displayName": "Main Tour",
     "description": ""
   },
   "options": {
@@ -58,6 +58,16 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "tourLocation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tour-location.tour-location"
+    },
+    "mainFeaturedTour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::featured-tour.featured-tour"
     }
   }
 }

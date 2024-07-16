@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trip_advisor_comments",
+  "info": {
+    "singularName": "trip-advisor-comment",
+    "pluralName": "trip-advisor-comments",
+    "displayName": "TripAdvisor Comment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tripAdvisorLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "comment": {
+      "type": "string"
+    },
+    "commenter": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

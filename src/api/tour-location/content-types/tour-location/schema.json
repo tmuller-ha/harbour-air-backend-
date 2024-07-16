@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_locations",
+  "info": {
+    "singularName": "tour-location",
+    "pluralName": "tour-locations",
+    "displayName": "Tour Location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "heroBgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "locationCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tours.tour-cards"
+    },
+    "heroDescription": {
+      "type": "blocks"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "featuredTour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::featured-tour.featured-tour"
+    },
+    "mainTourLocations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.tour-card"
+    }
+  }
+}

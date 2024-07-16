@@ -988,6 +988,45 @@ export interface ApiFaqContentFaqContent extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
+  collectionName: 'featured_tours';
+  info: {
+    singularName: 'featured-tour';
+    pluralName: 'featured-tours';
+    displayName: 'Featured Tour';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundImage: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    learnMoreButton: Attribute.Component<'elements.button'>;
+    trip_advisor_comment: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToOne',
+      'api::trip-advisor-comment.trip-advisor-comment'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -1235,6 +1274,56 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   };
 }
 
+export interface ApiMainTourMainTour extends Schema.SingleType {
+  collectionName: 'tours';
+  info: {
+    singularName: 'main-tour';
+    pluralName: 'main-tours';
+    displayName: 'Main Tour';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Blocks;
+    heroSectionButton: Attribute.Component<'elements.button', true>;
+    bookFlightsNow: Attribute.String;
+    heroBackgroundImage: Attribute.Media;
+    tripAdvisorComments: Attribute.Component<'elements.trip-advisor', true>;
+    fareTitle: Attribute.String;
+    fareDescription: Attribute.String;
+    fareButton: Attribute.Component<'elements.button'>;
+    fareBackgroundImage: Attribute.Media & Attribute.Required;
+    tourLocation: Attribute.Relation<
+      'api::main-tour.main-tour',
+      'oneToOne',
+      'api::tour-location.tour-location'
+    >;
+    mainFeaturedTour: Attribute.Relation<
+      'api::main-tour.main-tour',
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-tour.main-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-tour.main-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNoticeNotice extends Schema.CollectionType {
   collectionName: 'notices';
   info: {
@@ -1267,34 +1356,83 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
-export interface ApiTourTour extends Schema.SingleType {
-  collectionName: 'tours';
+export interface ApiTourLocationTourLocation extends Schema.CollectionType {
+  collectionName: 'tour_locations';
   info: {
-    singularName: 'tour';
-    pluralName: 'tours';
-    displayName: 'Tours';
+    singularName: 'tour-location';
+    pluralName: 'tour-locations';
+    displayName: 'Tour Location';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Blocks;
-    heroSectionButton: Attribute.Component<'elements.button', true>;
-    bookFlightsNow: Attribute.String;
-    heroBackgroundImage: Attribute.Media;
-    tripAdvisorComments: Attribute.Component<'elements.trip-advisor', true>;
-    fareTitle: Attribute.String;
-    fareDescription: Attribute.String;
-    fareButton: Attribute.Component<'elements.button'>;
-    fareBackgroundImage: Attribute.Media & Attribute.Required;
+    name: Attribute.String;
+    heroBgImage: Attribute.Media;
+    locationCard: Attribute.Component<'tours.tour-cards', true>;
+    heroDescription: Attribute.Blocks;
+    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
+    featuredTour: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    mainTourLocations: Attribute.Component<'elements.tour-card', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTourLocationDetailTourLocationDetail
+  extends Schema.CollectionType {
+  collectionName: 'tour_location_details';
+  info: {
+    singularName: 'tour-location-detail';
+    pluralName: 'tour-location-details';
+    displayName: 'TourLocation Detail';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    backgroundImage: Attribute.Media;
+    tourFareDetail: Attribute.Component<'tours.fare-details', true>;
+    departsText: Attribute.String;
+    departLocation: Attribute.String;
+    overviewTitle: Attribute.String;
+    overviewDescription: Attribute.String;
+    detailsTitle: Attribute.String;
+    detailsDescription: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tour-location-detail.tour-location-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tour-location-detail.tour-location-detail',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1337,6 +1475,40 @@ export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   };
 }
 
+export interface ApiTripAdvisorCommentTripAdvisorComment
+  extends Schema.CollectionType {
+  collectionName: 'trip_advisor_comments';
+  info: {
+    singularName: 'trip-advisor-comment';
+    pluralName: 'trip-advisor-comments';
+    displayName: 'TripAdvisor Comment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tripAdvisorLogo: Attribute.Media;
+    comment: Attribute.String;
+    commenter: Attribute.String;
+    backgroundImage: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1361,6 +1533,7 @@ declare module '@strapi/types' {
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
+      'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
@@ -1368,9 +1541,12 @@ declare module '@strapi/types' {
       'api::location.location': ApiLocationLocation;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
+      'api::main-tour.main-tour': ApiMainTourMainTour;
       'api::notice.notice': ApiNoticeNotice;
-      'api::tour.tour': ApiTourTour;
+      'api::tour-location.tour-location': ApiTourLocationTourLocation;
+      'api::tour-location-detail.tour-location-detail': ApiTourLocationDetailTourLocationDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
+      'api::trip-advisor-comment.trip-advisor-comment': ApiTripAdvisorCommentTripAdvisorComment;
     }
   }
 }

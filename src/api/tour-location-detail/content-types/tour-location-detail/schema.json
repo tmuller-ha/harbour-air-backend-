@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_location_details",
+  "info": {
+    "singularName": "tour-location-detail",
+    "pluralName": "tour-location-details",
+    "displayName": "TourLocation Detail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tourFareDetail": {
+      "type": "component",
+      "repeatable": true,
+      "component": "tours.fare-details"
+    },
+    "departsText": {
+      "type": "string"
+    },
+    "departLocation": {
+      "type": "string"
+    },
+    "overviewTitle": {
+      "type": "string"
+    },
+    "overviewDescription": {
+      "type": "string"
+    },
+    "detailsTitle": {
+      "type": "string"
+    },
+    "detailsDescription": {
+      "type": "blocks"
+    }
+  }
+}
