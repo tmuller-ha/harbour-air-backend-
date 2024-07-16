@@ -35,11 +35,6 @@
         "images"
       ]
     },
-    "tripAdvisorComments": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.trip-advisor"
-    },
     "fareTitle": {
       "type": "string"
     },
@@ -68,6 +63,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::featured-tour.featured-tour"
+    },
+    "heroBtn": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.button"
+      ]
     }
   }
 }

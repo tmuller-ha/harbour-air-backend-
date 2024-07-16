@@ -1291,7 +1291,6 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
     heroSectionButton: Attribute.Component<'elements.button', true>;
     bookFlightsNow: Attribute.String;
     heroBackgroundImage: Attribute.Media;
-    tripAdvisorComments: Attribute.Component<'elements.trip-advisor', true>;
     fareTitle: Attribute.String;
     fareDescription: Attribute.String;
     fareButton: Attribute.Component<'elements.button'>;
@@ -1306,6 +1305,7 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
       'oneToOne',
       'api::featured-tour.featured-tour'
     >;
+    heroBtn: Attribute.DynamicZone<['elements.button']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1379,6 +1379,7 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
       'api::featured-tour.featured-tour'
     >;
     mainTourLocations: Attribute.Component<'elements.tour-card', true>;
+    featuredTourHeading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
