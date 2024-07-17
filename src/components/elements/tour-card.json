@@ -24,13 +24,14 @@
     "description": {
       "type": "string"
     },
-    "learnMoreBtn": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
     "show": {
       "type": "boolean"
+    },
+    "learnMoreBtnText": {
+      "type": "string"
+    },
+    "learnMoreBtnSlug": {
+      "type": "string"
     }
   }
 }

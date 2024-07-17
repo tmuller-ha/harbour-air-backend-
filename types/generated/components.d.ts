@@ -73,8 +73,9 @@ export interface ElementsTourCard extends Schema.Component {
     title: Attribute.String;
     backgroundImage: Attribute.Media;
     description: Attribute.String;
-    learnMoreBtn: Attribute.Component<'elements.button'>;
     show: Attribute.Boolean;
+    learnMoreBtnText: Attribute.String;
+    learnMoreBtnSlug: Attribute.String;
   };
 }
 
@@ -530,6 +531,18 @@ export interface MainToursHeroSection extends Schema.Component {
   };
 }
 
+export interface MainToursTourCards extends Schema.Component {
+  collectionName: 'components_main_tours_tour_cards';
+  info: {
+    displayName: 'TourCards';
+    icon: 'crown';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    tourPlaces: Attribute.Component<'elements.tour-card', true>;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -584,13 +597,25 @@ export interface ToursHeroDescription extends Schema.Component {
     description: '';
   };
   attributes: {
-    description: Attribute.Blocks;
+    heroDescription: Attribute.Blocks;
     show: Attribute.Boolean;
   };
 }
 
 export interface ToursTourCards extends Schema.Component {
   collectionName: 'components_tours_tour_cards';
+  info: {
+    displayName: 'TourLocations';
+    description: '';
+  };
+  attributes: {
+    tourLocations: Attribute.Component<'tours.tour-location-card', true>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ToursTourLocationCard extends Schema.Component {
+  collectionName: 'components_tours_tour_location_cards';
   info: {
     displayName: 'TourLocationCard';
     description: '';
@@ -601,15 +626,18 @@ export interface ToursTourCards extends Schema.Component {
     duration: Attribute.String;
     offers: Attribute.String;
     description: Attribute.String;
-    bookingButton: Attribute.Component<'elements.button'>;
-    makeitPrivateButton: Attribute.Component<'elements.button'>;
-    fareDetail: Attribute.Component<'tours.fare-details'>;
+    bookBtnText: Attribute.String;
+    bookBtnSlug: Attribute.String;
+    makePrivateBtnText: Attribute.String;
+    makeitPrivateBtnSlug: Attribute.String;
+    fareText: Attribute.String;
+    fare: Attribute.String;
+    person: Attribute.String;
     tourLocationDetail: Attribute.Relation<
-      'tours.tour-cards',
+      'tours.tour-location-card',
       'oneToOne',
       'api::tour-location-detail.tour-location-detail'
     >;
-    show: Attribute.Boolean;
   };
 }
 
@@ -651,11 +679,13 @@ declare module '@strapi/types' {
       'main-location.locations': MainLocationLocations;
       'main-tours.fare-section': MainToursFareSection;
       'main-tours.hero-section': MainToursHeroSection;
+      'main-tours.tour-cards': MainToursTourCards;
       'seo.seo': SeoSeo;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;
       'tours.tour-cards': ToursTourCards;
+      'tours.tour-location-card': ToursTourLocationCard;
     }
   }
 }

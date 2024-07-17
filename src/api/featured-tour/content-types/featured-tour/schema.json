@@ -31,10 +31,11 @@
       "repeatable": false,
       "component": "elements.button"
     },
-    "trip_advisor_comment": {
+    "tripAdvisorComments": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::trip-advisor-comment.trip-advisor-comment"
+      "relation": "oneToMany",
+      "target": "api::trip-advisor-comment.trip-advisor-comment",
+      "mappedBy": "featured_tour"
     }
   }
 }

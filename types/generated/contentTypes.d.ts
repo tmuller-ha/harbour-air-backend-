@@ -1004,9 +1004,9 @@ export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.String;
     learnMoreButton: Attribute.Component<'elements.button'>;
-    trip_advisor_comment: Attribute.Relation<
+    tripAdvisorComments: Attribute.Relation<
       'api::featured-tour.featured-tour',
-      'oneToOne',
+      'oneToMany',
       'api::trip-advisor-comment.trip-advisor-comment'
     >;
     createdAt: Attribute.DateTime;
@@ -1356,7 +1356,7 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
         'tours.hero-description',
         'tours.tour-cards',
         'tours.featured-tours',
-        'elements.tour-card'
+        'main-tours.tour-cards'
       ]
     >;
     name: Attribute.String;
@@ -1474,6 +1474,11 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
     comment: Attribute.String;
     commenter: Attribute.String;
     backgroundImage: Attribute.Media;
+    featured_tour: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'manyToOne',
+      'api::featured-tour.featured-tour'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

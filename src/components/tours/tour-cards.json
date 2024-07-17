@@ -1,53 +1,19 @@
 {
   "collectionName": "components_tours_tour_cards",
   "info": {
-    "displayName": "TourLocationCard",
+    "displayName": "TourLocations",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "locationImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "title": {
-      "type": "string"
-    },
-    "duration": {
-      "type": "string"
-    },
-    "offers": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "bookingButton": {
+    "tourLocations": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
-    "makeitPrivateButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
-    "fareDetail": {
-      "type": "component",
-      "repeatable": false,
-      "component": "tours.fare-details"
-    },
-    "tourLocationDetail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tour-location-detail.tour-location-detail"
+      "repeatable": true,
+      "component": "tours.tour-location-card"
     },
     "show": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     }
   }
 }

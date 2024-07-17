@@ -18,7 +18,7 @@
         "tours.hero-description",
         "tours.tour-cards",
         "tours.featured-tours",
-        "elements.tour-card"
+        "main-tours.tour-cards"
       ]
     },
     "name": {
@@ -29,11 +29,12 @@
       "targetField": "name"
     },
     "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
