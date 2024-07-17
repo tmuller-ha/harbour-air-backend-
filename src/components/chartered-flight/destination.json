@@ -11,11 +11,6 @@
       "repeatable": false,
       "component": "elements.hero-content"
     },
-    "accordion": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.list-accordion"
-    },
     "notice": {
       "type": "string"
     },

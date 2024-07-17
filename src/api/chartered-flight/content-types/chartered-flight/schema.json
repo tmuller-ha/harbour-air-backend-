@@ -15,10 +15,10 @@
     "charteredFlightPage": {
       "type": "dynamiczone",
       "components": [
-        "elements.list-accordion",
         "elements.hero-content",
         "elements.title-with-image",
-        "chartered-flight.tab-section"
+        "chartered-flight.tab-section",
+        "elements.accordion"
       ]
     }
   }

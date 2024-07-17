@@ -8,7 +8,6 @@ export interface CharteredFlightDestination extends Schema.Component {
   };
   attributes: {
     destinationInfo: Attribute.Component<'elements.hero-content'>;
-    accordion: Attribute.Component<'elements.list-accordion', true>;
     notice: Attribute.String;
     images: Attribute.Media;
     show: Attribute.Boolean;
@@ -59,6 +58,24 @@ export interface CharteredFlightTabSection extends Schema.Component {
       'api::chartered-flight-tab.chartered-flight-tab'
     >;
     show: Attribute.Boolean;
+  };
+}
+
+export interface ElementsAccordionDetails extends Schema.Component {
+  collectionName: 'components_elements_accordion_details';
+  info: {
+    displayName: 'accordionDetails';
+  };
+  attributes: {};
+}
+
+export interface ElementsAccordion extends Schema.Component {
+  collectionName: 'components_elements_accordions';
+  info: {
+    displayName: 'accordion';
+  };
+  attributes: {
+    accordion: Attribute.Component<'elements.accordion-details', true>;
   };
 }
 
@@ -146,19 +163,6 @@ export interface ElementsInstagramImages extends Schema.Component {
   attributes: {
     instaImage: Attribute.Media;
     slug: Attribute.String;
-  };
-}
-
-export interface ElementsListAccordion extends Schema.Component {
-  collectionName: 'components_elements_list_accordions';
-  info: {
-    displayName: 'accordion';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    show: Attribute.Boolean;
   };
 }
 
@@ -600,6 +604,8 @@ declare module '@strapi/types' {
       'chartered-flight.fleet': CharteredFlightFleet;
       'chartered-flight.pricing-table': CharteredFlightPricingTable;
       'chartered-flight.tab-section': CharteredFlightTabSection;
+      'elements.accordion-details': ElementsAccordionDetails;
+      'elements.accordion': ElementsAccordion;
       'elements.button': ElementsButton;
       'elements.carousel': ElementsCarousel;
       'elements.drop-down-data': ElementsDropDownData;
@@ -607,7 +613,6 @@ declare module '@strapi/types' {
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.hero-content': ElementsHeroContent;
       'elements.instagram-images': ElementsInstagramImages;
-      'elements.list-accordion': ElementsListAccordion;
       'elements.title-with-image': ElementsTitleWithImage;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;

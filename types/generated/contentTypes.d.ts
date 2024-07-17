@@ -842,10 +842,10 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   attributes: {
     charteredFlightPage: Attribute.DynamicZone<
       [
-        'elements.list-accordion',
         'elements.hero-content',
         'elements.title-with-image',
-        'chartered-flight.tab-section'
+        'chartered-flight.tab-section',
+        'elements.accordion'
       ]
     >;
     createdAt: Attribute.DateTime;
