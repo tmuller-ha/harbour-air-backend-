@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_chartered_flight_destinations",
+  "info": {
+    "displayName": "destination",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "destinationDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "chartered-flight.hero-content"
+    },
+    "accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.list-accordion"
+    },
+    "notice": {
+      "type": "string"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

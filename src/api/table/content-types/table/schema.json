@@ -13,9 +13,7 @@
   "attributes": {
     "tableType": {
       "type": "dynamiczone",
-      "components": [
-        "chartered-flight.chartered-flight-pricing"
-      ]
+      "components": []
     }
   }
 }

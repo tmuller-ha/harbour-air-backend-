@@ -843,9 +843,9 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
     charteredFlightPage: Attribute.DynamicZone<
       [
         'elements.list-accordion',
-        'elements.carousel',
-        'chartered-flight.pricing-table',
-        'chartered-flight.hero-content'
+        'chartered-flight.hero-content',
+        'elements.title-with-image',
+        'chartered-flight.tab-section'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -859,6 +859,53 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::chartered-flight.chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCharteredFlightTabCharteredFlightTab
+  extends Schema.CollectionType {
+  collectionName: 'chartered_flight_tabs';
+  info: {
+    singularName: 'chartered-flight-tab';
+    pluralName: 'chartered-flight-tabs';
+    displayName: 'Chartered Flight Tab';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tabSection: Attribute.DynamicZone<
+      [
+        'chartered-flight.fleet',
+        'chartered-flight.pricing-table',
+        'chartered-flight.destination'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::chartered-flight-tab.chartered-flight-tab',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::chartered-flight-tab.chartered-flight-tab',
       'oneToOne',
       'admin::user'
     > &
@@ -1317,9 +1364,7 @@ export interface ApiTableTable extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    tableType: Attribute.DynamicZone<
-      ['chartered-flight.chartered-flight-pricing']
-    >;
+    tableType: Attribute.DynamicZone<[]>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1396,6 +1441,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
+      'api::chartered-flight-tab.chartered-flight-tab': ApiCharteredFlightTabCharteredFlightTab;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;

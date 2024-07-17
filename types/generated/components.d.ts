@@ -1,23 +1,34 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface CharteredFlightCharteredFlightPricing
-  extends Schema.Component {
-  collectionName: 'components_chartered_flight_chartered_flight_pricings';
+export interface CharteredFlightDestination extends Schema.Component {
+  collectionName: 'components_chartered_flight_destinations';
   info: {
-    displayName: 'CharteredFlightPricing';
+    displayName: 'destination';
     description: '';
   };
   attributes: {
-    destination: Attribute.String;
-    starting_At: Attribute.String;
-    tableName: Attribute.String;
+    destinationDescription: Attribute.Component<'chartered-flight.hero-content'>;
+    accordion: Attribute.Component<'elements.list-accordion', true>;
+    notice: Attribute.String;
+    images: Attribute.Media;
+  };
+}
+
+export interface CharteredFlightFleet extends Schema.Component {
+  collectionName: 'components_chartered_flight_fleets';
+  info: {
+    displayName: 'Fleet';
+  };
+  attributes: {
+    fleetDescription: Attribute.Component<'chartered-flight.hero-content'>;
+    carousel: Attribute.Component<'elements.carousel', true>;
   };
 }
 
 export interface CharteredFlightHeroContent extends Schema.Component {
   collectionName: 'components_chartered_flight_hero_contents';
   info: {
-    displayName: 'heroContent';
+    displayName: 'pageInfo';
     description: '';
   };
   attributes: {
@@ -30,16 +41,31 @@ export interface CharteredFlightHeroContent extends Schema.Component {
 export interface CharteredFlightPricingTable extends Schema.Component {
   collectionName: 'components_chartered_flight_pricing_tables';
   info: {
-    displayName: 'pricingTable';
+    displayName: 'pricing';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
     pricing: Attribute.Relation<
       'chartered-flight.pricing-table',
       'oneToOne',
       'api::table.table'
+    >;
+    tabDescription: Attribute.Component<'chartered-flight.hero-content'>;
+    image: Attribute.Media;
+  };
+}
+
+export interface CharteredFlightTabSection extends Schema.Component {
+  collectionName: 'components_chartered_flight_tab_sections';
+  info: {
+    displayName: 'tabSection';
+    description: '';
+  };
+  attributes: {
+    chartered_flight_tab: Attribute.Relation<
+      'chartered-flight.tab-section',
+      'oneToOne',
+      'api::chartered-flight-tab.chartered-flight-tab'
     >;
   };
 }
@@ -64,8 +90,6 @@ export interface ElementsCarousel extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media;
-    title: Attribute.String;
-    description: Attribute.String;
     show: Attribute.Boolean;
   };
 }
@@ -123,15 +147,24 @@ export interface ElementsInstagramImages extends Schema.Component {
 export interface ElementsListAccordion extends Schema.Component {
   collectionName: 'components_elements_list_accordions';
   info: {
-    displayName: 'flightOption';
+    displayName: 'accordion';
     description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
-    mainheader: Attribute.String;
-    mainDescription: Attribute.String;
     show: Attribute.Boolean;
+  };
+}
+
+export interface ElementsTitleWithImage extends Schema.Component {
+  collectionName: 'components_elements_title_with_images';
+  info: {
+    displayName: 'titleWithImage';
+  };
+  attributes: {
+    pageTitle: Attribute.String;
+    backgroundImg: Attribute.Media;
   };
 }
 
@@ -557,9 +590,11 @@ export interface SeoSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'chartered-flight.chartered-flight-pricing': CharteredFlightCharteredFlightPricing;
+      'chartered-flight.destination': CharteredFlightDestination;
+      'chartered-flight.fleet': CharteredFlightFleet;
       'chartered-flight.hero-content': CharteredFlightHeroContent;
       'chartered-flight.pricing-table': CharteredFlightPricingTable;
+      'chartered-flight.tab-section': CharteredFlightTabSection;
       'elements.button': ElementsButton;
       'elements.carousel': ElementsCarousel;
       'elements.drop-down-data': ElementsDropDownData;
@@ -567,6 +602,7 @@ declare module '@strapi/types' {
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.list-accordion': ElementsListAccordion;
+      'elements.title-with-image': ElementsTitleWithImage;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;

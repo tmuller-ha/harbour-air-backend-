@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chartered_flight_tabs",
+  "info": {
+    "singularName": "chartered-flight-tab",
+    "pluralName": "chartered-flight-tabs",
+    "displayName": "Chartered Flight Tab",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tabSection": {
+      "type": "dynamiczone",
+      "components": [
+        "chartered-flight.fleet",
+        "chartered-flight.pricing-table",
+        "chartered-flight.destination"
+      ],
+      "min": 1,
+      "max": 1,
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

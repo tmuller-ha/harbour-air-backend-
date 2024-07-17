@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_title_with_images",
+  "info": {
+    "displayName": "titleWithImage"
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string"
+    },
+    "backgroundImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

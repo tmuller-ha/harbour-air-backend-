@@ -16,9 +16,9 @@
       "type": "dynamiczone",
       "components": [
         "elements.list-accordion",
-        "elements.carousel",
-        "chartered-flight.pricing-table",
-        "chartered-flight.hero-content"
+        "chartered-flight.hero-content",
+        "elements.title-with-image",
+        "chartered-flight.tab-section"
       ]
     }
   }

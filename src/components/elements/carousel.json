@@ -17,12 +17,6 @@
         "audios"
       ]
     },
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
     "show": {
       "type": "boolean"
     }
