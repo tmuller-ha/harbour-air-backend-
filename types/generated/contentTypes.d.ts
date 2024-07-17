@@ -840,13 +840,12 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    heroContent: Attribute.Component<'chartered-flight.hero-content'>;
-    flightOption: Attribute.Component<'elements.list-accordion', true>;
-    tabSection: Attribute.DynamicZone<
+    charteredFlightPage: Attribute.DynamicZone<
       [
         'elements.list-accordion',
         'elements.carousel',
-        'chartered-flight.pricing-table'
+        'chartered-flight.pricing-table',
+        'chartered-flight.hero-content'
       ]
     >;
     createdAt: Attribute.DateTime;

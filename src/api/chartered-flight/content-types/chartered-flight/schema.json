@@ -12,22 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heroContent": {
-      "type": "component",
-      "repeatable": false,
-      "component": "chartered-flight.hero-content"
-    },
-    "flightOption": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.list-accordion"
-    },
-    "tabSection": {
+    "charteredFlightPage": {
       "type": "dynamiczone",
       "components": [
         "elements.list-accordion",
         "elements.carousel",
-        "chartered-flight.pricing-table"
+        "chartered-flight.pricing-table",
+        "chartered-flight.hero-content"
       ]
     }
   }
