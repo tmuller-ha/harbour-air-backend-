@@ -16,7 +16,7 @@
       "type": "dynamiczone",
       "components": [
         "elements.list-accordion",
-        "chartered-flight.hero-content",
+        "elements.hero-content",
         "elements.title-with-image",
         "chartered-flight.tab-section"
       ]

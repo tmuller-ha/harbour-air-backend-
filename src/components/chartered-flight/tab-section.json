@@ -1,7 +1,7 @@
 {
   "collectionName": "components_chartered_flight_tab_sections",
   "info": {
-    "displayName": "tabSection",
+    "displayName": "tabs",
     "description": ""
   },
   "options": {},
@@ -10,6 +10,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::chartered-flight-tab.chartered-flight-tab"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

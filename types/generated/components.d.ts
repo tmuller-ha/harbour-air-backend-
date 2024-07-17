@@ -7,33 +7,23 @@ export interface CharteredFlightDestination extends Schema.Component {
     description: '';
   };
   attributes: {
-    destinationDescription: Attribute.Component<'chartered-flight.hero-content'>;
+    destinationInfo: Attribute.Component<'elements.hero-content'>;
     accordion: Attribute.Component<'elements.list-accordion', true>;
     notice: Attribute.String;
     images: Attribute.Media;
+    show: Attribute.Boolean;
   };
 }
 
 export interface CharteredFlightFleet extends Schema.Component {
   collectionName: 'components_chartered_flight_fleets';
   info: {
-    displayName: 'Fleet';
-  };
-  attributes: {
-    fleetDescription: Attribute.Component<'chartered-flight.hero-content'>;
-    carousel: Attribute.Component<'elements.carousel', true>;
-  };
-}
-
-export interface CharteredFlightHeroContent extends Schema.Component {
-  collectionName: 'components_chartered_flight_hero_contents';
-  info: {
-    displayName: 'pageInfo';
+    displayName: 'fleet';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Blocks;
+    fleetInfo: Attribute.Component<'elements.hero-content'>;
+    carousel: Attribute.Component<'elements.carousel', true>;
     show: Attribute.Boolean;
   };
 }
@@ -50,15 +40,16 @@ export interface CharteredFlightPricingTable extends Schema.Component {
       'oneToOne',
       'api::table.table'
     >;
-    tabDescription: Attribute.Component<'chartered-flight.hero-content'>;
+    tabDescription: Attribute.Component<'elements.hero-content'>;
     image: Attribute.Media;
+    show: Attribute.Boolean;
   };
 }
 
 export interface CharteredFlightTabSection extends Schema.Component {
   collectionName: 'components_chartered_flight_tab_sections';
   info: {
-    displayName: 'tabSection';
+    displayName: 'tabs';
     description: '';
   };
   attributes: {
@@ -67,6 +58,7 @@ export interface CharteredFlightTabSection extends Schema.Component {
       'oneToOne',
       'api::chartered-flight-tab.chartered-flight-tab'
     >;
+    show: Attribute.Boolean;
   };
 }
 
@@ -133,6 +125,19 @@ export interface ElementsHarbourAirServices extends Schema.Component {
   };
 }
 
+export interface ElementsHeroContent extends Schema.Component {
+  collectionName: 'components_chartered_flight_hero_contents';
+  info: {
+    displayName: 'pageInfo';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    show: Attribute.Boolean;
+  };
+}
+
 export interface ElementsInstagramImages extends Schema.Component {
   collectionName: 'components_elements_instagram_images';
   info: {
@@ -160,7 +165,8 @@ export interface ElementsListAccordion extends Schema.Component {
 export interface ElementsTitleWithImage extends Schema.Component {
   collectionName: 'components_elements_title_with_images';
   info: {
-    displayName: 'titleWithImage';
+    displayName: 'pageTitleWithImage';
+    description: '';
   };
   attributes: {
     pageTitle: Attribute.String;
@@ -592,7 +598,6 @@ declare module '@strapi/types' {
     export interface Components {
       'chartered-flight.destination': CharteredFlightDestination;
       'chartered-flight.fleet': CharteredFlightFleet;
-      'chartered-flight.hero-content': CharteredFlightHeroContent;
       'chartered-flight.pricing-table': CharteredFlightPricingTable;
       'chartered-flight.tab-section': CharteredFlightTabSection;
       'elements.button': ElementsButton;
@@ -600,6 +605,7 @@ declare module '@strapi/types' {
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.hero-content': ElementsHeroContent;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.list-accordion': ElementsListAccordion;
       'elements.title-with-image': ElementsTitleWithImage;

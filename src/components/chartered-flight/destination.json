@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "destinationDescription": {
+    "destinationInfo": {
       "type": "component",
       "repeatable": false,
-      "component": "chartered-flight.hero-content"
+      "component": "elements.hero-content"
     },
     "accordion": {
       "type": "component",
@@ -20,14 +20,18 @@
       "type": "string"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

@@ -1,19 +1,23 @@
 {
   "collectionName": "components_chartered_flight_fleets",
   "info": {
-    "displayName": "Fleet"
+    "displayName": "fleet",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "fleetDescription": {
+    "fleetInfo": {
       "type": "component",
       "repeatable": false,
-      "component": "chartered-flight.hero-content"
+      "component": "elements.hero-content"
     },
     "carousel": {
       "type": "component",
       "repeatable": true,
       "component": "elements.carousel"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

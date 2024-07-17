@@ -843,7 +843,7 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
     charteredFlightPage: Attribute.DynamicZone<
       [
         'elements.list-accordion',
-        'chartered-flight.hero-content',
+        'elements.hero-content',
         'elements.title-with-image',
         'chartered-flight.tab-section'
       ]
@@ -879,7 +879,7 @@ export interface ApiCharteredFlightTabCharteredFlightTab
     draftAndPublish: true;
   };
   attributes: {
-    tabSection: Attribute.DynamicZone<
+    tabs: Attribute.DynamicZone<
       [
         'chartered-flight.fleet',
         'chartered-flight.pricing-table',

@@ -14,7 +14,7 @@
     "tabDescription": {
       "type": "component",
       "repeatable": false,
-      "component": "chartered-flight.hero-content"
+      "component": "elements.hero-content"
     },
     "image": {
       "type": "media",
@@ -26,6 +26,9 @@
         "videos",
         "audios"
       ]
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }
