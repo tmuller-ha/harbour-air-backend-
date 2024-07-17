@@ -65,14 +65,19 @@ export interface ElementsAccordionDetails extends Schema.Component {
   collectionName: 'components_elements_accordion_details';
   info: {
     displayName: 'accordionDetails';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+  };
 }
 
 export interface ElementsAccordion extends Schema.Component {
   collectionName: 'components_elements_accordions';
   info: {
     displayName: 'accordion';
+    description: '';
   };
   attributes: {
     accordion: Attribute.Component<'elements.accordion-details', true>;
