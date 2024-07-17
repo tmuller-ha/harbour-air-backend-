@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chartered_flights_requests",
+  "info": {
+    "singularName": "chartered-flight-request",
+    "pluralName": "chartered-flight-requests",
+    "displayName": "Chartered Flights Requests"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "contactMethod": {
+      "type": "enumeration",
+      "enum": [
+        "Email",
+        "Phone"
+      ]
+    },
+    "journeyType": {
+      "type": "enumeration",
+      "enum": [
+        "One Way",
+        "Return"
+      ]
+    },
+    "outboundDate": {
+      "type": "date"
+    },
+    "preferredDeparture": {
+      "type": "string"
+    },
+    "preferredDeparturePoint": {
+      "type": "time"
+    },
+    "groupSize": {
+      "type": "integer"
+    },
+    "includesChildren": {
+      "type": "boolean"
+    },
+    "totalWeight": {
+      "type": "integer"
+    },
+    "requests": {
+      "type": "string"
+    },
+    "charteredAircraftBefore": {
+      "type": "boolean"
+    }
+  }
+}

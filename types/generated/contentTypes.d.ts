@@ -630,6 +630,80 @@ export interface PluginWebDeploymentDeployment extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsTourRequest extends Schema.CollectionType {
+  collectionName: 'tour_requests';
+  info: {
+    singularName: 'tour-request';
+    pluralName: 'tour-requests';
+    displayName: 'Tour Requests';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.tour-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.tour-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsCharteredFlightRequest
+  extends Schema.CollectionType {
+  collectionName: 'chartered_flights_requests';
+  info: {
+    singularName: 'chartered-flight-request';
+    pluralName: 'chartered-flight-requests';
+    displayName: 'Chartered Flights Requests';
+  };
+  options: {
+    draftAndPublish: true;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    telephone: Attribute.BigInteger;
+    email: Attribute.Email;
+    contactMethod: Attribute.Enumeration<['Email', 'Phone']>;
+    journeyType: Attribute.Enumeration<['One Way', 'Return']>;
+    outboundDate: Attribute.Date;
+    preferredDeparture: Attribute.String;
+    preferredDeparturePoint: Attribute.Time;
+    groupSize: Attribute.Integer;
+    includesChildren: Attribute.Boolean;
+    totalWeight: Attribute.Integer;
+    requests: Attribute.String;
+    charteredAircraftBefore: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.chartered-flight-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.chartered-flight-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1321,6 +1395,8 @@ declare module '@strapi/types' {
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
+      'plugin::forms.tour-request': PluginFormsTourRequest;
+      'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
