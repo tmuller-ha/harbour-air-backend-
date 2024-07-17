@@ -45,6 +45,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tour-location-detail.tour-location-detail"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

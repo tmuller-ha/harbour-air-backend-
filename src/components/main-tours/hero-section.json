@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_main_tours_hero_sections",
+  "info": {
+    "displayName": "HeroSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "heroSectionButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.button"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

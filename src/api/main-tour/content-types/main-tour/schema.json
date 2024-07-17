@@ -12,62 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "blocks"
-    },
-    "heroSectionButton": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.button"
-    },
-    "bookFlightsNow": {
-      "type": "string"
-    },
-    "heroBackgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "fareTitle": {
-      "type": "string"
-    },
-    "fareDescription": {
-      "type": "string"
-    },
-    "fareButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
-    "fareBackgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "tourLocation": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tour-location.tour-location"
-    },
-    "mainFeaturedTour": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::featured-tour.featured-tour"
-    },
-    "heroBtn": {
+    "mainTourPage": {
       "type": "dynamiczone",
       "components": [
-        "elements.button"
+        "main-tours.hero-section",
+        "main-tours.fare-section"
       ]
     }
   }

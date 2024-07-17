@@ -1286,26 +1286,9 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Blocks;
-    heroSectionButton: Attribute.Component<'elements.button', true>;
-    bookFlightsNow: Attribute.String;
-    heroBackgroundImage: Attribute.Media;
-    fareTitle: Attribute.String;
-    fareDescription: Attribute.String;
-    fareButton: Attribute.Component<'elements.button'>;
-    fareBackgroundImage: Attribute.Media & Attribute.Required;
-    tourLocation: Attribute.Relation<
-      'api::main-tour.main-tour',
-      'oneToOne',
-      'api::tour-location.tour-location'
+    mainTourPage: Attribute.DynamicZone<
+      ['main-tours.hero-section', 'main-tours.fare-section']
     >;
-    mainFeaturedTour: Attribute.Relation<
-      'api::main-tour.main-tour',
-      'oneToOne',
-      'api::featured-tour.featured-tour'
-    >;
-    heroBtn: Attribute.DynamicZone<['elements.button']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1368,18 +1351,17 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    heroBgImage: Attribute.Media;
-    locationCard: Attribute.Component<'tours.tour-cards', true>;
-    heroDescription: Attribute.Blocks;
-    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
-    featuredTour: Attribute.Relation<
-      'api::tour-location.tour-location',
-      'oneToOne',
-      'api::featured-tour.featured-tour'
+    tourLocationPage: Attribute.DynamicZone<
+      [
+        'tours.hero-description',
+        'tours.tour-cards',
+        'tours.featured-tours',
+        'elements.tour-card'
+      ]
     >;
-    mainTourLocations: Attribute.Component<'elements.tour-card', true>;
-    featuredTourHeading: Attribute.String;
+    name: Attribute.String;
+    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
+    heroBackgroundImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_tours_hero_descriptions",
+  "info": {
+    "displayName": "HeroDescription",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

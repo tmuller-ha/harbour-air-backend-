@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_main_tours_fare_sections",
+  "info": {
+    "displayName": "FareSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "fareButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "tripAdvisorComment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::trip-advisor-comment.trip-advisor-comment"
+    },
+    "tourlLocations": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tour-location.tour-location"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

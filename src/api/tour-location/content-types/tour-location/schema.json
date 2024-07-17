@@ -12,41 +12,28 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "heroBgImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
+    "tourLocationPage": {
+      "type": "dynamiczone",
+      "components": [
+        "tours.hero-description",
+        "tours.tour-cards",
+        "tours.featured-tours",
+        "elements.tour-card"
       ]
     },
-    "locationCard": {
-      "type": "component",
-      "repeatable": true,
-      "component": "tours.tour-cards"
-    },
-    "heroDescription": {
-      "type": "blocks"
+    "name": {
+      "type": "string"
     },
     "slug": {
       "type": "uid",
       "targetField": "name"
     },
-    "featuredTour": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::featured-tour.featured-tour"
-    },
-    "mainTourLocations": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.tour-card"
-    },
-    "featuredTourHeading": {
-      "type": "string"
+    "heroBackgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
