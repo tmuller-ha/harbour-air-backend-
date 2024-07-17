@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_chartered_flight_hero_contents",
+  "info": {
+    "displayName": "pageInfo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

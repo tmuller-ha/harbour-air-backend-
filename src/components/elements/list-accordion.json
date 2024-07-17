@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_list_accordions",
+  "info": {
+    "displayName": "accordion",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
