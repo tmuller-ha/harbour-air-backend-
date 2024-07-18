@@ -4,7 +4,8 @@
   "info": {
     "singularName": "trip-advisor-comment",
     "pluralName": "trip-advisor-comments",
-    "displayName": "TripAdvisor Comment"
+    "displayName": "TripAdvisor Comment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,11 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "tripAdvisorLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "comment": {
       "type": "string"
@@ -25,11 +27,12 @@
       "type": "string"
     },
     "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "featured_tour": {
       "type": "relation",

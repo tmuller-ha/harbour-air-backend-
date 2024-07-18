@@ -1465,6 +1465,7 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
     singularName: 'trip-advisor-comment';
     pluralName: 'trip-advisor-comments';
     displayName: 'TripAdvisor Comment';
+    description: '';
   };
   options: {
     draftAndPublish: true;
