@@ -1,13 +1,11 @@
 import { Strapi, factories } from "@strapi/strapi";
 
-export default factories.createCoreController("plugin::forms.tour-request", 
+export default factories.createCoreController("plugin::forms.chartered-flight-request", 
     ({strapi}: {strapi: Strapi}) => ({
         async findAll(ctx) {
-            console.log('*********IN CONTROLLER*************');
+            console.log('------IN CONTROLLER-----');
             try {
-                const results = await strapi.plugin("forms").service('tourRequest').getAllEntries();
-                console.log('--------AFTER SERVICE CALL--------');
-                return results;
+                return await strapi.plugin('forms').service('charteredFlightRequest').getAll();
             } catch (error) {
                 ctx.throw(500, error);
             }
@@ -15,7 +13,7 @@ export default factories.createCoreController("plugin::forms.tour-request",
         async findOne(ctx) {
             try {
                 const { id } = ctx.params;
-                return await strapi.plugin('forms').service('tourRequest').getOne(id);
+                return await strapi.plugin('forms').service('charteredFlightRequest').getOne(id);
             } catch (error) {
                 ctx.throw(500, error);
             }
@@ -23,21 +21,21 @@ export default factories.createCoreController("plugin::forms.tour-request",
         async remove(ctx) {
             try {
                 const { id } = ctx.params;
-                return await strapi.plugin('forms').service('tourRequest').delete(id);
+                return await strapi.plugin('forms').service('charteredFlightRequest').delete(id);
             } catch (error) {
                 ctx.throw(500, error);
             }
         },
         async update(ctx) {
             try {
-                return await strapi.plugin('forms').service('tourRequest').update(ctx.params.id, ctx.request.body);
+                return await strapi.plugin('forms').service('charteredFlightRequest').update(ctx.params.id, ctx.request.body);
             } catch (error) {
                 ctx.throw(500, error);
             }
         },
         async create(ctx) {
             try {
-                return await strapi.plugin('forms').service('tourRequest').create(ctx.request.body);
+                return await strapi.plugin('forms').service('charteredFlightRequest').create(ctx.request.body);
             } catch (error) {
                 ctx.throw(500, error);
             }

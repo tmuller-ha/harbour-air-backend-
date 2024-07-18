@@ -1,5 +1,7 @@
-import myController from './my-controller';
+import charteredFlightRequest from './chartered-flight-request';
+import tourRequest from './tour-request';
 
 export default {
-  myController,
+  tourRequest,
+  charteredFlightRequest,
 };

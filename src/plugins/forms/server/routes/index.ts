@@ -1,10 +1,7 @@
-export default [
-  {
-    method: 'GET',
-    path: '/',
-    handler: 'myController.index',
-    config: {
-      policies: [],
-    },
-  },
-];
+import charteredFlightRequest from "./chartered-flight-request";
+import tourRequest from "./tour-request";
+
+export default {
+  "chartered-flight-request" : charteredFlightRequest,
+  "tour-request" : tourRequest,
+};

@@ -662,11 +662,11 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
 
 export interface PluginFormsCharteredFlightRequest
   extends Schema.CollectionType {
-  collectionName: 'chartered_flights_requests';
+  collectionName: 'chartered_flight_requests';
   info: {
     singularName: 'chartered-flight-request';
     pluralName: 'chartered-flight-requests';
-    displayName: 'Chartered Flights Requests';
+    displayName: 'Chartered Flight Request';
   };
   options: {
     draftAndPublish: true;
@@ -674,13 +674,13 @@ export interface PluginFormsCharteredFlightRequest
   };
   attributes: {
     name: Attribute.String;
-    telephone: Attribute.BigInteger;
     email: Attribute.Email;
+    telephone: Attribute.BigInteger;
     contactMethod: Attribute.Enumeration<['Email', 'Phone']>;
-    journeyType: Attribute.Enumeration<['One Way', 'Return']>;
+    journeyType: Attribute.Enumeration<['One way', 'Return']>;
     outboundDate: Attribute.Date;
-    preferredDeparture: Attribute.String;
-    preferredDeparturePoint: Attribute.Time;
+    preferredDeparture: Attribute.Time;
+    preferredDeparturePoint: Attribute.String;
     groupSize: Attribute.Integer;
     includesChildren: Attribute.Boolean;
     totalWeight: Attribute.Integer;
