@@ -6,9 +6,9 @@
   },
   "options": {},
   "attributes": {
-    "chartered_flight_tab": {
+    "chartered_flight_tabs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::chartered-flight-tab.chartered-flight-tab"
     },
     "show": {

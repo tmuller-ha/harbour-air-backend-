@@ -1359,12 +1359,14 @@ export interface ApiTableTable extends Schema.CollectionType {
     singularName: 'table';
     pluralName: 'tables';
     displayName: 'Table';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    tableType: Attribute.DynamicZone<[]>;
+    tableType: Attribute.DynamicZone<['chartered-flight.table']>;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

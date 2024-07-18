@@ -4,7 +4,8 @@
   "info": {
     "singularName": "table",
     "pluralName": "tables",
-    "displayName": "Table"
+    "displayName": "Table",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,12 @@
   "attributes": {
     "tableType": {
       "type": "dynamiczone",
-      "components": []
+      "components": [
+        "chartered-flight.table"
+      ]
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

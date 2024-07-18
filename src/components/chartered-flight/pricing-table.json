@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "pricing": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::table.table"
-    },
     "tabDescription": {
       "type": "component",
       "repeatable": false,
@@ -29,6 +24,11 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "pricingTable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::table.table"
     }
   }
 }

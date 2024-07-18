@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CharteredFlightCharteredFlightTable extends Schema.Component {
+  collectionName: 'components_chartered_flight_chartered_flight_tables';
+  info: {
+    displayName: 'CharteredFlightTable';
+  };
+  attributes: {
+    destination: Attribute.String;
+    starting_At: Attribute.String;
+  };
+}
+
 export interface CharteredFlightDestination extends Schema.Component {
   collectionName: 'components_chartered_flight_destinations';
   info: {
@@ -34,14 +45,14 @@ export interface CharteredFlightPricingTable extends Schema.Component {
     description: '';
   };
   attributes: {
-    pricing: Attribute.Relation<
+    tabDescription: Attribute.Component<'elements.hero-content'>;
+    image: Attribute.Media;
+    show: Attribute.Boolean;
+    pricingTable: Attribute.Relation<
       'chartered-flight.pricing-table',
       'oneToOne',
       'api::table.table'
     >;
-    tabDescription: Attribute.Component<'elements.hero-content'>;
-    image: Attribute.Media;
-    show: Attribute.Boolean;
   };
 }
 
@@ -52,12 +63,22 @@ export interface CharteredFlightTabSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    chartered_flight_tab: Attribute.Relation<
+    chartered_flight_tabs: Attribute.Relation<
       'chartered-flight.tab-section',
-      'oneToOne',
+      'oneToMany',
       'api::chartered-flight-tab.chartered-flight-tab'
     >;
     show: Attribute.Boolean;
+  };
+}
+
+export interface CharteredFlightTable extends Schema.Component {
+  collectionName: 'components_chartered_flight_tables';
+  info: {
+    displayName: 'Table';
+  };
+  attributes: {
+    table: Attribute.Component<'chartered-flight.chartered-flight-table', true>;
   };
 }
 
@@ -605,10 +626,12 @@ export interface SeoSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'chartered-flight.chartered-flight-table': CharteredFlightCharteredFlightTable;
       'chartered-flight.destination': CharteredFlightDestination;
       'chartered-flight.fleet': CharteredFlightFleet;
       'chartered-flight.pricing-table': CharteredFlightPricingTable;
       'chartered-flight.tab-section': CharteredFlightTabSection;
+      'chartered-flight.table': CharteredFlightTable;
       'elements.accordion-details': ElementsAccordionDetails;
       'elements.accordion': ElementsAccordion;
       'elements.button': ElementsButton;
