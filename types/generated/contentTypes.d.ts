@@ -847,7 +847,14 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
         'chartered-flight.tab-section',
         'elements.accordion'
       ]
-    >;
+    > &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

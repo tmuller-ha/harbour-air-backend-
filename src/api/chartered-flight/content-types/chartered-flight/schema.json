@@ -19,7 +19,9 @@
         "elements.title-with-image",
         "chartered-flight.tab-section",
         "elements.accordion"
-      ]
+      ],
+      "min": 1,
+      "max": 1
     }
   }
 }
