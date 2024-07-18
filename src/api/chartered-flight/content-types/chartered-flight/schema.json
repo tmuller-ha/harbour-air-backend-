@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "chartered_flights",
+  "info": {
+    "singularName": "chartered-flight",
+    "pluralName": "chartered-flights",
+    "displayName": "Chartered Flight",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "charteredFlightPage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.hero-content",
+        "elements.title-with-image",
+        "chartered-flight.tab-section",
+        "elements.accordion"
+      ]
+    }
+  }
+}

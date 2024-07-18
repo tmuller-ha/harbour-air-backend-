@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_chartered_flight_pricing_tables",
+  "info": {
+    "displayName": "pricing",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pricing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::table.table"
+    },
+    "tabDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.hero-content"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
