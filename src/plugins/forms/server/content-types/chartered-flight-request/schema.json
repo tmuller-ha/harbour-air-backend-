@@ -11,52 +11,62 @@
     "comment": ""
   },
   "attributes": {
-    "name": {
-      "type": "string"
+    "Name": {
+      "type": "string",
+      "required": true
     },
-    "email": {
+    "Email": {
       "type": "email"
     },
-    "telephone": {
+    "Telephone": {
       "type": "biginteger"
     },
-    "contactMethod": {
+    "ContactMethod": {
       "type": "enumeration",
       "enum": [
         "Email",
         "Phone"
-      ]
+      ],
+      "required": true
     },
-    "journeyType": {
+    "JourneyType": {
       "type": "enumeration",
       "enum": [
         "One way",
         "Return"
-      ]
+      ],
+      "required": true
     },
-    "outboundDate": {
-      "type": "date"
+    "OutboundDate": {
+      "type": "date",
+      "required": true
     },
-    "preferredDeparture": {
-      "type": "time"
+    "PreferredDeparture": {
+      "type": "time",
+      "required": true
     },
-    "preferredDeparturePoint": {
+    "PreferredDeparturePoint": {
+      "type": "string",
+      "required": true
+    },
+    "GroupSize": {
+      "type": "integer",
+      "required": true
+    },
+    "IncludesChildren": {
+      "type": "boolean",
+      "required": true
+    },
+    "TotalWeight": {
+      "type": "integer",
+      "required": true
+    },
+    "Requests": {
       "type": "string"
     },
-    "groupSize": {
-      "type": "integer"
-    },
-    "includesChildren": {
-      "type": "boolean"
-    },
-    "totalWeight": {
-      "type": "integer"
-    },
-    "requests": {
-      "type": "string"
-    },
-    "charteredAircraftBefore": {
-      "type": "boolean"
+    "CharteredAircraftBefore": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

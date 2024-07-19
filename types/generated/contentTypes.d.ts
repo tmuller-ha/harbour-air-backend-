@@ -642,7 +642,16 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     comment: '';
   };
   attributes: {
-    name: Attribute.String;
+    Name: Attribute.String & Attribute.Required;
+    Email: Attribute.Email;
+    Telephone: Attribute.BigInteger;
+    DepartingLocation: Attribute.String & Attribute.Required;
+    TourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
+      Attribute.Required;
+    TourName: Attribute.String & Attribute.Required;
+    Passengers: Attribute.Integer & Attribute.Required;
+    Date: Attribute.Date & Attribute.Required;
+    Time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -673,19 +682,21 @@ export interface PluginFormsCharteredFlightRequest
     comment: '';
   };
   attributes: {
-    name: Attribute.String;
-    email: Attribute.Email;
-    telephone: Attribute.BigInteger;
-    contactMethod: Attribute.Enumeration<['Email', 'Phone']>;
-    journeyType: Attribute.Enumeration<['One way', 'Return']>;
-    outboundDate: Attribute.Date;
-    preferredDeparture: Attribute.Time;
-    preferredDeparturePoint: Attribute.String;
-    groupSize: Attribute.Integer;
-    includesChildren: Attribute.Boolean;
-    totalWeight: Attribute.Integer;
-    requests: Attribute.String;
-    charteredAircraftBefore: Attribute.Boolean;
+    Name: Attribute.String & Attribute.Required;
+    Email: Attribute.Email;
+    Telephone: Attribute.BigInteger;
+    ContactMethod: Attribute.Enumeration<['Email', 'Phone']> &
+      Attribute.Required;
+    JourneyType: Attribute.Enumeration<['One way', 'Return']> &
+      Attribute.Required;
+    OutboundDate: Attribute.Date & Attribute.Required;
+    PreferredDeparture: Attribute.Time & Attribute.Required;
+    PreferredDeparturePoint: Attribute.String & Attribute.Required;
+    GroupSize: Attribute.Integer & Attribute.Required;
+    IncludesChildren: Attribute.Boolean & Attribute.Required;
+    TotalWeight: Attribute.Integer & Attribute.Required;
+    Requests: Attribute.String;
+    CharteredAircraftBefore: Attribute.Boolean & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

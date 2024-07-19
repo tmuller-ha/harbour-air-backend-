@@ -2,7 +2,7 @@ export default {
     routes: [
         {
             method: "GET",
-            path: "/chartered-flight-request",
+            path: "/chartered-flight-requests",
             handler: "charteredFlightRequest.findAll",
             config: {
                 policies: [],
@@ -10,7 +10,7 @@ export default {
             }
         },{
             method: 'GET',
-            path: '/chartered-flight-request/:id',
+            path: '/chartered-flight-requests/:id',
             handler: 'charteredFlightRequest.findOne',
             config: {
               policies: [],
@@ -19,7 +19,7 @@ export default {
         },
         {
             method: 'DELETE',
-            path: '/chartered-flight-request/delete/:id',
+            path: '/chartered-flight-requests/delete/:id',
             handler: 'charteredFlightRequest.remove',
             config: {
               policies: [],
@@ -28,7 +28,7 @@ export default {
         },
         {
             method: 'PUT',
-            path: '/chartered-flight-request/update/:id',
+            path: '/chartered-flight-requests/update/:id',
             handler: 'charteredFlightRequest.update',
             config: {
               policies: [],
@@ -37,7 +37,7 @@ export default {
         },
         {
             method: 'POST',
-            path: '/chartered-flight-request/create',
+            path: '/chartered-flight-requests/create',
             handler: 'charteredFlightRequest.create',
             config: {
               policies: [],

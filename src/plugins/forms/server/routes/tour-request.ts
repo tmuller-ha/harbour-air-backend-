@@ -2,7 +2,7 @@ export default {
     routes: [
         {
             method: 'GET',
-            path: '/tours',
+            path: '/tour-requests',
             handler: 'tourRequest.findAll',
             config: {
               policies: [],
@@ -11,7 +11,7 @@ export default {
         },
         {
             method: 'GET',
-            path: '/tours/:id',
+            path: '/tour-requests/:id',
             handler: 'tourRequest.findOne',
             config: {
               policies: [],
@@ -20,7 +20,7 @@ export default {
         },
         {
             method: 'DELETE',
-            path: '/tours/delete/:id',
+            path: '/tour-requests/delete/:id',
             handler: 'tourRequest.remove',
             config: {
               policies: [],
@@ -29,7 +29,7 @@ export default {
         },
         {
             method: 'PUT',
-            path: '/tours/update/:id',
+            path: '/tour-requests/update/:id',
             handler: 'tourRequest.update',
             config: {
               policies: [],
@@ -38,7 +38,7 @@ export default {
         },
         {
             method: 'POST',
-            path: '/tours/create',
+            path: '/tour-requests/create',
             handler: 'tourRequest.create',
             config: {
               policies: [],
