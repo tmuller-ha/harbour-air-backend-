@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_title_with_images",
+  "info": {
+    "displayName": "Title With Image",
+    "icon": "seed"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "coverImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

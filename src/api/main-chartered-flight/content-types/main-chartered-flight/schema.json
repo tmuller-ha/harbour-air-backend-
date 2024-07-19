@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_chartered_flights",
+  "info": {
+    "singularName": "main-chartered-flight",
+    "pluralName": "main-chartered-flights",
+    "displayName": "Main chartered Flight",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-description",
+        "common.accordian"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_accordians",
+  "info": {
+    "displayName": "Accordian",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "tittle": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details"
+    }
+  }
+}

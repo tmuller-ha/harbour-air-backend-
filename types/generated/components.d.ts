@@ -1,5 +1,55 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CharteredFlightsPageDestination extends Schema.Component {
+  collectionName: 'components_chartered_flights_page_destinations';
+  info: {
+    displayName: 'Destination';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'elements.title-with-description'>;
+    images: Attribute.Media;
+    infoText: Attribute.String;
+    accordian: Attribute.Component<'common.accordian-details', true>;
+  };
+}
+
+export interface CharteredFlightsPageFleetTab extends Schema.Component {
+  collectionName: 'components_chartered_flights_page_fleet_tabs';
+  info: {
+    displayName: 'Fleet Tab';
+  };
+  attributes: {
+    heading: Attribute.Component<'elements.title-with-description'>;
+    images: Attribute.Media;
+  };
+}
+
+export interface CommonAccordianDetails extends Schema.Component {
+  collectionName: 'components_common_accordian_details';
+  info: {
+    displayName: 'Accordian Details';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Attribute.String;
+    content: Attribute.Blocks;
+  };
+}
+
+export interface CommonAccordian extends Schema.Component {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+  };
+  attributes: {
+    tittle: Attribute.String;
+    content: Attribute.Blocks;
+    details: Attribute.Component<'common.accordian-details', true>;
+  };
+}
+
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -59,6 +109,30 @@ export interface ElementsInstagramImages extends Schema.Component {
   attributes: {
     instaImage: Attribute.Media;
     slug: Attribute.String;
+  };
+}
+
+export interface ElementsTitleWithDescription extends Schema.Component {
+  collectionName: 'components_elements_title_with_descriptions';
+  info: {
+    displayName: 'Title With Description';
+    icon: 'strikeThrough';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Blocks & Attribute.Required;
+  };
+}
+
+export interface ElementsTitleWithImage extends Schema.Component {
+  collectionName: 'components_elements_title_with_images';
+  info: {
+    displayName: 'Title With Image';
+    icon: 'seed';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    coverImage: Attribute.Media;
   };
 }
 
@@ -525,6 +599,9 @@ export interface MainToursFeaturedTours extends Schema.Component {
       'main-tours.featured-tours',
       'oneToOne',
       'api::featured-tour.featured-tour'
+      'main-location.locations',
+      'oneToOne',
+      'api::location.location'
     >;
   };
 }
@@ -656,8 +733,13 @@ export interface ToursTourLocationCard extends Schema.Component {
 }
 
 declare module '@strapi/types' {
+declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
+      'common.accordian-details': CommonAccordianDetails;
+      'common.accordian': CommonAccordian;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
@@ -665,6 +747,8 @@ declare module '@strapi/types' {
       'elements.instagram-images': ElementsInstagramImages;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'elements.title-with-description': ElementsTitleWithDescription;
+      'elements.title-with-image': ElementsTitleWithImage;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;
@@ -691,16 +775,7 @@ declare module '@strapi/types' {
       'inside-location.starting-point': InsideLocationStartingPoint;
       'main-deals.deals': MainDealsDeals;
       'main-location.locations': MainLocationLocations;
-      'main-tours.fare-section': MainToursFareSection;
-      'main-tours.featured-tours': MainToursFeaturedTours;
-      'main-tours.hero-section': MainToursHeroSection;
-      'main-tours.tour-cards': MainToursTourCards;
       'seo.seo': SeoSeo;
-      'tours.fare-details': ToursFareDetails;
-      'tours.featured-tours': ToursFeaturedTours;
-      'tours.hero-description': ToursHeroDescription;
-      'tours.tour-cards': ToursTourCards;
-      'tours.tour-location-card': ToursTourLocationCard;
     }
   }
 }
