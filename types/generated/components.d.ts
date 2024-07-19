@@ -518,6 +518,23 @@ export interface MainToursFareSection extends Schema.Component {
   };
 }
 
+export interface MainToursFeaturedTours extends Schema.Component {
+  collectionName: 'components_main_tours_featured_tours';
+  info: {
+    displayName: 'FeaturedTours';
+    icon: 'crown';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    featuredTour: Attribute.Relation<
+      'main-tours.featured-tours',
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+  };
+}
+
 export interface MainToursHeroSection extends Schema.Component {
   collectionName: 'components_main_tours_hero_sections';
   info: {
@@ -678,6 +695,7 @@ declare module '@strapi/types' {
       'main-deals.deals': MainDealsDeals;
       'main-location.locations': MainLocationLocations;
       'main-tours.fare-section': MainToursFareSection;
+      'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.hero-section': MainToursHeroSection;
       'main-tours.tour-cards': MainToursTourCards;
       'seo.seo': SeoSeo;
