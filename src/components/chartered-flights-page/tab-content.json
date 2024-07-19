@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_chartered_flights_page_tab_contents",
+  "info": {
+    "displayName": "TabContent"
+  },
+  "options": {},
+  "attributes": {
+    "tabInformation": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tabs-chartered-flight.tabs-chartered-flight"
+    }
+  }
+}

@@ -1169,6 +1169,7 @@ export interface ApiMainCharteredFlightMainCharteredFlight
       [
         'elements.title-with-image',
         'elements.title-with-description',
+        'chartered-flights-page.tab-content',
         'common.accordian'
       ]
     >;
@@ -1306,6 +1307,36 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiTableTypeTableType extends Schema.CollectionType {
+  collectionName: 'table_types';
+  info: {
+    singularName: 'table-type';
+    pluralName: 'table-types';
+    displayName: 'Table Type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tableComponent: Attribute.DynamicZone<['elements.table-fields']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::table-type.table-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::table-type.table-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTabsCharteredFlightTabsCharteredFlight
   extends Schema.CollectionType {
   collectionName: 'tabs_chartered_flights';
@@ -1313,13 +1344,18 @@ export interface ApiTabsCharteredFlightTabsCharteredFlight
     singularName: 'tabs-chartered-flight';
     pluralName: 'tabs-chartered-flights';
     displayName: 'Tabs Chartered Flight';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     elements: Attribute.DynamicZone<
-      ['chartered-flights-page.destination', 'chartered-flights-page.fleet-tab']
+      [
+        'chartered-flights-page.destination',
+        'chartered-flights-page.fleet-tab',
+        'chartered-flights-page.pricing-tab'
+      ]
     > &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -1418,6 +1454,7 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
+      'api::table-type.table-type': ApiTableTypeTableType;
       'api::tabs-chartered-flight.tabs-chartered-flight': ApiTabsCharteredFlightTabsCharteredFlight;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }

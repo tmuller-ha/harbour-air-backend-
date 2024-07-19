@@ -17,6 +17,7 @@
       "components": [
         "elements.title-with-image",
         "elements.title-with-description",
+        "chartered-flights-page.tab-content",
         "common.accordian"
       ]
     }
