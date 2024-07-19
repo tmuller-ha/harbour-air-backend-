@@ -2,7 +2,8 @@
   "collectionName": "components_main_tours_tour_cards",
   "info": {
     "displayName": "TourCards",
-    "icon": "crown"
+    "icon": "crown",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,7 @@
     },
     "tourPlaces": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "elements.tour-card"
     }
   }

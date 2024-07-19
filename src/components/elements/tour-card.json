@@ -7,10 +7,10 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string"
     },
-    "backgroundImage": {
+    "heroImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -21,16 +21,10 @@
         "audios"
       ]
     },
-    "description": {
+    "shortDescription": {
       "type": "string"
-    },
-    "show": {
-      "type": "boolean"
     },
     "learnMoreBtnText": {
-      "type": "string"
-    },
-    "learnMoreBtnSlug": {
       "type": "string"
     }
   }

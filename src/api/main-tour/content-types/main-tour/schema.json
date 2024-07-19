@@ -16,7 +16,8 @@
       "type": "dynamiczone",
       "components": [
         "main-tours.hero-section",
-        "main-tours.fare-section"
+        "main-tours.fare-section",
+        "main-tours.featured-tours"
       ]
     }
   }

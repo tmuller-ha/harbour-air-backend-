@@ -1,7 +1,8 @@
 {
   "collectionName": "components_main_tours_hero_sections",
   "info": {
-    "displayName": "HeroSection"
+    "displayName": "HeroSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,7 +18,15 @@
       "component": "elements.button"
     },
     "show": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
+    },
+    "heroBackgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

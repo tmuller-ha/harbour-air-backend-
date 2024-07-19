@@ -70,12 +70,10 @@ export interface ElementsTourCard extends Schema.Component {
     icon: 'car';
   };
   attributes: {
-    title: Attribute.String;
-    backgroundImage: Attribute.Media;
-    description: Attribute.String;
-    show: Attribute.Boolean;
+    name: Attribute.String;
+    heroImage: Attribute.Media;
+    shortDescription: Attribute.String;
     learnMoreBtnText: Attribute.String;
-    learnMoreBtnSlug: Attribute.String;
   };
 }
 
@@ -498,20 +496,16 @@ export interface MainToursFareSection extends Schema.Component {
   collectionName: 'components_main_tours_fare_sections';
   info: {
     displayName: 'FareSection';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.String;
+    fareDescription: Attribute.String;
     fareButton: Attribute.Component<'elements.button'>;
     backgroundImage: Attribute.Media;
-    tripAdvisorComment: Attribute.Relation<
+    tourLocations: Attribute.Relation<
       'main-tours.fare-section',
-      'oneToOne',
-      'api::trip-advisor-comment.trip-advisor-comment'
-    >;
-    tourlLocations: Attribute.Relation<
-      'main-tours.fare-section',
-      'oneToOne',
+      'oneToMany',
       'api::tour-location.tour-location'
     >;
     show: Attribute.Boolean;
@@ -539,12 +533,14 @@ export interface MainToursHeroSection extends Schema.Component {
   collectionName: 'components_main_tours_hero_sections';
   info: {
     displayName: 'HeroSection';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Blocks;
     heroSectionButton: Attribute.Component<'elements.button', true>;
-    show: Attribute.Boolean;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    heroBackgroundImage: Attribute.Media;
   };
 }
 
@@ -553,10 +549,11 @@ export interface MainToursTourCards extends Schema.Component {
   info: {
     displayName: 'TourCards';
     icon: 'crown';
+    description: '';
   };
   attributes: {
     show: Attribute.Boolean;
-    tourPlaces: Attribute.Component<'elements.tour-card', true>;
+    tourPlaces: Attribute.Component<'elements.tour-card'>;
   };
 }
 

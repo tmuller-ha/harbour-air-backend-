@@ -1004,7 +1004,7 @@ export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.String;
     learnMoreButton: Attribute.Component<'elements.button'>;
-    tripAdvisorComments: Attribute.Relation<
+    tripAdvisorComment: Attribute.Relation<
       'api::featured-tour.featured-tour',
       'oneToMany',
       'api::trip-advisor-comment.trip-advisor-comment'
@@ -1287,7 +1287,11 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
   attributes: {
     mainTourPage: Attribute.DynamicZone<
-      ['main-tours.hero-section', 'main-tours.fare-section']
+      [
+        'main-tours.hero-section',
+        'main-tours.fare-section',
+        'main-tours.featured-tours'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1351,7 +1355,10 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    tourLocationPage: Attribute.DynamicZone<
+    name: Attribute.String;
+    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
+    heroBackgroundImage: Attribute.Media;
+    components: Attribute.DynamicZone<
       [
         'tours.hero-description',
         'tours.tour-cards',
@@ -1359,9 +1366,6 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
         'main-tours.tour-cards'
       ]
     >;
-    name: Attribute.String;
-    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
-    heroBackgroundImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

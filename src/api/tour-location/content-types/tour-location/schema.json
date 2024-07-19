@@ -12,15 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "tourLocationPage": {
-      "type": "dynamiczone",
-      "components": [
-        "tours.hero-description",
-        "tours.tour-cards",
-        "tours.featured-tours",
-        "main-tours.tour-cards"
-      ]
-    },
     "name": {
       "type": "string"
     },
@@ -34,6 +25,15 @@
       "required": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "tours.hero-description",
+        "tours.tour-cards",
+        "tours.featured-tours",
+        "main-tours.tour-cards"
       ]
     }
   }
