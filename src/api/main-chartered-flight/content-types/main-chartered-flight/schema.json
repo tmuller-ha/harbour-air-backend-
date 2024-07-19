@@ -4,7 +4,8 @@
   "info": {
     "singularName": "main-chartered-flight",
     "pluralName": "main-chartered-flights",
-    "displayName": "Main chartered Flight"
+    "displayName": "Main chartered Flight",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,7 @@
       "components": [
         "elements.title-with-image",
         "elements.title-with-description",
-        "elements.accordian-with-title-and-description"
+        "common.accordian"
       ]
     }
   }

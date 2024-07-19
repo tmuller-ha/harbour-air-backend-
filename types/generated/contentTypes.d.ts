@@ -1159,6 +1159,7 @@ export interface ApiMainCharteredFlightMainCharteredFlight
     singularName: 'main-chartered-flight';
     pluralName: 'main-chartered-flights';
     displayName: 'Main chartered Flight';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1168,7 +1169,7 @@ export interface ApiMainCharteredFlightMainCharteredFlight
       [
         'elements.title-with-image',
         'elements.title-with-description',
-        'elements.accordian-with-title-and-description'
+        'common.accordian'
       ]
     >;
     createdAt: Attribute.DateTime;

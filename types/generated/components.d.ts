@@ -9,11 +9,8 @@ export interface CharteredFlightsPageDestination extends Schema.Component {
   attributes: {
     heading: Attribute.Component<'elements.title-with-description'>;
     images: Attribute.Media;
-    accordian: Attribute.Component<
-      'elements.accordian-details-with-label-and-description',
-      true
-    >;
     infoText: Attribute.String;
+    accordian: Attribute.Component<'common.accordian-details', true>;
   };
 }
 
@@ -28,33 +25,28 @@ export interface CharteredFlightsPageFleetTab extends Schema.Component {
   };
 }
 
-export interface ElementsAccordianDetailsWithLabelAndDescription
-  extends Schema.Component {
-  collectionName: 'components_elements_accordian_details_with_label_and_descriptions';
+export interface CommonAccordianDetails extends Schema.Component {
+  collectionName: 'components_common_accordian_details';
   info: {
-    displayName: 'Accordian Details With Label And Description';
-    icon: 'filter';
-  };
-  attributes: {
-    label: Attribute.String & Attribute.Required;
-    description: Attribute.Blocks & Attribute.Required;
-  };
-}
-
-export interface ElementsAccordianWithTitleAndDescription
-  extends Schema.Component {
-  collectionName: 'components_elements_accordian_with_title_and_descriptions';
-  info: {
-    displayName: 'Accordian With Title And Description';
+    displayName: 'Accordian Details';
     icon: 'bulletList';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Blocks;
-    accordianDetailsWithLabelAndDescription: Attribute.Component<
-      'elements.accordian-details-with-label-and-description',
-      true
-    >;
+    label: Attribute.String;
+    content: Attribute.Blocks;
+  };
+}
+
+export interface CommonAccordian extends Schema.Component {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+  };
+  attributes: {
+    tittle: Attribute.String;
+    content: Attribute.Blocks;
+    details: Attribute.Component<'common.accordian-details', true>;
   };
 }
 
@@ -568,8 +560,8 @@ declare module '@strapi/types' {
     export interface Components {
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
-      'elements.accordian-details-with-label-and-description': ElementsAccordianDetailsWithLabelAndDescription;
-      'elements.accordian-with-title-and-description': ElementsAccordianWithTitleAndDescription;
+      'common.accordian-details': CommonAccordianDetails;
+      'common.accordian': CommonAccordian;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-article': ElementsHarbourAirArticle;

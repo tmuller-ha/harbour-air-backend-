@@ -19,13 +19,13 @@
         "images"
       ]
     },
+    "infoText": {
+      "type": "string"
+    },
     "accordian": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.accordian-details-with-label-and-description"
-    },
-    "infoText": {
-      "type": "string"
+      "component": "common.accordian-details"
     }
   }
 }
