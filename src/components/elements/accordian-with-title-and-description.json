@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_accordian_with_title_and_descriptions",
+  "info": {
+    "displayName": "Accordian With Title And Description",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "accordianDetailsWithLabelAndDescription": {
+      "displayName": "Accordian Details With Label And Description",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordian-details-with-label-and-description"
+    }
+  }
+}

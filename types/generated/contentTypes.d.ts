@@ -1152,6 +1152,43 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainCharteredFlightMainCharteredFlight
+  extends Schema.SingleType {
+  collectionName: 'main_chartered_flights';
+  info: {
+    singularName: 'main-chartered-flight';
+    pluralName: 'main-chartered-flights';
+    displayName: 'Main chartered Flight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'elements.accordian-with-title-and-description'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-chartered-flight.main-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-chartered-flight.main-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -1268,6 +1305,47 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiTabsCharteredFlightTabsCharteredFlight
+  extends Schema.CollectionType {
+  collectionName: 'tabs_chartered_flights';
+  info: {
+    singularName: 'tabs-chartered-flight';
+    pluralName: 'tabs-chartered-flights';
+    displayName: 'Tabs Chartered Flight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    elements: Attribute.DynamicZone<
+      ['chartered-flights-page.destination', 'chartered-flights-page.fleet-tab']
+    > &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tabs-chartered-flight.tabs-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tabs-chartered-flight.tabs-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   collectionName: 'trigger-build';
   info: {
@@ -1335,9 +1413,11 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::main-chartered-flight.main-chartered-flight': ApiMainCharteredFlightMainCharteredFlight;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
+      'api::tabs-chartered-flight.tabs-chartered-flight': ApiTabsCharteredFlightTabsCharteredFlight;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
   }

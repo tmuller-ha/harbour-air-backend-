@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_accordian_details_with_label_and_descriptions",
+  "info": {
+    "displayName": "Accordian Details With Label And Description",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}
