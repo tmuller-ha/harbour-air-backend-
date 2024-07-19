@@ -20,6 +20,14 @@
       "repeatable": false,
       "component": "elements.button"
     },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
     "description": {
       "type": "blocks"
     },
