@@ -1,10 +1,10 @@
 import { Strapi } from '@strapi/strapi';
 
 export default ({ strapi }: { strapi: Strapi }) => ({
-  index(ctx) {
+  getContentTypes(ctx) {
     ctx.body = strapi
       .plugin('forms')
       .service('myService')
-      .getWelcomeMessage();
+      .getContentTypes();
   },
 });
