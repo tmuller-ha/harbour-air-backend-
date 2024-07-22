@@ -754,11 +754,6 @@ export interface ToursTourLocationCard extends Schema.Component {
     fareText: Attribute.String;
     fare: Attribute.String;
     person: Attribute.String;
-    tourInsideLocationDetail: Attribute.Relation<
-      'tours.tour-location-card',
-      'oneToOne',
-      'api::tour-inside-location-detail.tour-inside-location-detail'
-    >;
   };
 }
 
