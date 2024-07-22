@@ -169,6 +169,35 @@ export interface ElementsTitleWithImage extends Schema.Component {
   };
 }
 
+export interface ElementsTourCard extends Schema.Component {
+  collectionName: 'components_elements_tour_cards';
+  info: {
+    displayName: 'TourCard';
+    description: '';
+    icon: 'car';
+  };
+  attributes: {
+    name: Attribute.String;
+    heroImage: Attribute.Media;
+    shortDescription: Attribute.String;
+    learnMoreBtnText: Attribute.String;
+  };
+}
+
+export interface ElementsTripAdvisor extends Schema.Component {
+  collectionName: 'components_elements_trip_advisors';
+  info: {
+    displayName: 'TripAdvisor';
+  };
+  attributes: {
+    tripAdvisorLogo: Attribute.Media & Attribute.Required;
+    comment: Attribute.String;
+    authorName: Attribute.String;
+    backgroundImage: Attribute.Media;
+    quoteImage: Attribute.Media;
+  };
+}
+
 export interface FaqAccordionData extends Schema.Component {
   collectionName: 'components_faq_accordion_data';
   info: {
@@ -570,6 +599,71 @@ export interface MainLocationLocations extends Schema.Component {
   };
 }
 
+export interface MainToursFareSection extends Schema.Component {
+  collectionName: 'components_main_tours_fare_sections';
+  info: {
+    displayName: 'FareSection';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    fareDescription: Attribute.String;
+    fareButton: Attribute.Component<'elements.button'>;
+    backgroundImage: Attribute.Media;
+    tourLocations: Attribute.Relation<
+      'main-tours.fare-section',
+      'oneToMany',
+      'api::tour-location.tour-location'
+    >;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface MainToursFeaturedTours extends Schema.Component {
+  collectionName: 'components_main_tours_featured_tours';
+  info: {
+    displayName: 'FeaturedTours';
+    icon: 'crown';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    featuredTour: Attribute.Relation<
+      'main-tours.featured-tours',
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+  };
+}
+
+export interface MainToursHeroSection extends Schema.Component {
+  collectionName: 'components_main_tours_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    heroSectionButton: Attribute.Component<'elements.button', true>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    heroBackgroundImage: Attribute.Media;
+  };
+}
+
+export interface MainToursTourCards extends Schema.Component {
+  collectionName: 'components_main_tours_tour_cards';
+  info: {
+    displayName: 'TourCards';
+    icon: 'crown';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    tourPlaces: Attribute.Component<'elements.tour-card'>;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -585,6 +679,86 @@ export interface SeoSeo extends Schema.Component {
     ogImage: Attribute.Media;
     markAsCanonical: Attribute.Boolean;
     noFollowNoIndex: Attribute.Boolean;
+  };
+}
+
+export interface ToursFareDetails extends Schema.Component {
+  collectionName: 'components_tours_fare_details';
+  info: {
+    displayName: 'fareDetails';
+  };
+  attributes: {
+    fareText: Attribute.String;
+    fare: Attribute.String;
+    person: Attribute.String;
+  };
+}
+
+export interface ToursFeaturedTours extends Schema.Component {
+  collectionName: 'components_tours_featured_tours';
+  info: {
+    displayName: 'FeaturedTours';
+    description: '';
+  };
+  attributes: {
+    featuredTourTitle: Attribute.String;
+    featuredTour: Attribute.Relation<
+      'tours.featured-tours',
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface ToursHeroDescription extends Schema.Component {
+  collectionName: 'components_tours_hero_descriptions';
+  info: {
+    displayName: 'HeroDescription';
+    description: '';
+  };
+  attributes: {
+    heroDescription: Attribute.Blocks;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface ToursTourCards extends Schema.Component {
+  collectionName: 'components_tours_tour_cards';
+  info: {
+    displayName: 'TourLocations';
+    description: '';
+  };
+  attributes: {
+    tourLocations: Attribute.Component<'tours.tour-location-card', true>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ToursTourLocationCard extends Schema.Component {
+  collectionName: 'components_tours_tour_location_cards';
+  info: {
+    displayName: 'TourLocationCard';
+    description: '';
+  };
+  attributes: {
+    locationImage: Attribute.Media;
+    title: Attribute.String;
+    duration: Attribute.String;
+    offers: Attribute.String;
+    description: Attribute.String;
+    bookBtnText: Attribute.String;
+    bookBtnSlug: Attribute.String;
+    makePrivateBtnText: Attribute.String;
+    makeitPrivateBtnSlug: Attribute.String;
+    fareText: Attribute.String;
+    fare: Attribute.String;
+    person: Attribute.String;
+    tourLocationDetail: Attribute.Relation<
+      'tours.tour-location-card',
+      'oneToOne',
+      'api::tour-location-detail.tour-location-detail'
+    >;
   };
 }
 
@@ -605,6 +779,8 @@ declare module '@strapi/types' {
       'elements.table-fields': ElementsTableFields;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
+      'elements.tour-card': ElementsTourCard;
+      'elements.trip-advisor': ElementsTripAdvisor;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;
@@ -631,7 +807,16 @@ declare module '@strapi/types' {
       'inside-location.starting-point': InsideLocationStartingPoint;
       'main-deals.deals': MainDealsDeals;
       'main-location.locations': MainLocationLocations;
+      'main-tours.fare-section': MainToursFareSection;
+      'main-tours.featured-tours': MainToursFeaturedTours;
+      'main-tours.hero-section': MainToursHeroSection;
+      'main-tours.tour-cards': MainToursTourCards;
       'seo.seo': SeoSeo;
+      'tours.fare-details': ToursFareDetails;
+      'tours.featured-tours': ToursFeaturedTours;
+      'tours.hero-description': ToursHeroDescription;
+      'tours.tour-cards': ToursTourCards;
+      'tours.tour-location-card': ToursTourLocationCard;
     }
   }
 }
