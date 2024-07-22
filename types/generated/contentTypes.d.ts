@@ -1172,6 +1172,13 @@ export interface ApiMainCharteredFlightMainCharteredFlight
         'common.accordian'
       ]
     >;
+    tabContent: Attribute.DynamicZone<
+      [
+        'chartered-flights-page.destination',
+        'chartered-flights-page.fleet-tab',
+        'chartered-flights-page.pricing-tab'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1306,47 +1313,6 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
-export interface ApiTabsCharteredFlightTabsCharteredFlight
-  extends Schema.CollectionType {
-  collectionName: 'tabs_chartered_flights';
-  info: {
-    singularName: 'tabs-chartered-flight';
-    pluralName: 'tabs-chartered-flights';
-    displayName: 'Tabs Chartered Flight';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    elements: Attribute.DynamicZone<
-      ['chartered-flights-page.destination', 'chartered-flights-page.fleet-tab']
-    > &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 1;
-        },
-        number
-      >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tabs-chartered-flight.tabs-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tabs-chartered-flight.tabs-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   collectionName: 'trigger-build';
   info: {
@@ -1418,7 +1384,6 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
-      'api::tabs-chartered-flight.tabs-chartered-flight': ApiTabsCharteredFlightTabsCharteredFlight;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
   }

@@ -25,6 +25,19 @@ export interface CharteredFlightsPageFleetTab extends Schema.Component {
   };
 }
 
+export interface CharteredFlightsPagePricingTab extends Schema.Component {
+  collectionName: 'components_chartered_flights_page_pricing_tabs';
+  info: {
+    displayName: 'Pricing Tab';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'elements.title-with-description'>;
+    pricingImg: Attribute.Media;
+    pricingData: Attribute.Component<'elements.pricing-table', true>;
+  };
+}
+
 export interface CommonAccordianDetails extends Schema.Component {
   collectionName: 'components_common_accordian_details';
   info: {
@@ -42,10 +55,9 @@ export interface CommonAccordian extends Schema.Component {
   info: {
     displayName: 'Accordian';
     icon: 'filter';
+    description: '';
   };
   attributes: {
-    tittle: Attribute.String;
-    content: Attribute.Blocks;
     details: Attribute.Component<'common.accordian-details', true>;
   };
 }
@@ -109,6 +121,27 @@ export interface ElementsInstagramImages extends Schema.Component {
   attributes: {
     instaImage: Attribute.Media;
     slug: Attribute.String;
+  };
+}
+
+export interface ElementsPricingTable extends Schema.Component {
+  collectionName: 'components_elements_pricing_tables';
+  info: {
+    displayName: 'pricingTable';
+  };
+  attributes: {
+    destination_Column: Attribute.String;
+    starting_At_Column: Attribute.String;
+  };
+}
+
+export interface ElementsTableFields extends Schema.Component {
+  collectionName: 'components_elements_table_fields';
+  info: {
+    displayName: 'tableFields';
+  };
+  attributes: {
+    tableInformation: Attribute.Component<'elements.pricing-table', true>;
   };
 }
 
@@ -560,6 +593,7 @@ declare module '@strapi/types' {
     export interface Components {
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
+      'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'common.accordian-details': CommonAccordianDetails;
       'common.accordian': CommonAccordian;
       'elements.button': ElementsButton;
@@ -567,6 +601,8 @@ declare module '@strapi/types' {
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
+      'elements.pricing-table': ElementsPricingTable;
+      'elements.table-fields': ElementsTableFields;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'faq.accordion-data': FaqAccordionData;
