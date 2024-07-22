@@ -34,11 +34,7 @@ export interface CharteredFlightsPagePricingTab extends Schema.Component {
   attributes: {
     heading: Attribute.Component<'elements.title-with-description'>;
     pricingImg: Attribute.Media;
-    pricingTableData: Attribute.Relation<
-      'chartered-flights-page.pricing-tab',
-      'oneToOne',
-      'api::table-type.table-type'
-    >;
+    pricingData: Attribute.Component<'elements.pricing-table', true>;
   };
 }
 

@@ -1313,36 +1313,6 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
-export interface ApiTableTypeTableType extends Schema.CollectionType {
-  collectionName: 'table_types';
-  info: {
-    singularName: 'table-type';
-    pluralName: 'table-types';
-    displayName: 'Table Type';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    tableComponent: Attribute.DynamicZone<['elements.table-fields']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::table-type.table-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::table-type.table-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   collectionName: 'trigger-build';
   info: {
@@ -1414,7 +1384,6 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::notice.notice': ApiNoticeNotice;
-      'api::table-type.table-type': ApiTableTypeTableType;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
     }
   }

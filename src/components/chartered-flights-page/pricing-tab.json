@@ -22,10 +22,10 @@
         "audios"
       ]
     },
-    "pricingTableData": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::table-type.table-type"
+    "pricingData": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.pricing-table"
     }
   }
 }
