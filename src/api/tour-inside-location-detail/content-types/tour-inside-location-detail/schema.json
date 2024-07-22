@@ -46,6 +46,12 @@
     },
     "overviewDescription": {
       "type": "blocks"
+    },
+    "tour_location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour-location.tour-location",
+      "inversedBy": "tours"
     }
   }
 }

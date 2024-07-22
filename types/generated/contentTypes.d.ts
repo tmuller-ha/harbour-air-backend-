@@ -1409,6 +1409,11 @@ export interface ApiTourInsideLocationDetailTourInsideLocationDetail
     detailsTitle: Attribute.String;
     detailsDescription: Attribute.Blocks;
     overviewDescription: Attribute.Blocks;
+    tour_location: Attribute.Relation<
+      'api::tour-inside-location-detail.tour-inside-location-detail',
+      'manyToOne',
+      'api::tour-location.tour-location'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1449,6 +1454,11 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
         'tours.featured-tours',
         'main-tours.tour-cards'
       ]
+    >;
+    tours: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToMany',
+      'api::tour-inside-location-detail.tour-inside-location-detail'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

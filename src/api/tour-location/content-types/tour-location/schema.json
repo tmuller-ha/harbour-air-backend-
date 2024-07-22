@@ -35,6 +35,12 @@
         "tours.featured-tours",
         "main-tours.tour-cards"
       ]
+    },
+    "tours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tour-inside-location-detail.tour-inside-location-detail",
+      "mappedBy": "tour_location"
     }
   }
 }
