@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "tour_location_details",
+  "collectionName": "tour_inside_location_details",
   "info": {
-    "singularName": "tour-location-detail",
-    "pluralName": "tour-location-details",
-    "displayName": "TourLocation Detail",
-    "description": ""
+    "singularName": "tour-inside-location-detail",
+    "pluralName": "tour-inside-location-details",
+    "displayName": "Tour Inside Location Detail"
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +15,14 @@
       "type": "string"
     },
     "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images"
-      ]
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "tourFareDetail": {
       "type": "component",
@@ -37,13 +38,13 @@
     "overviewTitle": {
       "type": "string"
     },
-    "overviewDescription": {
-      "type": "string"
-    },
     "detailsTitle": {
       "type": "string"
     },
     "detailsDescription": {
+      "type": "blocks"
+    },
+    "overviewDescription": {
       "type": "blocks"
     }
   }

@@ -738,7 +738,7 @@ export interface ToursTourCards extends Schema.Component {
 export interface ToursTourLocationCard extends Schema.Component {
   collectionName: 'components_tours_tour_location_cards';
   info: {
-    displayName: 'TourLocationCard';
+    displayName: 'TourInsideLocationCard';
     description: '';
   };
   attributes: {
@@ -754,10 +754,10 @@ export interface ToursTourLocationCard extends Schema.Component {
     fareText: Attribute.String;
     fare: Attribute.String;
     person: Attribute.String;
-    tourLocationDetail: Attribute.Relation<
+    tourInsideLocationDetail: Attribute.Relation<
       'tours.tour-location-card',
       'oneToOne',
-      'api::tour-location-detail.tour-location-detail'
+      'api::tour-inside-location-detail.tour-inside-location-detail'
     >;
   };
 }
