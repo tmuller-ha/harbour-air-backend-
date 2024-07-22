@@ -17,8 +17,15 @@
       "components": [
         "elements.title-with-image",
         "elements.title-with-description",
-        "chartered-flights-page.tab-content",
         "common.accordian"
+      ]
+    },
+    "tabContent": {
+      "type": "dynamiczone",
+      "components": [
+        "chartered-flights-page.destination",
+        "chartered-flights-page.fleet-tab",
+        "chartered-flights-page.pricing-tab"
       ]
     }
   }

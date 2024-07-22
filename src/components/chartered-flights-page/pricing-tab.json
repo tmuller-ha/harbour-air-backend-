@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "pricingDescription": {
+    "heading": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-description"

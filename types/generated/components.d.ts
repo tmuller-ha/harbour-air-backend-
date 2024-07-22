@@ -32,26 +32,12 @@ export interface CharteredFlightsPagePricingTab extends Schema.Component {
     description: '';
   };
   attributes: {
-    pricingDescription: Attribute.Component<'elements.title-with-description'>;
+    heading: Attribute.Component<'elements.title-with-description'>;
     pricingImg: Attribute.Media;
     pricingTableData: Attribute.Relation<
       'chartered-flights-page.pricing-tab',
       'oneToOne',
       'api::table-type.table-type'
-    >;
-  };
-}
-
-export interface CharteredFlightsPageTabContent extends Schema.Component {
-  collectionName: 'components_chartered_flights_page_tab_contents';
-  info: {
-    displayName: 'TabContent';
-  };
-  attributes: {
-    tabInformation: Attribute.Relation<
-      'chartered-flights-page.tab-content',
-      'oneToMany',
-      'api::tabs-chartered-flight.tabs-chartered-flight'
     >;
   };
 }
@@ -612,7 +598,6 @@ declare module '@strapi/types' {
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
-      'chartered-flights-page.tab-content': CharteredFlightsPageTabContent;
       'common.accordian-details': CommonAccordianDetails;
       'common.accordian': CommonAccordian;
       'elements.button': ElementsButton;
