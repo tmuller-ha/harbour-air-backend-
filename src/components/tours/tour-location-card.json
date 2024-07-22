@@ -1,7 +1,7 @@
 {
   "collectionName": "components_tours_tour_location_cards",
   "info": {
-    "displayName": "TourLocationCard",
+    "displayName": "TourInsideLocationCard",
     "description": ""
   },
   "options": {},
@@ -47,10 +47,10 @@
     "person": {
       "type": "string"
     },
-    "tourLocationDetail": {
+    "tourInsideLocationDetail": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::tour-location-detail.tour-location-detail"
+      "target": "api::tour-inside-location-detail.tour-inside-location-detail"
     }
   }
 }
