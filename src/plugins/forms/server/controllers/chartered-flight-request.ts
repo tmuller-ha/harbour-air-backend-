@@ -3,9 +3,8 @@ import { Strapi, factories } from "@strapi/strapi";
 export default factories.createCoreController("plugin::forms.chartered-flight-request", 
     ({strapi}: {strapi: Strapi}) => ({
         async findAll(ctx) {
-            console.log('------IN CONTROLLER-----');
             try {
-                return await strapi.plugin('forms').service('charteredFlightRequest').getAll();
+                return await strapi.plugin('forms').service('charteredFlightRequest').getAll(ctx.query);
             } catch (error) {
                 ctx.throw(500, error);
             }

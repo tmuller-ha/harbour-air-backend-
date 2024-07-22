@@ -641,17 +641,25 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Email: Attribute.Email;
-    Telephone: Attribute.BigInteger;
-    DepartingLocation: Attribute.String & Attribute.Required;
-    TourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
+    name: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    telephone: Attribute.BigInteger & Attribute.Required;
+    departingLocation: Attribute.String & Attribute.Required;
+    tourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
       Attribute.Required;
-    TourName: Attribute.String & Attribute.Required;
-    Passengers: Attribute.Integer & Attribute.Required;
-    Date: Attribute.Date & Attribute.Required;
-    Time: Attribute.Time & Attribute.Required;
+    tourName: Attribute.String & Attribute.Required;
+    passengers: Attribute.Integer & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -678,28 +686,35 @@ export interface PluginFormsCharteredFlightRequest
     displayName: 'Chartered Flight Request';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Email: Attribute.Email;
-    Telephone: Attribute.BigInteger;
-    ContactMethod: Attribute.Enumeration<['Email', 'Phone']> &
+    name: Attribute.String & Attribute.Required;
+    email: Attribute.Email;
+    telephone: Attribute.BigInteger;
+    contactMethod: Attribute.Enumeration<['Email', 'Phone']> &
       Attribute.Required;
-    JourneyType: Attribute.Enumeration<['One way', 'Return']> &
+    journeyType: Attribute.Enumeration<['One way', 'Return']> &
       Attribute.Required;
-    OutboundDate: Attribute.Date & Attribute.Required;
-    PreferredDeparture: Attribute.Time & Attribute.Required;
-    PreferredDeparturePoint: Attribute.String & Attribute.Required;
-    GroupSize: Attribute.Integer & Attribute.Required;
-    IncludesChildren: Attribute.Boolean & Attribute.Required;
-    TotalWeight: Attribute.Integer & Attribute.Required;
-    Requests: Attribute.String;
-    CharteredAircraftBefore: Attribute.Boolean & Attribute.Required;
+    outboundDate: Attribute.Date & Attribute.Required;
+    preferredDeparture: Attribute.Time & Attribute.Required;
+    preferredDeparturePoint: Attribute.String & Attribute.Required;
+    groupSize: Attribute.Integer & Attribute.Required;
+    includesChildren: Attribute.Boolean & Attribute.Required;
+    totalWeight: Attribute.Integer & Attribute.Required;
+    requests: Attribute.String;
+    charteredAircraftBefore: Attribute.Boolean & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'plugin::forms.chartered-flight-request',
       'oneToOne',
@@ -1073,6 +1088,45 @@ export interface ApiFaqContentFaqContent extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
+  collectionName: 'featured_tours';
+  info: {
+    singularName: 'featured-tour';
+    pluralName: 'featured-tours';
+    displayName: 'Featured Tour';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundImage: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    learnMoreButton: Attribute.Component<'elements.button'>;
+    tripAdvisorComment: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToMany',
+      'api::trip-advisor-comment.trip-advisor-comment'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -1237,6 +1291,51 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainCharteredFlightMainCharteredFlight
+  extends Schema.SingleType {
+  collectionName: 'main_chartered_flights';
+  info: {
+    singularName: 'main-chartered-flight';
+    pluralName: 'main-chartered-flights';
+    displayName: 'Main chartered Flight';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'common.accordian'
+      ]
+    >;
+    tabContent: Attribute.DynamicZone<
+      [
+        'chartered-flights-page.destination',
+        'chartered-flights-page.fleet-tab',
+        'chartered-flights-page.pricing-tab'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-chartered-flight.main-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-chartered-flight.main-chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -1294,7 +1393,6 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     heroSectionButton: Attribute.Component<'elements.button'>;
-    video: Attribute.Media;
     description: Attribute.Blocks;
     bookFlightNow: Attribute.String;
     backgroundImage: Attribute.Media;
@@ -1314,6 +1412,43 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::main-location.main-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMainTourMainTour extends Schema.SingleType {
+  collectionName: 'tours';
+  info: {
+    singularName: 'main-tour';
+    pluralName: 'main-tours';
+    displayName: 'Main Tour';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mainTourPage: Attribute.DynamicZone<
+      [
+        'main-tours.hero-section',
+        'main-tours.fare-section',
+        'main-tours.featured-tours'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-tour.main-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-tour.main-tour',
       'oneToOne',
       'admin::user'
     > &
@@ -1346,6 +1481,96 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::notice.notice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTourInsideLocationDetailTourInsideLocationDetail
+  extends Schema.CollectionType {
+  collectionName: 'tour_inside_location_details';
+  info: {
+    singularName: 'tour-inside-location-detail';
+    pluralName: 'tour-inside-location-details';
+    displayName: 'Tour Inside Location Detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    backgroundImage: Attribute.Media;
+    tourFareDetail: Attribute.Component<'tours.fare-details', true>;
+    departsText: Attribute.String;
+    departLocation: Attribute.String;
+    overviewTitle: Attribute.String;
+    detailsTitle: Attribute.String;
+    detailsDescription: Attribute.Blocks;
+    overviewDescription: Attribute.Blocks;
+    tour_location: Attribute.Relation<
+      'api::tour-inside-location-detail.tour-inside-location-detail',
+      'manyToOne',
+      'api::tour-location.tour-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tour-inside-location-detail.tour-inside-location-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tour-inside-location-detail.tour-inside-location-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTourLocationTourLocation extends Schema.CollectionType {
+  collectionName: 'tour_locations';
+  info: {
+    singularName: 'tour-location';
+    pluralName: 'tour-locations';
+    displayName: 'Tour Location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.UID<'api::tour-location.tour-location', 'name'>;
+    heroBackgroundImage: Attribute.Media;
+    components: Attribute.DynamicZone<
+      [
+        'tours.hero-description',
+        'tours.tour-cards',
+        'tours.featured-tours',
+        'main-tours.tour-cards'
+      ]
+    >;
+    tours: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToMany',
+      'api::tour-inside-location-detail.tour-inside-location-detail'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tour-location.tour-location',
       'oneToOne',
       'admin::user'
     > &
@@ -1391,6 +1616,46 @@ export interface ApiTriggerBuildTriggerBuild extends Schema.SingleType {
   };
 }
 
+export interface ApiTripAdvisorCommentTripAdvisorComment
+  extends Schema.CollectionType {
+  collectionName: 'trip_advisor_comments';
+  info: {
+    singularName: 'trip-advisor-comment';
+    pluralName: 'trip-advisor-comments';
+    displayName: 'TripAdvisor Comment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tripAdvisorLogo: Attribute.Media;
+    comment: Attribute.String;
+    commenter: Attribute.String;
+    backgroundImage: Attribute.Media;
+    featured_tour: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'manyToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trip-advisor-comment.trip-advisor-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1417,15 +1682,21 @@ declare module '@strapi/types' {
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
+      'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::main-chartered-flight.main-chartered-flight': ApiMainCharteredFlightMainCharteredFlight;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
+      'api::main-tour.main-tour': ApiMainTourMainTour;
       'api::notice.notice': ApiNoticeNotice;
+      'api::tour-inside-location-detail.tour-inside-location-detail': ApiTourInsideLocationDetailTourInsideLocationDetail;
+      'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
+      'api::trip-advisor-comment.trip-advisor-comment': ApiTripAdvisorCommentTripAdvisorComment;
     }
   }
 }

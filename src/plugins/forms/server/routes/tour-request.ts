@@ -1,4 +1,5 @@
 export default {
+  type: "content-api",
     routes: [
         {
             method: 'GET',
@@ -20,7 +21,7 @@ export default {
         },
         {
             method: 'DELETE',
-            path: '/tour-requests/delete/:id',
+            path: '/tour-requests/:id',
             handler: 'tourRequest.remove',
             config: {
               policies: [],
@@ -29,7 +30,7 @@ export default {
         },
         {
             method: 'PUT',
-            path: '/tour-requests/update/:id',
+            path: '/tour-requests/:id',
             handler: 'tourRequest.update',
             config: {
               policies: [],
@@ -38,7 +39,7 @@ export default {
         },
         {
             method: 'POST',
-            path: '/tour-requests/create',
+            path: '/tour-requests',
             handler: 'tourRequest.create',
             config: {
               policies: [],

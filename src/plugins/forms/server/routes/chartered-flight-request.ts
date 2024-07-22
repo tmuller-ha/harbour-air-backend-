@@ -1,4 +1,5 @@
 export default {
+  type: "content-api",
     routes: [
         {
             method: "GET",
@@ -19,7 +20,7 @@ export default {
         },
         {
             method: 'DELETE',
-            path: '/chartered-flight-requests/delete/:id',
+            path: '/chartered-flight-requests/:id',
             handler: 'charteredFlightRequest.remove',
             config: {
               policies: [],
@@ -28,7 +29,7 @@ export default {
         },
         {
             method: 'PUT',
-            path: '/chartered-flight-requests/update/:id',
+            path: '/chartered-flight-requests/:id',
             handler: 'charteredFlightRequest.update',
             config: {
               policies: [],
@@ -37,7 +38,7 @@ export default {
         },
         {
             method: 'POST',
-            path: '/chartered-flight-requests/create',
+            path: '/chartered-flight-requests',
             handler: 'charteredFlightRequest.create',
             config: {
               policies: [],

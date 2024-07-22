@@ -3,10 +3,8 @@ import { Strapi, factories } from "@strapi/strapi";
 export default factories.createCoreController("plugin::forms.tour-request", 
     ({strapi}: {strapi: Strapi}) => ({
         async findAll(ctx) {
-            console.log('*********IN CONTROLLER*************');
             try {
-                const results = await strapi.plugin("forms").service('tourRequest').getAllEntries();
-                console.log('--------AFTER SERVICE CALL--------');
+                const results = await strapi.plugin("forms").service('tourRequest').getAllEntries(ctx.query);
                 return results;
             } catch (error) {
                 ctx.throw(500, error);

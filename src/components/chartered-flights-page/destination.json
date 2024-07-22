@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_chartered_flights_page_destinations",
+  "info": {
+    "displayName": "Destination",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "infoText": {
+      "type": "string"
+    },
+    "accordian": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details"
+    }
+  }
+}

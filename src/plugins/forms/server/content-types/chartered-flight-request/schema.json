@@ -7,21 +7,29 @@
     "displayName": "Chartered Flight Request"
   },
   "options": {
-    "draftAndPublish": true,
+    "draftAndPublish": false,
     "comment": ""
   },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Email": {
+    "email": {
       "type": "email"
     },
-    "Telephone": {
+    "telephone": {
       "type": "biginteger"
     },
-    "ContactMethod": {
+    "contactMethod": {
       "type": "enumeration",
       "enum": [
         "Email",
@@ -29,7 +37,7 @@
       ],
       "required": true
     },
-    "JourneyType": {
+    "journeyType": {
       "type": "enumeration",
       "enum": [
         "One way",
@@ -37,34 +45,34 @@
       ],
       "required": true
     },
-    "OutboundDate": {
+    "outboundDate": {
       "type": "date",
       "required": true
     },
-    "PreferredDeparture": {
+    "preferredDeparture": {
       "type": "time",
       "required": true
     },
-    "PreferredDeparturePoint": {
+    "preferredDeparturePoint": {
       "type": "string",
       "required": true
     },
-    "GroupSize": {
+    "groupSize": {
       "type": "integer",
       "required": true
     },
-    "IncludesChildren": {
+    "includesChildren": {
       "type": "boolean",
       "required": true
     },
-    "TotalWeight": {
+    "totalWeight": {
       "type": "integer",
       "required": true
     },
-    "Requests": {
+    "requests": {
       "type": "string"
     },
-    "CharteredAircraftBefore": {
+    "charteredAircraftBefore": {
       "type": "boolean",
       "required": true
     }

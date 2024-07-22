@@ -15,21 +15,27 @@ import {
   Tbody,
   Td,
   Link,
+  Typography,
 } from "@strapi/design-system";
+import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import { request } from "@strapi/helper-plugin";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const [forms, setForms] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsLoading(true);
     request("/forms").then((response: any) => {
       setForms(response);
+      setIsLoading(false);
     });
   }, []);
 
   console.log(forms);
 
+  if(isLoading) return <LoadingIndicatorPage/>
   return (
     <Layout>
       <BaseHeaderLayout
@@ -41,8 +47,8 @@ const HomePage = () => {
         <Table>
           <Thead>
             <Tr>
-              <Th>ID</Th>
-              <Th>NAME</Th>
+              <Th><Typography textColor="neutral600" variant="sigma">ID</Typography></Th>
+              <Th><Typography textColor="neutral600" variant="sigma">NAME</Typography></Th>
             </Tr>
           </Thead>
           <Tbody>

@@ -10,22 +10,32 @@
     "draftAndPublish": false,
     "comment": ""
   },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Email": {
-      "type": "email"
+    "email": {
+      "type": "email",
+      "required": true
     },
-    "Telephone": {
-      "type": "biginteger"
+    "telephone": {
+      "type": "biginteger",
+      "required": true
     },
-    "DepartingLocation": {
+    "departingLocation": {
       "type": "string",
       "required": true
     },
-    "TourType": {
+    "tourType": {
       "type": "enumeration",
       "enum": [
         "Normal Tour",
@@ -33,19 +43,19 @@
       ],
       "required": true
     },
-    "TourName": {
+    "tourName": {
       "type": "string",
       "required": true
     },
-    "Passengers": {
+    "passengers": {
       "type": "integer",
       "required": true
     },
-    "Date": {
+    "date": {
       "type": "date",
       "required": true
     },
-    "Time": {
+    "time": {
       "type": "time",
       "required": true
     }

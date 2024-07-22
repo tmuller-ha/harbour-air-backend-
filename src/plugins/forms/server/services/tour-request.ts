@@ -2,9 +2,14 @@ import { factories, Strapi } from '@strapi/strapi';
 
 export default factories.createCoreService('plugin::forms.tour-request', 
  ({ strapi }: { strapi: Strapi }) => ({
-  async getAllEntries() {
-    console.log('*********IN SERVICE*************');
-    return await strapi.entityService?.findMany('plugin::forms.tour-request');
+  async getAllEntries(query) {
+    const {start, limit} = query;
+    const data = await strapi.entityService?.findMany('plugin::forms.tour-request', {
+      start: start,
+      limit: limit,
+    });
+    const totalData = await strapi.entityService?.findMany('plugin::forms.tour-request');
+    return {data, total: totalData?.length};
   },
   async getOne(id) {
     return await strapi.entityService?.findOne('plugin::forms.tour-request', id);
