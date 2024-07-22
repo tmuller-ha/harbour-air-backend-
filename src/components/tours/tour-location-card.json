@@ -46,11 +46,6 @@
     },
     "person": {
       "type": "string"
-    },
-    "tourInsideLocationDetail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tour-inside-location-detail.tour-inside-location-detail"
     }
   }
 }
