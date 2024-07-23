@@ -45,10 +45,12 @@ const ContentTypePage = () => {
     return getQuery();
   }, [startingPage, pageSize]);
 
-  const { data, error, isLoading, totalDataCount } = useFetch({
+  const { data, error, isLoading } = useFetch({
     url: `/api/forms/${contentType}?${queries()}`,
     options: { method: "GET" },
   });
+
+  const {paginatedData, totalDataCount} = data || {};
 
   const totalPageCount = useMemo(
     () => Math.ceil(totalDataCount / pageSize),
@@ -98,21 +100,23 @@ const ContentTypePage = () => {
         <Table>
           <Thead>
             <Tr>
-              {data
-                ? Object.keys(data?.[0]).map((field: string, index: number) => {
-                    return (
-                      <Th key={index}>
-                        <Typography textColor="neutral600" variant="delta">
-                          {camelCaseToReadable(field)}
-                        </Typography>
-                      </Th>
-                    );
-                  })
+              {paginatedData
+                ? Object.keys(paginatedData?.[0]).map(
+                    (field: string, index: number) => {
+                      return (
+                        <Th key={index}>
+                          <Typography textColor="neutral600" variant="delta">
+                            {camelCaseToReadable(field)}
+                          </Typography>
+                        </Th>
+                      );
+                    }
+                  )
                 : null}
             </Tr>
           </Thead>
           <Tbody>
-            {data?.map((content: any) => {
+            {paginatedData?.map((content: any) => {
               return (
                 <Tr>
                   {Object.keys(content).map((field) => {

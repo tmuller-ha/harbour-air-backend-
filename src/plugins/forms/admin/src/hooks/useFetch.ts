@@ -9,7 +9,6 @@ interface ReturnData {
   data: any;
   error: any;
   isLoading: boolean;
-  totalDataCount: number;
 }
 const useFetch = ({
   url,
@@ -20,15 +19,12 @@ const useFetch = ({
   const [data, setData] = useState<any>();
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [totalDataCount, setTotalDataCount] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const response = await request(url, options);
-        console.log("response", response);
-        setData(response.data);
-        setTotalDataCount(response.total);
+        setData(response);
       } catch (error: any) {
         if (typeof error === "string") {
           setError(error);
@@ -41,7 +37,7 @@ const useFetch = ({
     };
     fetchData();
   }, [url]);
-  return { data, error, isLoading, totalDataCount };
+  return { data, error, isLoading };
 };
 
 export default useFetch;
