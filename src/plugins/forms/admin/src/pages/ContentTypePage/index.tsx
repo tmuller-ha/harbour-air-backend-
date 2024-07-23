@@ -14,7 +14,6 @@ import {
 } from "@strapi/design-system";
 import { PageSizeURLQuery } from "@strapi/helper-plugin";
 import { PaginationURLQuery } from "@strapi/helper-plugin";
-import { request } from "@strapi/helper-plugin";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQueryParams } from "@strapi/helper-plugin";
@@ -24,7 +23,6 @@ import useFetch from "../../hooks/useFetch";
 const ContentTypePage = () => {
   const { contentType } = useParams<{ contentType: string }>();
   const [{ query }, setQuery] = useQueryParams();
-  const [totalQueries, setTotalQueries] = useState(0);
   const { page = 1, pageSize = 10 } = query || {};
   useEffect(() => {
     setQuery({
@@ -38,10 +36,6 @@ const ContentTypePage = () => {
     () => pageSize * paginationNumber,
     [pageSize, paginationNumber]
   );
-  const totalPageCount = useMemo(
-    () => Math.ceil(totalQueries / pageSize),
-    [totalQueries, pageSize]
-  );
   const queries = useCallback(() => {
     const getQuery = () =>
       qs.stringify({
@@ -51,24 +45,24 @@ const ContentTypePage = () => {
     return getQuery();
   }, [startingPage, pageSize]);
 
+  const { data, error, isLoading, totalDataCount } = useFetch({
+    url: `/api/forms/${contentType}?${queries()}`,
+    options: { method: "GET" },
+  });
+
+  const totalPageCount = useMemo(
+    () => Math.ceil(totalDataCount / pageSize),
+    [totalDataCount, pageSize]
+  );
   const pagination = useMemo(
     () => ({
       page,
       pageCount: totalPageCount,
       pageSize,
-      total: totalQueries,
+      total: totalDataCount,
     }),
-    [page, totalPageCount, totalQueries, pageSize]
+    [page, totalPageCount, totalDataCount, pageSize]
   );
-
-  const { data, error, isLoading } = useFetch({
-    url: `/api/forms/${contentType}`,
-    options: { method: "GET" },
-    pageSize,
-    startingPage,
-    queries,
-    setTotalQueries,
-  });
 
   const camelCaseToReadable = (input: string): string => {
     if (typeof input === "string") {
@@ -97,7 +91,7 @@ const ContentTypePage = () => {
     <Layout>
       <BaseHeaderLayout
         title={`${kebabToReadable(contentType)}`}
-        subtitle={`${totalQueries} queries found`}
+        subtitle={`${totalDataCount} queries found`}
         as="h2"
       />
       <Box padding={8}>
