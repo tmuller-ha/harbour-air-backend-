@@ -1355,6 +1355,38 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
 }
 
+export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
+  collectionName: 'not_found_pages';
+  info: {
+    singularName: 'not-found-page';
+    pluralName: 'not-found-pages';
+    displayName: 'Not found Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner_image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::not-found-page.not-found-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::not-found-page.not-found-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNoticeNotice extends Schema.CollectionType {
   collectionName: 'notices';
   info: {
@@ -1589,6 +1621,7 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
+      'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::tour-inside-location-detail.tour-inside-location-detail': ApiTourInsideLocationDetailTourInsideLocationDetail;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
