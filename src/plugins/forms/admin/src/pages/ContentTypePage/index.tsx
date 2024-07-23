@@ -19,6 +19,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQueryParams } from "@strapi/helper-plugin";
 import { LoadingIndicatorPage } from "@strapi/helper-plugin";
+import useFetch from "../../hooks/useFetch";
 
 const ContentTypePage = () => {
   const { contentType } = useParams<{ contentType: string }>();
@@ -60,48 +61,15 @@ const ContentTypePage = () => {
     [page, totalPageCount, totalQueries, pageSize]
   );
 
-  interface UseFetchHookArgs {
-    url: string;
-    options?: RequestInit;
-  }
-  interface ReturnData {
-    data: any,
-    error: any,
-    isLoading: boolean
-  }
-  function useFetchHook({
-    url,
-    options = {
-      method: "GET",
-    },
-  }: UseFetchHookArgs): ReturnData {
-    const [data, setData] = useState<any>();
-    const [error, setError] = useState<string>("");
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    useEffect(() => {
-      const fetchData = async () => {
-        setIsLoading(true);
-        try {
-          const query = queries();
-          const response = await request(url+`?${query}`, options);
-          setData(response.data);
-          setTotalQueries(response.total)
-        } catch (error: any) {
-          if (typeof error === "string") {
-            setError(error);
-          } else {
-            setError(error?.message as string);
-          }
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      fetchData();
-    }, [url, pageSize, startingPage]);
-    return { data, error, isLoading };
-  }
-  const { data, error, isLoading } = useFetchHook({ url: `/api/forms/${contentType}`, options: { method: "GET" } });
-  
+  const { data, error, isLoading } = useFetch({
+    url: `/api/forms/${contentType}`,
+    options: { method: "GET" },
+    pageSize,
+    startingPage,
+    queries,
+    setTotalQueries,
+  });
+
   const camelCaseToReadable = (input: string): string => {
     if (typeof input === "string") {
       const words = input
@@ -124,7 +92,7 @@ const ContentTypePage = () => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   }
-  if(isLoading)  return <LoadingIndicatorPage/>
+  if (isLoading) return <LoadingIndicatorPage />;
   return (
     <Layout>
       <BaseHeaderLayout
@@ -137,17 +105,15 @@ const ContentTypePage = () => {
           <Thead>
             <Tr>
               {data
-                ? Object.keys(data?.[0]).map(
-                    (field: string, index: number) => {
-                      return (
-                        <Th key={index}>
-                          <Typography textColor="neutral600" variant="delta">
-                            {camelCaseToReadable(field)}
-                          </Typography>
-                        </Th>
-                      );
-                    }
-                  )
+                ? Object.keys(data?.[0]).map((field: string, index: number) => {
+                    return (
+                      <Th key={index}>
+                        <Typography textColor="neutral600" variant="delta">
+                          {camelCaseToReadable(field)}
+                        </Typography>
+                      </Th>
+                    );
+                  })
                 : null}
             </Tr>
           </Thead>
