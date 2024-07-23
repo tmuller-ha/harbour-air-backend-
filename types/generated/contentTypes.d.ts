@@ -1197,8 +1197,7 @@ export interface ApiMainCharteredFlightMainCharteredFlight
   info: {
     singularName: 'main-chartered-flight';
     pluralName: 'main-chartered-flights';
-    displayName: 'Main chartered Flight';
-    description: '';
+    displayName: 'Main Chartered Flight';
   };
   options: {
     draftAndPublish: true;
@@ -1206,9 +1205,9 @@ export interface ApiMainCharteredFlightMainCharteredFlight
   attributes: {
     sections: Attribute.DynamicZone<
       [
+        'common.accordian',
         'elements.title-with-image',
-        'elements.title-with-description',
-        'common.accordian'
+        'elements.title-with-description'
       ]
     >;
     tabContent: Attribute.DynamicZone<
