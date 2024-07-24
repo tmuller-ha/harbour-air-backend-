@@ -24,6 +24,8 @@ const useFetch = ({
       setIsLoading(true);
       try {
         const response = await request(url, options);
+        console.log('response',response);
+        
         setData(response);
       } catch (error: any) {
         if (typeof error === "string") {
