@@ -20,18 +20,28 @@ import { useQueryParams } from "@strapi/helper-plugin";
 import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import useFetch from "../../hooks/useFetch";
 import { NoContent } from "@strapi/helper-plugin";
+import { CarretDown } from "@strapi/icons";
+import { CarretUp } from "@strapi/icons";
+import { camelCaseToReadable, kebabToReadable } from "../../utils";
 
 const ContentTypePage = () => {
   const { contentType } = useParams<{ contentType: string }>();
+  const [sorting, setSorting] = useState<{ [propKey: string]: "asc" | "desc" }>(
+    { createdAt: "desc" }
+  );
   const [{ query }, setQuery] = useQueryParams();
   const { page = 1, pageSize = 10 } = query || {};
+  const sortBy = Object.keys(sorting)[0];
+  const sortOrder = Object.values(sorting)[0];
+
   useEffect(() => {
     setQuery({
       ...query,
-      page: 1,
-      pageSize: 10,
+      page: page,
+      pageSize: pageSize,
+      sort: `${sortBy}:${sortOrder.toUpperCase()}`
     });
-  }, []);
+  }, [sortBy, sortOrder, ]);
   const paginationNumber = useMemo(() => page - 1, [page]);
   const startingPage = useMemo(
     () => pageSize * paginationNumber,
@@ -42,9 +52,11 @@ const ContentTypePage = () => {
       qs.stringify({
         start: startingPage,
         limit: pageSize,
+        sortBy: sortBy,
+        sortOrder: sortOrder,
       });
     return getQuery();
-  }, [startingPage, pageSize]);
+  }, [startingPage, pageSize, sortBy, sortOrder]);
 
   const { data, error, isLoading } = useFetch({
     url: `/api/forms/${contentType}?${queries()}`,
@@ -66,28 +78,15 @@ const ContentTypePage = () => {
     [page, totalPageCount, totalDataCount, pageSize]
   );
 
-  const camelCaseToReadable = (input: string): string => {
-    if (typeof input === "string") {
-      const words = input
-        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1 $2")
-        .replace(/([a-z\d])([A-Z])/g, "$1 $2")
-        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1 $2")
-        .split(/\s+/);
-      return words
-        .map(
-          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        )
-        .join(" ");
-    }
-    return input;
+  const selectSortBy = (value: string) => {
+    setSorting?.({ [value]: "desc" });
+  };
+  const selectSortOrder = () => {
+    sorting && Object.values(sorting)[0] === "asc"
+      ? setSorting?.({ [sortBy]: "desc" })
+      : setSorting?.({ [sortBy]: "asc" });
   };
 
-  function kebabToReadable(kebab: string): string {
-    return kebab
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  }
   if (isLoading) return <LoadingIndicatorPage />;
   return (
     <Layout>
@@ -105,10 +104,36 @@ const ContentTypePage = () => {
                   ? Object.keys(paginatedData?.[0]).map(
                       (field: string, index: number) => {
                         return (
-                          <Th key={index + 1}>
-                            <Typography textColor="neutral600" variant="delta">
-                              {camelCaseToReadable(field)}
-                            </Typography>
+                          <Th key={index + 1} style={{ paddingRight: "35px" }}>
+                            <Flex gap={2}>
+                              <Typography variant="sigma" textColor="neutral600"
+                                onClick={() => selectSortBy(field)}
+                                style={{ cursor: "pointer" }}
+                              >
+                                {camelCaseToReadable(field)}
+                              </Typography>
+                              {sorting && Object.keys(sorting)[0] === field ? (
+                                Object.values(sorting)[0] === "asc" ? (
+                                  <CarretUp
+                                    onClick={selectSortOrder}
+                                    style={{
+                                      height: "8px",
+                                      width: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                ) : (
+                                  <CarretDown
+                                    onClick={selectSortOrder}
+                                    style={{
+                                      height: "8px",
+                                      width: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                )
+                              ) : null}
+                            </Flex>
                           </Th>
                         );
                       }
@@ -117,11 +142,17 @@ const ContentTypePage = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {paginatedData?.map((content: any) => {
+              {paginatedData?.map((content: any, index: number) => {
                 return (
-                  <Tr>
+                  <Tr key={index + 1}>
                     {Object.keys(content).map((field) => {
-                      return <Td>{content[field]}</Td>;
+                      return (
+                        <Td style={{ fontSize: "0.875rem" }}>
+                          <Typography textColor="neutral1000">
+                            {content[field]}
+                          </Typography>
+                        </Td>
+                      );
                     })}
                   </Tr>
                 );
@@ -134,7 +165,9 @@ const ContentTypePage = () => {
           </Flex>
         </Box>
       ) : (
-        <div style={{margin: '0 60px'}}><NoContent /></div>
+        <div style={{ margin: "0 60px" }}>
+          <NoContent />
+        </div>
       )}
     </Layout>
   );

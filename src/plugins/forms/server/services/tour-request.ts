@@ -4,12 +4,13 @@ export default factories.createCoreService(
   "plugin::forms.tour-request",
   ({ strapi }: { strapi: Strapi }) => ({
     async getAllEntries(query) {
-      const { start, limit } = query;
+      const { start, limit, sortBy, sortOrder } = query;
       const paginatedData = await strapi.entityService?.findMany(
         "plugin::forms.tour-request",
         {
           start: start,
           limit: limit,
+          sort: `${sortBy}:${sortOrder}`,
         }
       );
       const totalData = await strapi.entityService?.findMany(

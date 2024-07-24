@@ -4,12 +4,13 @@ export default factories.createCoreService(
   "plugin::forms.chartered-flight-request",
   ({ strapi }: { strapi: Strapi }) => ({
     async getAll(query) {
-      const { start, limit } = query;
+      const { start, limit, sortBy, sortOrder } = query;
       const paginatedData = await strapi.entityService?.findMany(
         "plugin::forms.chartered-flight-request",
         {
           start: start,
           limit: limit,
+          sort: `${sortBy}:${sortOrder}`,
         }
       );
       const totalData = await strapi.entityService?.findMany(

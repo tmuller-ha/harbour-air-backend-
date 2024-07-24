@@ -33,7 +33,7 @@ const HomePage = () => {
     });
   }, []);
 
-  if(isLoading) return <LoadingIndicatorPage/>
+  if (isLoading) return <LoadingIndicatorPage />;
   return (
     <Layout>
       <BaseHeaderLayout
@@ -45,17 +45,32 @@ const HomePage = () => {
         <Table>
           <Thead>
             <Tr>
-              <Th><Typography textColor="neutral600" variant="sigma">ID</Typography></Th>
-              <Th><Typography textColor="neutral600" variant="sigma">NAME</Typography></Th>
+              <Th>
+                <Typography textColor="neutral600" variant="sigma">
+                  ID
+                </Typography>
+              </Th>
+              <Th>
+                <Typography textColor="neutral600" variant="sigma">
+                  NAME
+                </Typography>
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
             {forms.map((val: any, index: number) => {
               return (
                 <Tr>
-                  <Td>{index + 1}</Td>
-                  <Td>{val.info.displayName}</Td>
-                  <Td>
+                  <Td style={{ fontSize: "0.875rem" }}>
+                    <Typography textColor="neutral1000">{index + 1}</Typography>
+                  </Td>
+                  <Td style={{ fontSize: "0.875rem" }}>
+                    <Typography textColor="neutral1000">
+                      {val.info.displayName}
+                    </Typography>
+                  </Td>
+                  <Td style={{ fontSize: "0.875rem" }}>
+                    <Typography textColor="neutral1000"></Typography>
                     <Link to={`/plugins/forms/${val.info.pluralName}`}>
                       Open
                     </Link>
