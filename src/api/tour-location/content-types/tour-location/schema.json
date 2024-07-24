@@ -31,7 +31,6 @@
       "type": "dynamiczone",
       "components": [
         "tours.hero-description",
-        "tours.tour-cards",
         "tours.featured-tours",
         "main-tours.tour-cards"
       ]
@@ -39,8 +38,11 @@
     "tours": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::tour-inside-location-detail.tour-inside-location-detail",
+      "target": "api::tours-detail.tours-detail",
       "mappedBy": "tour_location"
+    },
+    "departure": {
+      "type": "string"
     }
   }
 }
