@@ -723,40 +723,6 @@ export interface ToursHeroDescription extends Schema.Component {
   };
 }
 
-export interface ToursTourCards extends Schema.Component {
-  collectionName: 'components_tours_tour_cards';
-  info: {
-    displayName: 'TourLocations';
-    description: '';
-  };
-  attributes: {
-    tourLocations: Attribute.Component<'tours.tour-location-card', true>;
-    show: Attribute.Boolean & Attribute.DefaultTo<true>;
-  };
-}
-
-export interface ToursTourLocationCard extends Schema.Component {
-  collectionName: 'components_tours_tour_location_cards';
-  info: {
-    displayName: 'TourInsideLocationCard';
-    description: '';
-  };
-  attributes: {
-    locationImage: Attribute.Media;
-    title: Attribute.String;
-    duration: Attribute.String;
-    offers: Attribute.String;
-    description: Attribute.String;
-    bookBtnText: Attribute.String;
-    bookBtnSlug: Attribute.String;
-    makePrivateBtnText: Attribute.String;
-    makeitPrivateBtnSlug: Attribute.String;
-    fareText: Attribute.String;
-    fare: Attribute.String;
-    person: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -810,8 +776,6 @@ declare module '@strapi/types' {
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;
-      'tours.tour-cards': ToursTourCards;
-      'tours.tour-location-card': ToursTourLocationCard;
     }
   }
 }

@@ -1284,7 +1284,7 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
   info: {
     singularName: 'main-location';
     pluralName: 'main-locations';
-    displayName: 'MainLocation';
+    displayName: 'Main Location';
     description: '';
   };
   options: {
@@ -1388,50 +1388,6 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
-export interface ApiTourInsideLocationDetailTourInsideLocationDetail
-  extends Schema.CollectionType {
-  collectionName: 'tour_inside_location_details';
-  info: {
-    singularName: 'tour-inside-location-detail';
-    pluralName: 'tour-inside-location-details';
-    displayName: 'Tour Inside Location Detail';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    backgroundImage: Attribute.Media;
-    tourFareDetail: Attribute.Component<'tours.fare-details', true>;
-    departsText: Attribute.String;
-    departLocation: Attribute.String;
-    overviewTitle: Attribute.String;
-    detailsTitle: Attribute.String;
-    detailsDescription: Attribute.Blocks;
-    overviewDescription: Attribute.Blocks;
-    tour_location: Attribute.Relation<
-      'api::tour-inside-location-detail.tour-inside-location-detail',
-      'manyToOne',
-      'api::tour-location.tour-location'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tour-inside-location-detail.tour-inside-location-detail',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tour-inside-location-detail.tour-inside-location-detail',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTourLocationTourLocation extends Schema.CollectionType {
   collectionName: 'tour_locations';
   info: {
@@ -1450,7 +1406,6 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
     components: Attribute.DynamicZone<
       [
         'tours.hero-description',
-        'tours.tour-cards',
         'tours.featured-tours',
         'main-tours.tour-cards'
       ]
@@ -1458,8 +1413,9 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
     tours: Attribute.Relation<
       'api::tour-location.tour-location',
       'oneToMany',
-      'api::tour-inside-location-detail.tour-inside-location-detail'
+      'api::tours-detail.tours-detail'
     >;
+    departure: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1471,6 +1427,61 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::tour-location.tour-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiToursDetailToursDetail extends Schema.CollectionType {
+  collectionName: 'tours_details';
+  info: {
+    singularName: 'tours-detail';
+    pluralName: 'tours-details';
+    displayName: 'Tours Detail';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    title: Attribute.String;
+    locationImage: Attribute.Media;
+    tour_location: Attribute.Relation<
+      'api::tours-detail.tours-detail',
+      'manyToOne',
+      'api::tour-location.tour-location'
+    >;
+    departsText: Attribute.String;
+    departLocation: Attribute.String;
+    overviewTitle: Attribute.String;
+    overviewDescription: Attribute.Blocks;
+    detailsTitle: Attribute.String;
+    detailsDescription: Attribute.Blocks;
+    tourFareDetail: Attribute.Component<'tours.fare-details', true>;
+    flightDuration: Attribute.String;
+    availableOffers: Attribute.String;
+    cardDescription: Attribute.String;
+    fareCategory: Attribute.String;
+    fare: Attribute.String;
+    person: Attribute.String;
+    bookBtnText: Attribute.String;
+    bookBtnSlug: Attribute.String;
+    makeitPrivateBtnText: Attribute.String;
+    makeitPrivateBtnSlug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tours-detail.tours-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tours-detail.tours-detail',
       'oneToOne',
       'admin::user'
     > &
@@ -1591,8 +1602,8 @@ declare module '@strapi/types' {
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
       'api::notice.notice': ApiNoticeNotice;
-      'api::tour-inside-location-detail.tour-inside-location-detail': ApiTourInsideLocationDetailTourInsideLocationDetail;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
+      'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
       'api::trip-advisor-comment.trip-advisor-comment': ApiTripAdvisorCommentTripAdvisorComment;
     }
