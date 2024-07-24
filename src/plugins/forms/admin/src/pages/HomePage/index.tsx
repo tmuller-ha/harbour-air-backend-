@@ -33,8 +33,6 @@ const HomePage = () => {
     });
   }, []);
 
-  console.log(forms);
-
   if(isLoading) return <LoadingIndicatorPage/>
   return (
     <Layout>

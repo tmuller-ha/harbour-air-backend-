@@ -105,7 +105,7 @@ const ContentTypePage = () => {
                   ? Object.keys(paginatedData?.[0]).map(
                       (field: string, index: number) => {
                         return (
-                          <Th key={index}>
+                          <Th key={index + 1}>
                             <Typography textColor="neutral600" variant="delta">
                               {camelCaseToReadable(field)}
                             </Typography>
