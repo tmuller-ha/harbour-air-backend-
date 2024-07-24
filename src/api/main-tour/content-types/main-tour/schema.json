@@ -15,10 +15,16 @@
     "mainTourPage": {
       "type": "dynamiczone",
       "components": [
-        "main-tours.hero-section",
         "main-tours.fare-section",
         "main-tours.featured-tours"
       ]
+    },
+    "heroBackgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

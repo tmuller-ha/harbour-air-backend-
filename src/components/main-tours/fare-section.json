@@ -1,30 +1,11 @@
 {
   "collectionName": "components_main_tours_fare_sections",
   "info": {
-    "displayName": "FareSection",
+    "displayName": "TourLocations",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "fareDescription": {
-      "type": "string"
-    },
-    "fareButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
-    "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "tourLocations": {
       "type": "relation",
       "relation": "oneToMany",
@@ -32,6 +13,12 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "heroTitle": {
+      "type": "string"
+    },
+    "heroDescription": {
+      "type": "string"
     }
   }
 }

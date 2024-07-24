@@ -36,6 +36,10 @@
       "relation": "oneToMany",
       "target": "api::trip-advisor-comment.trip-advisor-comment",
       "mappedBy": "featured_tour"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

@@ -602,20 +602,18 @@ export interface MainLocationLocations extends Schema.Component {
 export interface MainToursFareSection extends Schema.Component {
   collectionName: 'components_main_tours_fare_sections';
   info: {
-    displayName: 'FareSection';
+    displayName: 'TourLocations';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    fareDescription: Attribute.String;
-    fareButton: Attribute.Component<'elements.button'>;
-    backgroundImage: Attribute.Media;
     tourLocations: Attribute.Relation<
       'main-tours.fare-section',
       'oneToMany',
       'api::tour-location.tour-location'
     >;
     show: Attribute.Boolean;
+    heroTitle: Attribute.String;
+    heroDescription: Attribute.String;
   };
 }
 
@@ -633,21 +631,7 @@ export interface MainToursFeaturedTours extends Schema.Component {
       'oneToOne',
       'api::featured-tour.featured-tour'
     >;
-  };
-}
-
-export interface MainToursHeroSection extends Schema.Component {
-  collectionName: 'components_main_tours_hero_sections';
-  info: {
-    displayName: 'HeroSection';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Blocks;
-    heroSectionButton: Attribute.Component<'elements.button', true>;
-    show: Attribute.Boolean & Attribute.DefaultTo<true>;
-    heroBackgroundImage: Attribute.Media;
+    featuredTourTitle: Attribute.String;
   };
 }
 
@@ -659,7 +643,7 @@ export interface MainToursTourCards extends Schema.Component {
     description: '';
   };
   attributes: {
-    show: Attribute.Boolean;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
     tourPlaces: Attribute.Component<'elements.tour-card'>;
   };
 }
@@ -804,7 +788,6 @@ declare module '@strapi/types' {
       'main-location.locations': MainLocationLocations;
       'main-tours.fare-section': MainToursFareSection;
       'main-tours.featured-tours': MainToursFeaturedTours;
-      'main-tours.hero-section': MainToursHeroSection;
       'main-tours.tour-cards': MainToursTourCards;
       'seo.seo': SeoSeo;
       'tours.fare-details': ToursFareDetails;

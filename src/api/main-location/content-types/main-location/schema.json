@@ -4,7 +4,7 @@
   "info": {
     "singularName": "main-location",
     "pluralName": "main-locations",
-    "displayName": "MainLocation",
+    "displayName": "Main Location",
     "description": ""
   },
   "options": {
@@ -30,12 +30,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "locations": {
       "type": "relation",
