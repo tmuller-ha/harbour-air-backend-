@@ -613,7 +613,7 @@ export interface MainToursFareSection extends Schema.Component {
     >;
     show: Attribute.Boolean;
     heroTitle: Attribute.String;
-    heroDescription: Attribute.String;
+    heroDescription: Attribute.Text;
   };
 }
 
