@@ -15,6 +15,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::featured-tour.featured-tour"
+    },
+    "featuredTourTitle": {
+      "type": "string"
     }
   }
 }

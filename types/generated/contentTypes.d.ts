@@ -1109,6 +1109,7 @@ export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
       'oneToMany',
       'api::trip-advisor-comment.trip-advisor-comment'
     >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1431,12 +1432,9 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
   attributes: {
     mainTourPage: Attribute.DynamicZone<
-      [
-        'main-tours.hero-section',
-        'main-tours.fare-section',
-        'main-tours.featured-tours'
-      ]
+      ['main-tours.fare-section', 'main-tours.featured-tours']
     >;
+    heroBackgroundImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1680,6 +1678,7 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
       'manyToOne',
       'api::featured-tour.featured-tour'
     >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
