@@ -1583,8 +1583,6 @@ export interface ApiToursDetailToursDetail extends Schema.CollectionType {
       'manyToOne',
       'api::tour-location.tour-location'
     >;
-    departsText: Attribute.String;
-    departLocation: Attribute.String;
     overviewTitle: Attribute.String;
     overviewDescription: Attribute.Blocks;
     detailsTitle: Attribute.String;

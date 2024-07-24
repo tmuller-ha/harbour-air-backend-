@@ -32,12 +32,6 @@
       "target": "api::tour-location.tour-location",
       "inversedBy": "tours"
     },
-    "departsText": {
-      "type": "string"
-    },
-    "departLocation": {
-      "type": "string"
-    },
     "overviewTitle": {
       "type": "string"
     },
