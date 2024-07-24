@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import { useQueryParams } from "@strapi/helper-plugin";
 import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import useFetch from "../../hooks/useFetch";
+import { NoContent } from "@strapi/helper-plugin";
 
 const ContentTypePage = () => {
   const { contentType } = useParams<{ contentType: string }>();
@@ -50,8 +51,7 @@ const ContentTypePage = () => {
     options: { method: "GET" },
   });
 
-  const {paginatedData, totalDataCount} = data || {};
-
+  const { paginatedData, totalDataCount } = data || {};
   const totalPageCount = useMemo(
     () => Math.ceil(totalDataCount / pageSize),
     [totalDataCount, pageSize]
@@ -96,42 +96,46 @@ const ContentTypePage = () => {
         subtitle={`${totalDataCount} queries found`}
         as="h2"
       />
-      <Box padding={8}>
-        <Table>
-          <Thead>
-            <Tr>
-              {paginatedData
-                ? Object.keys(paginatedData?.[0]).map(
-                    (field: string, index: number) => {
-                      return (
-                        <Th key={index}>
-                          <Typography textColor="neutral600" variant="delta">
-                            {camelCaseToReadable(field)}
-                          </Typography>
-                        </Th>
-                      );
-                    }
-                  )
-                : null}
-            </Tr>
-          </Thead>
-          <Tbody>
-            {paginatedData?.map((content: any) => {
-              return (
-                <Tr>
-                  {Object.keys(content).map((field) => {
-                    return <Td>{content[field]}</Td>;
-                  })}
-                </Tr>
-              );
-            })}
-          </Tbody>
-        </Table>
-        <Flex alignItems="flex-end" justifyContent="space-between">
-          <PageSizeURLQuery />
-          <PaginationURLQuery pagination={pagination} />
-        </Flex>
-      </Box>
+      {totalDataCount ? (
+        <Box padding={8}>
+          <Table>
+            <Thead>
+              <Tr>
+                {paginatedData
+                  ? Object.keys(paginatedData?.[0]).map(
+                      (field: string, index: number) => {
+                        return (
+                          <Th key={index + 1}>
+                            <Typography textColor="neutral600" variant="delta">
+                              {camelCaseToReadable(field)}
+                            </Typography>
+                          </Th>
+                        );
+                      }
+                    )
+                  : null}
+              </Tr>
+            </Thead>
+            <Tbody>
+              {paginatedData?.map((content: any) => {
+                return (
+                  <Tr>
+                    {Object.keys(content).map((field) => {
+                      return <Td>{content[field]}</Td>;
+                    })}
+                  </Tr>
+                );
+              })}
+            </Tbody>
+          </Table>
+          <Flex alignItems="flex-end" justifyContent="space-between">
+            <PageSizeURLQuery />
+            <PaginationURLQuery pagination={pagination} />
+          </Flex>
+        </Box>
+      ) : (
+        <div style={{margin: '0 60px'}}><NoContent /></div>
+      )}
     </Layout>
   );
 };
