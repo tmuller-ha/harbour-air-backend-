@@ -928,6 +928,50 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
+  collectionName: 'chartered_flights';
+  info: {
+    singularName: 'chartered-flight';
+    pluralName: 'chartered-flights';
+    displayName: 'Chartered Flight';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    charteredFlightPage: Attribute.DynamicZone<
+      [
+        'common.accordian',
+        'elements.title-with-image',
+        'elements.title-with-description'
+      ]
+    >;
+    charteredFlightTab: Attribute.DynamicZone<
+      [
+        'chartered-flights-page.destination',
+        'chartered-flights-page.fleet-tab',
+        'chartered-flights-page.pricing-tab'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::chartered-flight.chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::chartered-flight.chartered-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCountryCountry extends Schema.CollectionType {
   collectionName: 'countries';
   info: {
@@ -1716,6 +1760,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;

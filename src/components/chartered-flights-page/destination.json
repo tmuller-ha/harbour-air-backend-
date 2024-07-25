@@ -26,6 +26,9 @@
       "type": "component",
       "repeatable": true,
       "component": "common.accordian-details"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

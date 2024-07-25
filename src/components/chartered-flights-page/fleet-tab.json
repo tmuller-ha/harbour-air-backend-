@@ -1,7 +1,8 @@
 {
   "collectionName": "components_chartered_flights_page_fleet_tabs",
   "info": {
-    "displayName": "Fleet Tab"
+    "displayName": "Fleet Tab",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,11 +12,15 @@
       "component": "elements.title-with-description"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }
