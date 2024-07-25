@@ -11,6 +11,7 @@ export interface CharteredFlightsPageDestination extends Schema.Component {
     images: Attribute.Media;
     infoText: Attribute.String;
     accordian: Attribute.Component<'common.accordian-details', true>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -18,10 +19,12 @@ export interface CharteredFlightsPageFleetTab extends Schema.Component {
   collectionName: 'components_chartered_flights_page_fleet_tabs';
   info: {
     displayName: 'Fleet Tab';
+    description: '';
   };
   attributes: {
     heading: Attribute.Component<'elements.title-with-description'>;
     images: Attribute.Media;
+    show: Attribute.Boolean;
   };
 }
 
@@ -35,6 +38,7 @@ export interface CharteredFlightsPagePricingTab extends Schema.Component {
     heading: Attribute.Component<'elements.title-with-description'>;
     pricingImg: Attribute.Media;
     pricingData: Attribute.Component<'elements.pricing-table', true>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -59,6 +63,7 @@ export interface CommonAccordian extends Schema.Component {
   };
   attributes: {
     details: Attribute.Component<'common.accordian-details', true>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -150,10 +155,12 @@ export interface ElementsTitleWithDescription extends Schema.Component {
   info: {
     displayName: 'Title With Description';
     icon: 'strikeThrough';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Blocks & Attribute.Required;
+    show: Attribute.Boolean;
   };
 }
 
@@ -162,10 +169,12 @@ export interface ElementsTitleWithImage extends Schema.Component {
   info: {
     displayName: 'Title With Image';
     icon: 'seed';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     coverImage: Attribute.Media;
+    show: Attribute.Boolean;
   };
 }
 

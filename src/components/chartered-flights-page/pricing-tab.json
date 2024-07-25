@@ -26,6 +26,9 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.pricing-table"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }
