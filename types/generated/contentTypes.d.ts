@@ -1411,7 +1411,7 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
       'api::location.location'
     >;
     seo: Attribute.Component<'seo.seo'>;
-    meta: Attribute.Component<'meta.meta', true>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1447,7 +1447,7 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
     >;
     heroBackgroundImage: Attribute.Media;
     seo: Attribute.Component<'seo.seo'>;
-    meta: Attribute.Component<'meta.meta', true>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
