@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers",
+  "info": {
+    "singularName": "career",
+    "pluralName": "careers",
+    "displayName": "Career",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "careerPage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-description",
+        "careers.tab-with-youtube-link",
+        "careers.join-our-team",
+        "careers.careers-table"
+      ]
+    }
+  }
+}

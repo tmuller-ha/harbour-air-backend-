@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_careers_join_our_teams",
+  "info": {
+    "displayName": "Join Our Team",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "teamInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
+    },
+    "accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details"
+    },
+    "infoText": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_careers_tab_with_youtube_links",
+  "info": {
+    "displayName": "Tab With Youtube Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabWithYoutubeLink": {
+      "displayName": "Title with Youtube Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-youtube-link"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

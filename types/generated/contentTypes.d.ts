@@ -928,6 +928,44 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCareerCareer extends Schema.SingleType {
+  collectionName: 'careers';
+  info: {
+    singularName: 'career';
+    pluralName: 'careers';
+    displayName: 'Career';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    careerPage: Attribute.DynamicZone<
+      [
+        'elements.title-with-description',
+        'careers.tab-with-youtube-link',
+        'careers.join-our-team',
+        'careers.careers-table'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   collectionName: 'chartered_flights';
   info: {
@@ -1336,50 +1374,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
-export interface ApiMainCharteredFlightMainCharteredFlight
-  extends Schema.SingleType {
-  collectionName: 'main_chartered_flights';
-  info: {
-    singularName: 'main-chartered-flight';
-    pluralName: 'main-chartered-flights';
-    displayName: 'Main Chartered Flight';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    sections: Attribute.DynamicZone<
-      [
-        'common.accordian',
-        'elements.title-with-image',
-        'elements.title-with-description'
-      ]
-    >;
-    tabContent: Attribute.DynamicZone<
-      [
-        'chartered-flights-page.destination',
-        'chartered-flights-page.fleet-tab',
-        'chartered-flights-page.pricing-tab'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-chartered-flight.main-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-chartered-flight.main-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -1760,6 +1754,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::career.career': ApiCareerCareer;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
@@ -1772,7 +1767,6 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
-      'api::main-chartered-flight.main-chartered-flight': ApiMainCharteredFlightMainCharteredFlight;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;

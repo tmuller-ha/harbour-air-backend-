@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_careers_careers_tables",
+  "info": {
+    "displayName": "Careers Table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tableTitle": {
+      "type": "string"
+    },
+    "careersAvailabilityTable": {
+      "displayName": "tableDetails",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.table-details"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
