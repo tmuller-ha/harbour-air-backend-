@@ -33,7 +33,7 @@ export interface CareersJoinOurTeam extends Schema.Component {
 export interface CareersTabWithYoutubeLink extends Schema.Component {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
-    displayName: 'Tab With Youtube Link';
+    displayName: 'Career Hero Section';
     description: '';
   };
   attributes: {
@@ -42,6 +42,7 @@ export interface CareersTabWithYoutubeLink extends Schema.Component {
       true
     >;
     show: Attribute.Boolean;
+    careersInfo: Attribute.Component<'elements.title-with-description'>;
   };
 }
 

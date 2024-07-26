@@ -943,10 +943,10 @@ export interface ApiCareerCareer extends Schema.SingleType {
     careerPage: Attribute.DynamicZone<
       [
         'elements.title-with-description',
-        'careers.tab-with-youtube-link',
         'careers.join-our-team',
         'careers.careers-table',
-        'elements.title-with-image'
+        'elements.title-with-image',
+        'careers.tab-with-youtube-link'
       ]
     >;
     createdAt: Attribute.DateTime;
