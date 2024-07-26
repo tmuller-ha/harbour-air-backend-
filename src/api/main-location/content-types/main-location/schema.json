@@ -38,6 +38,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::location.location"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "meta.meta"
     }
   }
 }

@@ -34,12 +34,22 @@
       "target": "api::deal.deal"
     },
     "dealsBanner": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

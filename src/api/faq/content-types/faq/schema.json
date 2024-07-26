@@ -27,6 +27,16 @@
       "type": "component",
       "repeatable": false,
       "component": "faq.button-with-boolean"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

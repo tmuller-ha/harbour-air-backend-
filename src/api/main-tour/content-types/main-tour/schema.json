@@ -20,11 +20,22 @@
       ]
     },
     "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "meta.meta"
     }
   }
 }
