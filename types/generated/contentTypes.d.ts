@@ -954,6 +954,8 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
         'chartered-flights-page.pricing-tab'
       ]
     >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1089,6 +1091,8 @@ export interface ApiFaqFaq extends Schema.SingleType {
     knowBeforeTitle: Attribute.String;
     accordionSection: Attribute.Component<'faq.accordion'>;
     searchButton: Attribute.Component<'faq.button-with-boolean'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1262,6 +1266,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
     harbourAirArticle: Attribute.Component<'home.article-carousel'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1336,50 +1341,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
-export interface ApiMainCharteredFlightMainCharteredFlight
-  extends Schema.SingleType {
-  collectionName: 'main_chartered_flights';
-  info: {
-    singularName: 'main-chartered-flight';
-    pluralName: 'main-chartered-flights';
-    displayName: 'Main Chartered Flight';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    sections: Attribute.DynamicZone<
-      [
-        'common.accordian',
-        'elements.title-with-image',
-        'elements.title-with-description'
-      ]
-    >;
-    tabContent: Attribute.DynamicZone<
-      [
-        'chartered-flights-page.destination',
-        'chartered-flights-page.fleet-tab',
-        'chartered-flights-page.pricing-tab'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-chartered-flight.main-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-chartered-flight.main-chartered-flight',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -1405,6 +1366,8 @@ export interface ApiMainDealMainDeal extends Schema.SingleType {
       'api::deal.deal'
     >;
     dealsBanner: Attribute.Media & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1445,6 +1408,8 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
       'oneToMany',
       'api::location.location'
     >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1479,6 +1444,8 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
       ['main-tours.fare-section', 'main-tours.featured-tours']
     >;
     heroBackgroundImage: Attribute.Media;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1503,6 +1470,7 @@ export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
     singularName: 'not-found-page';
     pluralName: 'not-found-pages';
     displayName: 'Not found Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1511,6 +1479,8 @@ export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
     banner_image: Attribute.Media;
     title: Attribute.String;
     description: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1772,7 +1742,6 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
-      'api::main-chartered-flight.main-chartered-flight': ApiMainCharteredFlightMainCharteredFlight;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;

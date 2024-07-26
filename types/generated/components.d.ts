@@ -657,6 +657,16 @@ export interface MainToursTourCards extends Schema.Component {
   };
 }
 
+export interface MetaMeta extends Schema.Component {
+  collectionName: 'components_meta_metas';
+  info: {
+    displayName: 'Meta';
+  };
+  attributes: {
+    ShowSideBookingWidget: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -764,6 +774,7 @@ declare module '@strapi/types' {
       'main-tours.fare-section': MainToursFareSection;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.tour-cards': MainToursTourCards;
+      'meta.meta': MetaMeta;
       'seo.seo': SeoSeo;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
