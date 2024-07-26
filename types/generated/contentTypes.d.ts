@@ -1323,6 +1323,8 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     locationVideo: Attribute.Media;
     learnMoreBtnText: Attribute.String;
     shortDescription: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1559,6 +1561,8 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
       'api::tours-detail.tours-detail'
     >;
     departure: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

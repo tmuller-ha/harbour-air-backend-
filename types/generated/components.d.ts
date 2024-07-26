@@ -661,9 +661,10 @@ export interface MetaMeta extends Schema.Component {
   collectionName: 'components_meta_metas';
   info: {
     displayName: 'Meta';
+    description: '';
   };
   attributes: {
-    ShowSideBookingWidget: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showSideBookingWidget: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
