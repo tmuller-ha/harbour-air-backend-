@@ -4,7 +4,8 @@
   "info": {
     "singularName": "not-found-page",
     "pluralName": "not-found-pages",
-    "displayName": "Not found Page"
+    "displayName": "Not found Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,17 +13,28 @@
   "pluginOptions": {},
   "attributes": {
     "banner_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "title": {
       "type": "string"
     },
     "description": {
       "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

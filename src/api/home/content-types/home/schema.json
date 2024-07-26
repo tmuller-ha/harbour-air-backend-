@@ -44,6 +44,11 @@
       "type": "component",
       "repeatable": false,
       "component": "home.article-carousel"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

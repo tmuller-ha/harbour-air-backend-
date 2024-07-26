@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_meta_metas",
+  "info": {
+    "displayName": "Meta",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "showSideBookingWidget": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

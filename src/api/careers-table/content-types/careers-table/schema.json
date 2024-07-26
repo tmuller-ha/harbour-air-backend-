@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "careers_tables",
+  "info": {
+    "singularName": "careers-table",
+    "pluralName": "careers-tables",
+    "displayName": "Careers Table"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "position_Column": {
+      "type": "string"
+    },
+    "application_Deadline_Column": {
+      "type": "string"
+    },
+    "location_Column": {
+      "type": "string"
+    }
+  }
+}

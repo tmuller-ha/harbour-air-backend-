@@ -949,6 +949,8 @@ export interface ApiCareerCareer extends Schema.SingleType {
         'careers.tab-with-youtube-link'
       ]
     >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -960,6 +962,38 @@ export interface ApiCareerCareer extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCareersTableCareersTable extends Schema.CollectionType {
+  collectionName: 'careers_tables';
+  info: {
+    singularName: 'careers-table';
+    pluralName: 'careers-tables';
+    displayName: 'Careers Table';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    position_Column: Attribute.String;
+    application_Deadline_Column: Attribute.String;
+    location_Column: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::careers-table.careers-table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::careers-table.careers-table',
       'oneToOne',
       'admin::user'
     > &
@@ -993,6 +1027,8 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
         'chartered-flights-page.pricing-tab'
       ]
     >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1128,6 +1164,8 @@ export interface ApiFaqFaq extends Schema.SingleType {
     knowBeforeTitle: Attribute.String;
     accordionSection: Attribute.Component<'faq.accordion'>;
     searchButton: Attribute.Component<'faq.button-with-boolean'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1301,6 +1339,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     HarbourAirDescription: Attribute.Component<'home.description'>;
     GrabDeals: Attribute.Component<'home.grab-deals'>;
     harbourAirArticle: Attribute.Component<'home.article-carousel'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1357,6 +1396,8 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     locationVideo: Attribute.Media;
     learnMoreBtnText: Attribute.String;
     shortDescription: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1400,6 +1441,8 @@ export interface ApiMainDealMainDeal extends Schema.SingleType {
       'api::deal.deal'
     >;
     dealsBanner: Attribute.Media & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1440,6 +1483,8 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
       'oneToMany',
       'api::location.location'
     >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1474,6 +1519,8 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
       ['main-tours.fare-section', 'main-tours.featured-tours']
     >;
     heroBackgroundImage: Attribute.Media;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1498,6 +1545,7 @@ export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
     singularName: 'not-found-page';
     pluralName: 'not-found-pages';
     displayName: 'Not found Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1506,6 +1554,8 @@ export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
     banner_image: Attribute.Media;
     title: Attribute.String;
     description: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1584,6 +1634,8 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
       'api::tours-detail.tours-detail'
     >;
     departure: Attribute.String;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1756,6 +1808,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::career.career': ApiCareerCareer;
+      'api::careers-table.careers-table': ApiCareersTableCareersTable;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;

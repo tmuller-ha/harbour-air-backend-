@@ -9,14 +9,13 @@
     "tableTitle": {
       "type": "string"
     },
-    "careersAvailabilityTable": {
-      "displayName": "tableDetails",
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.table-details"
-    },
     "show": {
       "type": "boolean"
+    },
+    "careers_tables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::careers-table.careers-table"
     }
   }
 }
