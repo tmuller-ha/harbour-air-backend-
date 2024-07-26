@@ -25,8 +25,8 @@ export interface CareersJoinOurTeam extends Schema.Component {
   attributes: {
     teamInfo: Attribute.Component<'elements.title-with-description'>;
     accordion: Attribute.Component<'common.accordian-details', true>;
-    infoText: Attribute.String;
     show: Attribute.Boolean;
+    infoText: Attribute.Blocks;
   };
 }
 

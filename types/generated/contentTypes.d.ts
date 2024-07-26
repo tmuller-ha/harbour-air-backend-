@@ -945,7 +945,8 @@ export interface ApiCareerCareer extends Schema.SingleType {
         'elements.title-with-description',
         'careers.tab-with-youtube-link',
         'careers.join-our-team',
-        'careers.careers-table'
+        'careers.careers-table',
+        'elements.title-with-image'
       ]
     >;
     createdAt: Attribute.DateTime;

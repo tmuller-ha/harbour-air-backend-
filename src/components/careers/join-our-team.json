@@ -16,11 +16,11 @@
       "repeatable": true,
       "component": "common.accordian-details"
     },
-    "infoText": {
-      "type": "string"
-    },
     "show": {
       "type": "boolean"
+    },
+    "infoText": {
+      "type": "blocks"
     }
   }
 }
