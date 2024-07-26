@@ -14,6 +14,15 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "accordionTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "infoText": {
+      "type": "blocks"
     }
   }
 }

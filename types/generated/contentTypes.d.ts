@@ -928,6 +928,84 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCareerCareer extends Schema.SingleType {
+  collectionName: 'careers';
+  info: {
+    singularName: 'career';
+    pluralName: 'careers';
+    displayName: 'Career';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    careerPage: Attribute.DynamicZone<
+      [
+        'elements.title-with-description',
+        'careers.careers-table',
+        'elements.title-with-image',
+        'careers.tab-with-youtube-link',
+        'common.accordian'
+      ]
+    >;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCareerOpportunityCareerOpportunity
+  extends Schema.CollectionType {
+  collectionName: 'career_opportunities';
+  info: {
+    singularName: 'career-opportunity';
+    pluralName: 'career-opportunities';
+    displayName: 'Career Opportunity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    position: Attribute.String;
+    application_Deadline: Attribute.String;
+    location: Attribute.Relation<
+      'api::career-opportunity.career-opportunity',
+      'oneToOne',
+      'api::location.location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::career-opportunity.career-opportunity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::career-opportunity.career-opportunity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   collectionName: 'chartered_flights';
   info: {
@@ -1734,6 +1812,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::career.career': ApiCareerCareer;
+      'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;

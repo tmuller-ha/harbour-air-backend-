@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_careers_tab_with_youtube_links",
+  "info": {
+    "displayName": "Career Hero Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titleWithLink": {
+      "displayName": "Title with Youtube Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-youtube-link"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "careersInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
+    }
+  }
+}

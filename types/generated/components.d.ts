@@ -1,5 +1,50 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CareersCareersTable extends Schema.Component {
+  collectionName: 'components_careers_careers_tables';
+  info: {
+    displayName: 'Careers Oppurtunity Table';
+    description: '';
+  };
+  attributes: {
+    tableTitle: Attribute.String;
+    show: Attribute.Boolean;
+    career_opportunities: Attribute.Relation<
+      'careers.careers-table',
+      'oneToMany',
+      'api::career-opportunity.career-opportunity'
+    >;
+  };
+}
+
+export interface CareersJoinOurTeam extends Schema.Component {
+  collectionName: 'components_careers_join_our_teams';
+  info: {
+    displayName: 'Join Our Team';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    infoText: Attribute.Blocks;
+  };
+}
+
+export interface CareersTabWithYoutubeLink extends Schema.Component {
+  collectionName: 'components_careers_tab_with_youtube_links';
+  info: {
+    displayName: 'Career Hero Section';
+    description: '';
+  };
+  attributes: {
+    titleWithLink: Attribute.Component<
+      'elements.title-with-youtube-link',
+      true
+    >;
+    show: Attribute.Boolean;
+    careersInfo: Attribute.Component<'elements.title-with-description'>;
+  };
+}
+
 export interface CharteredFlightsPageDestination extends Schema.Component {
   collectionName: 'components_chartered_flights_page_destinations';
   info: {
@@ -64,6 +109,9 @@ export interface CommonAccordian extends Schema.Component {
   attributes: {
     details: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
+    accordionTitle: Attribute.String;
+    description: Attribute.String;
+    infoText: Attribute.Blocks;
   };
 }
 
@@ -140,6 +188,18 @@ export interface ElementsPricingTable extends Schema.Component {
   };
 }
 
+export interface ElementsTableDetails extends Schema.Component {
+  collectionName: 'components_elements_table_details';
+  info: {
+    displayName: 'tableDetails';
+  };
+  attributes: {
+    position_Column: Attribute.String;
+    application_Deadline_Column: Attribute.String;
+    location_Column: Attribute.String;
+  };
+}
+
 export interface ElementsTableFields extends Schema.Component {
   collectionName: 'components_elements_table_fields';
   info: {
@@ -175,6 +235,18 @@ export interface ElementsTitleWithImage extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     coverImage: Attribute.Media;
     show: Attribute.Boolean;
+  };
+}
+
+export interface ElementsTitleWithYoutubeLink extends Schema.Component {
+  collectionName: 'components_elements_title_with_youtube_links';
+  info: {
+    displayName: 'Titlewith Link';
+    description: '';
+  };
+  attributes: {
+    tabName: Attribute.String;
+    url: Attribute.String;
   };
 }
 
@@ -730,6 +802,9 @@ export interface ToursHeroDescription extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'careers.careers-table': CareersCareersTable;
+      'careers.join-our-team': CareersJoinOurTeam;
+      'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
@@ -741,9 +816,11 @@ declare module '@strapi/types' {
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pricing-table': ElementsPricingTable;
+      'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
+      'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
       'faq.accordion-data': FaqAccordionData;

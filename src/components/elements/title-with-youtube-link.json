@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_title_with_youtube_links",
+  "info": {
+    "displayName": "Titlewith Link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabName": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
