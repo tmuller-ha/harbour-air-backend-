@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_title_with_youtube_links",
   "info": {
-    "displayName": "Title with Youtube Link"
+    "displayName": "Titlewith Link",
+    "description": ""
   },
   "options": {},
   "attributes": {

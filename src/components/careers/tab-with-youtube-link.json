@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "tabWithYoutubeLink": {
+    "titleWithLink": {
       "displayName": "Title with Youtube Link",
       "type": "component",
       "repeatable": true,

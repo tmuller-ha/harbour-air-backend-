@@ -3,16 +3,16 @@ import type { Schema, Attribute } from '@strapi/strapi';
 export interface CareersCareersTable extends Schema.Component {
   collectionName: 'components_careers_careers_tables';
   info: {
-    displayName: 'Careers Table';
+    displayName: 'Careers Oppurtunity Table';
     description: '';
   };
   attributes: {
     tableTitle: Attribute.String;
     show: Attribute.Boolean;
-    careers_tables: Attribute.Relation<
+    career_opportunities: Attribute.Relation<
       'careers.careers-table',
       'oneToMany',
-      'api::careers-table.careers-table'
+      'api::career-opportunity.career-opportunity'
     >;
   };
 }
@@ -24,8 +24,6 @@ export interface CareersJoinOurTeam extends Schema.Component {
     description: '';
   };
   attributes: {
-    teamInfo: Attribute.Component<'elements.title-with-description'>;
-    accordion: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
     infoText: Attribute.Blocks;
   };
@@ -38,7 +36,7 @@ export interface CareersTabWithYoutubeLink extends Schema.Component {
     description: '';
   };
   attributes: {
-    tabWithYoutubeLink: Attribute.Component<
+    titleWithLink: Attribute.Component<
       'elements.title-with-youtube-link',
       true
     >;
@@ -111,6 +109,9 @@ export interface CommonAccordian extends Schema.Component {
   attributes: {
     details: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
+    accordionTitle: Attribute.String;
+    description: Attribute.String;
+    infoText: Attribute.Blocks;
   };
 }
 
@@ -240,7 +241,8 @@ export interface ElementsTitleWithImage extends Schema.Component {
 export interface ElementsTitleWithYoutubeLink extends Schema.Component {
   collectionName: 'components_elements_title_with_youtube_links';
   info: {
-    displayName: 'Title with Youtube Link';
+    displayName: 'Titlewith Link';
+    description: '';
   };
   attributes: {
     tabName: Attribute.String;

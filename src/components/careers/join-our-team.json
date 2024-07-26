@@ -6,16 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "teamInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-description"
-    },
-    "accordion": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.accordian-details"
-    },
     "show": {
       "type": "boolean"
     },

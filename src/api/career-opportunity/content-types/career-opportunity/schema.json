@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "career_opportunities",
+  "info": {
+    "singularName": "career-opportunity",
+    "pluralName": "career-opportunities",
+    "displayName": "Career Opportunity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "position": {
+      "type": "string"
+    },
+    "application_Deadline": {
+      "type": "string"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    }
+  }
+}

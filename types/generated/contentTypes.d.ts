@@ -943,10 +943,10 @@ export interface ApiCareerCareer extends Schema.SingleType {
     careerPage: Attribute.DynamicZone<
       [
         'elements.title-with-description',
-        'careers.join-our-team',
         'careers.careers-table',
         'elements.title-with-image',
-        'careers.tab-with-youtube-link'
+        'careers.tab-with-youtube-link',
+        'common.accordian'
       ]
     >;
     seo: Attribute.Component<'seo.seo'>;
@@ -969,31 +969,36 @@ export interface ApiCareerCareer extends Schema.SingleType {
   };
 }
 
-export interface ApiCareersTableCareersTable extends Schema.CollectionType {
-  collectionName: 'careers_tables';
+export interface ApiCareerOpportunityCareerOpportunity
+  extends Schema.CollectionType {
+  collectionName: 'career_opportunities';
   info: {
-    singularName: 'careers-table';
-    pluralName: 'careers-tables';
-    displayName: 'Careers Table';
+    singularName: 'career-opportunity';
+    pluralName: 'career-opportunities';
+    displayName: 'Career Opportunity';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    position_Column: Attribute.String;
-    application_Deadline_Column: Attribute.String;
-    location_Column: Attribute.String;
+    position: Attribute.String;
+    application_Deadline: Attribute.String;
+    location: Attribute.Relation<
+      'api::career-opportunity.career-opportunity',
+      'oneToOne',
+      'api::location.location'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::careers-table.careers-table',
+      'api::career-opportunity.career-opportunity',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::careers-table.careers-table',
+      'api::career-opportunity.career-opportunity',
       'oneToOne',
       'admin::user'
     > &
@@ -1808,7 +1813,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::career.career': ApiCareerCareer;
-      'api::careers-table.careers-table': ApiCareersTableCareersTable;
+      'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;

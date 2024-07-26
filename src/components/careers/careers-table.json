@@ -1,7 +1,7 @@
 {
   "collectionName": "components_careers_careers_tables",
   "info": {
-    "displayName": "Careers Table",
+    "displayName": "Careers Oppurtunity Table",
     "description": ""
   },
   "options": {},
@@ -12,10 +12,10 @@
     "show": {
       "type": "boolean"
     },
-    "careers_tables": {
+    "career_opportunities": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::careers-table.careers-table"
+      "target": "api::career-opportunity.career-opportunity"
     }
   }
 }

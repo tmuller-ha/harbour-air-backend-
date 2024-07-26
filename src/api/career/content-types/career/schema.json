@@ -16,10 +16,10 @@
       "type": "dynamiczone",
       "components": [
         "elements.title-with-description",
-        "careers.join-our-team",
         "careers.careers-table",
         "elements.title-with-image",
-        "careers.tab-with-youtube-link"
+        "careers.tab-with-youtube-link",
+        "common.accordian"
       ]
     },
     "seo": {
