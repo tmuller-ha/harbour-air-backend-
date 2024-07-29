@@ -70,17 +70,17 @@
       "default": "One Way fares from",
       "required": true
     },
-    "departure_locations": {
+    "departureLocation": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::country.country",
-      "mappedBy": "dealsDeparture"
+      "inversedBy": "dealsDepartures"
     },
     "arrivalLocation": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::career-opportunity.career-opportunity",
-      "mappedBy": "dealsArrival"
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "dealsArrivals"
     }
   }
 }
