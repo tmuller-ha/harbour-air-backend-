@@ -110,7 +110,7 @@ export interface CommonAccordian extends Schema.Component {
     details: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
     accordionTitle: Attribute.String;
-    description: Attribute.String;
+    accordionDescription: Attribute.String;
     infoText: Attribute.Blocks;
   };
 }

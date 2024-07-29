@@ -18,7 +18,7 @@
     "accordionTitle": {
       "type": "string"
     },
-    "description": {
+    "accordionDescription": {
       "type": "string"
     },
     "infoText": {
