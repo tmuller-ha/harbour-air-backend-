@@ -976,17 +976,23 @@ export interface ApiCareerOpportunityCareerOpportunity
     singularName: 'career-opportunity';
     pluralName: 'career-opportunities';
     displayName: 'Career Opportunity';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     position: Attribute.String;
-    application_Deadline: Attribute.String;
+    applicationDeadline: Attribute.String;
     location: Attribute.Relation<
       'api::career-opportunity.career-opportunity',
       'oneToOne',
       'api::location.location'
+    >;
+    dealsArrival: Attribute.Relation<
+      'api::career-opportunity.career-opportunity',
+      'manyToOne',
+      'api::deal.deal'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1066,6 +1072,11 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     code: Attribute.String;
+    dealsDeparture: Attribute.Relation<
+      'api::country.country',
+      'manyToOne',
+      'api::deal.deal'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1111,6 +1122,16 @@ export interface ApiDealDeal extends Schema.CollectionType {
     fareText: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'One Way fares from'>;
+    departure_locations: Attribute.Relation<
+      'api::deal.deal',
+      'oneToMany',
+      'api::country.country'
+    >;
+    arrivalLocation: Attribute.Relation<
+      'api::deal.deal',
+      'oneToMany',
+      'api::career-opportunity.career-opportunity'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

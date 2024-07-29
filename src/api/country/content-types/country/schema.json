@@ -17,6 +17,12 @@
     },
     "code": {
       "type": "string"
+    },
+    "dealsDeparture": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::deal.deal",
+      "inversedBy": "departure_locations"
     }
   }
 }

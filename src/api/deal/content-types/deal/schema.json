@@ -69,6 +69,18 @@
       "type": "string",
       "default": "One Way fares from",
       "required": true
+    },
+    "departure_locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::country.country",
+      "mappedBy": "dealsDeparture"
+    },
+    "arrivalLocation": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::career-opportunity.career-opportunity",
+      "mappedBy": "dealsArrival"
     }
   }
 }

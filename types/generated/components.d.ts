@@ -9,7 +9,7 @@ export interface CareersCareersTable extends Schema.Component {
   attributes: {
     tableTitle: Attribute.String;
     show: Attribute.Boolean;
-    career_opportunities: Attribute.Relation<
+    careerOpportunities: Attribute.Relation<
       'careers.careers-table',
       'oneToMany',
       'api::career-opportunity.career-opportunity'
@@ -109,9 +109,8 @@ export interface CommonAccordian extends Schema.Component {
   attributes: {
     details: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
-    accordionTitle: Attribute.String;
-    description: Attribute.String;
     infoText: Attribute.Blocks;
+    accordionDescription: Attribute.Component<'elements.title-with-description'>;
   };
 }
 

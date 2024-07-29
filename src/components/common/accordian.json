@@ -15,14 +15,13 @@
     "show": {
       "type": "boolean"
     },
-    "accordionTitle": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
     "infoText": {
       "type": "blocks"
+    },
+    "accordionDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
     }
   }
 }
