@@ -22,12 +22,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
-    },
-    "dealsArrival": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::deal.deal",
-      "inversedBy": "arrivalLocation"
     }
   }
 }

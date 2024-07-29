@@ -989,11 +989,6 @@ export interface ApiCareerOpportunityCareerOpportunity
       'oneToOne',
       'api::location.location'
     >;
-    dealsArrival: Attribute.Relation<
-      'api::career-opportunity.career-opportunity',
-      'manyToOne',
-      'api::deal.deal'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1072,9 +1067,15 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     code: Attribute.String;
-    dealsDeparture: Attribute.Relation<
+    countryWeightId: Attribute.String;
+    dealsDepartures: Attribute.Relation<
       'api::country.country',
-      'manyToOne',
+      'oneToMany',
+      'api::deal.deal'
+    >;
+    dealsArrivals: Attribute.Relation<
+      'api::country.country',
+      'oneToMany',
       'api::deal.deal'
     >;
     createdAt: Attribute.DateTime;
@@ -1122,15 +1123,15 @@ export interface ApiDealDeal extends Schema.CollectionType {
     fareText: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'One Way fares from'>;
-    departure_locations: Attribute.Relation<
+    departureLocation: Attribute.Relation<
       'api::deal.deal',
-      'oneToMany',
+      'manyToOne',
       'api::country.country'
     >;
     arrivalLocation: Attribute.Relation<
       'api::deal.deal',
-      'oneToMany',
-      'api::career-opportunity.career-opportunity'
+      'manyToOne',
+      'api::country.country'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

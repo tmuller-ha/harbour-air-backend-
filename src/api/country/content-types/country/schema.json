@@ -18,11 +18,20 @@
     "code": {
       "type": "string"
     },
-    "dealsDeparture": {
+    "countryWeightId": {
+      "type": "string"
+    },
+    "dealsDepartures": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::deal.deal",
-      "inversedBy": "departure_locations"
+      "mappedBy": "departureLocation"
+    },
+    "dealsArrivals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deal.deal",
+      "mappedBy": "arrivalLocation"
     }
   }
 }
