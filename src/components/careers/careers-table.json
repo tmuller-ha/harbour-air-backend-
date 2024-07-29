@@ -12,7 +12,7 @@
     "show": {
       "type": "boolean"
     },
-    "career_opportunities": {
+    "careerOpportunities": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::career-opportunity.career-opportunity"

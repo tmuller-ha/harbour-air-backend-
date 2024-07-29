@@ -4,7 +4,8 @@
   "info": {
     "singularName": "career-opportunity",
     "pluralName": "career-opportunities",
-    "displayName": "Career Opportunity"
+    "displayName": "Career Opportunity",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,13 +15,19 @@
     "position": {
       "type": "string"
     },
-    "application_Deadline": {
+    "applicationDeadline": {
       "type": "string"
     },
     "location": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
+    },
+    "dealsArrival": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::deal.deal",
+      "inversedBy": "arrivalLocation"
     }
   }
 }
