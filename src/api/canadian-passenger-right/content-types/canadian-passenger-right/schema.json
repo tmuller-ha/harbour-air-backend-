@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "canadian_passenger_rights",
+  "info": {
+    "singularName": "canadian-passenger-right",
+    "pluralName": "canadian-passenger-rights",
+    "displayName": "Canadian Passenger Right",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-description",
+        "common.accordian",
+        "canadian-passenger-rights.tariffs"
+      ],
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}
