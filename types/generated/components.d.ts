@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CanadianPassengerRightsTariffs extends Schema.Component {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Attribute.Component<'elements.title-with-description'> &
+      Attribute.Required;
+    tariffsFiles: Attribute.Component<'elements.pdf-links', true>;
+  };
+}
+
 export interface CareersCareersTable extends Schema.Component {
   collectionName: 'components_careers_careers_tables';
   info: {
@@ -173,6 +185,19 @@ export interface ElementsInstagramImages extends Schema.Component {
   attributes: {
     instaImage: Attribute.Media;
     slug: Attribute.String;
+  };
+}
+
+export interface ElementsPdfLinks extends Schema.Component {
+  collectionName: 'components_elements_pdf_links';
+  info: {
+    displayName: 'PdfLinks';
+    icon: 'filePdf';
+    description: '';
+  };
+  attributes: {
+    fileName: Attribute.String & Attribute.Required;
+    file: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -801,6 +826,7 @@ export interface ToursHeroDescription extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.careers-table': CareersCareersTable;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
@@ -814,6 +840,7 @@ declare module '@strapi/types' {
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
+      'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
