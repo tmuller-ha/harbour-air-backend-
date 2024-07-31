@@ -1198,6 +1198,7 @@ export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     dropdownLinks: Attribute.DynamicZone<['header.link', 'header.media-links']>;
+    slug: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
