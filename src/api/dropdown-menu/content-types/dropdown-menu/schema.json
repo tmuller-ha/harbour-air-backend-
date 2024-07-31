@@ -22,6 +22,10 @@
         "header.link",
         "header.media-links"
       ]
+    },
+    "slug": {
+      "type": "string",
+      "required": true
     }
   }
 }
