@@ -53,6 +53,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
     }
   }
 }

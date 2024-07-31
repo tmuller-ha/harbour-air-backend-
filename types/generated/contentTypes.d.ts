@@ -1704,6 +1704,11 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
     departure: Attribute.String;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    country: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'oneToOne',
+      'api::country.country'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
