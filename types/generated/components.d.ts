@@ -527,15 +527,8 @@ export interface HomeGrabDeals extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    deals: Attribute.Component<'elements.drop-down-data', true>;
-    filterBy: Attribute.String;
     show: Attribute.Boolean;
     moreDeals: Attribute.Component<'elements.button'>;
-    countries: Attribute.Relation<
-      'home.grab-deals',
-      'oneToMany',
-      'api::country.country'
-    >;
     cardDeals: Attribute.Relation<
       'home.grab-deals',
       'oneToMany',

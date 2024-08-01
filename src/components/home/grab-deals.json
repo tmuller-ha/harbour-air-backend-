@@ -9,14 +9,6 @@
     "title": {
       "type": "string"
     },
-    "deals": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.drop-down-data"
-    },
-    "filterBy": {
-      "type": "string"
-    },
     "show": {
       "type": "boolean"
     },
@@ -24,11 +16,6 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.button"
-    },
-    "countries": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::country.country"
     },
     "cardDeals": {
       "type": "relation",
