@@ -61,10 +61,6 @@
     "active": {
       "type": "boolean"
     },
-    "countryID": {
-      "type": "string",
-      "required": true
-    },
     "fareText": {
       "type": "string",
       "default": "One Way fares from",
