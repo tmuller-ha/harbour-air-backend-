@@ -159,7 +159,7 @@ const ContentTypePage = () => {
               })}
             </Tbody>
           </Table>
-          <Flex alignItems="flex-end" justifyContent="space-between">
+          <Flex alignItems="flex-end" padding={5} justifyContent="space-between">
             <PageSizeURLQuery />
             <PaginationURLQuery pagination={pagination} />
           </Flex>

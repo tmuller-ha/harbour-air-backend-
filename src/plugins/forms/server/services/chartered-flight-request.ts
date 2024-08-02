@@ -34,13 +34,13 @@ export default factories.createCoreService(
       return await strapi.entityService?.update(
         "plugin::forms.chartered-flight-request",
         id,
-        data
+        {data}
       );
     },
     async create(data) {
       return await strapi.entityService?.create(
         "plugin::forms.chartered-flight-request",
-        data
+        {data}
       );
     },
   })
