@@ -15,13 +15,16 @@
     "position": {
       "type": "string"
     },
-    "applicationDeadline": {
-      "type": "string"
-    },
     "location": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "applicationDeadline": {
+      "type": "date"
     }
   }
 }

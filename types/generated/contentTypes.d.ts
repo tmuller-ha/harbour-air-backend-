@@ -1069,12 +1069,13 @@ export interface ApiCareerOpportunityCareerOpportunity
   };
   attributes: {
     position: Attribute.String;
-    applicationDeadline: Attribute.String;
     location: Attribute.Relation<
       'api::career-opportunity.career-opportunity',
       'oneToOne',
       'api::location.location'
     >;
+    slug: Attribute.UID;
+    applicationDeadline: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
