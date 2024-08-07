@@ -1,5 +1,31 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AircraftFleetAircraftFleetTabs extends Schema.Component {
+  collectionName: 'components_aircraft_fleet_aircraft_fleet_tabs';
+  info: {
+    displayName: 'Aircraft Fleet Tabs';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    fleetInformations: Attribute.Component<'aircraft-fleet.fleet-info', true>;
+  };
+}
+
+export interface AircraftFleetFleetInfo extends Schema.Component {
+  collectionName: 'components_aircraft_fleet_fleet_infos';
+  info: {
+    displayName: 'Fleet Information';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
 export interface CanadianPassengerRightsTariffs extends Schema.Component {
   collectionName: 'components_canadian_passenger_rights_tariffs';
   info: {
@@ -205,6 +231,7 @@ export interface ElementsPricingTable extends Schema.Component {
   collectionName: 'components_elements_pricing_tables';
   info: {
     displayName: 'pricingTable';
+    description: '';
   };
   attributes: {
     destination_Column: Attribute.String;
@@ -242,7 +269,7 @@ export interface ElementsTitleWithDescription extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String;
     description: Attribute.Blocks & Attribute.Required;
     show: Attribute.Boolean;
   };
@@ -819,6 +846,8 @@ export interface ToursHeroDescription extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
+      'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.careers-table': CareersCareersTable;
       'careers.join-our-team': CareersJoinOurTeam;
