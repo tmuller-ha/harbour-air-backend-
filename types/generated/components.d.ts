@@ -286,6 +286,25 @@ export interface ElementsTitleWithImage extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     coverImage: Attribute.Media;
     show: Attribute.Boolean;
+    opacity: Attribute.Enumeration<
+      [
+        'opacity-0',
+        'opacity-5',
+        'opacity-10',
+        'opacity-20',
+        'opacity-25',
+        'opacity-30',
+        'opacity-40',
+        'opacity-50',
+        'opacity-60',
+        'opacity-70',
+        'opacity-75',
+        'opacity-80',
+        'opacity-90',
+        'opacity-100'
+      ]
+    > &
+      Attribute.DefaultTo<'opacity-50'>;
   };
 }
 
