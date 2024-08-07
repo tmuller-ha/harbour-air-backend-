@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_aircraft_fleet_aircraft_fleet_tabs",
+  "info": {
+    "displayName": "Aircraft Fleet Tabs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "fleetInformations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aircraft-fleet.fleet-info"
+    }
+  }
+}
