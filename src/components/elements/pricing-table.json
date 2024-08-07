@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_pricing_tables",
   "info": {
-    "displayName": "pricingTable"
+    "displayName": "pricingTable",
+    "description": ""
   },
   "options": {},
   "attributes": {

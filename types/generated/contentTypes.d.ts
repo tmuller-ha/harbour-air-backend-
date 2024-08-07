@@ -730,51 +730,6 @@ export interface PluginFormsCharteredFlightRequest
   };
 }
 
-export interface PluginFormsContactForm extends Schema.CollectionType {
-  collectionName: 'contact_forms';
-  info: {
-    singularName: 'contact-form';
-    pluralName: 'contact-forms';
-    displayName: 'Contact Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String & Attribute.Required;
-    passengerName: Attribute.String & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -966,6 +921,40 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
+  collectionName: 'air_craft_fleets';
+  info: {
+    singularName: 'air-craft-fleet';
+    pluralName: 'air-craft-fleets';
+    displayName: 'AirCraft Fleet';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'elements.title-with-description']
+    >;
+    tabs: Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::air-craft-fleet.air-craft-fleet',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::air-craft-fleet.air-craft-fleet',
       'oneToOne',
       'admin::user'
     > &
@@ -1922,11 +1911,11 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
-      'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
       'api::career.career': ApiCareerCareer;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
