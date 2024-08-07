@@ -1720,6 +1720,46 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiSeatingOptionSeatingOption extends Schema.SingleType {
+  collectionName: 'seating_options';
+  info: {
+    singularName: 'seating-option';
+    pluralName: 'seating-options';
+    displayName: 'Seating-Option';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'common.accordian'
+      ]
+    > &
+      Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seating-option.seating-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seating-option.seating-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTourLocationTourLocation extends Schema.CollectionType {
   collectionName: 'tour_locations';
   info: {
@@ -1947,6 +1987,7 @@ declare module '@strapi/types' {
       'api::main-tour.main-tour': ApiMainTourMainTour;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

@@ -245,6 +245,7 @@ export interface ElementsTitleWithDescription extends Schema.Component {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Blocks & Attribute.Required;
     show: Attribute.Boolean;
+    componentAlignment: Attribute.Enumeration<['column', 'row']>;
   };
 }
 
