@@ -943,7 +943,7 @@ export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
     sections: Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-description']
     >;
-    Tabs: Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
+    tabs: Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

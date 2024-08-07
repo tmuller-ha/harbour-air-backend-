@@ -19,7 +19,7 @@
         "elements.title-with-description"
       ]
     },
-    "Tabs": {
+    "tabs": {
       "type": "dynamiczone",
       "components": [
         "aircraft-fleet.aircraft-fleet-tabs"
