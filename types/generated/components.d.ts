@@ -272,6 +272,7 @@ export interface ElementsTitleWithDescription extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks & Attribute.Required;
     show: Attribute.Boolean;
+    componentAlignment: Attribute.Enumeration<['column', 'row']>;
   };
 }
 
