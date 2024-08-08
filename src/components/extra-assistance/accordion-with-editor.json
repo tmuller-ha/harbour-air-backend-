@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_extra_assistance_accordion_with_editors",
+  "info": {
+    "displayName": "Accordion With Editor"
+  },
+  "options": {},
+  "attributes": {
+    "accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
+    }
+  }
+}

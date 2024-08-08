@@ -17,7 +17,8 @@
       "components": [
         "elements.title-with-image",
         "common.help",
-        "common.accordian"
+        "elements.title-with-description",
+        "extra-assistance.accordion-with-editor"
       ]
     },
     "slug": {
