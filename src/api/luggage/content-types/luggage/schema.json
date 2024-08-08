@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "luggages",
+  "info": {
+    "singularName": "luggage",
+    "pluralName": "luggages",
+    "displayName": "Luggage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "luggagePage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "luggage.hero-description"
+      ]
+    },
+    "luggageTab": {
+      "type": "dynamiczone",
+      "components": [
+        "luggage.luggage-allowance",
+        "luggage.travelling-with-excess-luggage",
+        "luggage.special"
+      ]
+    }
+  }
+}

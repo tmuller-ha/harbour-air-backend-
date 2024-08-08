@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_luggage_luggage_allowance_tables",
+  "info": {
+    "displayName": "Luggage Allowance Table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "light": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "comfort": {
+      "type": "string"
+    },
+    "flex": {
+      "type": "string"
+    },
+    "noValue": {
+      "type": "blocks"
+    }
+  }
+}

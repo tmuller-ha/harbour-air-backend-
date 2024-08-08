@@ -1564,6 +1564,46 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiLuggageLuggage extends Schema.SingleType {
+  collectionName: 'luggages';
+  info: {
+    singularName: 'luggage';
+    pluralName: 'luggages';
+    displayName: 'Luggage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    luggagePage: Attribute.DynamicZone<
+      ['elements.title-with-image', 'luggage.hero-description']
+    >;
+    luggageTab: Attribute.DynamicZone<
+      [
+        'luggage.luggage-allowance',
+        'luggage.travelling-with-excess-luggage',
+        'luggage.special'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::luggage.luggage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::luggage.luggage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainDealMainDeal extends Schema.SingleType {
   collectionName: 'main_deals';
   info: {
@@ -2017,6 +2057,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::luggage.luggage': ApiLuggageLuggage;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
