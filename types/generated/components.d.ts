@@ -152,6 +152,19 @@ export interface CommonAccordian extends Schema.Component {
   };
 }
 
+export interface CommonHelp extends Schema.Component {
+  collectionName: 'components_common_helps';
+  info: {
+    displayName: 'Help';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    show: Attribute.Boolean;
+  };
+}
+
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -272,7 +285,6 @@ export interface ElementsTitleWithDescription extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks & Attribute.Required;
     show: Attribute.Boolean;
-    componentAlignment: Attribute.Enumeration<['column', 'row']>;
   };
 }
 
@@ -292,23 +304,16 @@ export interface ElementsTitleWithImage extends Schema.Component {
         'opacity-0',
         'opacity-5',
         'opacity-10',
-        'opacity-15',
         'opacity-20',
         'opacity-25',
         'opacity-30',
-        'opacity-35',
         'opacity-40',
-        'opacity-45',
         'opacity-50',
-        'opacity-55',
         'opacity-60',
-        'opacity-65',
         'opacity-70',
         'opacity-75',
         'opacity-80',
-        'opacity-85',
         'opacity-90',
-        'opacity-95',
         'opacity-100'
       ]
     > &
@@ -978,6 +983,7 @@ declare module '@strapi/types' {
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'common.accordian-details': CommonAccordianDetails;
       'common.accordian': CommonAccordian;
+      'common.help': CommonHelp;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-article': ElementsHarbourAirArticle;

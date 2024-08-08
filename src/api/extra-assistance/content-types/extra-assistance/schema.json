@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "extra_assistances",
+  "info": {
+    "singularName": "extra-assistance",
+    "pluralName": "extra-assistances",
+    "displayName": "Extra Assistance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "special_assistances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-assist.extra-assist"
+    },
+    "traveling_with_pets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-assist.extra-assist"
+    },
+    "traveling_with_children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-assist.extra-assist"
+    },
+    "special_programs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-assist.extra-assist"
+    }
+  }
+}

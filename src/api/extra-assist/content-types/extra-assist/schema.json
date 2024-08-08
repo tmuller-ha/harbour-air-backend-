@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extra_assists",
+  "info": {
+    "singularName": "extra-assist",
+    "pluralName": "extra-assists",
+    "displayName": "Extra Assist",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "common.help",
+        "common.accordian"
+      ]
+    },
+    "slug": {
+      "type": "uid"
+    }
+  }
+}

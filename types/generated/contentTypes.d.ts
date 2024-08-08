@@ -730,51 +730,6 @@ export interface PluginFormsCharteredFlightRequest
   };
 }
 
-export interface PluginFormsContactForm extends Schema.CollectionType {
-  collectionName: 'contact_forms';
-  info: {
-    singularName: 'contact-form';
-    pluralName: 'contact-forms';
-    displayName: 'Contact Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String & Attribute.Required;
-    passengerName: Attribute.String & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1289,6 +1244,92 @@ export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::dropdown-menu.dropdown-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExtraAssistExtraAssist extends Schema.CollectionType {
+  collectionName: 'extra_assists';
+  info: {
+    singularName: 'extra-assist';
+    pluralName: 'extra-assists';
+    displayName: 'Extra Assist';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    components: Attribute.DynamicZone<
+      ['elements.title-with-image', 'common.help', 'common.accordian']
+    >;
+    slug: Attribute.UID;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::extra-assist.extra-assist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::extra-assist.extra-assist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExtraAssistanceExtraAssistance extends Schema.SingleType {
+  collectionName: 'extra_assistances';
+  info: {
+    singularName: 'extra-assistance';
+    pluralName: 'extra-assistances';
+    displayName: 'Extra Assistance';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageInfo: Attribute.Component<'elements.title-with-description'>;
+    image: Attribute.Media;
+    special_assistances: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
+      'oneToMany',
+      'api::extra-assist.extra-assist'
+    >;
+    traveling_with_pets: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
+      'oneToMany',
+      'api::extra-assist.extra-assist'
+    >;
+    traveling_with_children: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
+      'oneToMany',
+      'api::extra-assist.extra-assist'
+    >;
+    special_programs: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
+      'oneToMany',
+      'api::extra-assist.extra-assist'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::extra-assistance.extra-assistance',
       'oneToOne',
       'admin::user'
     > &
@@ -2036,7 +2077,6 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
-      'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -2049,6 +2089,8 @@ declare module '@strapi/types' {
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
+      'api::extra-assist.extra-assist': ApiExtraAssistExtraAssist;
+      'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
