@@ -644,6 +644,100 @@ export interface InsideLocationStartingPoint extends Schema.Component {
   };
 }
 
+export interface LuggageHeroDescription extends Schema.Component {
+  collectionName: 'components_luggage_hero_descriptions';
+  info: {
+    displayName: 'HeroDescription';
+    description: '';
+  };
+  attributes: {
+    heroDescription: Attribute.Blocks;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface LuggageLuggageAllowanceTable extends Schema.Component {
+  collectionName: 'components_luggage_luggage_allowance_tables';
+  info: {
+    displayName: 'Luggage Allowance Table';
+    description: '';
+  };
+  attributes: {
+    light: Attribute.String;
+    value: Attribute.String;
+    comfort: Attribute.String;
+    flex: Attribute.String;
+    noValue: Attribute.Blocks;
+  };
+}
+
+export interface LuggageLuggageAllowance extends Schema.Component {
+  collectionName: 'components_luggage_luggage_allowances';
+  info: {
+    displayName: 'Luggage Allowance';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    show: Attribute.Boolean;
+    luggageAllowanceTable: Attribute.Component<
+      'luggage.luggage-allowance-table',
+      true
+    >;
+    luggageAllowanceTitle: Attribute.String;
+    tableDescription: Attribute.Blocks;
+    luggageDimentionTitle: Attribute.String;
+    luggageDimentionTable: Attribute.Component<
+      'luggage.luggage-dimensions-table',
+      true
+    >;
+    infoText: Attribute.Blocks;
+    title: Attribute.String;
+  };
+}
+
+export interface LuggageLuggageDimensionsTable extends Schema.Component {
+  collectionName: 'components_luggage_luggage_dimensions_tables';
+  info: {
+    displayName: 'Luggage Dimensions Table';
+    description: '';
+  };
+  attributes: {
+    aircraft: Attribute.String;
+    width: Attribute.String;
+    height: Attribute.String;
+    breadth: Attribute.String;
+  };
+}
+
+export interface LuggageSpecial extends Schema.Component {
+  collectionName: 'components_luggage_special_s';
+  info: {
+    displayName: 'Special Luggage & Equipment';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    luggageAccordion: Attribute.Component<'common.accordian-details', true>;
+    show: Attribute.Boolean;
+    title: Attribute.String;
+  };
+}
+
+export interface LuggageTravellingWithExcessLuggage extends Schema.Component {
+  collectionName: 'components_luggage_travelling_with_excess_luggages';
+  info: {
+    displayName: 'Travelling with Excess Luggage';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    show: Attribute.Boolean;
+    title: Attribute.String;
+    infoText: Attribute.Blocks;
+  };
+}
+
 export interface MainDealsDeals extends Schema.Component {
   collectionName: 'components_main_deals_deals';
   info: {
@@ -866,6 +960,12 @@ declare module '@strapi/types' {
       'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'inside-location.direction': InsideLocationDirection;
       'inside-location.starting-point': InsideLocationStartingPoint;
+      'luggage.hero-description': LuggageHeroDescription;
+      'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
+      'luggage.luggage-allowance': LuggageLuggageAllowance;
+      'luggage.luggage-dimensions-table': LuggageLuggageDimensionsTable;
+      'luggage.special': LuggageSpecial;
+      'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
       'main-deals.deals': MainDealsDeals;
       'main-location.locations': MainLocationLocations;
       'main-tours.fare-section': MainToursFareSection;

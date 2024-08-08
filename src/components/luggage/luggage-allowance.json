@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_luggage_luggage_allowances",
+  "info": {
+    "displayName": "Luggage Allowance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "luggageAllowanceTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "luggage.luggage-allowance-table"
+    },
+    "luggageAllowanceTitle": {
+      "type": "string"
+    },
+    "tableDescription": {
+      "type": "blocks"
+    },
+    "luggageDimentionTitle": {
+      "type": "string"
+    },
+    "luggageDimentionTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "luggage.luggage-dimensions-table"
+    },
+    "infoText": {
+      "type": "blocks"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
