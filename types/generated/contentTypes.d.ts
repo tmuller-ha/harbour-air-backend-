@@ -976,9 +976,9 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
   attributes: {
     components: Attribute.DynamicZone<
       [
-        'elements.accordion-with-ck-editor',
         'elements.title-with-image',
         'elements.title-with-description',
+        'extra-assistance.accordion-with-editor',
         'common.help'
       ]
     >;
