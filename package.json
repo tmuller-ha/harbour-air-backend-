@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.583.0",
-    "@ckeditor/strapi-plugin-ckeditor": "^0.0.13",
     "@strapi/plugin-cloud": "4.24.2",
     "@strapi/plugin-graphql": "^4.24.3",
     "@strapi/plugin-i18n": "4.24.2",
