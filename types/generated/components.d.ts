@@ -152,37 +152,6 @@ export interface CommonAccordian extends Schema.Component {
   };
 }
 
-export interface CommonHelp extends Schema.Component {
-  collectionName: 'components_common_helps';
-  info: {
-    displayName: 'Help';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Blocks;
-    show: Attribute.Boolean;
-  };
-}
-
-export interface ElementsAccordionWithCkEditor extends Schema.Component {
-  collectionName: 'components_elements_accordion_with_ck_editors';
-  info: {
-    displayName: 'Accordion With CKEditor';
-  };
-  attributes: {
-    label: Attribute.String;
-    content: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
-  };
-}
-
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -303,6 +272,7 @@ export interface ElementsTitleWithDescription extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks & Attribute.Required;
     show: Attribute.Boolean;
+    componentAlignment: Attribute.Enumeration<['column', 'row']>;
   };
 }
 
@@ -384,32 +354,6 @@ export interface ElementsTripAdvisor extends Schema.Component {
     authorName: Attribute.String;
     backgroundImage: Attribute.Media;
     quoteImage: Attribute.Media;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor extends Schema.Component {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-  };
-  attributes: {
-    accordion: Attribute.Component<'elements.accordion-with-ck-editor', true>;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Schema.Component {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    assistanceCards: Attribute.Relation<
-      'extra-assistance.assistance',
-      'oneToMany',
-      'api::assistance.assistance'
-    >;
   };
 }
 
@@ -1034,8 +978,6 @@ declare module '@strapi/types' {
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'common.accordian-details': CommonAccordianDetails;
       'common.accordian': CommonAccordian;
-      'common.help': CommonHelp;
-      'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
@@ -1050,8 +992,6 @@ declare module '@strapi/types' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;
