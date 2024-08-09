@@ -23,9 +23,7 @@
       "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
     "cards": {
