@@ -1272,6 +1272,7 @@ export interface ApiExtraAssistExtraAssist extends Schema.CollectionType {
       ]
     >;
     slug: Attribute.UID;
+    buttonText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
