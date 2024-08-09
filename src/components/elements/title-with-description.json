@@ -17,13 +17,6 @@
     },
     "show": {
       "type": "boolean"
-    },
-    "componentAlignment": {
-      "type": "enumeration",
-      "enum": [
-        "column",
-        "row"
-      ]
     }
   }
 }
