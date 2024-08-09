@@ -405,11 +405,22 @@ export interface ExtraAssistanceAssistance extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    assistanceCards: Attribute.Relation<
-      'extra-assistance.assistance',
-      'oneToMany',
-      'api::assistance.assistance'
-    >;
+    assistanceCard: Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Schema.Component {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    buttonText: Attribute.String;
+    description: Attribute.String;
+    slug: Attribute.String;
   };
 }
 
@@ -1052,6 +1063,7 @@ declare module '@strapi/types' {
       'elements.trip-advisor': ElementsTripAdvisor;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.cards': ExtraAssistanceCards;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;

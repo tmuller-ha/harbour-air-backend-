@@ -968,6 +968,7 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
     singularName: 'assistance';
     pluralName: 'assistances';
     displayName: 'Assistance';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -982,7 +983,6 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
       ]
     >;
     slug: Attribute.UID;
-    buttonText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

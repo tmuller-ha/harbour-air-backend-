@@ -9,10 +9,11 @@
     "title": {
       "type": "string"
     },
-    "assistanceCards": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::assistance.assistance"
+    "assistanceCard": {
+      "displayName": "cards",
+      "type": "component",
+      "repeatable": true,
+      "component": "extra-assistance.cards"
     }
   }
 }
