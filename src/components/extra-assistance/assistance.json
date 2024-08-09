@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_extra_assistance_assistances",
+  "info": {
+    "displayName": "assistance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "assistanceCards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::extra-assist.extra-assist"
+    }
+  }
+}

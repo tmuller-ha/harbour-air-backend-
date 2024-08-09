@@ -28,25 +28,11 @@
         "audios"
       ]
     },
-    "special_assistances": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::extra-assist.extra-assist"
-    },
-    "traveling_with_pets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::extra-assist.extra-assist"
-    },
-    "traveling_with_children": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::extra-assist.extra-assist"
-    },
-    "special_programs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::extra-assist.extra-assist"
+    "cards": {
+      "type": "dynamiczone",
+      "components": [
+        "extra-assistance.assistance"
+      ]
     }
   }
 }

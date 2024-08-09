@@ -322,16 +322,23 @@ export interface ElementsTitleWithImage extends Schema.Component {
         'opacity-0',
         'opacity-5',
         'opacity-10',
+        'opacity-15',
         'opacity-20',
         'opacity-25',
         'opacity-30',
+        'opacity-35',
         'opacity-40',
+        'opacity-45',
         'opacity-50',
+        'opacity-55',
         'opacity-60',
+        'opacity-65',
         'opacity-70',
         'opacity-75',
         'opacity-80',
+        'opacity-85',
         'opacity-90',
+        'opacity-95',
         'opacity-100'
       ]
     > &
@@ -387,6 +394,22 @@ export interface ExtraAssistanceAccordionWithEditor extends Schema.Component {
   };
   attributes: {
     accordion: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Schema.Component {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    assistanceCards: Attribute.Relation<
+      'extra-assistance.assistance',
+      'oneToMany',
+      'api::extra-assist.extra-assist'
+    >;
   };
 }
 
@@ -1028,6 +1051,7 @@ declare module '@strapi/types' {
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;
