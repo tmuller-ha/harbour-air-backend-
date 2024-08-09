@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "extra_assists",
+  "collectionName": "assistances",
   "info": {
-    "singularName": "extra-assist",
-    "pluralName": "extra-assists",
-    "displayName": "Extra Assist",
-    "description": ""
+    "singularName": "assistance",
+    "pluralName": "assistances",
+    "displayName": "Assistance"
   },
   "options": {
     "draftAndPublish": true
@@ -15,10 +14,10 @@
     "components": {
       "type": "dynamiczone",
       "components": [
+        "elements.accordion-with-ck-editor",
         "elements.title-with-image",
-        "common.help",
         "elements.title-with-description",
-        "extra-assistance.accordion-with-editor"
+        "common.help"
       ]
     },
     "slug": {

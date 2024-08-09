@@ -962,6 +962,45 @@ export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
   };
 }
 
+export interface ApiAssistanceAssistance extends Schema.CollectionType {
+  collectionName: 'assistances';
+  info: {
+    singularName: 'assistance';
+    pluralName: 'assistances';
+    displayName: 'Assistance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    components: Attribute.DynamicZone<
+      [
+        'elements.accordion-with-ck-editor',
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'common.help'
+      ]
+    >;
+    slug: Attribute.UID;
+    buttonText: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::assistance.assistance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::assistance.assistance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCanadianPassengerRightCanadianPassengerRight
   extends Schema.SingleType {
   collectionName: 'canadian_passenger_rights';
@@ -1244,46 +1283,6 @@ export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::dropdown-menu.dropdown-menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiExtraAssistExtraAssist extends Schema.CollectionType {
-  collectionName: 'extra_assists';
-  info: {
-    singularName: 'extra-assist';
-    pluralName: 'extra-assists';
-    displayName: 'Extra Assist';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    components: Attribute.DynamicZone<
-      [
-        'elements.title-with-image',
-        'common.help',
-        'elements.title-with-description',
-        'extra-assistance.accordion-with-editor'
-      ]
-    >;
-    slug: Attribute.UID;
-    buttonText: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::extra-assist.extra-assist',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::extra-assist.extra-assist',
       'oneToOne',
       'admin::user'
     > &
@@ -2069,6 +2068,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
+      'api::assistance.assistance': ApiAssistanceAssistance;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
       'api::career.career': ApiCareerCareer;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
@@ -2076,7 +2076,6 @@ declare module '@strapi/types' {
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
-      'api::extra-assist.extra-assist': ApiExtraAssistExtraAssist;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;

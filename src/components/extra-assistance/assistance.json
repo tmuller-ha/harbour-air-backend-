@@ -12,7 +12,7 @@
     "assistanceCards": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::extra-assist.extra-assist"
+      "target": "api::assistance.assistance"
     }
   }
 }

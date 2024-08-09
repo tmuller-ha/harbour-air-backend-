@@ -408,7 +408,7 @@ export interface ExtraAssistanceAssistance extends Schema.Component {
     assistanceCards: Attribute.Relation<
       'extra-assistance.assistance',
       'oneToMany',
-      'api::extra-assist.extra-assist'
+      'api::assistance.assistance'
     >;
   };
 }
