@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_accordion_with_ck_editors",
   "info": {
-    "displayName": "Accordion With CKEditor"
+    "displayName": "Accordion With CKEditor",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,6 +16,11 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document"
     }
   }
 }

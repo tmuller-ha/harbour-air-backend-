@@ -725,6 +725,54 @@ export interface PluginFormsCharteredFlightRequest
       'plugin::forms.chartered-flight-request',
       'oneToOne',
       'admin::user'
+      'plugin::forms.chartered-flight-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'Contact Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contact: Attribute.String & Attribute.Required;
+    passengerName: Attribute.String & Attribute.Required;
+    phoneNumber: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
+      Attribute.Required;
+    comments: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
     > &
       Attribute.Private;
   };
@@ -979,7 +1027,8 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
         'elements.title-with-image',
         'elements.title-with-description',
         'extra-assistance.accordion-with-editor',
-        'common.help'
+        'common.help',
+        'extra-assistance.files'
       ]
     >;
     slug: Attribute.UID;
@@ -1253,6 +1302,37 @@ export interface ApiDealDeal extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDocumentDocument extends Schema.CollectionType {
+  collectionName: 'documents';
+  info: {
+    singularName: 'document';
+    pluralName: 'documents';
+    displayName: 'Document';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fileName: Attribute.String;
+    file: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::document.document',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::document.document',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1805,6 +1885,10 @@ export interface ApiMobilityMobility extends Schema.SingleType {
         'elements.title-with-description',
         'mobility.images',
         'common.help'
+        'elements.title-with-image',
+        'mobility.hero-section',
+        'elements.title-with-description',
+        'mobility.images'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -2134,6 +2218,7 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
+      'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -2146,6 +2231,7 @@ declare module '@strapi/types' {
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
+      'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;

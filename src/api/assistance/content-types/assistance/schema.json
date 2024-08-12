@@ -18,7 +18,8 @@
         "elements.title-with-image",
         "elements.title-with-description",
         "extra-assistance.accordion-with-editor",
-        "common.help"
+        "common.help",
+        "extra-assistance.files"
       ]
     },
     "slug": {
