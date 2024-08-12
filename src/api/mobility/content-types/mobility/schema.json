@@ -18,7 +18,8 @@
         "elements.title-with-image",
         "mobility.hero-section",
         "elements.title-with-description",
-        "mobility.images"
+        "mobility.images",
+        "common.help"
       ]
     }
   }
