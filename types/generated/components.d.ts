@@ -169,6 +169,7 @@ export interface ElementsAccordionWithCkEditor extends Schema.Component {
   collectionName: 'components_elements_accordion_with_ck_editors';
   info: {
     displayName: 'Accordion With CKEditor';
+    description: '';
   };
   attributes: {
     label: Attribute.String;
@@ -180,6 +181,11 @@ export interface ElementsAccordionWithCkEditor extends Schema.Component {
           preset: 'rich';
         }
       >;
+    documents: Attribute.Relation<
+      'elements.accordion-with-ck-editor',
+      'oneToMany',
+      'api::document.document'
+    >;
   };
 }
 
@@ -392,9 +398,11 @@ export interface ExtraAssistanceAccordionWithEditor extends Schema.Component {
   collectionName: 'components_extra_assistance_accordion_with_editors';
   info: {
     displayName: 'Accordion With Editor';
+    description: '';
   };
   attributes: {
     accordion: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -422,6 +430,22 @@ export interface ExtraAssistanceCards extends Schema.Component {
     buttonText: Attribute.String;
     description: Attribute.String;
     slug: Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceFiles extends Schema.Component {
+  collectionName: 'components_extra_assistance_files';
+  info: {
+    displayName: 'Files';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    document: Attribute.Relation<
+      'extra-assistance.files',
+      'oneToOne',
+      'api::document.document'
+    >;
   };
 }
 
@@ -1095,6 +1119,7 @@ declare module '@strapi/types' {
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.files': ExtraAssistanceFiles;
       'faq.accordion-data': FaqAccordionData;
       'faq.accordion': FaqAccordion;
       'faq.button-with-boolean': FaqButtonWithBoolean;
