@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_extra_assistance_cards",
+  "info": {
+    "displayName": "cards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "regex": "^\\/[a-z0-9\\-]+"
+    }
+  }
+}
