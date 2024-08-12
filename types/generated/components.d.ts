@@ -905,6 +905,31 @@ export interface MetaMeta extends Schema.Component {
   };
 }
 
+export interface MobilityHeroSection extends Schema.Component {
+  collectionName: 'components_mobility_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    description: '';
+  };
+  attributes: {
+    heroSection: Attribute.Component<'elements.title-with-description'>;
+    image: Attribute.Media;
+    show: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MobilityImages extends Schema.Component {
+  collectionName: 'components_mobility_images';
+  info: {
+    displayName: 'Images';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Media;
+    show: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -1028,6 +1053,8 @@ declare module '@strapi/types' {
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.tour-cards': MainToursTourCards;
       'meta.meta': MetaMeta;
+      'mobility.hero-section': MobilityHeroSection;
+      'mobility.images': MobilityImages;
       'seo.seo': SeoSeo;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
