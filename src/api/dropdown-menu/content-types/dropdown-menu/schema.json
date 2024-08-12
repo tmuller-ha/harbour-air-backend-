@@ -14,17 +14,14 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "dropdownLinks": {
+    "menus": {
       "type": "dynamiczone",
       "components": [
         "header.link",
         "header.media-links"
-      ]
-    },
-    "slug": {
-      "type": "string",
+      ],
       "required": true
     }
   }

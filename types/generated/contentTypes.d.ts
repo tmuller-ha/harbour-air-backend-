@@ -1346,9 +1346,9 @@ export interface ApiDropdownMenuDropdownMenu extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    dropdownLinks: Attribute.DynamicZone<['header.link', 'header.media-links']>;
-    slug: Attribute.String & Attribute.Required;
+    title: Attribute.String;
+    menus: Attribute.DynamicZone<['header.link', 'header.media-links']> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1831,6 +1831,76 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
 }
 
+export interface ApiMenuImageLinkMenuImageLink extends Schema.CollectionType {
+  collectionName: 'menu_image_links';
+  info: {
+    singularName: 'menu-image-link';
+    pluralName: 'menu-image-links';
+    displayName: 'Menu Image Link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    slug: Attribute.String & Attribute.Required & Attribute.DefaultTo<'/'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-image-link.menu-image-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-image-link.menu-image-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMobilityMobility extends Schema.SingleType {
+  collectionName: 'mobilities';
+  info: {
+    singularName: 'mobility';
+    pluralName: 'mobilities';
+    displayName: 'Mobility';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    section: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'mobility.hero-section',
+        'elements.title-with-description',
+        'mobility.images'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mobility.mobility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mobility.mobility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
   collectionName: 'not_found_pages';
   info: {
@@ -2168,6 +2238,8 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
+      'api::menu-image-link.menu-image-link': ApiMenuImageLinkMenuImageLink;
+      'api::mobility.mobility': ApiMobilityMobility;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
