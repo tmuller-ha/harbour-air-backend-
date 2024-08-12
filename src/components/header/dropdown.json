@@ -13,6 +13,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::dropdown-menu.dropdown-menu"
+    },
+    "cardMenus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-image-link.menu-image-link"
     }
   }
 }

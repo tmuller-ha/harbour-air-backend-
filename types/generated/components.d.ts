@@ -579,6 +579,11 @@ export interface HeaderDropdown extends Schema.Component {
       'oneToMany',
       'api::dropdown-menu.dropdown-menu'
     >;
+    cardMenus: Attribute.Relation<
+      'header.dropdown',
+      'oneToMany',
+      'api::menu-image-link.menu-image-link'
+    >;
   };
 }
 
