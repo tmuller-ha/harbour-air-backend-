@@ -734,21 +734,6 @@ export interface HomeHomeInstagram extends Schema.Component {
   };
 }
 
-export interface InsideLocationAdditionalInformation extends Schema.Component {
-  collectionName: 'components_inside_location_additional_informations';
-  info: {
-    displayName: 'AdditionalInformation';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    details: Attribute.Component<
-      'inside-location.additionalinfo-details',
-      true
-    >;
-  };
-}
-
 export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
   collectionName: 'components_inside_location_additionalinfo_details';
   info: {
@@ -758,40 +743,59 @@ export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.Blocks;
-    images: Attribute.Media;
     btnName: Attribute.String;
     slug: Attribute.String;
+    additionalInformationImage: Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Attribute.Boolean;
   };
 }
 
-export interface InsideLocationDirection extends Schema.Component {
-  collectionName: 'components_inside_location_directions';
+export interface InsideLocationAddress extends Schema.Component {
+  collectionName: 'components_inside_location_addresses';
   info: {
     displayName: 'Address';
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    directionsBtn: Attribute.Component<'elements.button'>;
-    startingPoint: Attribute.Component<'inside-location.starting-point', true>;
-    chooseStartingPointTitle: Attribute.String;
     addressTitle: Attribute.String;
     addressDetails: Attribute.Blocks;
-    googleMapUrl: Attribute.String;
-    addressMapUrl: Attribute.String;
+    addressMapUrl: Attribute.Text;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    googleMapUrl: Attribute.Text;
   };
 }
 
-export interface InsideLocationStartingPoint extends Schema.Component {
-  collectionName: 'components_inside_location_starting_points';
+export interface InsideLocationGuideInformation extends Schema.Component {
+  collectionName: 'components_inside_location_guide_informations';
   info: {
-    displayName: 'startingPoint';
+    displayName: 'Image Section';
     description: '';
   };
   attributes: {
-    name: Attribute.String;
-    youtubeUrl: Attribute.String;
+    image: Attribute.Media;
+    title: Attribute.Text;
+    slug: Attribute.String;
+  };
+}
+
+export interface InsideLocationGuide extends Schema.Component {
+  collectionName: 'components_inside_location_guides';
+  info: {
+    displayName: 'Guide';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    moreArticles: Attribute.String;
+    moreArticlesSlug: Attribute.String;
+    guideInformations: Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Attribute.Boolean;
   };
 }
 
@@ -1140,10 +1144,10 @@ declare module '@strapi/types' {
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
-      'inside-location.additional-information': InsideLocationAdditionalInformation;
       'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
-      'inside-location.direction': InsideLocationDirection;
-      'inside-location.starting-point': InsideLocationStartingPoint;
+      'inside-location.address': InsideLocationAddress;
+      'inside-location.guide-information': InsideLocationGuideInformation;
+      'inside-location.guide': InsideLocationGuide;
       'luggage.hero-description': LuggageHeroDescription;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.luggage-allowance': LuggageLuggageAllowance;

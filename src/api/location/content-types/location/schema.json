@@ -12,20 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "directions": {
-      "type": "component",
-      "repeatable": false,
-      "component": "inside-location.direction"
-    },
     "slug": {
       "type": "uid",
       "required": true,
       "targetField": "name"
-    },
-    "additionalInformation": {
-      "type": "component",
-      "repeatable": false,
-      "component": "inside-location.additional-information"
     },
     "name": {
       "type": "string"
@@ -75,6 +65,21 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "guide": {
+      "type": "component",
+      "repeatable": false,
+      "component": "inside-location.guide"
+    },
+    "additionalInformation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inside-location.additionalinfo-details"
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "inside-location.address"
     }
   }
 }
