@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parcel_express_quotes",
+  "info": {
+    "singularName": "parcel-express-quote",
+    "pluralName": "parcel-express-quotes",
+    "displayName": "Parcel Express Quotes"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "text",
+      "required": true
+    },
+    "telephone": {
+      "type": "text",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "origin": {
+      "type": "text",
+      "required": true
+    },
+    "destination": {
+      "type": "text",
+      "required": true
+    },
+    "numberOfParcels": {
+      "type": "integer",
+      "required": true
+    },
+    "service": {
+      "type": "enumeration",
+      "enum": [
+        "Next Flight",
+        "Same Day",
+        "Next Day"
+      ],
+      "required": true
+    },
+    "courierRequirements": {
+      "type": "text",
+      "required": true
+    },
+    "comments": {
+      "type": "text"
+    }
+  }
+}
