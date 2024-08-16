@@ -730,51 +730,6 @@ export interface PluginFormsCharteredFlightRequest
   };
 }
 
-export interface PluginFormsContactForm extends Schema.CollectionType {
-  collectionName: 'contact_forms';
-  info: {
-    singularName: 'contact-form';
-    pluralName: 'contact-forms';
-    displayName: 'Contact Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String & Attribute.Required;
-    passengerName: Attribute.String & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1638,9 +1593,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    directions: Attribute.Component<'inside-location.direction'>;
     slug: Attribute.UID<'api::location.location', 'name'> & Attribute.Required;
-    additionalInformation: Attribute.Component<'inside-location.additional-information'>;
     name: Attribute.String;
     description: Attribute.Blocks;
     heroImage: Attribute.Media;
@@ -1650,6 +1603,12 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     shortDescription: Attribute.String;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    guide: Attribute.Component<'inside-location.guide'>;
+    additionalInformation: Attribute.Component<
+      'inside-location.additionalinfo-details',
+      true
+    >;
+    address: Attribute.Component<'inside-location.address'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2211,7 +2170,6 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
-      'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

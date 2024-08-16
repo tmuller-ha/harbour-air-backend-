@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_inside_location_guide_informations",
+  "info": {
+    "displayName": "Image Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_inside_location_additionalinfo_details",
+  "collectionName": "components_inside_location_guides",
   "info": {
-    "displayName": "AdditionalInformationDetails",
+    "displayName": "Guide",
     "description": ""
   },
   "options": {},
@@ -9,16 +9,13 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
-    },
-    "btnName": {
+    "moreArticles": {
       "type": "string"
     },
-    "slug": {
+    "moreArticlesSlug": {
       "type": "string"
     },
-    "additionalInformationImage": {
+    "guideInformations": {
       "type": "component",
       "repeatable": true,
       "component": "inside-location.guide-information"
