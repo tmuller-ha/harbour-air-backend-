@@ -775,53 +775,6 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
   };
 }
 
-export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
-  collectionName: 'parcel_express_quotes';
-  info: {
-    singularName: 'parcel-express-quote';
-    pluralName: 'parcel-express-quotes';
-    displayName: 'Parcel Express Quotes';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.Text & Attribute.Required;
-    telephone: Attribute.Text & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    origin: Attribute.Text & Attribute.Required;
-    destination: Attribute.Text & Attribute.Required;
-    numberOfParcels: Attribute.Integer & Attribute.Required;
-    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
-      Attribute.Required;
-    courierRequirements: Attribute.Text & Attribute.Required;
-    comments: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -2259,7 +2212,6 @@ declare module '@strapi/types' {
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
-      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
