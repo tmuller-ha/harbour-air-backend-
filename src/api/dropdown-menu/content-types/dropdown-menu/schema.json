@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": false
-    },
     "menus": {
       "type": "dynamiczone",
       "components": [
@@ -23,6 +19,11 @@
         "header.media-links"
       ],
       "required": true
+    },
+    "menuTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.link"
     }
   }
 }
