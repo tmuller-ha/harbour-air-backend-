@@ -2065,6 +2065,40 @@ export interface ApiRouteRoute extends Schema.CollectionType {
   };
 }
 
+export interface ApiSafetyFirstSafetyFirst extends Schema.SingleType {
+  collectionName: 'safety_firsts';
+  info: {
+    singularName: 'safety-first';
+    pluralName: 'safety-firsts';
+    displayName: 'Safety First';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'elements.harbour-air-services']
+    >;
+    tabs: Attribute.DynamicZone<['elements.title-with-ck-editor']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::safety-first.safety-first',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::safety-first.safety-first',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSeatingOptionSeatingOption extends Schema.SingleType {
   collectionName: 'seating_options';
   info: {
@@ -2341,6 +2375,7 @@ declare module '@strapi/types' {
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::route.route': ApiRouteRoute;
+      'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
