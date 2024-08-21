@@ -1309,23 +1309,23 @@ export interface ApiDestinationDestination extends Schema.CollectionType {
     singularName: 'destination';
     pluralName: 'destinations';
     displayName: 'Destinations';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     location: Attribute.String;
-    locationId: Attribute.Integer;
-    Tag: Attribute.String;
+    locationId: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    tag: Attribute.String;
     Category: Attribute.String;
     latitude: Attribute.String & Attribute.Required;
-    longitude: Attribute.String;
+    longitude: Attribute.String & Attribute.Required;
     pickup: Attribute.String;
     pickupDefault: Attribute.String;
     dropOff: Attribute.String;
     dropOffDefault: Attribute.String;
     dropOffRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
-    map: Attribute.String;
     pickupRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
     routesDestinations: Attribute.Relation<
       'api::destination.destination',
@@ -1337,6 +1337,7 @@ export interface ApiDestinationDestination extends Schema.CollectionType {
       'manyToOne',
       'api::route.route'
     >;
+    map: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

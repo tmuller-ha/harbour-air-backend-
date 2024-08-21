@@ -4,7 +4,8 @@
   "info": {
     "singularName": "destination",
     "pluralName": "destinations",
-    "displayName": "Destinations"
+    "displayName": "Destinations",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,9 +16,11 @@
       "type": "string"
     },
     "locationId": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "unique": true
     },
-    "Tag": {
+    "tag": {
       "type": "string"
     },
     "Category": {
@@ -25,10 +28,13 @@
     },
     "latitude": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "/^(\\\\+|-)?(?:90(?:\\\\.0+)?|[1-8]?\\\\d(?:\\\\.\\\\d+)?)$/\""
     },
     "longitude": {
-      "type": "string"
+      "type": "string",
+      "regex": "/^(\\\\+|-)?(?:180(?:\\\\.0+)?|1[0-7]?\\\\d(?:\\\\.\\\\d+)?|0?\\\\d{1,2}(?:\\\\.\\\\d+)?)$/",
+      "required": true
     },
     "pickup": {
       "type": "string"
@@ -46,9 +52,6 @@
       "type": "boolean",
       "default": false
     },
-    "map": {
-      "type": "string"
-    },
     "pickupRequired": {
       "type": "boolean",
       "default": false
@@ -64,6 +67,9 @@
       "relation": "manyToOne",
       "target": "api::route.route",
       "inversedBy": "arrivals"
+    },
+    "map": {
+      "type": "string"
     }
   }
 }
