@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "destinations",
+  "info": {
+    "singularName": "destination",
+    "pluralName": "destinations",
+    "displayName": "Destinations"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "locationId": {
+      "type": "integer"
+    },
+    "Tag": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string",
+      "required": true
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "pickup": {
+      "type": "string"
+    },
+    "pickupDefault": {
+      "type": "string"
+    },
+    "dropOff": {
+      "type": "string"
+    },
+    "dropOffDefault": {
+      "type": "string"
+    },
+    "dropOffRequired": {
+      "type": "boolean",
+      "default": false
+    },
+    "map": {
+      "type": "string"
+    },
+    "pickupRequired": {
+      "type": "boolean",
+      "default": false
+    },
+    "routesDestinations": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::route.route",
+      "inversedBy": "destinations"
+    },
+    "routesArrivals": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::route.route",
+      "inversedBy": "arrivals"
+    }
+  }
+}

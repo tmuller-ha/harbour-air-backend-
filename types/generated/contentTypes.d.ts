@@ -775,53 +775,6 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
   };
 }
 
-export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
-  collectionName: 'parcel_express_quotes';
-  info: {
-    singularName: 'parcel-express-quote';
-    pluralName: 'parcel-express-quotes';
-    displayName: 'Parcel Express Quotes';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.Text & Attribute.Required;
-    telephone: Attribute.Text & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    origin: Attribute.Text & Attribute.Required;
-    destination: Attribute.Text & Attribute.Required;
-    numberOfParcels: Attribute.Integer & Attribute.Required;
-    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
-      Attribute.Required;
-    courierRequirements: Attribute.Text & Attribute.Required;
-    comments: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1346,6 +1299,58 @@ export interface ApiDealDeal extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::deal.deal', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDestinationDestination extends Schema.CollectionType {
+  collectionName: 'destinations';
+  info: {
+    singularName: 'destination';
+    pluralName: 'destinations';
+    displayName: 'Destinations';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    location: Attribute.String;
+    locationId: Attribute.Integer;
+    Tag: Attribute.String;
+    Category: Attribute.String;
+    latitude: Attribute.String & Attribute.Required;
+    longitude: Attribute.String;
+    pickup: Attribute.String;
+    pickupDefault: Attribute.String;
+    dropOff: Attribute.String;
+    dropOffDefault: Attribute.String;
+    dropOffRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
+    map: Attribute.String;
+    pickupRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
+    routesDestinations: Attribute.Relation<
+      'api::destination.destination',
+      'manyToOne',
+      'api::route.route'
+    >;
+    routesArrivals: Attribute.Relation<
+      'api::destination.destination',
+      'manyToOne',
+      'api::route.route'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::destination.destination',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::destination.destination',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -2020,6 +2025,45 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiRouteRoute extends Schema.CollectionType {
+  collectionName: 'routes';
+  info: {
+    singularName: 'route';
+    pluralName: 'routes';
+    displayName: 'Routes';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    destinations: Attribute.Relation<
+      'api::route.route',
+      'oneToMany',
+      'api::destination.destination'
+    >;
+    arrivals: Attribute.Relation<
+      'api::route.route',
+      'oneToMany',
+      'api::destination.destination'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::route.route',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::route.route',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSeatingOptionSeatingOption extends Schema.SingleType {
   collectionName: 'seating_options';
   info: {
@@ -2263,7 +2307,6 @@ declare module '@strapi/types' {
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
-      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -2276,6 +2319,7 @@ declare module '@strapi/types' {
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::deal.deal': ApiDealDeal;
+      'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
@@ -2295,6 +2339,7 @@ declare module '@strapi/types' {
       'api::mobility.mobility': ApiMobilityMobility;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::route.route': ApiRouteRoute;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
