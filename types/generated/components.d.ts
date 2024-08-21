@@ -230,7 +230,7 @@ export interface ElementsHarbourAirArticle extends Schema.Component {
 export interface ElementsHarbourAirServices extends Schema.Component {
   collectionName: 'components_elements_harbour_air_services';
   info: {
-    displayName: 'HarbourAirServices';
+    displayName: 'Image With Description';
     description: '';
   };
   attributes: {
@@ -295,6 +295,24 @@ export interface ElementsTableFields extends Schema.Component {
   };
   attributes: {
     tableInformation: Attribute.Component<'elements.pricing-table', true>;
+  };
+}
+
+export interface ElementsTitleWithCkEditor extends Schema.Component {
+  collectionName: 'components_elements_title_with_ck_editors';
+  info: {
+    displayName: 'Title With CKEditor';
+  };
+  attributes: {
+    editor: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -1115,6 +1133,7 @@ declare module '@strapi/types' {
       'elements.pricing-table': ElementsPricingTable;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
+      'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
