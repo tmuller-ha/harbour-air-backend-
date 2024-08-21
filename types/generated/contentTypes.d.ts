@@ -1327,17 +1327,17 @@ export interface ApiDestinationDestination extends Schema.CollectionType {
     dropOffDefault: Attribute.String;
     dropOffRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
     pickupRequired: Attribute.Boolean & Attribute.DefaultTo<false>;
-    routesDestinations: Attribute.Relation<
+    map: Attribute.String;
+    routesDeparture: Attribute.Relation<
       'api::destination.destination',
-      'manyToOne',
+      'oneToMany',
       'api::route.route'
     >;
     routesArrivals: Attribute.Relation<
       'api::destination.destination',
-      'manyToOne',
+      'oneToMany',
       'api::route.route'
     >;
-    map: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2032,19 +2032,20 @@ export interface ApiRouteRoute extends Schema.CollectionType {
     singularName: 'route';
     pluralName: 'routes';
     displayName: 'Routes';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    destinations: Attribute.Relation<
+    departure: Attribute.Relation<
       'api::route.route',
-      'oneToMany',
+      'manyToOne',
       'api::destination.destination'
     >;
-    arrivals: Attribute.Relation<
+    arrival: Attribute.Relation<
       'api::route.route',
-      'oneToMany',
+      'manyToOne',
       'api::destination.destination'
     >;
     createdAt: Attribute.DateTime;

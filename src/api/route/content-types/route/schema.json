@@ -4,24 +4,25 @@
   "info": {
     "singularName": "route",
     "pluralName": "routes",
-    "displayName": "Routes"
+    "displayName": "Routes",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "destinations": {
+    "departure": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::destination.destination",
-      "mappedBy": "routesDestinations"
+      "inversedBy": "routesDeparture"
     },
-    "arrivals": {
+    "arrival": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::destination.destination",
-      "mappedBy": "routesArrivals"
+      "inversedBy": "routesArrivals"
     }
   }
 }

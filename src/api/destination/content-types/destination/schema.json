@@ -54,20 +54,20 @@
       "type": "boolean",
       "default": false
     },
-    "routesDestinations": {
+    "map": {
+      "type": "string"
+    },
+    "routesDeparture": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::route.route",
-      "inversedBy": "destinations"
+      "mappedBy": "departure"
     },
     "routesArrivals": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::route.route",
-      "inversedBy": "arrivals"
-    },
-    "map": {
-      "type": "string"
+      "mappedBy": "arrival"
     }
   }
 }
