@@ -28,12 +28,10 @@
     },
     "latitude": {
       "type": "string",
-      "required": true,
-      "regex": "/^(\\\\+|-)?(?:90(?:\\\\.0+)?|[1-8]?\\\\d(?:\\\\.\\\\d+)?)$/\""
+      "required": true
     },
     "longitude": {
       "type": "string",
-      "regex": "/^(\\\\+|-)?(?:180(?:\\\\.0+)?|1[0-7]?\\\\d(?:\\\\.\\\\d+)?|0?\\\\d{1,2}(?:\\\\.\\\\d+)?)$/",
       "required": true
     },
     "pickup": {
