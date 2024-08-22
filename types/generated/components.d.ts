@@ -298,21 +298,40 @@ export interface ElementsTableFields extends Schema.Component {
   };
 }
 
+export interface ElementsTextWithImage extends Schema.Component {
+  collectionName: 'components_elements_text_with_images';
+  info: {
+    displayName: 'Text With Image';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
 export interface ElementsTitleWithCkEditor extends Schema.Component {
   collectionName: 'components_elements_title_with_ck_editors';
   info: {
     displayName: 'Title With CKEditor';
+    description: '';
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
     editor: Attribute.RichText &
       Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
+        'plugin::ckeditor5.CKEditor',
         {
-          output: 'HTML';
-          preset: 'rich';
+          preset: 'toolbar';
         }
       >;
-    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -1133,6 +1152,7 @@ declare module '@strapi/types' {
       'elements.pricing-table': ElementsPricingTable;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
+      'elements.text-with-image': ElementsTextWithImage;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;

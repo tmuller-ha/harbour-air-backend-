@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "safety_firsts",
+  "collectionName": "courtesy_shuttles",
   "info": {
-    "singularName": "safety-first",
-    "pluralName": "safety-firsts",
-    "displayName": "Safety First",
-    "description": ""
+    "singularName": "courtesy-shuttle",
+    "pluralName": "courtesy-shuttles",
+    "displayName": "Courtesy shuttles"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
       "type": "dynamiczone",
       "components": [
         "elements.title-with-image",
-        "elements.text-with-image"
+        "elements.title-with-ck-editor"
       ]
     },
     "tabs": {

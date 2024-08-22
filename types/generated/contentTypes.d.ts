@@ -1257,6 +1257,39 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourtesyShuttleCourtesyShuttle extends Schema.SingleType {
+  collectionName: 'courtesy_shuttles';
+  info: {
+    singularName: 'courtesy-shuttle';
+    pluralName: 'courtesy-shuttles';
+    displayName: 'Courtesy shuttles';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'elements.title-with-ck-editor']
+    >;
+    tabs: Attribute.DynamicZone<['elements.title-with-ck-editor']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::courtesy-shuttle.courtesy-shuttle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::courtesy-shuttle.courtesy-shuttle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDealDeal extends Schema.CollectionType {
   collectionName: 'deals';
   info: {
@@ -2079,7 +2112,7 @@ export interface ApiSafetyFirstSafetyFirst extends Schema.SingleType {
   };
   attributes: {
     sections: Attribute.DynamicZone<
-      ['elements.title-with-image', 'elements.harbour-air-services']
+      ['elements.title-with-image', 'elements.text-with-image']
     >;
     tabs: Attribute.DynamicZone<['elements.title-with-ck-editor']>;
     createdAt: Attribute.DateTime;
@@ -2354,6 +2387,7 @@ declare module '@strapi/types' {
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
+      'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
       'api::deal.deal': ApiDealDeal;
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;

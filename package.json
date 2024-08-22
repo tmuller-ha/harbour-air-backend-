@@ -14,6 +14,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^2.1.3",
     "@aws-sdk/client-secrets-manager": "^3.583.0",
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.13",
     "@strapi/plugin-cloud": "4.24.2",
