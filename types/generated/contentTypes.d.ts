@@ -2059,6 +2059,52 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
+  collectionName: 'parcel_expresses';
+  info: {
+    singularName: 'parcel-express';
+    pluralName: 'parcel-expresses';
+    displayName: 'Parcel Express';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'common.help'
+      ]
+    >;
+    rate: Attribute.Component<'parcel-express.rates'>;
+    faq: Attribute.Component<'parcel-express.faq'>;
+    HowTo: Attribute.DynamicZone<
+      [
+        'parcel-express.how-to-accordion',
+        'parcel-express.shipping-cost',
+        'elements.title-with-ck-editor'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::parcel-express.parcel-express',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::parcel-express.parcel-express',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRouteRoute extends Schema.CollectionType {
   collectionName: 'routes';
   info: {
@@ -2409,6 +2455,7 @@ declare module '@strapi/types' {
       'api::mobility.mobility': ApiMobilityMobility;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;

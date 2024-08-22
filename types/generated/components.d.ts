@@ -325,13 +325,14 @@ export interface ElementsTitleWithCkEditor extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    editor: Attribute.RichText &
+    content: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'toolbar';
         }
       >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
@@ -1068,6 +1069,67 @@ export interface MobilityImages extends Schema.Component {
   };
 }
 
+export interface ParcelExpressFaq extends Schema.Component {
+  collectionName: 'components_parcel_express_faqs';
+  info: {
+    displayName: 'Faq';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    questionTitle: Attribute.String;
+    faqContent: Attribute.Relation<
+      'parcel-express.faq',
+      'oneToOne',
+      'api::faq-content.faq-content'
+    >;
+    show: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ParcelExpressHowToAccordion extends Schema.Component {
+  collectionName: 'components_parcel_express_how_to_accordions';
+  info: {
+    displayName: 'howToAccordion';
+    description: '';
+  };
+  attributes: {
+    ckEditorSection: Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    topSection: Attribute.Component<'elements.title-with-ck-editor'>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ParcelExpressRates extends Schema.Component {
+  collectionName: 'components_parcel_express_rates';
+  info: {
+    displayName: 'Rates';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.Blocks;
+    title: Attribute.String;
+    show: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ParcelExpressShippingCost extends Schema.Component {
+  collectionName: 'components_parcel_express_shipping_costs';
+  info: {
+    displayName: 'ShippingCost';
+    description: '';
+  };
+  attributes: {
+    imageSection: Attribute.Component<'elements.title-with-image', true>;
+    topSection: Attribute.Component<'elements.title-with-ck-editor'>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -1201,6 +1263,10 @@ declare module '@strapi/types' {
       'meta.meta': MetaMeta;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
+      'parcel-express.faq': ParcelExpressFaq;
+      'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
+      'parcel-express.rates': ParcelExpressRates;
+      'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'seo.seo': SeoSeo;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
