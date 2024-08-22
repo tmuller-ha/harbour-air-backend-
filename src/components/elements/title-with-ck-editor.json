@@ -1,20 +1,21 @@
 {
   "collectionName": "components_elements_title_with_ck_editors",
   "info": {
-    "displayName": "Title With CkEditor"
+    "displayName": "Title With CKEditor",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "content": {
       "type": "customField",
       "options": {
-        "output": "HTML",
-        "preset": "rich"
+        "preset": "toolbar"
       },
-      "customField": "plugin::ckeditor.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor"
     },
     "show": {
       "type": "boolean",
