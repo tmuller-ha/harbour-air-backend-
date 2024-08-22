@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elements_title_with_ck_editors",
+  "info": {
+    "displayName": "Title With CkEditor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
