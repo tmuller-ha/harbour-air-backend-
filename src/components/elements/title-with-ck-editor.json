@@ -1,11 +1,14 @@
 {
   "collectionName": "components_elements_title_with_ck_editors",
   "info": {
-    "displayName": "Title With CKEditor"
+    "displayName": "Title With CkEditor"
   },
   "options": {},
   "attributes": {
-    "editor": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
       "type": "customField",
       "options": {
         "output": "HTML",
@@ -13,9 +16,9 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "title": {
-      "type": "string",
-      "required": true
+    "show": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
