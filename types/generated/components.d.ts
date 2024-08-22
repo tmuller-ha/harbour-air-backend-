@@ -243,10 +243,11 @@ export interface ElementsHarbourAirServices extends Schema.Component {
 export interface ElementsInstagramImages extends Schema.Component {
   collectionName: 'components_elements_instagram_images';
   info: {
-    displayName: 'InstagramImages';
+    displayName: 'Image With Link';
+    description: '';
   };
   attributes: {
-    instaImage: Attribute.Media;
+    image: Attribute.Media;
     slug: Attribute.String;
   };
 }

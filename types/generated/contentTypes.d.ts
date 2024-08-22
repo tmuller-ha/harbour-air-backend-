@@ -989,6 +989,8 @@ export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
       ['elements.title-with-image', 'elements.title-with-description']
     >;
     tabs: Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1040,6 +1042,91 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::assistance.assistance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blogs';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.Text & Attribute.Required;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
+    coverImage: Attribute.Media;
+    category: Attribute.Relation<
+      'api::blog.blog',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogsAndNewBlogsAndNew extends Schema.SingleType {
+  collectionName: 'blogs_and_news';
+  info: {
+    singularName: 'blogs-and-new';
+    pluralName: 'blogs-and-news';
+    displayName: 'Blogs And News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breakingNews: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToOne',
+      'api::news.news'
+    >;
+    latestNews: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToMany',
+      'api::news.news'
+    >;
+    latestBlogs: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    blogsCoverImage: Attribute.Media;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
       'oneToOne',
       'admin::user'
     > &
@@ -1161,6 +1248,46 @@ export interface ApiCareerOpportunityCareerOpportunity
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::career-opportunity.career-opportunity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    news: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::news.news'
+    >;
+    blog: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::blog.blog'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
@@ -1992,6 +2119,44 @@ export interface ApiMobilityMobility extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsNews extends Schema.CollectionType {
+  collectionName: 'all_news';
+  info: {
+    singularName: 'news';
+    pluralName: 'all-news';
+    displayName: 'News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.String & Attribute.Required;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
+    coverImage: Attribute.Media & Attribute.Required;
+    category: Attribute.Relation<
+      'api::news.news',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
   collectionName: 'not_found_pages';
   info: {
@@ -2428,9 +2593,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
+      'api::blog.blog': ApiBlogBlog;
+      'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
       'api::career.career': ApiCareerCareer;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
+      'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
@@ -2453,6 +2621,7 @@ declare module '@strapi/types' {
       'api::main-tour.main-tour': ApiMainTourMainTour;
       'api::menu-image-link.menu-image-link': ApiMenuImageLinkMenuImageLink;
       'api::mobility.mobility': ApiMobilityMobility;
+      'api::news.news': ApiNewsNews;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;

@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "blogs_and_news",
+  "info": {
+    "singularName": "blogs-and-new",
+    "pluralName": "blogs-and-news",
+    "displayName": "Blogs And News",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "breakingNews": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::news.news"
+    },
+    "latestNews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news.news"
+    },
+    "latestBlogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    },
+    "blogsCoverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}
