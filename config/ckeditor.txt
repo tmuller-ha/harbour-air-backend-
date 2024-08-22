@@ -1,92 +1,51 @@
 globalThis.CKEditorConfig = {
-    configs: {
-        toolbar: {
-            editorConfig: {
-                fontSize: {
-                    options: [12, 14, 16, 18, 22, 24, 30, 36],
-                },
-                fontColor: {
-                    columns: 12,
-                    documentColors: 12,
-                    colors: [
-                        { label: "Primary", color: "#002d62" },
-                        { label: "Black", color: "#000000" },
-                    ],
-                },
-            },
-        },
-        toolbarBalloon: {
-            editorConfig: {
-                fontSize: {
-                    options: [12, 14, 16, 18, 22, 24, 30, 36],
-                },
-                fontColor: {
-                    columns: 12,
-                    documentColors: 12,
-                    colors: [
-                        { label: "Primary", color: "#002d62" },
-                        { label: "Black", color: "#000000" },
-                    ],
-                },
-            },
-        },
-        blockBalloon: {
-            editorConfig: {
-                fontSize: {
-                    options: [12, 14, 16, 18, 22, 24, 30, 36],
-                },
-                fontColor: {
-                    columns: 12,
-                    documentColors: 12,
-                    colors: [
-                        { label: "Primary", color: "#002d62" },
-                        { label: "Black", color: "#000000" },
-                    ],
-                },
-            },
-        },
-        customEditorVersion1: {
-            editorConfig: {
-                fontSize: {
-                    options: [12, 14, 16, 18, 22, 24, 30, 36],
-                },
-                fontColor: {
-                    columns: 12,
-                    documentColors: 12,
-                    colors: [
-                        { label: "Primary", color: "#002d62" },
-                        { label: "Black", color: "#000000" },
-                    ],
-                },
-            },
-        },
-        customEditorVersion2: {
-            editorConfig: {
-                fontSize: {
-                    options: [12, 14, 16, 18, 22, 24, 30, 36],
-                },
-                fontColor: {
-                    columns: 12,
-                    documentColors: 12,
-                    colors: [
-                        { label: "Primary", color: "#002d62" },
-                        { label: "Black", color: "#000000" },
-                    ],
-                },
-            },
-        },
-    },
-    theme: {
+  configsOverwrite: false,
+  themeOverwrite: false,
+  configs: {
+    toolbar: {
+      editorConfig: {
         fontSize: {
-            options: [12, 14, 16, 18, 22, 24, 30, 36],
+          options: [12, 14, 16, 18, 22, 24, 30, 36],
         },
         fontColor: {
-            columns: 12,
-            documentColors: 12,
-            colors: [
-                { label: "Primary", color: "#002d62" },
-                { label: "Black", color: "#000000" },
-            ],
+          columns: 12,
+          documentColors: 12,
+          colors: [
+            { label: "Primary", color: "#002d62" },
+            { label: "Black", color: "#000000" },
+          ],
         },
+      },
     },
+    toolbarBalloon: {
+      editorConfig: {
+        fontSize: {
+          options: [12, 14, 16, 18, 22, 24, 30, 36],
+        },
+        fontColor: {
+          columns: 12,
+          documentColors: 12,
+          colors: [
+            { label: "Primary", color: "#002d62" },
+            { label: "Black", color: "#000000" },
+          ],
+        },
+      },
+    },
+    blockBalloon: {
+      editorConfig: {
+        fontSize: {
+          options: [12, 14, 16, 18, 22, 24, 30, 36],
+        },
+        fontColor: {
+          columns: 12,
+          documentColors: 12,
+          colors: [
+            { label: "Primary", color: "#002d62" },
+            { label: "Black", color: "#000000" },
+          ],
+        },
+      },
+    },
+  },
 };

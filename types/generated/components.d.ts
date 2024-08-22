@@ -173,19 +173,18 @@ export interface ElementsAccordionWithCkEditor extends Schema.Component {
   };
   attributes: {
     label: Attribute.String;
-    content: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
     documents: Attribute.Relation<
       'elements.accordion-with-ck-editor',
       'oneToMany',
       'api::document.document'
     >;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
   };
 }
 
@@ -326,6 +325,7 @@ export interface ElementsTitleWithCkEditor extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
     content: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -333,7 +333,6 @@ export interface ElementsTitleWithCkEditor extends Schema.Component {
           preset: 'toolbar';
         }
       >;
-    show: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
