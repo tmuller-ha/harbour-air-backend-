@@ -230,7 +230,7 @@ export interface ElementsHarbourAirArticle extends Schema.Component {
 export interface ElementsHarbourAirServices extends Schema.Component {
   collectionName: 'components_elements_harbour_air_services';
   info: {
-    displayName: 'HarbourAirServices';
+    displayName: 'Image With Description';
     description: '';
   };
   attributes: {
