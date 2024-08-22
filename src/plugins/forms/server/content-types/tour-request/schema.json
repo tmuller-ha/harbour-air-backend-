@@ -48,7 +48,7 @@
       "required": true
     },
     "passengers": {
-      "type": "integer",
+      "type": "string",
       "required": true
     },
     "date": {
