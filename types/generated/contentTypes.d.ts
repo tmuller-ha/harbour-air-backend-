@@ -1545,6 +1545,7 @@ export interface ApiDestinationDestination extends Schema.CollectionType {
       'oneToMany',
       'api::route.route'
     >;
+    destinationImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1754,6 +1755,41 @@ export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFlightStatusFlightStatus extends Schema.SingleType {
+  collectionName: 'flight_statuses';
+  info: {
+    singularName: 'flight-status';
+    pluralName: 'flight-statuses';
+    displayName: 'Flight Status';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    flightStatusInfo: Attribute.Blocks;
+    flighStatusTitle: Attribute.Component<'elements.title-with-image'>;
+    flightStatusDescription: Attribute.Component<'elements.title-with-description'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::flight-status.flight-status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::flight-status.flight-status',
       'oneToOne',
       'admin::user'
     > &
@@ -2690,6 +2726,7 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
+      'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

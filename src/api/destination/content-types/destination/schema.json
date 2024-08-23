@@ -68,6 +68,14 @@
       "relation": "oneToMany",
       "target": "api::route.route",
       "mappedBy": "arrival"
+    },
+    "destinationImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
