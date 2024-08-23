@@ -68,6 +68,16 @@
       "relation": "oneToMany",
       "target": "api::route.route",
       "mappedBy": "arrival"
+    },
+    "destinationImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

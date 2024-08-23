@@ -730,51 +730,6 @@ export interface PluginFormsCharteredFlightRequest
   };
 }
 
-export interface PluginFormsContactForm extends Schema.CollectionType {
-  collectionName: 'contact_forms';
-  info: {
-    singularName: 'contact-form';
-    pluralName: 'contact-forms';
-    displayName: 'Contact Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String & Attribute.Required;
-    passengerName: Attribute.String & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1338,6 +1293,7 @@ export interface ApiDestinationDestination extends Schema.CollectionType {
       'oneToMany',
       'api::route.route'
     >;
+    destinationImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1547,6 +1503,41 @@ export interface ApiFeaturedTourFeaturedTour extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::featured-tour.featured-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFlightStatusFlightStatus extends Schema.SingleType {
+  collectionName: 'flight_statuses';
+  info: {
+    singularName: 'flight-status';
+    pluralName: 'flight-statuses';
+    displayName: 'Flight Status';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    flightStatusInfo: Attribute.Blocks;
+    flighStatusTitle: Attribute.Component<'elements.title-with-image'>;
+    flightStatusDescription: Attribute.Component<'elements.title-with-description'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::flight-status.flight-status',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::flight-status.flight-status',
       'oneToOne',
       'admin::user'
     > &
@@ -2342,7 +2333,6 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
-      'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -2362,6 +2352,7 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
+      'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
