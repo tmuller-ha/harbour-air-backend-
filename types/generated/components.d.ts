@@ -324,7 +324,7 @@ export interface ElementsTitleWithCkEditor extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
     content: Attribute.RichText &
       Attribute.CustomField<

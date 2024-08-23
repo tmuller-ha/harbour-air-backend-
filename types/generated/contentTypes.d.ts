@@ -2095,6 +2095,38 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
 }
 
+export interface ApiMakeItPrivateModalMakeItPrivateModal
+  extends Schema.SingleType {
+  collectionName: 'make_it_private_modals';
+  info: {
+    singularName: 'make-it-private-modal';
+    pluralName: 'make-it-private-modals';
+    displayName: 'Make It Private Modal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Blocks & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::make-it-private-modal.make-it-private-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::make-it-private-modal.make-it-private-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuImageLinkMenuImageLink extends Schema.CollectionType {
   collectionName: 'menu_image_links';
   info: {
@@ -2667,6 +2699,7 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
+      'api::make-it-private-modal.make-it-private-modal': ApiMakeItPrivateModalMakeItPrivateModal;
       'api::menu-image-link.menu-image-link': ApiMenuImageLinkMenuImageLink;
       'api::mobility.mobility': ApiMobilityMobility;
       'api::news.news': ApiNewsNews;

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "make_it_private_modals",
+  "info": {
+    "singularName": "make-it-private-modal",
+    "pluralName": "make-it-private-modals",
+    "displayName": "Make It Private Modal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}
