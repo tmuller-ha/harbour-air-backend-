@@ -15,6 +15,11 @@
     "show": {
       "type": "boolean",
       "default": false
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
     }
   }
 }

@@ -14,16 +14,16 @@
     "name": {
       "type": "string"
     },
-    "news": {
+    "blogs": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::news.news",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
       "mappedBy": "category"
     },
-    "blog": {
+    "news": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::blog.blog",
+      "relation": "oneToMany",
+      "target": "api::news.news",
       "mappedBy": "category"
     }
   }
