@@ -1114,6 +1114,7 @@ export interface ParcelExpressRates extends Schema.Component {
     description: Attribute.Blocks;
     title: Attribute.String;
     show: Attribute.Boolean & Attribute.DefaultTo<false>;
+    details: Attribute.Component<'elements.accordion-with-ck-editor', true>;
   };
 }
 
