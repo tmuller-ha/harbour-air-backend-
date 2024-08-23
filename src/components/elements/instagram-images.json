@@ -1,19 +1,21 @@
 {
   "collectionName": "components_elements_instagram_images",
   "info": {
-    "displayName": "InstagramImages"
+    "displayName": "Image With Link",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "instaImage": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "slug": {
       "type": "string"

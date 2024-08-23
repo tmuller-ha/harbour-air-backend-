@@ -657,7 +657,7 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     tourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
       Attribute.Required;
     tourName: Attribute.String & Attribute.Required;
-    passengers: Attribute.Integer & Attribute.Required;
+    passengers: Attribute.String & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
     time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -723,6 +723,98 @@ export interface PluginFormsCharteredFlightRequest
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.chartered-flight-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'Contact Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contact: Attribute.String & Attribute.Required;
+    passengerName: Attribute.String & Attribute.Required;
+    phoneNumber: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
+      Attribute.Required;
+    comments: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
+  collectionName: 'parcel_express_quotes';
+  info: {
+    singularName: 'parcel-express-quote';
+    pluralName: 'parcel-express-quotes';
+    displayName: 'Parcel Express Quotes';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.Text & Attribute.Required;
+    telephone: Attribute.Text & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    origin: Attribute.Text & Attribute.Required;
+    destination: Attribute.Text & Attribute.Required;
+    numberOfParcels: Attribute.Integer & Attribute.Required;
+    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
+      Attribute.Required;
+    courierRequirements: Attribute.Text & Attribute.Required;
+    comments: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
       'oneToOne',
       'admin::user'
     > &
@@ -944,6 +1036,8 @@ export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
       ['elements.title-with-image', 'elements.title-with-description']
     >;
     tabs: Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -995,6 +1089,91 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::assistance.assistance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blogs';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.Text & Attribute.Required;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
+    coverImage: Attribute.Media;
+    category: Attribute.Relation<
+      'api::blog.blog',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogsAndNewBlogsAndNew extends Schema.SingleType {
+  collectionName: 'blogs_and_news';
+  info: {
+    singularName: 'blogs-and-new';
+    pluralName: 'blogs-and-news';
+    displayName: 'Blogs And News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breakingNews: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToOne',
+      'api::news.news'
+    >;
+    latestNews: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToMany',
+      'api::news.news'
+    >;
+    latestBlogs: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    blogsCoverImage: Attribute.Media;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blogs-and-new.blogs-and-new',
       'oneToOne',
       'admin::user'
     > &
@@ -1123,6 +1302,46 @@ export interface ApiCareerOpportunityCareerOpportunity
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    news: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::news.news'
+    >;
+    blog: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::blog.blog'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   collectionName: 'chartered_flights';
   info: {
@@ -1205,6 +1424,39 @@ export interface ApiCountryCountry extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourtesyShuttleCourtesyShuttle extends Schema.SingleType {
+  collectionName: 'courtesy_shuttles';
+  info: {
+    singularName: 'courtesy-shuttle';
+    pluralName: 'courtesy-shuttles';
+    displayName: 'Courtesy shuttles';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'elements.title-with-ck-editor']
+    >;
+    tabs: Attribute.DynamicZone<['elements.title-with-ck-editor']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::courtesy-shuttle.courtesy-shuttle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::courtesy-shuttle.courtesy-shuttle',
       'oneToOne',
       'admin::user'
     > &
@@ -1879,6 +2131,38 @@ export interface ApiMainTourMainTour extends Schema.SingleType {
   };
 }
 
+export interface ApiMakeItPrivateModalMakeItPrivateModal
+  extends Schema.SingleType {
+  collectionName: 'make_it_private_modals';
+  info: {
+    singularName: 'make-it-private-modal';
+    pluralName: 'make-it-private-modals';
+    displayName: 'Make It Private Modal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Blocks & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::make-it-private-modal.make-it-private-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::make-it-private-modal.make-it-private-modal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuImageLinkMenuImageLink extends Schema.CollectionType {
   collectionName: 'menu_image_links';
   info: {
@@ -1950,6 +2234,44 @@ export interface ApiMobilityMobility extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsNews extends Schema.CollectionType {
+  collectionName: 'all_news';
+  info: {
+    singularName: 'news';
+    pluralName: 'all-news';
+    displayName: 'News';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    shortDescription: Attribute.String & Attribute.Required;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
+    coverImage: Attribute.Media & Attribute.Required;
+    category: Attribute.Relation<
+      'api::news.news',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
   collectionName: 'not_found_pages';
   info: {
@@ -2017,6 +2339,52 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
+  collectionName: 'parcel_expresses';
+  info: {
+    singularName: 'parcel-express';
+    pluralName: 'parcel-expresses';
+    displayName: 'Parcel Express';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-description',
+        'common.help'
+      ]
+    >;
+    rate: Attribute.Component<'parcel-express.rates'>;
+    faq: Attribute.Component<'parcel-express.faq'>;
+    HowTo: Attribute.DynamicZone<
+      [
+        'parcel-express.how-to-accordion',
+        'parcel-express.shipping-cost',
+        'elements.title-with-ck-editor'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::parcel-express.parcel-express',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::parcel-express.parcel-express',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRouteRoute extends Schema.CollectionType {
   collectionName: 'routes';
   info: {
@@ -2070,7 +2438,7 @@ export interface ApiSafetyFirstSafetyFirst extends Schema.SingleType {
   };
   attributes: {
     sections: Attribute.DynamicZone<
-      ['elements.title-with-image', 'elements.harbour-air-services']
+      ['elements.title-with-image', 'elements.text-with-image']
     >;
     tabs: Attribute.DynamicZone<['elements.title-with-ck-editor']>;
     createdAt: Attribute.DateTime;
@@ -2333,17 +2701,23 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
+      'plugin::forms.contact-form': PluginFormsContactForm;
+      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
+      'api::blog.blog': ApiBlogBlog;
+      'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
       'api::career.career': ApiCareerCareer;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
+      'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::country.country': ApiCountryCountry;
+      'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
       'api::deal.deal': ApiDealDeal;
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
@@ -2362,10 +2736,13 @@ declare module '@strapi/types' {
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
       'api::main-tour.main-tour': ApiMainTourMainTour;
+      'api::make-it-private-modal.make-it-private-modal': ApiMakeItPrivateModalMakeItPrivateModal;
       'api::menu-image-link.menu-image-link': ApiMenuImageLinkMenuImageLink;
       'api::mobility.mobility': ApiMobilityMobility;
+      'api::news.news': ApiNewsNews;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;

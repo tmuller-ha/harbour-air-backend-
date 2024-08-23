@@ -9,18 +9,17 @@
     "label": {
       "type": "string"
     },
-    "content": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
     "documents": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::document.document"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
