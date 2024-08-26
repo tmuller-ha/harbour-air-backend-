@@ -731,10 +731,7 @@ export interface HomeDescription extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    HarbourAirService: Attribute.Component<
-      'elements.harbour-air-services',
-      true
-    > &
+    highlights: Attribute.Component<'elements.harbour-air-services', true> &
       Attribute.SetMinMax<
         {
           max: 5;
