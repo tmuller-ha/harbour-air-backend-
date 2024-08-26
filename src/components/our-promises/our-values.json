@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_promises_our_values",
+  "info": {
+    "displayName": "Our Values",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "values": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-description"
+    }
+  }
+}

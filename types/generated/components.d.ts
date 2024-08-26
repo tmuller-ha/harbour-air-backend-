@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AboutUsAboutUsTurbo extends Schema.Component {
+  collectionName: 'components_about_us_about_us_turbos';
+  info: {
+    displayName: 'About Us Turbo';
+    icon: 'sun';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    details: Attribute.Component<'elements.title-with-desc-and-image', true>;
+  };
+}
+
 export interface AircraftFleetAircraftFleetTabs extends Schema.Component {
   collectionName: 'components_aircraft_fleet_aircraft_fleet_tabs';
   info: {
@@ -334,6 +347,28 @@ export interface ElementsTitleWithCkEditor extends Schema.Component {
           preset: 'toolbar';
         }
       >;
+  };
+}
+
+export interface ElementsTitleWithDescAndImage extends Schema.Component {
+  collectionName: 'components_elements_title_with_desc_and_images';
+  info: {
+    displayName: 'Title With Desc And media';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    media: Attribute.Media & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    media_url: Attribute.String;
   };
 }
 
@@ -1070,6 +1105,41 @@ export interface MobilityImages extends Schema.Component {
   };
 }
 
+export interface OurPromisesHaPromise extends Schema.Component {
+  collectionName: 'components_our_promises_ha_promises';
+  info: {
+    displayName: 'HA Promise';
+  };
+  attributes: {
+    details: Attribute.Component<'elements.title-with-ck-editor'>;
+    image: Attribute.Media;
+  };
+}
+
+export interface OurPromisesMissionAndVision extends Schema.Component {
+  collectionName: 'components_our_promises_mission_and_visions';
+  info: {
+    displayName: 'Mission And Vision';
+  };
+  attributes: {
+    mission: Attribute.Component<'elements.title-with-ck-editor'>;
+    vision: Attribute.Component<'elements.title-with-ck-editor'>;
+    image: Attribute.Media;
+  };
+}
+
+export interface OurPromisesOurValues extends Schema.Component {
+  collectionName: 'components_our_promises_our_values';
+  info: {
+    displayName: 'Our Values';
+    icon: 'command';
+  };
+  attributes: {
+    title: Attribute.String;
+    values: Attribute.Component<'elements.title-with-description', true>;
+  };
+}
+
 export interface OurStoryDetails extends Schema.Component {
   collectionName: 'components_our_story_details';
   info: {
@@ -1219,6 +1289,7 @@ export interface ToursHeroDescription extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'about-us.about-us-turbo': AboutUsAboutUsTurbo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
@@ -1243,6 +1314,7 @@ declare module '@strapi/types' {
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
+      'elements.title-with-desc-and-image': ElementsTitleWithDescAndImage;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1290,6 +1362,9 @@ declare module '@strapi/types' {
       'meta.meta': MetaMeta;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
+      'our-promises.ha-promise': OurPromisesHaPromise;
+      'our-promises.mission-and-vision': OurPromisesMissionAndVision;
+      'our-promises.our-values': OurPromisesOurValues;
       'our-story.details': OurStoryDetails;
       'our-story.story': OurStoryStory;
       'parcel-express.faq': ParcelExpressFaq;
