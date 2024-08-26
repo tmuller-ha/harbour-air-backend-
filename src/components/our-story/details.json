@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_our_story_details",
+  "info": {
+    "displayName": "details",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

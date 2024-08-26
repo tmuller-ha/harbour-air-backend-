@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "awards",
+  "info": {
+    "singularName": "award",
+    "pluralName": "awards",
+    "displayName": "Awards",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image",
+      "required": true
+    },
+    "about": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "awards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.harbour-air-services"
+    }
+  }
+}
