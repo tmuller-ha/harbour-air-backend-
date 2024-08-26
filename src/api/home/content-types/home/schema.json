@@ -49,6 +49,21 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "tourSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-tours"
+    },
+    "locationSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.home-locations"
+    },
+    "newsSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.news"
     }
   }
 }

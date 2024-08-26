@@ -657,7 +657,7 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     tourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
       Attribute.Required;
     tourName: Attribute.String & Attribute.Required;
-    passengers: Attribute.Integer & Attribute.Required;
+    passengers: Attribute.String & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
     time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -768,6 +768,53 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
+  collectionName: 'parcel_express_quotes';
+  info: {
+    singularName: 'parcel-express-quote';
+    pluralName: 'parcel-express-quotes';
+    displayName: 'Parcel Express Quotes';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.Text & Attribute.Required;
+    telephone: Attribute.Text & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    origin: Attribute.Text & Attribute.Required;
+    destination: Attribute.Text & Attribute.Required;
+    numberOfParcels: Attribute.Integer & Attribute.Required;
+    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
+      Attribute.Required;
+    courierRequirements: Attribute.Text & Attribute.Required;
+    comments: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
       'oneToOne',
       'admin::user'
     > &
@@ -1919,6 +1966,9 @@ export interface ApiHomeHome extends Schema.SingleType {
     GrabDeals: Attribute.Component<'home.grab-deals'>;
     harbourAirArticle: Attribute.Component<'home.article-carousel'>;
     meta: Attribute.Component<'meta.meta'>;
+    tourSection: Attribute.Component<'home.home-tours'>;
+    locationSection: Attribute.Component<'home.home-locations', true>;
+    newsSection: Attribute.Component<'home.news', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2799,6 +2849,7 @@ declare module '@strapi/types' {
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
+      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

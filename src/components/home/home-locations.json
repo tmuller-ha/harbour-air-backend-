@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_home_locations",
+  "info": {
+    "displayName": "Locations",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "title": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
