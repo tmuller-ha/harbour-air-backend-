@@ -719,6 +719,7 @@ export interface HomeArticleCarousel extends Schema.Component {
   attributes: {
     show: Attribute.Boolean;
     article: Attribute.Component<'elements.harbour-air-article', true>;
+    moreDetails: Attribute.Component<'elements.button'>;
   };
 }
 
@@ -730,10 +731,7 @@ export interface HomeDescription extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    HarbourAirService: Attribute.Component<
-      'elements.harbour-air-services',
-      true
-    > &
+    highlights: Attribute.Component<'elements.harbour-air-services', true> &
       Attribute.SetMinMax<
         {
           max: 5;
@@ -805,6 +803,53 @@ export interface HomeHomeInstagram extends Schema.Component {
     authorName: Attribute.String;
     authorAddress: Attribute.String;
     instaProfileImage: Attribute.Media;
+  };
+}
+
+export interface HomeHomeLocations extends Schema.Component {
+  collectionName: 'components_home_home_locations';
+  info: {
+    displayName: 'Locations';
+    description: '';
+  };
+  attributes: {
+    location: Attribute.Relation<
+      'home.home-locations',
+      'oneToOne',
+      'api::location.location'
+    >;
+    title: Attribute.String;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface HomeHomeTours extends Schema.Component {
+  collectionName: 'components_home_home_tours';
+  info: {
+    displayName: 'Tours';
+    description: '';
+  };
+  attributes: {
+    tour: Attribute.Relation<
+      'home.home-tours',
+      'oneToOne',
+      'api::tours-detail.tours-detail'
+    >;
+    title: Attribute.String;
+    show: Attribute.Boolean;
+  };
+}
+
+export interface HomeNews extends Schema.Component {
+  collectionName: 'components_home_news';
+  info: {
+    displayName: 'News';
+    description: '';
+  };
+  attributes: {
+    news: Attribute.Relation<'home.news', 'oneToOne', 'api::news.news'>;
+    moreDetails: Attribute.Component<'elements.button'>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -1344,6 +1389,9 @@ declare module '@strapi/types' {
       'home.hero-carousel': HomeHeroCarousel;
       'home.home-carousel': HomeHomeCarousel;
       'home.home-instagram': HomeHomeInstagram;
+      'home.home-locations': HomeHomeLocations;
+      'home.home-tours': HomeHomeTours;
+      'home.news': HomeNews;
       'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'inside-location.address': InsideLocationAddress;
       'inside-location.guide-information': InsideLocationGuideInformation;
