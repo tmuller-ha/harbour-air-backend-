@@ -30,6 +30,9 @@
     "show": {
       "type": "boolean",
       "default": true
+    },
+    "media_url": {
+      "type": "string"
     }
   }
 }

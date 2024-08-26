@@ -367,6 +367,7 @@ export interface ElementsTitleWithDescAndImage extends Schema.Component {
       >;
     media: Attribute.Media & Attribute.Required;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    media_url: Attribute.String;
   };
 }
 
