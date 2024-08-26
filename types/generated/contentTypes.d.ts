@@ -1049,6 +1049,46 @@ export interface ApiAssistanceAssistance extends Schema.CollectionType {
   };
 }
 
+export interface ApiAwardAward extends Schema.SingleType {
+  collectionName: 'awards';
+  info: {
+    singularName: 'award';
+    pluralName: 'awards';
+    displayName: 'Awards';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Component<'elements.title-with-image'> &
+      Attribute.Required;
+    about: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    awards: Attribute.Component<'elements.harbour-air-services', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::award.award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::award.award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -2297,6 +2337,37 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiOurStoryOurStory extends Schema.SingleType {
+  collectionName: 'our_stories';
+  info: {
+    singularName: 'our-story';
+    pluralName: 'our-stories';
+    displayName: 'Our Story';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    stories: Attribute.Component<'our-story.story', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-story.our-story',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-story.our-story',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
   collectionName: 'parcel_expresses';
   info: {
@@ -2666,6 +2737,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
+      'api::award.award': ApiAwardAward;
       'api::blog.blog': ApiBlogBlog;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
@@ -2699,6 +2771,7 @@ declare module '@strapi/types' {
       'api::news.news': ApiNewsNews;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
