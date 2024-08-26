@@ -9,7 +9,7 @@
     "title": {
       "type": "string"
     },
-    "HarbourAirService": {
+    "highlights": {
       "type": "component",
       "repeatable": true,
       "component": "elements.harbour-air-services",

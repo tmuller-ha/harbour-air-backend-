@@ -1963,12 +1963,12 @@ export interface ApiHomeHome extends Schema.SingleType {
     homePageCarousel: Attribute.Component<'home.hero-carousel'>;
     instagramSection: Attribute.Component<'home.home-instagram'>;
     HarbourAirDescription: Attribute.Component<'home.description'>;
-    GrabDeals: Attribute.Component<'home.grab-deals'>;
+    deals: Attribute.Component<'home.grab-deals'>;
     harbourAirArticle: Attribute.Component<'home.article-carousel'>;
     meta: Attribute.Component<'meta.meta'>;
-    tourSection: Attribute.Component<'home.home-tours'>;
-    locationSection: Attribute.Component<'home.home-locations', true>;
-    newsSection: Attribute.Component<'home.news', true>;
+    tours: Attribute.Component<'home.home-tours'>;
+    locations: Attribute.Component<'home.home-locations', true>;
+    news: Attribute.Component<'home.news', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

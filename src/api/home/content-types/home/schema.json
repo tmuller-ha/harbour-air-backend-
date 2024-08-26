@@ -30,37 +30,32 @@
       "repeatable": false,
       "component": "home.home-instagram"
     },
-    "HarbourAirDescription": {
+    "serviceHighlights": {
       "type": "component",
       "repeatable": false,
       "component": "home.description"
     },
-    "GrabDeals": {
+    "deals": {
       "type": "component",
       "repeatable": false,
       "component": "home.grab-deals"
-    },
-    "harbourAirArticle": {
-      "type": "component",
-      "repeatable": false,
-      "component": "home.article-carousel"
     },
     "meta": {
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
     },
-    "tourSection": {
+    "tours": {
       "type": "component",
       "repeatable": false,
       "component": "home.home-tours"
     },
-    "locationSection": {
+    "locations": {
       "type": "component",
       "repeatable": true,
       "component": "home.home-locations"
     },
-    "newsSection": {
+    "news": {
       "type": "component",
       "repeatable": true,
       "component": "home.news"
