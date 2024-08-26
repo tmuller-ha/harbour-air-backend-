@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_our_story_stories",
+  "info": {
+    "displayName": "Story",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "decade": {
+      "type": "string"
+    },
+    "details": {
+      "displayName": "details",
+      "type": "component",
+      "repeatable": true,
+      "component": "our-story.details"
+    }
+  }
+}

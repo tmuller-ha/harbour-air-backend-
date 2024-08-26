@@ -249,6 +249,7 @@ export interface ElementsHarbourAirServices extends Schema.Component {
     icon: Attribute.Media;
     subtitle: Attribute.String;
     description: Attribute.Text;
+    title: Attribute.String;
   };
 }
 
@@ -1139,6 +1140,31 @@ export interface OurPromisesOurValues extends Schema.Component {
   };
 }
 
+export interface OurStoryDetails extends Schema.Component {
+  collectionName: 'components_our_story_details';
+  info: {
+    displayName: 'details';
+    icon: 'earth';
+  };
+  attributes: {
+    year: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media;
+  };
+}
+
+export interface OurStoryStory extends Schema.Component {
+  collectionName: 'components_our_story_stories';
+  info: {
+    displayName: 'Story';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    decade: Attribute.String;
+    details: Attribute.Component<'our-story.details', true>;
+  };
+}
+
 export interface ParcelExpressFaq extends Schema.Component {
   collectionName: 'components_parcel_express_faqs';
   info: {
@@ -1339,6 +1365,8 @@ declare module '@strapi/types' {
       'our-promises.ha-promise': OurPromisesHaPromise;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.our-values': OurPromisesOurValues;
+      'our-story.details': OurStoryDetails;
+      'our-story.story': OurStoryStory;
       'parcel-express.faq': ParcelExpressFaq;
       'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
       'parcel-express.rates': ParcelExpressRates;

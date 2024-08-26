@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_stories",
+  "info": {
+    "singularName": "our-story",
+    "pluralName": "our-stories",
+    "displayName": "Our Story",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stories": {
+      "displayName": "Story",
+      "type": "component",
+      "repeatable": true,
+      "component": "our-story.story"
+    }
+  }
+}
