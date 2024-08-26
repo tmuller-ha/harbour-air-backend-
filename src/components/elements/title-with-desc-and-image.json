@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_elements_title_with_desc_and_images",
+  "info": {
+    "displayName": "Title With Desc And media",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -973,6 +973,40 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'all_about_us';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'all-about-us';
+    displayName: 'About-us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Component<'elements.title-with-desc-and-image'>;
+    achievement: Attribute.Component<'elements.harbour-air-services', true>;
+    aboutDetails: Attribute.Component<'elements.harbour-air-article', true>;
+    turbo: Attribute.Component<'about-us.about-us-turbo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAirCraftFleetAirCraftFleet extends Schema.SingleType {
   collectionName: 'air_craft_fleets';
   info: {
@@ -2297,6 +2331,40 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
   };
 }
 
+export interface ApiOurPromiseOurPromise extends Schema.SingleType {
+  collectionName: 'our_promises';
+  info: {
+    singularName: 'our-promise';
+    pluralName: 'our-promises';
+    displayName: 'Our Promises';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Component<'elements.title-with-image'>;
+    missionAndVision: Attribute.Component<'our-promises.mission-and-vision'>;
+    ourValues: Attribute.Component<'our-promises.our-values'>;
+    promise: Attribute.Component<'our-promises.ha-promise'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-promise.our-promise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-promise.our-promise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
   collectionName: 'parcel_expresses';
   info: {
@@ -2664,6 +2732,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::blog.blog': ApiBlogBlog;
@@ -2699,6 +2768,7 @@ declare module '@strapi/types' {
       'api::news.news': ApiNewsNews;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
+      'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
