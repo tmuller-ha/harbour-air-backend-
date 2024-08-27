@@ -8,7 +8,7 @@
   "attributes": {
     "news": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::news.news"
     },
     "moreDetails": {

@@ -1966,8 +1966,8 @@ export interface ApiHomeHome extends Schema.SingleType {
     deals: Attribute.Component<'home.grab-deals'>;
     meta: Attribute.Component<'meta.meta'>;
     tours: Attribute.Component<'home.home-tours'>;
-    locations: Attribute.Component<'home.home-locations', true>;
-    news: Attribute.Component<'home.news', true>;
+    locations: Attribute.Component<'home.home-locations'>;
+    news: Attribute.Component<'home.news'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

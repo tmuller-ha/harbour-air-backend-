@@ -52,12 +52,12 @@
     },
     "locations": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "home.home-locations"
     },
     "news": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "home.news"
     }
   }
