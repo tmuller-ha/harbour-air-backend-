@@ -6,9 +6,9 @@
   },
   "options": {},
   "attributes": {
-    "tour": {
+    "tours": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::tours-detail.tours-detail"
     },
     "title": {

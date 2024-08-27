@@ -813,9 +813,9 @@ export interface HomeHomeLocations extends Schema.Component {
     description: '';
   };
   attributes: {
-    location: Attribute.Relation<
+    locations: Attribute.Relation<
       'home.home-locations',
-      'oneToOne',
+      'oneToMany',
       'api::location.location'
     >;
     title: Attribute.String;
@@ -830,9 +830,9 @@ export interface HomeHomeTours extends Schema.Component {
     description: '';
   };
   attributes: {
-    tour: Attribute.Relation<
+    tours: Attribute.Relation<
       'home.home-tours',
-      'oneToOne',
+      'oneToMany',
       'api::tours-detail.tours-detail'
     >;
     title: Attribute.String;
@@ -847,7 +847,7 @@ export interface HomeNews extends Schema.Component {
     description: '';
   };
   attributes: {
-    news: Attribute.Relation<'home.news', 'oneToOne', 'api::news.news'>;
+    news: Attribute.Relation<'home.news', 'oneToMany', 'api::news.news'>;
     moreDetails: Attribute.Component<'elements.button'>;
     show: Attribute.Boolean;
   };
