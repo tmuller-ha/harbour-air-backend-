@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_quick_ticket_quick_ticket_forms",
+  "info": {
+    "displayName": "QuickTicketForm"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1272,6 +1272,17 @@ export interface ParcelExpressShippingCost extends Schema.Component {
   };
 }
 
+export interface QuickTicketQuickTicketForm extends Schema.Component {
+  collectionName: 'components_quick_ticket_quick_ticket_forms';
+  info: {
+    displayName: 'QuickTicketForm';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -1479,6 +1490,7 @@ declare module '@strapi/types' {
       'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
+      'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'seo.seo': SeoSeo;
       'standby-travel.criteria': StandbyTravelCriteria;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;

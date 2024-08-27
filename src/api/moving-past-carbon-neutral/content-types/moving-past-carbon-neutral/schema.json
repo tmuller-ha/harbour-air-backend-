@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "moving_past_carbon_neutrals",
+  "info": {
+    "singularName": "moving-past-carbon-neutral",
+    "pluralName": "moving-past-carbon-neutrals",
+    "displayName": "Moving Past Carbon Neutral",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "section": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.text-with-image",
+        "elements.title-with-ck-editor"
+      ]
+    },
+    "tabs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-ck-editor"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}
