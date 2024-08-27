@@ -2645,6 +2645,43 @@ export interface ApiSeatingOptionSeatingOption extends Schema.SingleType {
   };
 }
 
+export interface ApiStandbyTravelStandbyTravel extends Schema.SingleType {
+  collectionName: 'standby_travels';
+  info: {
+    singularName: 'standby-travel';
+    pluralName: 'standby-travels';
+    displayName: 'Standby Travel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'standby-travel.standby-travel-info']
+    > &
+      Attribute.Required;
+    travelTabs: Attribute.DynamicZone<['standby-travel.travel-tab']>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::standby-travel.standby-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::standby-travel.standby-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTourLocationTourLocation extends Schema.CollectionType {
   collectionName: 'tour_locations';
   info: {
@@ -2896,6 +2933,7 @@ declare module '@strapi/types' {
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
+      'api::standby-travel.standby-travel': ApiStandbyTravelStandbyTravel;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

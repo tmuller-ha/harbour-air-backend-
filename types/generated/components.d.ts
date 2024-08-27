@@ -1290,6 +1290,66 @@ export interface SeoSeo extends Schema.Component {
   };
 }
 
+export interface StandbyTravelCriteria extends Schema.Component {
+  collectionName: 'components_standby_travel_criteria';
+  info: {
+    displayName: 'Criteria';
+    description: '';
+  };
+  attributes: {
+    eligibilityCriteria: Attribute.String & Attribute.Required;
+    reference: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface StandbyTravelDiscountedTravelForm extends Schema.Component {
+  collectionName: 'components_standby_travel_discounted_travel_forms';
+  info: {
+    displayName: 'Discounted Travel Form';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface StandbyTravelHowToFly extends Schema.Component {
+  collectionName: 'components_standby_travel_how_to_flies';
+  info: {
+    displayName: 'How To Fly';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    criteria: Attribute.Component<'standby-travel.criteria', true>;
+  };
+}
+
+export interface StandbyTravelStandbyTravelInfo extends Schema.Component {
+  collectionName: 'components_standby_travel_standby_travel_infos';
+  info: {
+    displayName: 'standbyTravelInfo';
+  };
+  attributes: {
+    overview: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface StandbyTravelTravelTab extends Schema.Component {
+  collectionName: 'components_standby_travel_travel_tabs';
+  info: {
+    displayName: 'travelTab';
+    description: '';
+  };
+  attributes: {
+    decription: Attribute.Text;
+    travelInfo: Attribute.Component<'common.accordian-details', true> &
+      Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    discountedTravelForm: Attribute.Component<'standby-travel.discounted-travel-form'>;
+    howToFly: Attribute.Component<'standby-travel.how-to-fly'>;
+  };
+}
+
 export interface ToursFareDetails extends Schema.Component {
   collectionName: 'components_tours_fare_details';
   info: {
@@ -1420,6 +1480,11 @@ declare module '@strapi/types' {
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'seo.seo': SeoSeo;
+      'standby-travel.criteria': StandbyTravelCriteria;
+      'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
+      'standby-travel.how-to-fly': StandbyTravelHowToFly;
+      'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
+      'standby-travel.travel-tab': StandbyTravelTravelTab;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;
