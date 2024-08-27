@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "on_account_quick_tickets",
+  "info": {
+    "singularName": "on-account-quick-ticket",
+    "pluralName": "on-account-quick-tickets",
+    "displayName": "On-Account Quick Tickets"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "aboutPage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    },
+    "form": {
+      "displayName": "QuickTicketForm",
+      "type": "component",
+      "repeatable": false,
+      "component": "quick-ticket.quick-ticket-form"
+    }
+  }
+}
