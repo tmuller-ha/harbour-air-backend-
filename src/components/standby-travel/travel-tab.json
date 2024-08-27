@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_standby_travel_travel_tabs",
+  "info": {
+    "displayName": "travelTab",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "decription": {
+      "type": "text",
+      "required": false
+    },
+    "travelInfo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "discountedTravelForm": {
+      "displayName": "Discounted Travel Form",
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.discounted-travel-form"
+    },
+    "howToFly": {
+      "displayName": "How To Fly",
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.how-to-fly"
+    }
+  }
+}

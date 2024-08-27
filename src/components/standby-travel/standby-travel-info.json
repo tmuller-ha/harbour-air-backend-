@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_standby_travel_standby_travel_infos",
+  "info": {
+    "displayName": "standbyTravelInfo"
+  },
+  "options": {},
+  "attributes": {
+    "overview": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
