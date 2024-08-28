@@ -9,7 +9,10 @@ export interface AboutUsAboutUsTurbo extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    details: Attribute.Component<'elements.title-with-desc-and-image', true>;
+    details: Attribute.Component<
+      'elements.title-with-desc-and-multi-media',
+      true
+    >;
   };
 }
 
@@ -368,6 +371,26 @@ export interface ElementsTitleWithDescAndImage extends Schema.Component {
       >;
     media: Attribute.Media & Attribute.Required;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    media_url: Attribute.String;
+  };
+}
+
+export interface ElementsTitleWithDescAndMultiMedia extends Schema.Component {
+  collectionName: 'components_elements_title_with_desc_and_multi_medias';
+  info: {
+    displayName: 'Title With Desc And Multi media';
+  };
+  attributes: {
+    show: Attribute.Boolean & Attribute.Required;
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    media: Attribute.Media;
     media_url: Attribute.String;
   };
 }
@@ -1431,6 +1454,7 @@ declare module '@strapi/types' {
       'elements.text-with-image': ElementsTextWithImage;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-desc-and-image': ElementsTitleWithDescAndImage;
+      'elements.title-with-desc-and-multi-media': ElementsTitleWithDescAndMultiMedia;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;

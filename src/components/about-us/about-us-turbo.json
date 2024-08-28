@@ -14,7 +14,7 @@
     "details": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.title-with-desc-and-image"
+      "component": "elements.title-with-desc-and-multi-media"
     }
   }
 }
