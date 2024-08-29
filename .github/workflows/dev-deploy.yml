@@ -15,6 +15,8 @@ env:
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
   STRAPI_ADMIN_GITHUB_TOKEN: ${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }}
   WEB_PREVIEW_URL: ${{ secrets.WEB_PREVIEW_URL }}
+  DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
+  DEFAULT_REPLY_TO_EMAIL: ${{ secrets.DEFAULT_REPLY_TO_EMAIL }}
 
 on:
   pull_request:
@@ -41,9 +43,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-
-      - name: Plugin
-        run: cd src/plugins/web-deployment && yarn install && yarn build
 
       - name: Build Strapi
         run: yarn build
@@ -79,6 +78,8 @@ jobs:
           echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
           echo STRAPI_ADMIN_GITHUB_TOKEN=${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }} >> .env
           echo WEB_PREVIEW_URL=${{ secrets.WEB_PREVIEW_URL }} >> .env
+          echo DEFAULT_REPLY_TO_EMAIL=${{ secrets.DEFAULT_REPLY_TO_EMAIL }} >> .env
+          echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
 
       - name: Stop Strapi with PM2
         run: pm2 stop strapi
