@@ -2414,7 +2414,7 @@ export interface ApiMovingPastCarbonNeutralMovingPastCarbonNeutral
   };
   attributes: {
     section: Attribute.DynamicZone<
-      ['elements.text-with-image', 'elements.title-with-ck-editor']
+      ['elements.title-with-ck-editor', 'elements.title-with-image']
     >;
     tabs: Attribute.Component<'elements.title-with-ck-editor', true>;
     seo: Attribute.Component<'seo.seo'>;
