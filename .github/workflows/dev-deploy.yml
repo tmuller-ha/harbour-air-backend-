@@ -89,12 +89,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Custom Deployment Plugin Build
-        run: cd src/plugins/web-deployment && yarn install && yarn build
-
-      - name: Custom Form Plugin Build
-        run: cd src/plugins/forms && yarn install && yarn build
-
       - name: Build Strapi
         run: yarn build
 

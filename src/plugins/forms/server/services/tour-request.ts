@@ -34,14 +34,13 @@ export default factories.createCoreService(
       return await strapi.entityService?.update(
         "plugin::forms.tour-request",
         id,
-        {data}
+        { data }
       );
     },
     async create(data) {
-      return await strapi.entityService?.create(
-        "plugin::forms.tour-request",
-        {data}
-      );
+      return await strapi.entityService?.create("plugin::forms.tour-request", {
+        data,
+      });
     },
   })
 );
