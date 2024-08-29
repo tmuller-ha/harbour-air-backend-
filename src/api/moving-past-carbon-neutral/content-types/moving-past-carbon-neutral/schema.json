@@ -15,8 +15,8 @@
     "section": {
       "type": "dynamiczone",
       "components": [
-        "elements.text-with-image",
-        "elements.title-with-ck-editor"
+        "elements.title-with-ck-editor",
+        "elements.title-with-image"
       ]
     },
     "tabs": {
