@@ -9,6 +9,11 @@
     "showSideBookingWidget": {
       "type": "boolean",
       "default": false
+    },
+    "helpSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.help"
     }
   }
 }

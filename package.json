@@ -8,7 +8,10 @@
     "name": "Harbour CMS dev"
   },
   "scripts": {
+    "prebuild": "yarn build-forms && yarn build-web-deployment",
     "build": "strapi build",
+    "build-forms": "cd src/plugins/forms && yarn install && yarn build",
+    "build-web-deployment": "cd src/plugins/web-deployment && yarn install &&  yarn build",
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi"
@@ -20,6 +23,7 @@
     "@strapi/plugin-graphql": "^4.24.3",
     "@strapi/plugin-i18n": "4.24.2",
     "@strapi/plugin-users-permissions": "4.24.2",
+    "@strapi/provider-email-amazon-ses": "^4.25.8",
     "@strapi/provider-upload-aws-s3": "^4.24.2",
     "@strapi/strapi": "4.24.2",
     "@strapi/typescript-utils": "^4.24.5",

@@ -14,6 +14,21 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "description",
+        "button"
+      ],
+      "default": "description",
+      "required": false
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "buttonUrl": {
+      "type": "string"
     }
   }
 }
