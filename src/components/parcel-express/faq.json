@@ -15,9 +15,9 @@
     "questionTitle": {
       "type": "string"
     },
-    "faqContent": {
+    "faq_contents": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::faq-content.faq-content"
     },
     "show": {

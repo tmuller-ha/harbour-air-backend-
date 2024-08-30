@@ -1248,9 +1248,9 @@ export interface ParcelExpressFaq extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks;
     questionTitle: Attribute.String;
-    faqContent: Attribute.Relation<
+    faq_contents: Attribute.Relation<
       'parcel-express.faq',
-      'oneToOne',
+      'oneToMany',
       'api::faq-content.faq-content'
     >;
     show: Attribute.Boolean & Attribute.DefaultTo<false>;
