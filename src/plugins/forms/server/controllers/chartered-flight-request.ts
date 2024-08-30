@@ -1,4 +1,6 @@
 import { Strapi, factories } from "@strapi/strapi";
+import charteredFlightRequestTemplate from "./email-templates/chartered-flight-request";
+import {pick} from "lodash";
 
 export default factories.createCoreController("plugin::forms.chartered-flight-request", 
     ({strapi}: {strapi: Strapi}) => ({
@@ -34,7 +36,22 @@ export default factories.createCoreController("plugin::forms.chartered-flight-re
         },
         async create(ctx) {
             try {
-                return await strapi.plugin('forms').service('charteredFlightRequest').create(ctx.request.body);
+                const body = ctx.request.body as any;
+                const charteredFlightRequest =  await strapi.plugin('forms').service('charteredFlightRequest').create(ctx.request.body);
+                await strapi.plugins["email"].services.email.sendTemplatedEmail(
+                    {
+                      to: process.env.DEFAULT_REPLY_TO_EMAIL,
+                      /** Currently we don't have production access for ses 
+                          so setting default to email for emails
+                          once production access is added we need to update with body.email 
+                        */
+                    },
+                    charteredFlightRequestTemplate,
+                    {
+                      user: pick(body, ["email"]),
+                    }
+                  );
+                  return charteredFlightRequest;
             } catch (error) {
                 ctx.throw(500, error);
             }
