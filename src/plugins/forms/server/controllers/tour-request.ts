@@ -1,6 +1,6 @@
 import { Strapi, factories } from "@strapi/strapi";
-import tourRequestTemplate from "./email-templates/tour-request";
 import { pick } from "lodash";
+import tourRequestTemplate from "./email-templates/tour-request";
 
 export default factories.createCoreController(
   "plugin::forms.tour-request",
