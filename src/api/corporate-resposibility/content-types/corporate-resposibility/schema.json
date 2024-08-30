@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "corporate_resposibilities",
+  "info": {
+    "singularName": "corporate-resposibility",
+    "pluralName": "corporate-resposibilities",
+    "displayName": "Corporate Resposibility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-desc-and-image"
+    },
+    "responsibilities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.harbour-air-article"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "meta.meta"
+    }
+  }
+}

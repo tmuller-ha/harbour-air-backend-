@@ -178,6 +178,10 @@ export interface CommonHelp extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks;
     show: Attribute.Boolean;
+    type: Attribute.Enumeration<['description', 'button']> &
+      Attribute.DefaultTo<'description'>;
+    buttonName: Attribute.String;
+    buttonUrl: Attribute.String;
   };
 }
 
@@ -1145,6 +1149,7 @@ export interface MetaMeta extends Schema.Component {
   };
   attributes: {
     showSideBookingWidget: Attribute.Boolean & Attribute.DefaultTo<false>;
+    helpSection: Attribute.Component<'common.help'>;
   };
 }
 

@@ -822,6 +822,55 @@ export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
+  collectionName: 'discounted_travels';
+  info: {
+    singularName: 'discounted-travel';
+    pluralName: 'discounted-travels';
+    displayName: 'Discounted Travel Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    travelProgram: Attribute.String & Attribute.Required;
+    firstName: Attribute.String & Attribute.Required;
+    lastName: Attribute.String & Attribute.Required;
+    dateOfBirth: Attribute.Date & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    haAccountNo: Attribute.String;
+    addressOne: Attribute.String;
+    addressTwo: Attribute.String;
+    city: Attribute.String & Attribute.Required;
+    province: Attribute.String;
+    country: Attribute.String & Attribute.Required;
+    postalCode: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1466,6 +1515,41 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   };
 }
 
+export interface ApiCorporateResposibilityCorporateResposibility
+  extends Schema.SingleType {
+  collectionName: 'corporate_resposibilities';
+  info: {
+    singularName: 'corporate-resposibility';
+    pluralName: 'corporate-resposibilities';
+    displayName: 'Corporate Resposibility';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-desc-and-image'>;
+    responsibilities: Attribute.Component<'elements.harbour-air-article', true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::corporate-resposibility.corporate-resposibility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::corporate-resposibility.corporate-resposibility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCountryCountry extends Schema.CollectionType {
   collectionName: 'countries';
   info: {
@@ -1721,6 +1805,8 @@ export interface ApiExtraAssistanceExtraAssistance extends Schema.SingleType {
     pageInfo: Attribute.Component<'elements.title-with-description'>;
     image: Attribute.Media;
     cards: Attribute.DynamicZone<['extra-assistance.assistance']>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2328,7 +2414,7 @@ export interface ApiMovingPastCarbonNeutralMovingPastCarbonNeutral
   };
   attributes: {
     section: Attribute.DynamicZone<
-      ['elements.text-with-image', 'elements.title-with-ck-editor']
+      ['elements.title-with-ck-editor', 'elements.title-with-image']
     >;
     tabs: Attribute.Component<'elements.title-with-ck-editor', true>;
     seo: Attribute.Component<'seo.seo'>;
@@ -2958,6 +3044,7 @@ declare module '@strapi/types' {
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
+      'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -2973,6 +3060,7 @@ declare module '@strapi/types' {
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
+      'api::corporate-resposibility.corporate-resposibility': ApiCorporateResposibilityCorporateResposibility;
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
       'api::deal.deal': ApiDealDeal;
