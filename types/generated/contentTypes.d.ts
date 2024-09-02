@@ -1591,6 +1591,42 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   };
 }
 
+export interface ApiCommunityInvolvementCommunityInvolvement
+  extends Schema.SingleType {
+  collectionName: 'community_involvements';
+  info: {
+    singularName: 'community-involvement';
+    pluralName: 'community-involvements';
+    displayName: 'Community Involvement';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sections: Attribute.DynamicZone<
+      ['elements.title-with-image', 'elements.title-with-ck-editor']
+    > &
+      Attribute.Required;
+    tabs: Attribute.Component<'elements.title-with-desc-and-image', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::community-involvement.community-involvement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::community-involvement.community-involvement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCorporateResposibilityCorporateResposibility
   extends Schema.SingleType {
   collectionName: 'corporate_resposibilities';
@@ -3252,6 +3288,7 @@ declare module '@strapi/types' {
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
+      'api::community-involvement.community-involvement': ApiCommunityInvolvementCommunityInvolvement;
       'api::corporate-resposibility.corporate-resposibility': ApiCorporateResposibilityCorporateResposibility;
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;

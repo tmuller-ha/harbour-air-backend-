@@ -1,9 +1,10 @@
-import charteredFlightRequest from './chartered-flight-request';
-import myService from './my-service';
-import tourRequest from './tour-request';
-import contactForm from './contact-form';
-import parcelExpressQuote from './parcel-express-quote';
-import discountedTravelForm from './discounted-travel';
+import charteredFlightRequest from "./chartered-flight-request";
+import myService from "./my-service";
+import tourRequest from "./tour-request";
+import contactForm from "./contact-form";
+import parcelExpressQuote from "./parcel-express-quote";
+import discountedTravelForm from "./discounted-travel";
+import onAccountTicketForm from "./on-account-ticket";
 
 export default {
   tourRequest,
@@ -12,4 +13,5 @@ export default {
   parcelExpressQuote,
   myService,
   discountedTravelForm,
+  onAccountTicketForm,
 };
