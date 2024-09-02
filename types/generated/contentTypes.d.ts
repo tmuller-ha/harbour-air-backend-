@@ -822,6 +822,55 @@ export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
+  collectionName: 'discounted_travels';
+  info: {
+    singularName: 'discounted-travel';
+    pluralName: 'discounted-travels';
+    displayName: 'Discounted Travel Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    travelProgram: Attribute.String & Attribute.Required;
+    firstName: Attribute.String & Attribute.Required;
+    lastName: Attribute.String & Attribute.Required;
+    dateOfBirth: Attribute.Date & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    haAccountNo: Attribute.String;
+    addressOne: Attribute.String;
+    addressTwo: Attribute.String;
+    city: Attribute.String & Attribute.Required;
+    province: Attribute.String;
+    country: Attribute.String & Attribute.Required;
+    postalCode: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -2640,6 +2689,40 @@ export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
   };
 }
 
+export interface ApiPrivateTourPrivateTour extends Schema.SingleType {
+  collectionName: 'private_tours';
+  info: {
+    singularName: 'private-tour';
+    pluralName: 'private-tours';
+    displayName: 'Private Tours';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    privateTours: Attribute.Component<'elements.title-with-ck-editor'>;
+    whyPrivateTour: Attribute.Component<'elements.title-with-ck-editor'>;
+    bookPrivateTour: Attribute.Component<'elements.title-with-desc-and-multi-media'>;
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::private-tour.private-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::private-tour.private-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRouteRoute extends Schema.CollectionType {
   collectionName: 'routes';
   info: {
@@ -2995,6 +3078,7 @@ declare module '@strapi/types' {
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
+      'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3042,6 +3126,7 @@ declare module '@strapi/types' {
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
+      'api::private-tour.private-tour': ApiPrivateTourPrivateTour;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
