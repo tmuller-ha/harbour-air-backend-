@@ -1328,6 +1328,30 @@ export interface QuickTicketQuickTicketForm extends Schema.Component {
   };
 }
 
+export interface SchedulesSchedules extends Schema.Component {
+  collectionName: 'components_schedules_schedules';
+  info: {
+    displayName: 'Schedules';
+  };
+  attributes: {
+    documents: Attribute.Relation<
+      'schedules.schedules',
+      'oneToMany',
+      'api::document.document'
+    >;
+    departure: Attribute.Relation<
+      'schedules.schedules',
+      'oneToOne',
+      'api::destination.destination'
+    >;
+    arrival: Attribute.Relation<
+      'schedules.schedules',
+      'oneToOne',
+      'api::destination.destination'
+    >;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -1538,6 +1562,7 @@ declare module '@strapi/types' {
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
+      'schedules.schedules': SchedulesSchedules;
       'seo.seo': SeoSeo;
       'standby-travel.criteria': StandbyTravelCriteria;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
