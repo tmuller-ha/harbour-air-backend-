@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "private_tours",
+  "collectionName": "schedules",
   "info": {
-    "singularName": "private-tour",
-    "pluralName": "private-tours",
-    "displayName": "Private Tours",
+    "singularName": "schedule",
+    "pluralName": "schedules",
+    "displayName": "Schedules",
     "description": ""
   },
   "options": {
@@ -12,35 +12,38 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "privateTours": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "whyPrivateTour": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "bookPrivateTour": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-desc-and-multi-media"
-    },
     "pageTitle": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "meta": {
+    "aboutPage": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "elements.title-with-ck-editor"
+    },
+    "note": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "schedules": {
+      "displayName": "Schedules",
+      "type": "component",
+      "repeatable": true,
+      "component": "schedules.schedules"
     },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

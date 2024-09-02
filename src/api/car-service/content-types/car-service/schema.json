@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "car_services",
+  "info": {
+    "singularName": "car-service",
+    "pluralName": "car-services",
+    "displayName": "Car Services",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "evoCar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-desc-and-image"
+    },
+    "budgetCar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "otusCar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "showCarHireForm": {
+      "type": "boolean",
+      "default": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}

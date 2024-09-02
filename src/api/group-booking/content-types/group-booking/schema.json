@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "private_tours",
+  "collectionName": "group_bookings",
   "info": {
-    "singularName": "private-tour",
-    "pluralName": "private-tours",
-    "displayName": "Private Tours",
+    "singularName": "group-booking",
+    "pluralName": "group-bookings",
+    "displayName": "Group Bookings",
     "description": ""
   },
   "options": {
@@ -12,35 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "privateTours": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "whyPrivateTour": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "bookPrivateTour": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-desc-and-multi-media"
-    },
     "pageTitle": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "meta": {
+    "pageDetails": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "elements.title-with-ck-editor"
+    },
+    "howToBook": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "showBookingForm": {
+      "type": "boolean",
+      "default": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }
