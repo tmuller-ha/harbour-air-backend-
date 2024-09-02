@@ -822,6 +822,102 @@ export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
+  collectionName: 'discounted_travels';
+  info: {
+    singularName: 'discounted-travel';
+    pluralName: 'discounted-travels';
+    displayName: 'Discounted Travel Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    travelProgram: Attribute.String & Attribute.Required;
+    firstName: Attribute.String & Attribute.Required;
+    lastName: Attribute.String & Attribute.Required;
+    dateOfBirth: Attribute.Date & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    haAccountNo: Attribute.String;
+    addressOne: Attribute.String;
+    addressTwo: Attribute.String;
+    city: Attribute.String & Attribute.Required;
+    province: Attribute.String;
+    country: Attribute.String & Attribute.Required;
+    postalCode: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsOnAccountTicket extends Schema.CollectionType {
+  collectionName: 'on_account_tickets';
+  info: {
+    singularName: 'on-account-ticket';
+    pluralName: 'on-account-tickets';
+    displayName: 'On Account Ticket';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    businessMinistryName: Attribute.String;
+    branchDivision: Attribute.String;
+    customerAccountNumber: Attribute.BigInteger;
+    numberofBooksRequired: Attribute.Integer;
+    deliveryOptions: Attribute.String;
+    contactName: Attribute.String;
+    emailAddress: Attribute.Email;
+    contactPhoneNumber: Attribute.BigInteger;
+    deliverOn: Attribute.Date;
+    deliveryAddress: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.on-account-ticket',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.on-account-ticket',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -3031,6 +3127,8 @@ declare module '@strapi/types' {
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
+      'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
+      'plugin::forms.on-account-ticket': PluginFormsOnAccountTicket;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

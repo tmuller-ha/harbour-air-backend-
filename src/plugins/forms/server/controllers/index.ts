@@ -1,9 +1,10 @@
-import charteredFlightRequest from './chartered-flight-request';
-import tourRequest from './tour-request';
-import contactForm from './contact-form';
-import myController from './my-controller';
-import parcelExpressQuote from './parcel-express-quote';
-import discountedTravelForm from './discounted-travel';
+import charteredFlightRequest from "./chartered-flight-request";
+import tourRequest from "./tour-request";
+import contactForm from "./contact-form";
+import myController from "./my-controller";
+import parcelExpressQuote from "./parcel-express-quote";
+import discountedTravelForm from "./discounted-travel";
+import onAccountTicketForm from "./on-account-ticket";
 
 export default {
   tourRequest,
@@ -11,5 +12,6 @@ export default {
   contactForm,
   parcelExpressQuote,
   discountedTravelForm,
-  myController
+  onAccountTicketForm,
+  myController,
 };
