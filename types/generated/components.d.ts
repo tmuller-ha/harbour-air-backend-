@@ -185,6 +185,19 @@ export interface CommonHelp extends Schema.Component {
   };
 }
 
+export interface CommunityInvolvementCommunityTabs extends Schema.Component {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface ElementsAccordionWithCkEditor extends Schema.Component {
   collectionName: 'components_elements_accordion_with_ck_editors';
   info: {
@@ -373,7 +386,7 @@ export interface ElementsTitleWithDescAndImage extends Schema.Component {
           preset: 'toolbar';
         }
       >;
-    media: Attribute.Media & Attribute.Required;
+    media: Attribute.Media;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
     media_url: Attribute.String;
   };
@@ -1446,6 +1459,7 @@ declare module '@strapi/types' {
       'common.accordian-details': CommonAccordianDetails;
       'common.accordian': CommonAccordian;
       'common.help': CommonHelp;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
