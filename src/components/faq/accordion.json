@@ -9,25 +9,19 @@
     "title": {
       "type": "string"
     },
-    "accordionData": {
-      "displayName": "AccordionData",
-      "type": "component",
-      "repeatable": true,
-      "component": "faq.accordion-data"
-    },
-    "searchButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
     "description": {
       "type": "blocks"
     },
     "show": {
       "type": "boolean"
     },
-    "showAccordionImages": {
-      "type": "boolean"
+    "parcelAccordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details"
+    },
+    "accordionTitle": {
+      "type": "string"
     }
   }
 }

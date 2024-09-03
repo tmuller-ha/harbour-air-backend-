@@ -589,11 +589,10 @@ export interface FaqAccordion extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    accordionData: Attribute.Component<'faq.accordion-data', true>;
-    searchButton: Attribute.Component<'elements.button'>;
     description: Attribute.Blocks;
     show: Attribute.Boolean;
-    showAccordionImages: Attribute.Boolean;
+    parcelAccordion: Attribute.Component<'common.accordian-details', true>;
+    accordionTitle: Attribute.String;
   };
 }
 
