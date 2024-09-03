@@ -34,9 +34,10 @@
       ]
     },
     "faq": {
+      "displayName": "ParcelFaq",
       "type": "component",
       "repeatable": false,
-      "component": "faq.accordion"
+      "component": "parcel-express.parcel-faq"
     }
   }
 }

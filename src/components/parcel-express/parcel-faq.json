@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_faq_accordions",
+  "collectionName": "components_parcel_express_parcel_faqs",
   "info": {
-    "displayName": "Accordion",
+    "displayName": "ParcelFaq",
     "description": ""
   },
   "options": {},
@@ -15,10 +15,13 @@
     "show": {
       "type": "boolean"
     },
-    "accordionData": {
+    "parcelAccordion": {
       "type": "component",
       "repeatable": true,
-      "component": "faq.accordion-data"
+      "component": "common.accordian-details"
+    },
+    "accordionTitle": {
+      "type": "string"
     }
   }
 }

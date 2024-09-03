@@ -592,8 +592,7 @@ export interface FaqAccordion extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Blocks;
     show: Attribute.Boolean;
-    parcelAccordion: Attribute.Component<'common.accordian-details', true>;
-    accordionTitle: Attribute.String;
+    accordionData: Attribute.Component<'faq.accordion-data', true>;
   };
 }
 
@@ -1293,6 +1292,21 @@ export interface ParcelExpressHowToAccordion extends Schema.Component {
   };
 }
 
+export interface ParcelExpressParcelFaq extends Schema.Component {
+  collectionName: 'components_parcel_express_parcel_faqs';
+  info: {
+    displayName: 'ParcelFaq';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    show: Attribute.Boolean;
+    parcelAccordion: Attribute.Component<'common.accordian-details', true>;
+    accordionTitle: Attribute.String;
+  };
+}
+
 export interface ParcelExpressRates extends Schema.Component {
   collectionName: 'components_parcel_express_rates';
   info: {
@@ -1562,6 +1576,7 @@ declare module '@strapi/types' {
       'our-story.story': OurStoryStory;
       'parcel-express.faq': ParcelExpressFaq;
       'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
+      'parcel-express.parcel-faq': ParcelExpressParcelFaq;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
