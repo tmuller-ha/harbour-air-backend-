@@ -1235,11 +1235,14 @@ export interface OurStoryDetails extends Schema.Component {
   info: {
     displayName: 'details';
     icon: 'earth';
+    description: '';
   };
   attributes: {
     year: Attribute.String;
     description: Attribute.Text;
     image: Attribute.Media;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
