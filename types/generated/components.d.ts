@@ -245,6 +245,20 @@ export interface ElementsDropDownData extends Schema.Component {
   };
 }
 
+export interface ElementsGallery extends Schema.Component {
+  collectionName: 'components_elements_galleries';
+  info: {
+    displayName: 'Gallery';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Component<'elements.instagram-images', true>;
+    title: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsHarbourAirArticle extends Schema.Component {
   collectionName: 'components_home_harbour_air_articles';
   info: {
@@ -704,6 +718,54 @@ export interface FooterLink extends Schema.Component {
   attributes: {
     link: Attribute.String;
     slug: Attribute.String;
+  };
+}
+
+export interface GoingElectricGoingElectringInquires extends Schema.Component {
+  collectionName: 'components_going_electric_going_electring_inquires';
+  info: {
+    displayName: 'Going Electring Inquires';
+    icon: 'connector';
+  };
+  attributes: {
+    quote: Attribute.Text & Attribute.Required;
+    author: Attribute.String & Attribute.Required;
+    inquiriesFormTitle: Attribute.String;
+    inquiriesFormDescription: Attribute.Text;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface GoingElectricSpecificationDetails extends Schema.Component {
+  collectionName: 'components_going_electric_specification_details';
+  info: {
+    displayName: 'Specification Details';
+    description: '';
+  };
+  attributes: {
+    specifications: Attribute.String & Attribute.Required;
+    standardRange: Attribute.String & Attribute.Required;
+    extendedRange: Attribute.String & Attribute.Required;
+    performance: Attribute.String & Attribute.Required;
+    pistonBeaver: Attribute.String & Attribute.Required;
+    haEBeaver: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface GoingElectricSpecifications extends Schema.Component {
+  collectionName: 'components_going_electric_specifications';
+  info: {
+    displayName: 'Specifications';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    specificationDetails: Attribute.Component<
+      'going-electric.specification-details',
+      true
+    >;
+    specificationImage: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -1508,6 +1570,7 @@ declare module '@strapi/types' {
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
+      'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
@@ -1539,6 +1602,9 @@ declare module '@strapi/types' {
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
+      'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
+      'going-electric.specification-details': GoingElectricSpecificationDetails;
+      'going-electric.specifications': GoingElectricSpecifications;
       'header.dropdown': HeaderDropdown;
       'header.link': HeaderLink;
       'header.media-links': HeaderMediaLinks;

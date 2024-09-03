@@ -2109,6 +2109,52 @@ export interface ApiFooterFooter extends Schema.SingleType {
   };
 }
 
+export interface ApiGoingElectricGoingElectric extends Schema.SingleType {
+  collectionName: 'going_electrics';
+  info: {
+    singularName: 'going-electric';
+    pluralName: 'going-electrics';
+    displayName: 'Going Electric';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-desc-and-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-desc-and-image'>;
+    infoSection: Attribute.Component<'elements.harbour-air-services', true>;
+    tabs: Attribute.DynamicZone<
+      [
+        'elements.title-with-ck-editor',
+        'elements.gallery',
+        'going-electric.specifications'
+      ]
+    >;
+    stories: Attribute.Relation<
+      'api::going-electric.going-electric',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    inquiries: Attribute.Component<'going-electric.going-electring-inquires'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::going-electric.going-electric',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::going-electric.going-electric',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGroupBookingGroupBooking extends Schema.SingleType {
   collectionName: 'group_bookings';
   info: {
@@ -3305,6 +3351,7 @@ declare module '@strapi/types' {
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
       'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
+      'api::going-electric.going-electric': ApiGoingElectricGoingElectric;
       'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
