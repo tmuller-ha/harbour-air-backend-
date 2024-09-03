@@ -230,7 +230,7 @@ export interface ElementsButton extends Schema.Component {
   attributes: {
     buttonText: Attribute.String;
     slug: Attribute.String;
-    show: Attribute.Boolean & Attribute.DefaultTo<false>;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
