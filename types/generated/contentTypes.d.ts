@@ -657,7 +657,7 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     tourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
       Attribute.Required;
     tourName: Attribute.String & Attribute.Required;
-    passengers: Attribute.String & Attribute.Required;
+    passengers: Attribute.Integer & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
     time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -723,147 +723,6 @@ export interface PluginFormsCharteredFlightRequest
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.chartered-flight-request',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsContactForm extends Schema.CollectionType {
-  collectionName: 'contact_forms';
-  info: {
-    singularName: 'contact-form';
-    pluralName: 'contact-forms';
-    displayName: 'Contact Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String & Attribute.Required;
-    passengerName: Attribute.String & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
-  collectionName: 'parcel_express_quotes';
-  info: {
-    singularName: 'parcel-express-quote';
-    pluralName: 'parcel-express-quotes';
-    displayName: 'Parcel Express Quotes';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.Text & Attribute.Required;
-    telephone: Attribute.Text & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    origin: Attribute.Text & Attribute.Required;
-    destination: Attribute.Text & Attribute.Required;
-    numberOfParcels: Attribute.Integer & Attribute.Required;
-    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
-      Attribute.Required;
-    courierRequirements: Attribute.Text & Attribute.Required;
-    comments: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.parcel-express-quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
-  collectionName: 'discounted_travels';
-  info: {
-    singularName: 'discounted-travel';
-    pluralName: 'discounted-travels';
-    displayName: 'Discounted Travel Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    travelProgram: Attribute.String & Attribute.Required;
-    firstName: Attribute.String & Attribute.Required;
-    lastName: Attribute.String & Attribute.Required;
-    dateOfBirth: Attribute.Date & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    haAccountNo: Attribute.String;
-    addressOne: Attribute.String;
-    addressTwo: Attribute.String;
-    city: Attribute.String & Attribute.Required;
-    province: Attribute.String;
-    country: Attribute.String & Attribute.Required;
-    postalCode: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.discounted-travel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.discounted-travel',
       'oneToOne',
       'admin::user'
     > &
@@ -3268,9 +3127,6 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
-      'plugin::forms.contact-form': PluginFormsContactForm;
-      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
-      'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
