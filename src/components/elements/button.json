@@ -11,6 +11,10 @@
     },
     "slug": {
       "type": "string"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
