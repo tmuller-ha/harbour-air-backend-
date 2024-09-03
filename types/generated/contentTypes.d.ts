@@ -1308,6 +1308,45 @@ export interface ApiBlogsAndNewBlogsAndNew extends Schema.SingleType {
   };
 }
 
+export interface ApiBookFlightBookFlight extends Schema.SingleType {
+  collectionName: 'book_flights';
+  info: {
+    singularName: 'book-flight';
+    pluralName: 'book-flights';
+    displayName: 'Book Flights';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    specialOffers: Attribute.Relation<
+      'api::book-flight.book-flight',
+      'oneToMany',
+      'api::deal.deal'
+    >;
+    specialOffersTitle: Attribute.String & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::book-flight.book-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::book-flight.book-flight',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCanadianPassengerRightCanadianPassengerRight
   extends Schema.SingleType {
   collectionName: 'canadian_passenger_rights';
@@ -1342,6 +1381,43 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::canadian-passenger-right.canadian-passenger-right',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCarServiceCarService extends Schema.SingleType {
+  collectionName: 'car_services';
+  info: {
+    singularName: 'car-service';
+    pluralName: 'car-services';
+    displayName: 'Car Services';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    evoCar: Attribute.Component<'elements.title-with-desc-and-image'>;
+    budgetCar: Attribute.Component<'elements.title-with-ck-editor'>;
+    otusCar: Attribute.Component<'elements.title-with-ck-editor'>;
+    showCarHireForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::car-service.car-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::car-service.car-service',
       'oneToOne',
       'admin::user'
     > &
@@ -2026,6 +2102,42 @@ export interface ApiFooterFooter extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGroupBookingGroupBooking extends Schema.SingleType {
+  collectionName: 'group_bookings';
+  info: {
+    singularName: 'group-booking';
+    pluralName: 'group-bookings';
+    displayName: 'Group Bookings';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    pageDetails: Attribute.Component<'elements.title-with-ck-editor'>;
+    howToBook: Attribute.Component<'elements.title-with-ck-editor'>;
+    showBookingForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::group-booking.group-booking',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::group-booking.group-booking',
       'oneToOne',
       'admin::user'
     > &
@@ -2725,6 +2837,42 @@ export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
   };
 }
 
+export interface ApiPrivateTourPrivateTour extends Schema.SingleType {
+  collectionName: 'private_tours';
+  info: {
+    singularName: 'private-tour';
+    pluralName: 'private-tours';
+    displayName: 'Private Tours';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    privateTours: Attribute.Component<'elements.title-with-ck-editor'>;
+    whyPrivateTour: Attribute.Component<'elements.title-with-ck-editor'>;
+    bookPrivateTour: Attribute.Component<'elements.title-with-desc-and-multi-media'>;
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    meta: Attribute.Component<'meta.meta'>;
+    seo: Attribute.Component<'seo.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::private-tour.private-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::private-tour.private-tour',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRouteRoute extends Schema.CollectionType {
   collectionName: 'routes';
   info: {
@@ -2792,6 +2940,48 @@ export interface ApiSafetyFirstSafetyFirst extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::safety-first.safety-first',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiScheduleSchedule extends Schema.SingleType {
+  collectionName: 'schedules';
+  info: {
+    singularName: 'schedule';
+    pluralName: 'schedules';
+    displayName: 'Schedules';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    aboutPage: Attribute.Component<'elements.title-with-ck-editor'>;
+    note: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    schedules: Attribute.Component<'schedules.schedules', true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::schedule.schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::schedule.schedule',
       'oneToOne',
       'admin::user'
     > &
@@ -3091,7 +3281,9 @@ declare module '@strapi/types' {
       'api::award.award': ApiAwardAward;
       'api::blog.blog': ApiBlogBlog;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
+      'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
+      'api::car-service.car-service': ApiCarServiceCarService;
       'api::career.career': ApiCareerCareer;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::category.category': ApiCategoryCategory;
@@ -3110,6 +3302,7 @@ declare module '@strapi/types' {
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
       'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
+      'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
@@ -3129,8 +3322,10 @@ declare module '@strapi/types' {
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
+      'api::private-tour.private-tour': ApiPrivateTourPrivateTour;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
+      'api::schedule.schedule': ApiScheduleSchedule;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::standby-travel.standby-travel': ApiStandbyTravelStandbyTravel;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
