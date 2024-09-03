@@ -45,6 +45,16 @@
       "type": "component",
       "repeatable": false,
       "component": "going-electric.going-electring-inquires"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }

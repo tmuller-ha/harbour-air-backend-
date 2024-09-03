@@ -1627,6 +1627,48 @@ export interface ApiCommunityInvolvementCommunityInvolvement
   };
 }
 
+export interface ApiContactUsContactUs extends Schema.SingleType {
+  collectionName: 'all_contact_us';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'all-contact-us';
+    displayName: 'Contact Us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
+    showForm: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    faq: Attribute.Component<'elements.title-with-desc-and-image'>;
+    joinOurTeam: Attribute.Component<'elements.title-with-ck-editor'>;
+    yourExperience: Attribute.Component<'elements.title-desc-with-image-links'>;
+    contactCenter: Attribute.Component<'elements.title-with-ck-editor'>;
+    hoursOfOperation: Attribute.Component<'elements.title-with-ck-editor'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCorporateResposibilityCorporateResposibility
   extends Schema.SingleType {
   collectionName: 'corporate_resposibilities';
@@ -2137,6 +2179,8 @@ export interface ApiGoingElectricGoingElectric extends Schema.SingleType {
       'api::blog.blog'
     >;
     inquiries: Attribute.Component<'going-electric.going-electring-inquires'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3338,6 +3382,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::community-involvement.community-involvement': ApiCommunityInvolvementCommunityInvolvement;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::corporate-resposibility.corporate-resposibility': ApiCorporateResposibilityCorporateResposibility;
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;

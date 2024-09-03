@@ -366,6 +366,25 @@ export interface ElementsTextWithImage extends Schema.Component {
   };
 }
 
+export interface ElementsTitleDescWithImageLinks extends Schema.Component {
+  collectionName: 'components_elements_title_desc_with_image_links';
+  info: {
+    displayName: 'Title Desc With ImageLinks';
+  };
+  attributes: {
+    images: Attribute.Component<'elements.instagram-images', true>;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsTitleWithCkEditor extends Schema.Component {
   collectionName: 'components_elements_title_with_ck_editors';
   info: {
@@ -1579,6 +1598,7 @@ declare module '@strapi/types' {
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
+      'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-desc-and-image': ElementsTitleWithDescAndImage;
       'elements.title-with-desc-and-multi-media': ElementsTitleWithDescAndMultiMedia;
