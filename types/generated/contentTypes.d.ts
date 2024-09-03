@@ -657,7 +657,7 @@ export interface PluginFormsTourRequest extends Schema.CollectionType {
     tourType: Attribute.Enumeration<['Normal Tour', 'Private Tour']> &
       Attribute.Required;
     tourName: Attribute.String & Attribute.Required;
-    passengers: Attribute.Integer & Attribute.Required;
+    passengers: Attribute.String & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
     time: Attribute.Time & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -723,6 +723,98 @@ export interface PluginFormsCharteredFlightRequest
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.chartered-flight-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'Contact Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contact: Attribute.String & Attribute.Required;
+    passengerName: Attribute.String & Attribute.Required;
+    phoneNumber: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
+      Attribute.Required;
+    comments: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
+  collectionName: 'parcel_express_quotes';
+  info: {
+    singularName: 'parcel-express-quote';
+    pluralName: 'parcel-express-quotes';
+    displayName: 'Parcel Express Quotes';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.Text & Attribute.Required;
+    telephone: Attribute.Text & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    origin: Attribute.Text & Attribute.Required;
+    destination: Attribute.Text & Attribute.Required;
+    numberOfParcels: Attribute.Integer & Attribute.Required;
+    service: Attribute.Enumeration<['Next Flight', 'Same Day', 'Next Day']> &
+      Attribute.Required;
+    courierRequirements: Attribute.Text & Attribute.Required;
+    comments: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.parcel-express-quote',
       'oneToOne',
       'admin::user'
     > &
@@ -2677,7 +2769,7 @@ export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
         'elements.title-with-ck-editor'
       ]
     >;
-    faq: Attribute.Component<'faq.accordion'>;
+    faq: Attribute.Component<'parcel-express.parcel-faq'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3127,6 +3219,8 @@ declare module '@strapi/types' {
       'plugin::web-deployment.deployment': PluginWebDeploymentDeployment;
       'plugin::forms.tour-request': PluginFormsTourRequest;
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
+      'plugin::forms.contact-form': PluginFormsContactForm;
+      'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
