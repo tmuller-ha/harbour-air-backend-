@@ -245,6 +245,20 @@ export interface ElementsDropDownData extends Schema.Component {
   };
 }
 
+export interface ElementsGallery extends Schema.Component {
+  collectionName: 'components_elements_galleries';
+  info: {
+    displayName: 'Gallery';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Component<'elements.instagram-images', true>;
+    title: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsHarbourAirArticle extends Schema.Component {
   collectionName: 'components_home_harbour_air_articles';
   info: {
@@ -349,6 +363,25 @@ export interface ElementsTextWithImage extends Schema.Component {
           preset: 'toolbar';
         }
       >;
+  };
+}
+
+export interface ElementsTitleDescWithImageLinks extends Schema.Component {
+  collectionName: 'components_elements_title_desc_with_image_links';
+  info: {
+    displayName: 'Title Desc With ImageLinks';
+  };
+  attributes: {
+    images: Attribute.Component<'elements.instagram-images', true>;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
@@ -704,6 +737,54 @@ export interface FooterLink extends Schema.Component {
   attributes: {
     link: Attribute.String;
     slug: Attribute.String;
+  };
+}
+
+export interface GoingElectricGoingElectringInquires extends Schema.Component {
+  collectionName: 'components_going_electric_going_electring_inquires';
+  info: {
+    displayName: 'Going Electring Inquires';
+    icon: 'connector';
+  };
+  attributes: {
+    quote: Attribute.Text & Attribute.Required;
+    author: Attribute.String & Attribute.Required;
+    inquiriesFormTitle: Attribute.String;
+    inquiriesFormDescription: Attribute.Text;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface GoingElectricSpecificationDetails extends Schema.Component {
+  collectionName: 'components_going_electric_specification_details';
+  info: {
+    displayName: 'Specification Details';
+    description: '';
+  };
+  attributes: {
+    specifications: Attribute.String & Attribute.Required;
+    standardRange: Attribute.String & Attribute.Required;
+    extendedRange: Attribute.String & Attribute.Required;
+    performance: Attribute.String & Attribute.Required;
+    pistonBeaver: Attribute.String & Attribute.Required;
+    haEBeaver: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface GoingElectricSpecifications extends Schema.Component {
+  collectionName: 'components_going_electric_specifications';
+  info: {
+    displayName: 'Specifications';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    specificationDetails: Attribute.Component<
+      'going-electric.specification-details',
+      true
+    >;
+    specificationImage: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -1194,6 +1275,49 @@ export interface MobilityImages extends Schema.Component {
   };
 }
 
+export interface OurFaresFareDetailsContent extends Schema.Component {
+  collectionName: 'components_our_fares_fare_details_contents';
+  info: {
+    displayName: 'Fare Details Content';
+    icon: 'code';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    light: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
+    comfort: Attribute.String & Attribute.Required;
+    flex: Attribute.String & Attribute.Required;
+    valueSuperScript: Attribute.String;
+    lightSuperScript: Attribute.String;
+    comfortSuperScript: Attribute.String;
+    flexSuperScript: Attribute.String;
+  };
+}
+
+export interface OurFaresFareDetails extends Schema.Component {
+  collectionName: 'components_our_fares_fare_details';
+  info: {
+    displayName: 'Fare Details';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Component<'our-fares.fare-details-content', true>;
+  };
+}
+
+export interface OurFaresFareHelperContent extends Schema.Component {
+  collectionName: 'components_our_fares_fare_helper_contents';
+  info: {
+    displayName: 'Fare Helper Content';
+    description: '';
+  };
+  attributes: {
+    value: Attribute.String & Attribute.Required;
+    helperInfo: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface OurPromisesHaPromise extends Schema.Component {
   collectionName: 'components_our_promises_ha_promises';
   info: {
@@ -1508,6 +1632,7 @@ declare module '@strapi/types' {
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
+      'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.instagram-images': ElementsInstagramImages;
@@ -1516,6 +1641,7 @@ declare module '@strapi/types' {
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
+      'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-desc-and-image': ElementsTitleWithDescAndImage;
       'elements.title-with-desc-and-multi-media': ElementsTitleWithDescAndMultiMedia;
@@ -1539,6 +1665,9 @@ declare module '@strapi/types' {
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
+      'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
+      'going-electric.specification-details': GoingElectricSpecificationDetails;
+      'going-electric.specifications': GoingElectricSpecifications;
       'header.dropdown': HeaderDropdown;
       'header.link': HeaderLink;
       'header.media-links': HeaderMediaLinks;
@@ -1569,6 +1698,9 @@ declare module '@strapi/types' {
       'meta.meta': MetaMeta;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
+      'our-fares.fare-details-content': OurFaresFareDetailsContent;
+      'our-fares.fare-details': OurFaresFareDetails;
+      'our-fares.fare-helper-content': OurFaresFareHelperContent;
       'our-promises.ha-promise': OurPromisesHaPromise;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.our-values': OurPromisesOurValues;

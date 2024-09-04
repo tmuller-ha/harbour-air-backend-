@@ -5,6 +5,7 @@ import contactForm from "./contact-form";
 import parcelExpressQuote from "./parcel-express-quote";
 import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
+import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
 
 export default {
@@ -15,5 +16,6 @@ export default {
   myService,
   discountedTravelForm,
   onAccountTicketForm,
+  carserviceForm,
   groupBookingsForm,
 };

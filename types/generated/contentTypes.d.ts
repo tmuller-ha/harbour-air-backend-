@@ -918,6 +918,48 @@ export interface PluginFormsOnAccountTicket extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsCarserviceForm extends Schema.CollectionType {
+  collectionName: 'carservice_forms';
+  info: {
+    singularName: 'carservice-form';
+    pluralName: 'carservice-forms';
+    displayName: 'Carservice Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    pickUpLocation: Attribute.String & Attribute.Required;
+    pickUpDate: Attribute.Date & Attribute.Required;
+    pickUpTime: Attribute.Time & Attribute.Required;
+    dropOffLocation: Attribute.String & Attribute.Required;
+    dropOffDate: Attribute.Date & Attribute.Required;
+    dropOffTime: Attribute.Time & Attribute.Required;
+    phoneNumber: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    vehicleType: Attribute.String & Attribute.Required;
+    provider: Attribute.Enumeration<['Budget Rent-a-car', 'Otus Car Rentals']> &
+      Attribute.Required;
+    comments: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.carservice-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.carservice-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginFormsGroupBookingsForm extends Schema.CollectionType {
   collectionName: 'group_bookings_forms';
   info: {
@@ -1726,6 +1768,48 @@ export interface ApiCommunityInvolvementCommunityInvolvement
   };
 }
 
+export interface ApiContactUsContactUs extends Schema.SingleType {
+  collectionName: 'all_contact_us';
+  info: {
+    singularName: 'contact-us';
+    pluralName: 'all-contact-us';
+    displayName: 'Contact Us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
+    showForm: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    faq: Attribute.Component<'elements.title-with-desc-and-image'>;
+    joinOurTeam: Attribute.Component<'elements.title-with-ck-editor'>;
+    yourExperience: Attribute.Component<'elements.title-desc-with-image-links'>;
+    contactCenter: Attribute.Component<'elements.title-with-ck-editor'>;
+    hoursOfOperation: Attribute.Component<'elements.title-with-ck-editor'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCorporateResposibilityCorporateResposibility
   extends Schema.SingleType {
   collectionName: 'corporate_resposibilities';
@@ -2201,6 +2285,54 @@ export interface ApiFooterFooter extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGoingElectricGoingElectric extends Schema.SingleType {
+  collectionName: 'going_electrics';
+  info: {
+    singularName: 'going-electric';
+    pluralName: 'going-electrics';
+    displayName: 'Going Electric';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-desc-and-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-desc-and-image'>;
+    infoSection: Attribute.Component<'elements.harbour-air-services', true>;
+    tabs: Attribute.DynamicZone<
+      [
+        'elements.title-with-ck-editor',
+        'elements.gallery',
+        'going-electric.specifications'
+      ]
+    >;
+    stories: Attribute.Relation<
+      'api::going-electric.going-electric',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    inquiries: Attribute.Component<'going-electric.going-electring-inquires'>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::going-electric.going-electric',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::going-electric.going-electric',
       'oneToOne',
       'admin::user'
     > &
@@ -2825,6 +2957,43 @@ export interface ApiOnAccountQuickTicketOnAccountQuickTicket
   };
 }
 
+export interface ApiOurFareOurFare extends Schema.SingleType {
+  collectionName: 'our_fares';
+  info: {
+    singularName: 'our-fare';
+    pluralName: 'our-fares';
+    displayName: 'Our Fares';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
+    fareOptions: Attribute.Component<'elements.title-with-ck-editor', true>;
+    fareDetails: Attribute.Component<'our-fares.fare-details', true>;
+    helperContent: Attribute.Component<'our-fares.fare-helper-content', true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-fare.our-fare',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-fare.our-fare',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOurPromiseOurPromise extends Schema.SingleType {
   collectionName: 'our_promises';
   info: {
@@ -3374,6 +3543,7 @@ declare module '@strapi/types' {
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
       'plugin::forms.on-account-ticket': PluginFormsOnAccountTicket;
+      'plugin::forms.carservice-form': PluginFormsCarserviceForm;
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
@@ -3393,6 +3563,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::community-involvement.community-involvement': ApiCommunityInvolvementCommunityInvolvement;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::corporate-resposibility.corporate-resposibility': ApiCorporateResposibilityCorporateResposibility;
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
@@ -3406,6 +3577,7 @@ declare module '@strapi/types' {
       'api::featured-tour.featured-tour': ApiFeaturedTourFeaturedTour;
       'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
+      'api::going-electric.going-electric': ApiGoingElectricGoingElectric;
       'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
@@ -3423,6 +3595,7 @@ declare module '@strapi/types' {
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::on-account-quick-ticket.on-account-quick-ticket': ApiOnAccountQuickTicketOnAccountQuickTicket;
+      'api::our-fare.our-fare': ApiOurFareOurFare;
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
