@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "going_electrics",
+  "info": {
+    "singularName": "going-electric",
+    "pluralName": "going-electrics",
+    "displayName": "Going Electric",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-desc-and-image"
+    },
+    "pageAbout": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-desc-and-image"
+    },
+    "infoSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.harbour-air-services"
+    },
+    "tabs": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor",
+        "elements.gallery",
+        "going-electric.specifications"
+      ]
+    },
+    "stories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    },
+    "inquiries": {
+      "displayName": "Going Electring Inquires",
+      "type": "component",
+      "repeatable": false,
+      "component": "going-electric.going-electring-inquires"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}

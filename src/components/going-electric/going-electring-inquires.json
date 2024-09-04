@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_going_electric_going_electring_inquires",
+  "info": {
+    "displayName": "Going Electring Inquires",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "inquiriesFormTitle": {
+      "type": "string",
+      "required": false
+    },
+    "inquiriesFormDescription": {
+      "type": "text"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "showForm": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
