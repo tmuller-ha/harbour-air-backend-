@@ -1275,6 +1275,49 @@ export interface MobilityImages extends Schema.Component {
   };
 }
 
+export interface OurFaresFareDetailsContent extends Schema.Component {
+  collectionName: 'components_our_fares_fare_details_contents';
+  info: {
+    displayName: 'Fare Details Content';
+    icon: 'code';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    light: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
+    comfort: Attribute.String & Attribute.Required;
+    flex: Attribute.String & Attribute.Required;
+    valueSuperScript: Attribute.String;
+    lightSuperScript: Attribute.String;
+    comfortSuperScript: Attribute.String;
+    flexSuperScript: Attribute.String;
+  };
+}
+
+export interface OurFaresFareDetails extends Schema.Component {
+  collectionName: 'components_our_fares_fare_details';
+  info: {
+    displayName: 'Fare Details';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Component<'our-fares.fare-details-content', true>;
+  };
+}
+
+export interface OurFaresFareHelperContent extends Schema.Component {
+  collectionName: 'components_our_fares_fare_helper_contents';
+  info: {
+    displayName: 'Fare Helper Content';
+    description: '';
+  };
+  attributes: {
+    value: Attribute.String & Attribute.Required;
+    helperInfo: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface OurPromisesHaPromise extends Schema.Component {
   collectionName: 'components_our_promises_ha_promises';
   info: {
@@ -1655,6 +1698,9 @@ declare module '@strapi/types' {
       'meta.meta': MetaMeta;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
+      'our-fares.fare-details-content': OurFaresFareDetailsContent;
+      'our-fares.fare-details': OurFaresFareDetails;
+      'our-fares.fare-helper-content': OurFaresFareHelperContent;
       'our-promises.ha-promise': OurPromisesHaPromise;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.our-values': OurPromisesOurValues;
