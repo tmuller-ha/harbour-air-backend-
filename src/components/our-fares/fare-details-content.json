@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_our_fares_fare_details_contents",
+  "info": {
+    "displayName": "Fare Details Content",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "light": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "comfort": {
+      "type": "string",
+      "required": true
+    },
+    "flex": {
+      "type": "string",
+      "required": true
+    },
+    "valueSuperScript": {
+      "type": "string",
+      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*|#)$"
+    },
+    "lightSuperScript": {
+      "type": "string",
+      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*|#)$"
+    },
+    "comfortSuperScript": {
+      "type": "string",
+      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*|#)$"
+    },
+    "flexSuperScript": {
+      "type": "string",
+      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*|#)$"
+    }
+  }
+}

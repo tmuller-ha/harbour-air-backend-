@@ -2905,6 +2905,43 @@ export interface ApiOnAccountQuickTicketOnAccountQuickTicket
   };
 }
 
+export interface ApiOurFareOurFare extends Schema.SingleType {
+  collectionName: 'our_fares';
+  info: {
+    singularName: 'our-fare';
+    pluralName: 'our-fares';
+    displayName: 'Our Fares';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
+    fareOptions: Attribute.Component<'elements.title-with-ck-editor', true>;
+    fareDetails: Attribute.Component<'our-fares.fare-details', true>;
+    helperContent: Attribute.Component<'our-fares.fare-helper-content', true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::our-fare.our-fare',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::our-fare.our-fare',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOurPromiseOurPromise extends Schema.SingleType {
   collectionName: 'our_promises';
   info: {
@@ -3505,6 +3542,7 @@ declare module '@strapi/types' {
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::on-account-quick-ticket.on-account-quick-ticket': ApiOnAccountQuickTicketOnAccountQuickTicket;
+      'api::our-fare.our-fare': ApiOurFareOurFare;
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
