@@ -1,15 +1,15 @@
-import { Strapi, factories } from "@strapi/strapi";
-import charteredFlightRequestTemplate from "./email-templates/chartered-flight-request";
+import { factories, Strapi } from "@strapi/strapi";
 import { pick } from "lodash";
+import carServiceFormRequestTemplate from "./email-templates/carservice-form";
 
 export default factories.createCoreController(
-  "plugin::forms.chartered-flight-request",
+  "plugin::forms.carservice-form",
   ({ strapi }: { strapi: Strapi }) => ({
     async findAll(ctx) {
       try {
         return await strapi
           .plugin("forms")
-          .service("charteredFlightRequest")
+          .service("carserviceForm")
           .getAll(ctx.query);
       } catch (error) {
         ctx.throw(500, error);
@@ -20,7 +20,7 @@ export default factories.createCoreController(
         const { id } = ctx.params;
         return await strapi
           .plugin("forms")
-          .service("charteredFlightRequest")
+          .service("carserviceForm")
           .getOne(id);
       } catch (error) {
         ctx.throw(500, error);
@@ -31,7 +31,7 @@ export default factories.createCoreController(
         const { id } = ctx.params;
         return await strapi
           .plugin("forms")
-          .service("charteredFlightRequest")
+          .service("carserviceForm")
           .delete(id);
       } catch (error) {
         ctx.throw(500, error);
@@ -41,7 +41,7 @@ export default factories.createCoreController(
       try {
         return await strapi
           .plugin("forms")
-          .service("charteredFlightRequest")
+          .service("carserviceForm")
           .update(ctx.params.id, ctx.request.body);
       } catch (error) {
         ctx.throw(500, error);
@@ -50,9 +50,9 @@ export default factories.createCoreController(
     async create(ctx) {
       try {
         const body = ctx.request.body as any;
-        const charteredFlightRequest = await strapi
+        const carserviceFormRequest = await strapi
           .plugin("forms")
-          .service("charteredFlightRequest")
+          .service("carserviceForm")
           .create(ctx.request.body);
         await strapi.plugins["email"].services.email.sendTemplatedEmail(
           {
@@ -62,12 +62,12 @@ export default factories.createCoreController(
                           once production access is added we need to update with body.email 
                         */
           },
-          charteredFlightRequestTemplate,
+          carServiceFormRequestTemplate,
           {
             user: pick(body, ["email"]),
           }
         );
-        return charteredFlightRequest;
+        return carserviceFormRequest;
       } catch (error) {
         ctx.throw(500, error);
       }

@@ -39,9 +39,9 @@ const ContentTypePage = () => {
       ...query,
       page: page,
       pageSize: pageSize,
-      sort: `${sortBy}:${sortOrder.toUpperCase()}`
+      sort: `${sortBy}:${sortOrder.toUpperCase()}`,
     });
-  }, [sortBy, sortOrder, ]);
+  }, [sortBy, sortOrder]);
   const paginationNumber = useMemo(() => page - 1, [page]);
   const startingPage = useMemo(
     () => pageSize * paginationNumber,
@@ -106,7 +106,9 @@ const ContentTypePage = () => {
                         return (
                           <Th key={index + 1} style={{ paddingRight: "35px" }}>
                             <Flex gap={2}>
-                              <Typography variant="sigma" textColor="neutral600"
+                              <Typography
+                                variant="sigma"
+                                textColor="neutral600"
                                 onClick={() => selectSortBy(field)}
                                 style={{ cursor: "pointer" }}
                               >
@@ -159,7 +161,11 @@ const ContentTypePage = () => {
               })}
             </Tbody>
           </Table>
-          <Flex alignItems="flex-end" padding={5} justifyContent="space-between">
+          <Flex
+            alignItems="flex-end"
+            padding={5}
+            justifyContent="space-between"
+          >
             <PageSizeURLQuery />
             <PaginationURLQuery pagination={pagination} />
           </Flex>

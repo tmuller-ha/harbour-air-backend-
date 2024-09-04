@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carservice_forms",
+  "info": {
+    "singularName": "carservice-form",
+    "pluralName": "carservice-forms",
+    "displayName": "Carservice Form"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "pickUpLocation": {
+      "type": "string",
+      "required": true
+    },
+    "pickUpDate": {
+      "type": "date",
+      "required": true
+    },
+    "pickUpTime": {
+      "type": "time",
+      "required": true
+    },
+    "dropOffLocation": {
+      "type": "string",
+      "required": true
+    },
+    "dropOffDate": {
+      "type": "date",
+      "required": true
+    },
+    "dropOffTime": {
+      "type": "time",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "biginteger",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "vehicleType": {
+      "type": "string",
+      "required": true
+    },
+    "provider": {
+      "type": "enumeration",
+      "enum": ["Budget Rent-a-car", "Otus Car Rentals"],
+      "required": true
+    },
+    "comments": {
+      "type": "string"
+    }
+  }
+}
