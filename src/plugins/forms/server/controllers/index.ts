@@ -5,6 +5,8 @@ import myController from "./my-controller";
 import parcelExpressQuote from "./parcel-express-quote";
 import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
+import groupBookingsForm from "./group-bookings-form";
+
 
 export default {
   tourRequest,
@@ -13,5 +15,6 @@ export default {
   parcelExpressQuote,
   discountedTravelForm,
   onAccountTicketForm,
+  groupBookingsForm,
   myController,
 };

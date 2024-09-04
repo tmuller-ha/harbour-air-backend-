@@ -5,6 +5,7 @@ import contactForm from "./contact-form";
 import parcelExpressQuote from "./parcel-express-quote";
 import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
+import groupBookingsForm from "./group-bookings-form";
 
 export default {
   "chartered-flight-request": charteredFlightRequest,
@@ -13,5 +14,6 @@ export default {
   "parcel-express-quote": parcelExpressQuote,
   "discounted-travel": discountedTravelForm,
   "on-account-ticket": onAccountTicketForm,
+  "group-bookings-form": groupBookingsForm,
   myRoutes,
 };
