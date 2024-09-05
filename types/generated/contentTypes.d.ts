@@ -871,95 +871,6 @@ export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
   };
 }
 
-export interface PluginFormsOnAccountTicket extends Schema.CollectionType {
-  collectionName: 'on_account_tickets';
-  info: {
-    singularName: 'on-account-ticket';
-    pluralName: 'on-account-tickets';
-    displayName: 'On Account Ticket';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    businessMinistryName: Attribute.String;
-    branchDivision: Attribute.String;
-    customerAccountNumber: Attribute.BigInteger;
-    numberofBooksRequired: Attribute.Integer;
-    deliveryOptions: Attribute.String;
-    contactName: Attribute.String;
-    emailAddress: Attribute.Email;
-    contactPhoneNumber: Attribute.BigInteger;
-    deliverOn: Attribute.Date;
-    deliveryAddress: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.on-account-ticket',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.on-account-ticket',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsCarserviceForm extends Schema.CollectionType {
-  collectionName: 'carservice_forms';
-  info: {
-    singularName: 'carservice-form';
-    pluralName: 'carservice-forms';
-    displayName: 'Carservice Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    pickUpLocation: Attribute.String & Attribute.Required;
-    pickUpDate: Attribute.Date & Attribute.Required;
-    pickUpTime: Attribute.Time & Attribute.Required;
-    dropOffLocation: Attribute.String & Attribute.Required;
-    dropOffDate: Attribute.Date & Attribute.Required;
-    dropOffTime: Attribute.Time & Attribute.Required;
-    phoneNumber: Attribute.BigInteger & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    vehicleType: Attribute.String & Attribute.Required;
-    provider: Attribute.Enumeration<['Budget Rent-a-car', 'Otus Car Rentals']> &
-      Attribute.Required;
-    comments: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.carservice-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.carservice-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -2461,6 +2372,49 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
+  collectionName: 'loyalty_programs';
+  info: {
+    singularName: 'loyalty-program';
+    pluralName: 'loyalty-programs';
+    displayName: 'Loyalty Programs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    highFlyerRewards: Attribute.DynamicZone<
+      ['elements.accordion-with-ck-editor', 'elements.title-with-ck-editor']
+    >;
+    turbobucksFlightCredits: Attribute.DynamicZone<
+      ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
+    >;
+    highFlyerTabTitle: Attribute.String & Attribute.Required;
+    turbobucksTabTitle: Attribute.String & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    turbobucksForm: Attribute.Component<'loyalty-program.high-flyer-form'>;
+    highFlyerForm: Attribute.Component<'loyalty-program.high-flyer-rewards-form'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLuggageLuggage extends Schema.SingleType {
   collectionName: 'luggages';
   info: {
@@ -3490,8 +3444,6 @@ declare module '@strapi/types' {
       'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
       'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
-      'plugin::forms.on-account-ticket': PluginFormsOnAccountTicket;
-      'plugin::forms.carservice-form': PluginFormsCarserviceForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3530,6 +3482,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::loyalty-program.loyalty-program': ApiLoyaltyProgramLoyaltyProgram;
       'api::luggage.luggage': ApiLuggageLuggage;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;

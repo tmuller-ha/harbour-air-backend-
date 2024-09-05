@@ -1042,6 +1042,80 @@ export interface InsideLocationGuide extends Schema.Component {
   };
 }
 
+export interface LoyaltyProgramHighFlyerForm extends Schema.Component {
+  collectionName: 'components_loyalty_program_high_flyer_forms';
+  info: {
+    displayName: 'Turbobucks Form';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    existingCustomerQuote: Attribute.Text;
+  };
+}
+
+export interface LoyaltyProgramHighFlyerRewardsForm extends Schema.Component {
+  collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
+  info: {
+    displayName: 'High Flyer Rewards Form';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    membershipTypeQuote: Attribute.Text;
+  };
+}
+
+export interface LoyaltyProgramPricingStructure extends Schema.Component {
+  collectionName: 'components_loyalty_program_pricing_structures';
+  info: {
+    displayName: 'Pricing Structure';
+  };
+  attributes: {
+    priceRange: Attribute.String & Attribute.Required;
+    Bonus: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramTurbobucksPricing extends Schema.Component {
+  collectionName: 'components_loyalty_program_turbobucks_pricings';
+  info: {
+    displayName: 'Turbobucks Pricing';
+  };
+  attributes: {
+    details: Attribute.Component<'loyalty-program.pricing-structure', true>;
+    title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramTurbobucks extends Schema.Component {
+  collectionName: 'components_loyalty_program_turbobucks';
+  info: {
+    displayName: 'Turbobucks';
+    icon: 'eye';
+    description: '';
+  };
+  attributes: {
+    turboBucksPrepaid: Attribute.Component<'elements.title-with-ck-editor'>;
+    howItWorks: Attribute.Component<'elements.title-with-ck-editor'>;
+    pricingStructure: Attribute.Component<
+      'loyalty-program.pricing-structure',
+      true
+    >;
+    pricingStructureTitle: Attribute.String & Attribute.Required;
+    turbobuckcForm: Attribute.Component<'elements.title-with-ck-editor'>;
+    showTurbobucksForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface LuggageHeroDescription extends Schema.Component {
   collectionName: 'components_luggage_hero_descriptions';
   info: {
@@ -1684,6 +1758,11 @@ declare module '@strapi/types' {
       'inside-location.address': InsideLocationAddress;
       'inside-location.guide-information': InsideLocationGuideInformation;
       'inside-location.guide': InsideLocationGuide;
+      'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
+      'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
+      'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
+      'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
+      'loyalty-program.turbobucks': LoyaltyProgramTurbobucks;
       'luggage.hero-description': LuggageHeroDescription;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.luggage-allowance': LuggageLuggageAllowance;
