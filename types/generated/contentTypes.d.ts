@@ -2386,7 +2386,7 @@ export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
   attributes: {
     pageTitle: Attribute.Component<'elements.title-with-image'>;
     highFlyerRewards: Attribute.DynamicZone<
-      ['elements.accordion-with-ck-editor', 'elements.title-with-ck-editor']
+      ['elements.title-with-ck-editor', 'elements.accordion']
     >;
     turbobucksFlightCredits: Attribute.DynamicZone<
       ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
@@ -2397,6 +2397,7 @@ export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
     meta: Attribute.Component<'meta.meta'>;
     turbobucksForm: Attribute.Component<'loyalty-program.high-flyer-form'>;
     highFlyerForm: Attribute.Component<'loyalty-program.high-flyer-rewards-form'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

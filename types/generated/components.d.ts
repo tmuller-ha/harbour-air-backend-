@@ -221,6 +221,28 @@ export interface ElementsAccordionWithCkEditor extends Schema.Component {
   };
 }
 
+export interface ElementsAccordion extends Schema.Component {
+  collectionName: 'components_elements_accordions';
+  info: {
+    displayName: 'Accordion';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    accordionDetails: Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -1096,26 +1118,6 @@ export interface LoyaltyProgramTurbobucksPricing extends Schema.Component {
   };
 }
 
-export interface LoyaltyProgramTurbobucks extends Schema.Component {
-  collectionName: 'components_loyalty_program_turbobucks';
-  info: {
-    displayName: 'Turbobucks';
-    icon: 'eye';
-    description: '';
-  };
-  attributes: {
-    turboBucksPrepaid: Attribute.Component<'elements.title-with-ck-editor'>;
-    howItWorks: Attribute.Component<'elements.title-with-ck-editor'>;
-    pricingStructure: Attribute.Component<
-      'loyalty-program.pricing-structure',
-      true
-    >;
-    pricingStructureTitle: Attribute.String & Attribute.Required;
-    turbobuckcForm: Attribute.Component<'elements.title-with-ck-editor'>;
-    showTurbobucksForm: Attribute.Boolean & Attribute.DefaultTo<true>;
-  };
-}
-
 export interface LuggageHeroDescription extends Schema.Component {
   collectionName: 'components_luggage_hero_descriptions';
   info: {
@@ -1704,6 +1706,7 @@ declare module '@strapi/types' {
       'common.help': CommonHelp;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
+      'elements.accordion': ElementsAccordion;
       'elements.button': ElementsButton;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.gallery': ElementsGallery;
@@ -1762,7 +1765,6 @@ declare module '@strapi/types' {
       'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
       'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
       'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
-      'loyalty-program.turbobucks': LoyaltyProgramTurbobucks;
       'luggage.hero-description': LuggageHeroDescription;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.luggage-allowance': LuggageLuggageAllowance;
