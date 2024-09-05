@@ -822,6 +822,55 @@ export interface PluginFormsParcelExpressQuote extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsDiscountedTravel extends Schema.CollectionType {
+  collectionName: 'discounted_travels';
+  info: {
+    singularName: 'discounted-travel';
+    pluralName: 'discounted-travels';
+    displayName: 'Discounted Travel Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    travelProgram: Attribute.String & Attribute.Required;
+    firstName: Attribute.String & Attribute.Required;
+    lastName: Attribute.String & Attribute.Required;
+    dateOfBirth: Attribute.Date & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    haAccountNo: Attribute.String;
+    addressOne: Attribute.String;
+    addressTwo: Attribute.String;
+    city: Attribute.String & Attribute.Required;
+    province: Attribute.String;
+    country: Attribute.String & Attribute.Required;
+    postalCode: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.discounted-travel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -2323,6 +2372,49 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
+  collectionName: 'loyalty_programs';
+  info: {
+    singularName: 'loyalty-program';
+    pluralName: 'loyalty-programs';
+    displayName: 'Loyalty Programs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    highFlyerRewards: Attribute.DynamicZone<
+      ['elements.accordion-with-ck-editor', 'elements.title-with-ck-editor']
+    >;
+    turbobucksFlightCredits: Attribute.DynamicZone<
+      ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
+    >;
+    highFlyerTabTitle: Attribute.String & Attribute.Required;
+    turbobucksTabTitle: Attribute.String & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    turbobucksForm: Attribute.Component<'loyalty-program.high-flyer-form'>;
+    highFlyerForm: Attribute.Component<'loyalty-program.high-flyer-rewards-form'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLuggageLuggage extends Schema.SingleType {
   collectionName: 'luggages';
   info: {
@@ -3352,6 +3444,7 @@ declare module '@strapi/types' {
       'plugin::forms.chartered-flight-request': PluginFormsCharteredFlightRequest;
       'plugin::forms.contact-form': PluginFormsContactForm;
       'plugin::forms.parcel-express-quote': PluginFormsParcelExpressQuote;
+      'plugin::forms.discounted-travel': PluginFormsDiscountedTravel;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3390,6 +3483,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::loyalty-program.loyalty-program': ApiLoyaltyProgramLoyaltyProgram;
       'api::luggage.luggage': ApiLuggageLuggage;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
