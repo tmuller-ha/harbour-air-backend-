@@ -2992,6 +2992,7 @@ export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
       ]
     >;
     faq: Attribute.Component<'parcel-express.parcel-faq'>;
+    quoteFormInfo: Attribute.Component<'elements.title-with-description'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
