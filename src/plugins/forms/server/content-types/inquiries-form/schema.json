@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries_forms",
+  "info": {
+    "singularName": "inquiries-form",
+    "pluralName": "inquiries-forms",
+    "displayName": "Inquiries Form"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phoneNumber": {
+      "type": "biginteger"
+    },
+    "planeConfiguration": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

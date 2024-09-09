@@ -1012,6 +1012,41 @@ export interface PluginFormsGroupBookingsForm extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsInquiriesForm extends Schema.CollectionType {
+  collectionName: 'inquiries_forms';
+  info: {
+    singularName: 'inquiries-form';
+    pluralName: 'inquiries-forms';
+    displayName: 'Inquiries Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    country: Attribute.String;
+    email: Attribute.Email;
+    phoneNumber: Attribute.BigInteger;
+    planeConfiguration: Attribute.String;
+    message: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -3545,6 +3580,7 @@ declare module '@strapi/types' {
       'plugin::forms.on-account-ticket': PluginFormsOnAccountTicket;
       'plugin::forms.carservice-form': PluginFormsCarserviceForm;
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
+      'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

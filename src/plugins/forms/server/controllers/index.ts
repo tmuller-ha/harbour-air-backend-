@@ -7,6 +7,7 @@ import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
 import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
+import inquiriesForm from "./inquiries-form";
 
 
 export default {
@@ -19,4 +20,5 @@ export default {
   groupBookingsForm,
   myController,
   carserviceForm,
+  inquiriesForm,
 };

@@ -6,6 +6,7 @@ import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
 import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
+import inquiriesForm from "./inquiries-form"; "./inquiries-form";
 
 export default {
   "tour-request": tourRequest,
@@ -16,4 +17,5 @@ export default {
   "on-account-ticket": onAccountTicketForm,
   "carservice-form": carserviceForm,
   "group-bookings-form": groupBookingsForm,
+  "inquiries-form": inquiriesForm,
 };

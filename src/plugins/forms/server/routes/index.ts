@@ -7,6 +7,7 @@ import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
 import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
+import inquiriesForm from "./inquiries-form";
 
 export default {
   "chartered-flight-request": charteredFlightRequest,
@@ -17,5 +18,6 @@ export default {
   "on-account-ticket": onAccountTicketForm,
   "carservice-form": carserviceForm,
   "group-bookings-form": groupBookingsForm,
+  "inquiries-form": inquiriesForm,
   myRoutes,
 };
