@@ -768,14 +768,16 @@ export interface GoingElectricGoingElectringInquires extends Schema.Component {
   info: {
     displayName: 'Going Electring Inquires';
     icon: 'connector';
+    description: '';
   };
   attributes: {
     quote: Attribute.Text & Attribute.Required;
     author: Attribute.String & Attribute.Required;
     inquiriesFormTitle: Attribute.String;
-    inquiriesFormDescription: Attribute.Text;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
     showForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+    backgroundImage: Attribute.Media;
+    formDescription: Attribute.Blocks;
   };
 }
 

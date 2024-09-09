@@ -929,6 +929,14 @@ export interface PluginFormsCarserviceForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     name: Attribute.String & Attribute.Required;
     pickUpLocation: Attribute.String & Attribute.Required;
@@ -1005,6 +1013,135 @@ export interface PluginFormsGroupBookingsForm extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.group-bookings-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
+  collectionName: 'turbobucks_order_forms';
+  info: {
+    singularName: 'turbobucks-order-form';
+    pluralName: 'turbobucks-order-forms';
+    displayName: 'Turbobucks Order Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    turbobucksType: Attribute.Enumeration<
+      ['New Turbobucks Voucher', 'Top-up Existing Voucher']
+    > &
+      Attribute.Required;
+    existingVoucherNumber: Attribute.BigInteger;
+    contactName: Attribute.String & Attribute.Required;
+    contactEmail: Attribute.Email & Attribute.Required;
+    contactPhone: Attribute.BigInteger & Attribute.Required;
+    purchaseAmount: Attribute.BigInteger;
+    businessOrministryName: Attribute.String;
+    branchOrdivisionName: Attribute.String;
+    existingCustomer: Attribute.Enumeration<['Yes', 'No']> & Attribute.Required;
+    existingCustomerNumber: Attribute.BigInteger;
+    paymentType: Attribute.Enumeration<['Credit Card', 'Cheque']> &
+      Attribute.Required;
+    address: Attribute.String;
+    city: Attribute.String;
+    postalCode: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.turbobucks-order-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.turbobucks-order-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsHighFlyerRewardsApplicationForm
+  extends Schema.CollectionType {
+  collectionName: 'high_flyer_rewards_application_forms';
+  info: {
+    singularName: 'high-flyer-rewards-application-form';
+    pluralName: 'high-flyer-rewards-application-forms';
+    displayName: 'High Flyer Rewards Application Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    cardAdministratorName: Attribute.String & Attribute.Required;
+    customerprofile: Attribute.String & Attribute.Required;
+    telephone: Attribute.BigInteger & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    membershipType: Attribute.Enumeration<
+      ['Individual', 'Family', 'Corporate']
+    > &
+      Attribute.Required;
+    members: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.high-flyer-rewards-application-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.high-flyer-rewards-application-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsInquiriesForm extends Schema.CollectionType {
+  collectionName: 'inquiries_forms';
+  info: {
+    singularName: 'inquiries-form';
+    pluralName: 'inquiries-forms';
+    displayName: 'Inquiries Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String;
+    country: Attribute.String;
+    email: Attribute.Email;
+    phoneNumber: Attribute.BigInteger;
+    planeConfiguration: Attribute.String;
+    message: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
       'oneToOne',
       'admin::user'
     > &
@@ -3590,6 +3727,9 @@ declare module '@strapi/types' {
       'plugin::forms.on-account-ticket': PluginFormsOnAccountTicket;
       'plugin::forms.carservice-form': PluginFormsCarserviceForm;
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
+      'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
+      'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
+      'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
