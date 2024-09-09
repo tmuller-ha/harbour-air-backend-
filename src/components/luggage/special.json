@@ -9,16 +9,16 @@
     "description": {
       "type": "blocks"
     },
-    "luggageAccordion": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.accordian-details"
-    },
     "show": {
       "type": "boolean"
     },
     "title": {
       "type": "string"
+    },
+    "luggageAccordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
     }
   }
 }

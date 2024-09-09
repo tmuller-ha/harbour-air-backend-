@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_standby_travel_how_to_fly_sections",
+  "info": {
+    "displayName": "howToFlySection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "criteria": {
+      "type": "component",
+      "repeatable": true,
+      "component": "standby-travel.criteria"
+    }
+  }
+}
