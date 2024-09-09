@@ -929,6 +929,14 @@ export interface PluginFormsCarserviceForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     name: Attribute.String & Attribute.Required;
     pickUpLocation: Attribute.String & Attribute.Required;
@@ -1022,6 +1030,14 @@ export interface PluginFormsInquiriesForm extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
     comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     name: Attribute.String;
@@ -2548,6 +2564,50 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
+export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
+  collectionName: 'loyalty_programs';
+  info: {
+    singularName: 'loyalty-program';
+    pluralName: 'loyalty-programs';
+    displayName: 'Loyalty Programs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    highFlyerRewards: Attribute.DynamicZone<
+      ['elements.title-with-ck-editor', 'elements.accordion']
+    >;
+    turbobucksFlightCredits: Attribute.DynamicZone<
+      ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
+    >;
+    highFlyerTabTitle: Attribute.String & Attribute.Required;
+    turbobucksTabTitle: Attribute.String & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    turbobucksForm: Attribute.Component<'loyalty-program.high-flyer-form'>;
+    highFlyerForm: Attribute.Component<'loyalty-program.high-flyer-rewards-form'>;
+    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::loyalty-program.loyalty-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLuggageLuggage extends Schema.SingleType {
   collectionName: 'luggages';
   info: {
@@ -3125,6 +3185,7 @@ export interface ApiParcelExpressParcelExpress extends Schema.SingleType {
       ]
     >;
     faq: Attribute.Component<'parcel-express.parcel-faq'>;
+    quoteFormInfo: Attribute.Component<'elements.title-with-description'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3619,6 +3680,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
+      'api::loyalty-program.loyalty-program': ApiLoyaltyProgramLoyaltyProgram;
       'api::luggage.luggage': ApiLuggageLuggage;
       'api::main-deal.main-deal': ApiMainDealMainDeal;
       'api::main-location.main-location': ApiMainLocationMainLocation;
