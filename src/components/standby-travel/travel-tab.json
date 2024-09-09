@@ -10,12 +10,6 @@
       "type": "text",
       "required": false
     },
-    "travelInfo": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.accordian-details",
-      "required": true
-    },
     "title": {
       "type": "string",
       "required": true
@@ -26,11 +20,16 @@
       "repeatable": false,
       "component": "standby-travel.discounted-travel-form"
     },
+    "travelInfo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
+    },
     "howToFly": {
-      "displayName": "How To Fly",
+      "displayName": "howToFlySection",
       "type": "component",
       "repeatable": false,
-      "component": "standby-travel.how-to-fly"
+      "component": "standby-travel.how-to-fly-section"
     }
   }
 }

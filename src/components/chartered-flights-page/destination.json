@@ -22,13 +22,13 @@
     "infoText": {
       "type": "string"
     },
+    "show": {
+      "type": "boolean"
+    },
     "accordian": {
       "type": "component",
       "repeatable": true,
-      "component": "common.accordian-details"
-    },
-    "show": {
-      "type": "boolean"
+      "component": "elements.accordion-with-ck-editor"
     }
   }
 }

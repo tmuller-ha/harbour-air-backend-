@@ -7,11 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "details": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.accordian-details"
-    },
     "show": {
       "type": "boolean"
     },
@@ -22,6 +17,11 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-description"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
     }
   }
 }
