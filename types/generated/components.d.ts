@@ -13,6 +13,7 @@ export interface AboutUsAboutUsTurbo extends Schema.Component {
       'elements.title-with-desc-and-multi-media',
       true
     >;
+    show: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
