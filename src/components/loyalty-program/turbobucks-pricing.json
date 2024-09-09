@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_loyalty_program_turbobucks_pricings",
+  "info": {
+    "displayName": "Turbobucks Pricing"
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "loyalty-program.pricing-structure"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -26,11 +26,17 @@ module.exports = (config, { strapi }) => {
             await image.quality(80).writeAsync(file.path);
             // Convert image to WebP format using webp-converter
             await webp.cwebp(file.path, outputPath, "-q 80");
+
+            await fs.copyFile(outputPath, file.path);
             // Delete the original file
-            await fs.unlink(file.path);
+            await fs.unlink(outputPath);
+
             // Update file properties
-            context.request.body.fileInfo = { name: outputName };
-            file.path = outputPath;
+            const fileInfo = JSON.parse(context.request.body.fileInfo);
+            context.request.body.fileInfo = {
+              ...fileInfo,
+              name: outputName,
+            };
             file.name = outputName;
             file.type = "image/webp";
           } catch (error) {

@@ -38,6 +38,11 @@
       "type": "component",
       "repeatable": false,
       "component": "parcel-express.parcel-faq"
+    },
+    "quoteFormInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
     }
   }
 }
