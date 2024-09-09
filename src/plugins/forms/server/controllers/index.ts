@@ -7,7 +7,8 @@ import discountedTravelForm from "./discounted-travel";
 import onAccountTicketForm from "./on-account-ticket";
 import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
-
+import turbobucksOrderForm from "./turbobucks-order-form";
+import highFlyerRewardsApplicationForm from "./high-flyer-rewards-application-form";
 
 export default {
   tourRequest,
@@ -19,4 +20,6 @@ export default {
   groupBookingsForm,
   myController,
   carserviceForm,
+  turbobucksOrderForm,
+  highFlyerRewardsApplicationForm,
 };
