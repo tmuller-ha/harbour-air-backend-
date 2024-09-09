@@ -9,6 +9,7 @@ import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
 import turbobucksOrderForm from "./turbobucks-order-form";
 import highFlyerRewardsApplicationForm from "./high-flyer-rewards-application-form";
+import inquiriesForm from "./inquiries-form";
 
 export default {
   tourRequest,
@@ -22,4 +23,5 @@ export default {
   groupBookingsForm,
   turbobucksOrderForm,
   highFlyerRewardsApplicationForm,
+  inquiriesForm,
 };
