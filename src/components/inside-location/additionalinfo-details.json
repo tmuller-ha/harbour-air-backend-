@@ -20,7 +20,7 @@
     "show": {
       "type": "boolean"
     },
-    "moreHoursBtn": {
+    "moreButton": {
       "type": "component",
       "repeatable": false,
       "component": "elements.button"

@@ -1016,7 +1016,7 @@ export interface InsideLocationAdditionalinfoDetails extends Schema.Component {
       true
     >;
     show: Attribute.Boolean;
-    moreHoursBtn: Attribute.Component<'elements.button'>;
+    moreButton: Attribute.Component<'elements.button'>;
   };
 }
 
