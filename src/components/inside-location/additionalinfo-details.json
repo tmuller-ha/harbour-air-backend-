@@ -12,12 +12,6 @@
     "description": {
       "type": "blocks"
     },
-    "btnName": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "string"
-    },
     "additionalInformationImage": {
       "type": "component",
       "repeatable": true,
@@ -25,6 +19,11 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "moreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
     }
   }
 }
