@@ -12,28 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "heroSectionButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
-    },
-    "description": {
-      "type": "blocks"
-    },
-    "bookFlightNow": {
-      "type": "string"
-    },
-    "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "locations": {
       "type": "relation",
       "relation": "oneToMany",
@@ -48,6 +26,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "heroContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-media-and-button"
     }
   }
 }

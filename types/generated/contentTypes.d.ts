@@ -2791,11 +2791,6 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    heroSectionButton: Attribute.Component<'elements.button'>;
-    description: Attribute.Blocks;
-    bookFlightNow: Attribute.String;
-    backgroundImage: Attribute.Media;
     locations: Attribute.Relation<
       'api::main-location.main-location',
       'oneToMany',
@@ -2803,6 +2798,7 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    heroContent: Attribute.Component<'elements.title-with-media-and-button'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -110,8 +110,8 @@ export interface CharteredFlightsPageDestination extends Schema.Component {
     heading: Attribute.Component<'elements.title-with-description'>;
     images: Attribute.Media;
     infoText: Attribute.String;
-    accordian: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
+    accordian: Attribute.Component<'elements.accordion-with-ck-editor', true>;
   };
 }
 
@@ -162,10 +162,10 @@ export interface CommonAccordian extends Schema.Component {
     description: '';
   };
   attributes: {
-    details: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
     infoText: Attribute.Blocks;
     accordionDescription: Attribute.Component<'elements.title-with-description'>;
+    details: Attribute.Component<'elements.accordion-with-ck-editor', true>;
   };
 }
 
@@ -521,6 +521,27 @@ export interface ElementsTitleWithImage extends Schema.Component {
       ]
     > &
       Attribute.DefaultTo<'opacity-50'>;
+  };
+}
+
+export interface ElementsTitleWithMediaAndButton extends Schema.Component {
+  collectionName: 'components_elements_title_with_media_and_buttons';
+  info: {
+    displayName: 'Title With Media And Button';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Attribute.Media;
+    buttonText: Attribute.String;
+    buttonUrl: Attribute.String;
+    show: Attribute.Boolean;
   };
 }
 
@@ -1195,9 +1216,12 @@ export interface LuggageSpecial extends Schema.Component {
   };
   attributes: {
     description: Attribute.Blocks;
-    luggageAccordion: Attribute.Component<'common.accordian-details', true>;
     show: Attribute.Boolean;
     title: Attribute.String;
+    luggageAccordion: Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
   };
 }
 
@@ -1256,15 +1280,12 @@ export interface MainLocationLocations extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media;
-    title: Attribute.String;
-    description: Attribute.String;
-    learnMoreButton: Attribute.Component<'elements.button'>;
     location: Attribute.Relation<
       'main-location.locations',
       'oneToOne',
       'api::location.location'
     >;
+    heroSection: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
@@ -1280,9 +1301,7 @@ export interface MainToursFareSection extends Schema.Component {
       'oneToMany',
       'api::tour-location.tour-location'
     >;
-    show: Attribute.Boolean;
-    heroTitle: Attribute.String;
-    heroDescription: Attribute.Text;
+    heroSection: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
@@ -1613,6 +1632,17 @@ export interface StandbyTravelDiscountedTravelForm extends Schema.Component {
   };
 }
 
+export interface StandbyTravelHowToFlySection extends Schema.Component {
+  collectionName: 'components_standby_travel_how_to_fly_sections';
+  info: {
+    displayName: 'howToFlySection';
+  };
+  attributes: {
+    title: Attribute.String;
+    criteria: Attribute.Component<'standby-travel.criteria', true>;
+  };
+}
+
 export interface StandbyTravelHowToFly extends Schema.Component {
   collectionName: 'components_standby_travel_how_to_flies';
   info: {
@@ -1642,11 +1672,10 @@ export interface StandbyTravelTravelTab extends Schema.Component {
   };
   attributes: {
     decription: Attribute.Text;
-    travelInfo: Attribute.Component<'common.accordian-details', true> &
-      Attribute.Required;
     title: Attribute.String & Attribute.Required;
     discountedTravelForm: Attribute.Component<'standby-travel.discounted-travel-form'>;
-    howToFly: Attribute.Component<'standby-travel.how-to-fly'>;
+    travelInfo: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+    howToFly: Attribute.Component<'standby-travel.how-to-fly-section'>;
   };
 }
 
@@ -1727,6 +1756,7 @@ declare module '@strapi/types' {
       'elements.title-with-desc-and-multi-media': ElementsTitleWithDescAndMultiMedia;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
+      'elements.title-with-media-and-button': ElementsTitleWithMediaAndButton;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
@@ -1800,6 +1830,7 @@ declare module '@strapi/types' {
       'seo.seo': SeoSeo;
       'standby-travel.criteria': StandbyTravelCriteria;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
+      'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
