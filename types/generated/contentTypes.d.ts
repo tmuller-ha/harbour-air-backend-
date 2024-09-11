@@ -2798,7 +2798,7 @@ export interface ApiMainLocationMainLocation extends Schema.SingleType {
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    heroContent: Attribute.Component<'elements.title-with-media-and-button'>;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

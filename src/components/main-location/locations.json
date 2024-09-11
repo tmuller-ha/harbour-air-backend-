@@ -11,7 +11,7 @@
       "relation": "oneToOne",
       "target": "api::location.location"
     },
-    "heroSection": {
+    "pageTitle": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-media-and-button"

@@ -27,7 +27,7 @@
       "repeatable": false,
       "component": "meta.meta"
     },
-    "heroContent": {
+    "pageTitle": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-media-and-button"

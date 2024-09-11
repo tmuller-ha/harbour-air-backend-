@@ -528,6 +528,7 @@ export interface ElementsTitleWithMediaAndButton extends Schema.Component {
   collectionName: 'components_elements_title_with_media_and_buttons';
   info: {
     displayName: 'Title With Media And Button';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -542,6 +543,7 @@ export interface ElementsTitleWithMediaAndButton extends Schema.Component {
     buttonText: Attribute.String;
     buttonUrl: Attribute.String;
     show: Attribute.Boolean;
+    showButton: Attribute.Boolean;
   };
 }
 
@@ -1285,7 +1287,7 @@ export interface MainLocationLocations extends Schema.Component {
       'oneToOne',
       'api::location.location'
     >;
-    heroSection: Attribute.Component<'elements.title-with-media-and-button'>;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
@@ -1301,7 +1303,7 @@ export interface MainToursFareSection extends Schema.Component {
       'oneToMany',
       'api::tour-location.tour-location'
     >;
-    heroSection: Attribute.Component<'elements.title-with-media-and-button'>;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
