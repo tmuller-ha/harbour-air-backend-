@@ -5,7 +5,7 @@ globalThis.CKEditorConfig = {
     toolbar: {
       editorConfig: {
         fontSize: {
-          options: [12, 14, 16, 18, 22, 24, 30, 36],
+          options: [12, 14, 16, 18, 20, 22, 24, 30, 36 ,40 ,46 ,50],
         },
         fontColor: {
           columns: 12,
@@ -13,6 +13,8 @@ globalThis.CKEditorConfig = {
           colors: [
             { label: "Primary", color: "#002d62" },
             { label: "Black", color: "#000000" },
+            { label: "White", color: "#ffffff" },
+            { label: "Yellow", color: "#ffde00" },
           ],
         },
       },
@@ -28,6 +30,8 @@ globalThis.CKEditorConfig = {
           colors: [
             { label: "Primary", color: "#002d62" },
             { label: "Black", color: "#000000" },
+            { label: "White", color: "#ffffff" },
+            { label: "Yellow", color: "#ffde00" },
           ],
         },
       },
