@@ -19,14 +19,6 @@
         "main-tours.featured-tours"
       ]
     },
-    "heroBackgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
