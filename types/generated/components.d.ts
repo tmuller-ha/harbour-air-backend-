@@ -524,6 +524,29 @@ export interface ElementsTitleWithImage extends Schema.Component {
   };
 }
 
+export interface ElementsTitleWithMediaAndButton extends Schema.Component {
+  collectionName: 'components_elements_title_with_media_and_buttons';
+  info: {
+    displayName: 'Title With Media And Button';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Attribute.Media;
+    buttonText: Attribute.String;
+    buttonUrl: Attribute.String;
+    show: Attribute.Boolean;
+    showButton: Attribute.Boolean;
+  };
+}
+
 export interface ElementsTitleWithYoutubeLink extends Schema.Component {
   collectionName: 'components_elements_title_with_youtube_links';
   info: {
@@ -1258,15 +1281,12 @@ export interface MainLocationLocations extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media;
-    title: Attribute.String;
-    description: Attribute.String;
-    learnMoreButton: Attribute.Component<'elements.button'>;
     location: Attribute.Relation<
       'main-location.locations',
       'oneToOne',
       'api::location.location'
     >;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
@@ -1282,9 +1302,7 @@ export interface MainToursFareSection extends Schema.Component {
       'oneToMany',
       'api::tour-location.tour-location'
     >;
-    show: Attribute.Boolean;
-    heroTitle: Attribute.String;
-    heroDescription: Attribute.Text;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
   };
 }
 
@@ -1739,6 +1757,7 @@ declare module '@strapi/types' {
       'elements.title-with-desc-and-multi-media': ElementsTitleWithDescAndMultiMedia;
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
+      'elements.title-with-media-and-button': ElementsTitleWithMediaAndButton;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;

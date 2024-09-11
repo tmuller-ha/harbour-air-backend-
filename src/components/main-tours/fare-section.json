@@ -11,14 +11,10 @@
       "relation": "oneToMany",
       "target": "api::tour-location.tour-location"
     },
-    "show": {
-      "type": "boolean"
-    },
-    "heroTitle": {
-      "type": "string"
-    },
-    "heroDescription": {
-      "type": "text"
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-media-and-button"
     }
   }
 }
