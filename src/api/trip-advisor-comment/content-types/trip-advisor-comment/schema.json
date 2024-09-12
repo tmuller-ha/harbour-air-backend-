@@ -43,6 +43,9 @@
     "show": {
       "type": "boolean",
       "default": true
+    },
+    "tripAdvisorUrl": {
+      "type": "string"
     }
   }
 }

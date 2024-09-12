@@ -3681,6 +3681,7 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
       'api::featured-tour.featured-tour'
     >;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
+    tripAdvisorUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
