@@ -12,20 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pageInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-description"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "cards": {
       "type": "dynamiczone",
       "components": [
@@ -41,6 +27,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-media-and-button"
     }
   }
 }
