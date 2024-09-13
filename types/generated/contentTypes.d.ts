@@ -2234,11 +2234,10 @@ export interface ApiExtraAssistanceExtraAssistance extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    pageInfo: Attribute.Component<'elements.title-with-description'>;
-    image: Attribute.Media;
     cards: Attribute.DynamicZone<['extra-assistance.assistance']>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    pageTitle: Attribute.Component<'elements.title-with-media-and-button'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
