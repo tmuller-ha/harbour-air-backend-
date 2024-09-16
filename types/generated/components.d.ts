@@ -166,6 +166,7 @@ export interface CommonAccordian extends Schema.Component {
     infoText: Attribute.Blocks;
     accordionDescription: Attribute.Component<'elements.title-with-description'>;
     details: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+    formIndex: Attribute.Integer;
   };
 }
 
