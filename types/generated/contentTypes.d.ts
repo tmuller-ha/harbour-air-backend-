@@ -1160,6 +1160,14 @@ export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     contact: Attribute.String;
     city: Attribute.String;

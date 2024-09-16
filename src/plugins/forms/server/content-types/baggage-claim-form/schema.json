@@ -10,6 +10,14 @@
     "draftAndPublish": false,
     "comment": ""
   },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
   "attributes": {
     "contact": {
       "type": "string"
@@ -22,10 +30,7 @@
     },
     "contactBy": {
       "type": "enumeration",
-      "enum": [
-        "Email",
-        "Phone Number"
-      ]
+      "enum": ["Email", "Phone Number"]
     },
     "phoneNumber": {
       "type": "biginteger"
