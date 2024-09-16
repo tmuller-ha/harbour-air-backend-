@@ -8,8 +8,9 @@ import onAccountTicketForm from "./on-account-ticket";
 import carserviceForm from "./carservice-form";
 import groupBookingsForm from "./group-bookings-form";
 import turbobucksOrderForm from "./turbobucks-order-form";
-import highFlyerRewardsApplicationForm from "./high-flyer-rewards-application-form";import inquiriesForm from "./inquiries-form";
-
+import highFlyerRewardsApplicationForm from "./high-flyer-rewards-application-form";
+import inquiriesForm from "./inquiries-form";
+import baggageClaimForm from "./baggage-claim-form";
 
 export default {
   tourRequest,
@@ -24,4 +25,5 @@ export default {
   turbobucksOrderForm,
   highFlyerRewardsApplicationForm,
   inquiriesForm,
+  baggageClaimForm,
 };

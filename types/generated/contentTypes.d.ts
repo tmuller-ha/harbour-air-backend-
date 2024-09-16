@@ -1149,6 +1149,44 @@ export interface PluginFormsInquiriesForm extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
+  collectionName: 'baggage_claim_forms';
+  info: {
+    singularName: 'baggage-claim-form';
+    pluralName: 'baggage-claim-forms';
+    displayName: 'Baggage Claim Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  attributes: {
+    contact: Attribute.String;
+    city: Attribute.String;
+    passengerName: Attribute.String;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']>;
+    phoneNumber: Attribute.BigInteger;
+    email: Attribute.Email;
+    dateOfFlight: Attribute.Date;
+    luggageStyleType: Attribute.String;
+    damageDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -3725,6 +3763,7 @@ declare module '@strapi/types' {
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
       'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
+      'plugin::forms.baggage-claim-form': PluginFormsBaggageClaimForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
