@@ -787,17 +787,6 @@ export interface FooterLink extends Schema.Component {
   };
 }
 
-export interface FormEmailForm extends Schema.Component {
-  collectionName: 'components_form_email_forms';
-  info: {
-    displayName: 'Contact Us Details';
-    description: '';
-  };
-  attributes: {
-    helpOptions: Attribute.String;
-  };
-}
-
 export interface GoingElectricGoingElectringInquires extends Schema.Component {
   collectionName: 'components_going_electric_going_electring_inquires';
   info: {
@@ -1789,7 +1778,6 @@ declare module '@strapi/types' {
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
-      'form.email-form': FormEmailForm;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.specifications': GoingElectricSpecifications;
