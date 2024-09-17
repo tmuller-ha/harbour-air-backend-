@@ -9,7 +9,7 @@
     "value": {
       "type": "string",
       "required": true,
-      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*|#)$"
+      "regex": "^(?:[1-9][0-9]?|\\.{1,2}|\\*{1,2}|#)$"
     },
     "helperInfo": {
       "type": "text",

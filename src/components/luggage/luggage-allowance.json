@@ -12,16 +12,8 @@
     "show": {
       "type": "boolean"
     },
-    "luggageAllowanceTable": {
-      "type": "component",
-      "repeatable": true,
-      "component": "luggage.luggage-allowance-table"
-    },
     "luggageAllowanceTitle": {
       "type": "string"
-    },
-    "tableDescription": {
-      "type": "blocks"
     },
     "luggageDimentionTitle": {
       "type": "string"
@@ -36,6 +28,16 @@
     },
     "title": {
       "type": "string"
+    },
+    "luggageAllowanceTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "our-fares.fare-details-content"
+    },
+    "tableDescription": {
+      "type": "component",
+      "repeatable": true,
+      "component": "our-fares.fare-helper-content"
     }
   }
 }

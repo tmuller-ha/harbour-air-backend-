@@ -1181,12 +1181,7 @@ export interface LuggageLuggageAllowance extends Schema.Component {
   attributes: {
     description: Attribute.Blocks;
     show: Attribute.Boolean;
-    luggageAllowanceTable: Attribute.Component<
-      'luggage.luggage-allowance-table',
-      true
-    >;
     luggageAllowanceTitle: Attribute.String;
-    tableDescription: Attribute.Blocks;
     luggageDimentionTitle: Attribute.String;
     luggageDimentionTable: Attribute.Component<
       'luggage.luggage-dimensions-table',
@@ -1194,6 +1189,14 @@ export interface LuggageLuggageAllowance extends Schema.Component {
     >;
     infoText: Attribute.Blocks;
     title: Attribute.String;
+    luggageAllowanceTable: Attribute.Component<
+      'our-fares.fare-details-content',
+      true
+    >;
+    tableDescription: Attribute.Component<
+      'our-fares.fare-helper-content',
+      true
+    >;
   };
 }
 
@@ -1393,6 +1396,7 @@ export interface OurFaresFareDetailsContent extends Schema.Component {
     lightSuperScript: Attribute.String;
     comfortSuperScript: Attribute.String;
     flexSuperScript: Attribute.String;
+    subLabel: Attribute.String;
   };
 }
 
