@@ -754,10 +754,12 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
     passengerName: Attribute.String & Attribute.Required;
     phoneNumber: Attribute.BigInteger & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
+    city: Attribute.String;
     contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
       Attribute.Required;
     comments: Attribute.String;
+    flightNumber: Attribute.String;
+    departureDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1165,6 +1167,52 @@ export interface PluginFormsInquiriesForm extends Schema.CollectionType {
   };
 }
 
+export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
+  collectionName: 'baggage_claim_forms';
+  info: {
+    singularName: 'baggage-claim-form';
+    pluralName: 'baggage-claim-forms';
+    displayName: 'Baggage Claim Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contact: Attribute.String;
+    city: Attribute.String;
+    passengerName: Attribute.String;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']>;
+    phoneNumber: Attribute.BigInteger;
+    email: Attribute.Email;
+    dateOfFlight: Attribute.Date;
+    luggageStyleType: Attribute.String;
+    damageDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1547,41 +1595,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBlogListBlogList extends Schema.SingleType {
-  collectionName: 'blog_lists';
-  info: {
-    singularName: 'blog-list';
-    pluralName: 'blog-lists';
-    displayName: 'Blog List';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    pageTitle: Attribute.Component<'elements.title-with-image'>;
-    categories: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToMany',
-      'api::category.category'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToOne',
-      'admin::user'
-    > &
       Attribute.Private;
   };
 }
@@ -3087,6 +3100,41 @@ export interface ApiNewsNews extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsListNewsList extends Schema.SingleType {
+  collectionName: 'news_lists';
+  info: {
+    singularName: 'news-list';
+    pluralName: 'news-lists';
+    displayName: 'News List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    categories: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
   collectionName: 'not_found_pages';
   info: {
@@ -3782,6 +3830,7 @@ declare module '@strapi/types' {
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
       'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
+      'plugin::forms.baggage-claim-form': PluginFormsBaggageClaimForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3791,7 +3840,6 @@ declare module '@strapi/types' {
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
       'api::blog.blog': ApiBlogBlog;
-      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
@@ -3831,6 +3879,7 @@ declare module '@strapi/types' {
       'api::mobility.mobility': ApiMobilityMobility;
       'api::moving-past-carbon-neutral.moving-past-carbon-neutral': ApiMovingPastCarbonNeutralMovingPastCarbonNeutral;
       'api::news.news': ApiNewsNews;
+      'api::news-list.news-list': ApiNewsListNewsList;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::on-account-quick-ticket.on-account-quick-ticket': ApiOnAccountQuickTicketOnAccountQuickTicket;
