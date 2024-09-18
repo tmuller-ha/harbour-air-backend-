@@ -754,10 +754,12 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
     passengerName: Attribute.String & Attribute.Required;
     phoneNumber: Attribute.BigInteger & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
+    city: Attribute.String;
     contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
       Attribute.Required;
     comments: Attribute.String;
+    flightNumber: Attribute.String;
+    departureDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1744,6 +1746,7 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2025,6 +2028,7 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
     hoursOfOperation: Attribute.Component<'elements.title-with-ck-editor'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2370,6 +2374,7 @@ export interface ApiFaqFaq extends Schema.SingleType {
     searchButton: Attribute.Component<'faq.button-with-boolean'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

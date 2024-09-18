@@ -37,6 +37,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "contactDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "further-questions.contact-form"
     }
   }
 }

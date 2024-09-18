@@ -787,6 +787,35 @@ export interface FooterLink extends Schema.Component {
   };
 }
 
+export interface FormContactUsDetails extends Schema.Component {
+  collectionName: 'components_form_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+  };
+  attributes: {
+    helpOptions: Attribute.String;
+  };
+}
+
+export interface FurtherQuestionsContactForm extends Schema.Component {
+  collectionName: 'components_further_questions_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+  };
+  attributes: {
+    title: Attribute.String;
+    show: Attribute.Boolean;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    contactUsOptions: Attribute.Component<'form.contact-us-details', true>;
+  };
+}
+
 export interface GoingElectricGoingElectringInquires extends Schema.Component {
   collectionName: 'components_going_electric_going_electring_inquires';
   info: {
@@ -1782,6 +1811,8 @@ declare module '@strapi/types' {
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
+      'form.contact-us-details': FormContactUsDetails;
+      'further-questions.contact-form': FurtherQuestionsContactForm;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.specifications': GoingElectricSpecifications;
