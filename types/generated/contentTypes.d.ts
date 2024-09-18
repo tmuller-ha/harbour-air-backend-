@@ -1711,6 +1711,7 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1992,7 +1993,7 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
     hoursOfOperation: Attribute.Component<'elements.title-with-ck-editor'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    contactUsOptions: Attribute.Component<'form.email-form', true>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2338,7 +2339,7 @@ export interface ApiFaqFaq extends Schema.SingleType {
     searchButton: Attribute.Component<'faq.button-with-boolean'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    contactUsOptions: Attribute.Component<'form.email-form', true>;
+    contactDetails: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2363,13 +2364,7 @@ export interface ApiFaqContentFaqContent extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     question: Attribute.String;
-    answer: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
+    answer: Attribute.Blocks & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

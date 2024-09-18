@@ -38,10 +38,10 @@
       "repeatable": false,
       "component": "meta.meta"
     },
-    "contactUsOptions": {
+    "contactDetails": {
       "type": "component",
-      "repeatable": true,
-      "component": "form.email-form"
+      "repeatable": false,
+      "component": "further-questions.contact-form"
     }
   }
 }

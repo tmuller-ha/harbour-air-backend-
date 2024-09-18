@@ -787,14 +787,32 @@ export interface FooterLink extends Schema.Component {
   };
 }
 
-export interface FormEmailForm extends Schema.Component {
-  collectionName: 'components_form_email_forms';
+export interface FormContactUsDetails extends Schema.Component {
+  collectionName: 'components_form_contact_us_details';
   info: {
     displayName: 'Contact Us Details';
-    description: '';
   };
   attributes: {
     helpOptions: Attribute.String;
+  };
+}
+
+export interface FurtherQuestionsContactForm extends Schema.Component {
+  collectionName: 'components_further_questions_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+  };
+  attributes: {
+    title: Attribute.String;
+    show: Attribute.Boolean;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    contactUsOptions: Attribute.Component<'form.contact-us-details', true>;
   };
 }
 
@@ -1192,12 +1210,7 @@ export interface LuggageLuggageAllowance extends Schema.Component {
   attributes: {
     description: Attribute.Blocks;
     show: Attribute.Boolean;
-    luggageAllowanceTable: Attribute.Component<
-      'luggage.luggage-allowance-table',
-      true
-    >;
     luggageAllowanceTitle: Attribute.String;
-    tableDescription: Attribute.Blocks;
     luggageDimentionTitle: Attribute.String;
     luggageDimentionTable: Attribute.Component<
       'luggage.luggage-dimensions-table',
@@ -1205,6 +1218,14 @@ export interface LuggageLuggageAllowance extends Schema.Component {
     >;
     infoText: Attribute.Blocks;
     title: Attribute.String;
+    luggageAllowanceTable: Attribute.Component<
+      'our-fares.fare-details-content',
+      true
+    >;
+    tableDescription: Attribute.Component<
+      'our-fares.fare-helper-content',
+      true
+    >;
   };
 }
 
@@ -1404,6 +1425,7 @@ export interface OurFaresFareDetailsContent extends Schema.Component {
     lightSuperScript: Attribute.String;
     comfortSuperScript: Attribute.String;
     flexSuperScript: Attribute.String;
+    subLabel: Attribute.String;
   };
 }
 
@@ -1789,7 +1811,8 @@ declare module '@strapi/types' {
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
-      'form.email-form': FormEmailForm;
+      'form.contact-us-details': FormContactUsDetails;
+      'further-questions.contact-form': FurtherQuestionsContactForm;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.specifications': GoingElectricSpecifications;
