@@ -1031,6 +1031,14 @@ export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     turbobucksType: Attribute.Enumeration<
       ['New Turbobucks Voucher', 'Top-up Existing Voucher']
@@ -1078,6 +1086,14 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
   options: {
     draftAndPublish: false;
     comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     cardAdministratorName: Attribute.String & Attribute.Required;
@@ -1564,7 +1580,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
-    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
     coverImage: Attribute.Media;
     category: Attribute.Relation<
       'api::blog.blog',
@@ -1578,6 +1593,41 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogListBlogList extends Schema.SingleType {
+  collectionName: 'blog_lists';
+  info: {
+    singularName: 'blog-list';
+    pluralName: 'blog-lists';
+    displayName: 'Blog List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    categories: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -3058,7 +3108,6 @@ export interface ApiNewsNews extends Schema.CollectionType {
           preset: 'toolbar';
         }
       >;
-    socialMediaLinks: Attribute.Component<'elements.instagram-images', true>;
     coverImage: Attribute.Media & Attribute.Required;
     category: Attribute.Relation<
       'api::news.news',
@@ -3781,6 +3830,7 @@ declare module '@strapi/types' {
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;

@@ -36,19 +36,21 @@
       "required": true
     },
     "city": {
-      "type": "string",
+      "type": "string"
+    },
+    "contactBy": {
+      "type": "enumeration",
+      "enum": ["Email", "Phone Number"],
       "required": true
-      },
-      "contactBy": {
-        "type": "enumeration",
-        "enum": [
-          "Email",
-          "Phone Number"
-        ],
-        "required": true
-      },
+    },
     "comments": {
       "type": "string"
+    },
+    "flightNumber": {
+      "type": "string"
+    },
+    "departureDate": {
+      "type": "date"
     }
   }
 }

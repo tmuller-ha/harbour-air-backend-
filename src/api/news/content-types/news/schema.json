@@ -27,11 +27,6 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "socialMediaLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.instagram-images"
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
