@@ -754,12 +754,10 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
     passengerName: Attribute.String & Attribute.Required;
     phoneNumber: Attribute.BigInteger & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
-    city: Attribute.String;
+    city: Attribute.String & Attribute.Required;
     contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
       Attribute.Required;
     comments: Attribute.String;
-    flightNumber: Attribute.String;
-    departureDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1033,14 +1031,6 @@ export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     turbobucksType: Attribute.Enumeration<
       ['New Turbobucks Voucher', 'Top-up Existing Voucher']
@@ -1088,14 +1078,6 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
   options: {
     draftAndPublish: false;
     comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
   };
   attributes: {
     cardAdministratorName: Attribute.String & Attribute.Required;
@@ -2399,7 +2381,13 @@ export interface ApiFaqContentFaqContent extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     question: Attribute.String;
-    answer: Attribute.Blocks & Attribute.Required;
+    answer: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2809,13 +2797,10 @@ export interface ApiLuggageLuggage extends Schema.SingleType {
     luggagePage: Attribute.DynamicZone<
       ['elements.title-with-image', 'luggage.hero-description']
     >;
-    luggageTab: Attribute.DynamicZone<
-      [
-        'luggage.luggage-allowance',
-        'luggage.travelling-with-excess-luggage',
-        'luggage.special'
-      ]
-    >;
+    luggageAllowanceTab: Attribute.Component<'luggage.luggage-allowance'>;
+    luggageAllowanceTable: Attribute.Component<'our-fares.fare-details', true>;
+    travellingExcessLuggageTab: Attribute.Component<'luggage.travelling-with-excess-luggage'>;
+    specialLuggageTab: Attribute.Component<'luggage.special'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

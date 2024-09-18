@@ -1210,7 +1210,6 @@ export interface LuggageLuggageAllowance extends Schema.Component {
   attributes: {
     description: Attribute.Blocks;
     show: Attribute.Boolean;
-    luggageAllowanceTitle: Attribute.String;
     luggageDimentionTitle: Attribute.String;
     luggageDimentionTable: Attribute.Component<
       'luggage.luggage-dimensions-table',
@@ -1218,10 +1217,6 @@ export interface LuggageLuggageAllowance extends Schema.Component {
     >;
     infoText: Attribute.Blocks;
     title: Attribute.String;
-    luggageAllowanceTable: Attribute.Component<
-      'our-fares.fare-details-content',
-      true
-    >;
     tableDescription: Attribute.Component<
       'our-fares.fare-helper-content',
       true
