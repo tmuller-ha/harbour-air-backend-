@@ -1599,41 +1599,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
-export interface ApiBlogListBlogList extends Schema.SingleType {
-  collectionName: 'blog_lists';
-  info: {
-    singularName: 'blog-list';
-    pluralName: 'blog-lists';
-    displayName: 'Blog List';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    pageTitle: Attribute.Component<'elements.title-with-image'>;
-    categories: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToMany',
-      'api::category.category'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-list.blog-list',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiBlogsAndNewBlogsAndNew extends Schema.SingleType {
   collectionName: 'blogs_and_news';
   info: {
@@ -3130,6 +3095,41 @@ export interface ApiNewsNews extends Schema.CollectionType {
   };
 }
 
+export interface ApiNewsListNewsList extends Schema.SingleType {
+  collectionName: 'news_lists';
+  info: {
+    singularName: 'news-list';
+    pluralName: 'news-lists';
+    displayName: 'News List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
+    categories: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundPageNotFoundPage extends Schema.SingleType {
   collectionName: 'not_found_pages';
   info: {
@@ -3835,7 +3835,6 @@ declare module '@strapi/types' {
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
       'api::blog.blog': ApiBlogBlog;
-      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
@@ -3875,6 +3874,7 @@ declare module '@strapi/types' {
       'api::mobility.mobility': ApiMobilityMobility;
       'api::moving-past-carbon-neutral.moving-past-carbon-neutral': ApiMovingPastCarbonNeutralMovingPastCarbonNeutral;
       'api::news.news': ApiNewsNews;
+      'api::news-list.news-list': ApiNewsListNewsList;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
       'api::notice.notice': ApiNoticeNotice;
       'api::on-account-quick-ticket.on-account-quick-ticket': ApiOnAccountQuickTicketOnAccountQuickTicket;

@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "blog_lists",
+  "collectionName": "news_lists",
   "info": {
-    "singularName": "blog-list",
-    "pluralName": "blog-lists",
-    "displayName": "Blog List"
+    "singularName": "news-list",
+    "pluralName": "news-lists",
+    "displayName": "News List"
   },
   "options": {
     "draftAndPublish": true
