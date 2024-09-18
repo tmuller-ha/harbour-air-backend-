@@ -47,6 +47,7 @@ export interface CanadianPassengerRightsTariffs extends Schema.Component {
   collectionName: 'components_canadian_passenger_rights_tariffs';
   info: {
     displayName: 'Tariffs';
+    description: '';
   };
   attributes: {
     tariffsInfo: Attribute.Component<'elements.title-with-description'> &
@@ -795,6 +796,44 @@ export interface FormEmailForm extends Schema.Component {
   };
   attributes: {
     helpOptions: Attribute.String;
+  };
+}
+
+export interface FurtherQuestionsContactUsDetails extends Schema.Component {
+  collectionName: 'components_further_questions_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    additionalInfo: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
+export interface FurtherQuestionsContactUsForm extends Schema.Component {
+  collectionName: 'components_further_questions_contact_us_forms';
+  info: {
+    displayName: 'Contact Us Form';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    faqOptions: Attribute.Component<'form.email-form', true>;
+    show: Attribute.Boolean;
   };
 }
 
@@ -1790,6 +1829,8 @@ declare module '@strapi/types' {
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
       'form.email-form': FormEmailForm;
+      'further-questions.contact-us-details': FurtherQuestionsContactUsDetails;
+      'further-questions.contact-us-form': FurtherQuestionsContactUsForm;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.specifications': GoingElectricSpecifications;

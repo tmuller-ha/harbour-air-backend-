@@ -1,7 +1,8 @@
 {
   "collectionName": "components_canadian_passenger_rights_tariffs",
   "info": {
-    "displayName": "Tariffs"
+    "displayName": "Tariffs",
+    "description": ""
   },
   "options": {},
   "attributes": {

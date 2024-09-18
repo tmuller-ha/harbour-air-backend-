@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_further_questions_contact_us_details",
+  "info": {
+    "displayName": "Contact Us Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "additionalInfo": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

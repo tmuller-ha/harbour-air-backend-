@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_further_questions_contact_us_forms",
+  "info": {
+    "displayName": "Contact Us Form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "faqOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form.email-form"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

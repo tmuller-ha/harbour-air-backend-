@@ -1031,14 +1031,6 @@ export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     turbobucksType: Attribute.Enumeration<
       ['New Turbobucks Voucher', 'Top-up Existing Voucher']
@@ -1086,14 +1078,6 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
   options: {
     draftAndPublish: false;
     comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
   };
   attributes: {
     cardAdministratorName: Attribute.String & Attribute.Required;
@@ -1698,6 +1682,7 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    contactDetails: Attribute.Component<'further-questions.contact-us-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1979,7 +1964,7 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
     hoursOfOperation: Attribute.Component<'elements.title-with-ck-editor'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    contactUsOptions: Attribute.Component<'form.email-form', true>;
+    contactDetails: Attribute.Component<'further-questions.contact-us-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2325,7 +2310,7 @@ export interface ApiFaqFaq extends Schema.SingleType {
     searchButton: Attribute.Component<'faq.button-with-boolean'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    contactUsOptions: Attribute.Component<'form.email-form', true>;
+    contactDetails: Attribute.Component<'further-questions.contact-us-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
