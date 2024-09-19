@@ -17,16 +17,6 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "pageAbout": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "showForm": {
-      "type": "boolean",
-      "default": true,
-      "required": true
-    },
     "faq": {
       "type": "component",
       "repeatable": false,
