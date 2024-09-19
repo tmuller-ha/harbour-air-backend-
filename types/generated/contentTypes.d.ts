@@ -1964,10 +1964,6 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
   };
   attributes: {
     pageTitle: Attribute.Component<'elements.title-with-image'>;
-    pageAbout: Attribute.Component<'elements.title-with-ck-editor'>;
-    showForm: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<true>;
     faq: Attribute.Component<'elements.title-with-desc-and-image'>;
     joinOurTeam: Attribute.Component<'elements.title-with-ck-editor'>;
     yourExperience: Attribute.Component<'elements.title-desc-with-image-links'>;
