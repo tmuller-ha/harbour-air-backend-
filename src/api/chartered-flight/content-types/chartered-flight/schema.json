@@ -16,7 +16,6 @@
       "type": "dynamiczone",
       "components": [
         "common.accordian",
-        "elements.title-with-image",
         "elements.title-with-description"
       ]
     },
@@ -37,6 +36,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
+    },
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
     }
   }
 }
