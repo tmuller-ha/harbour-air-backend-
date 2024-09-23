@@ -45,6 +45,12 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "readingTime": {
+      "type": "string"
+    },
+    "postedDate": {
+      "type": "date"
     }
   }
 }
