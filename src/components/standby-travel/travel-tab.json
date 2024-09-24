@@ -14,22 +14,10 @@
       "type": "string",
       "required": true
     },
-    "discountedTravelForm": {
-      "displayName": "Discounted Travel Form",
-      "type": "component",
-      "repeatable": false,
-      "component": "standby-travel.discounted-travel-form"
-    },
     "travelInfo": {
       "type": "component",
       "repeatable": true,
       "component": "elements.accordion-with-ck-editor"
-    },
-    "howToFly": {
-      "displayName": "howToFlySection",
-      "type": "component",
-      "repeatable": false,
-      "component": "standby-travel.how-to-fly-section"
     }
   }
 }

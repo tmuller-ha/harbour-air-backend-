@@ -1704,9 +1704,7 @@ export interface StandbyTravelTravelTab extends Schema.Component {
   attributes: {
     decription: Attribute.Text;
     title: Attribute.String & Attribute.Required;
-    discountedTravelForm: Attribute.Component<'standby-travel.discounted-travel-form'>;
     travelInfo: Attribute.Component<'elements.accordion-with-ck-editor', true>;
-    howToFly: Attribute.Component<'standby-travel.how-to-fly-section'>;
   };
 }
 
