@@ -35,12 +35,6 @@
         "main-tours.tour-cards"
       ]
     },
-    "tours": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tours-detail.tours-detail",
-      "mappedBy": "tour_location"
-    },
     "departure": {
       "type": "string"
     },
@@ -58,6 +52,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::country.country"
+    },
+    "tours": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tours-detail.tours-detail",
+      "mappedBy": "tour_locations"
     }
   }
 }

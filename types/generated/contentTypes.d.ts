@@ -929,14 +929,6 @@ export interface PluginFormsCarserviceForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     name: Attribute.String & Attribute.Required;
     pickUpLocation: Attribute.String & Attribute.Required;
@@ -1099,49 +1091,6 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.high-flyer-rewards-application-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsInquiriesForm extends Schema.CollectionType {
-  collectionName: 'inquiries_forms';
-  info: {
-    singularName: 'inquiries-form';
-    pluralName: 'inquiries-forms';
-    displayName: 'Inquiries Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String;
-    country: Attribute.String;
-    email: Attribute.Email;
-    phoneNumber: Attribute.BigInteger;
-    planeConfiguration: Attribute.String;
-    message: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.inquiries-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.inquiries-form',
       'oneToOne',
       'admin::user'
     > &
@@ -3573,11 +3522,6 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
         'main-tours.tour-cards'
       ]
     >;
-    tours: Attribute.Relation<
-      'api::tour-location.tour-location',
-      'oneToMany',
-      'api::tours-detail.tours-detail'
-    >;
     departure: Attribute.String;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
@@ -3585,6 +3529,11 @@ export interface ApiTourLocationTourLocation extends Schema.CollectionType {
       'api::tour-location.tour-location',
       'oneToOne',
       'api::country.country'
+    >;
+    tours: Attribute.Relation<
+      'api::tour-location.tour-location',
+      'manyToMany',
+      'api::tours-detail.tours-detail'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -3619,9 +3568,9 @@ export interface ApiToursDetailToursDetail extends Schema.CollectionType {
     show: Attribute.Boolean;
     title: Attribute.String;
     locationImage: Attribute.Media;
-    tour_location: Attribute.Relation<
+    tour_locations: Attribute.Relation<
       'api::tours-detail.tours-detail',
-      'manyToOne',
+      'manyToMany',
       'api::tour-location.tour-location'
     >;
     overviewTitle: Attribute.String;
@@ -3762,7 +3711,6 @@ declare module '@strapi/types' {
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
-      'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
