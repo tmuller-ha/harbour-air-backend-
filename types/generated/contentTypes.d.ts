@@ -1149,52 +1149,6 @@ export interface PluginFormsInquiriesForm extends Schema.CollectionType {
   };
 }
 
-export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
-  collectionName: 'baggage_claim_forms';
-  info: {
-    singularName: 'baggage-claim-form';
-    pluralName: 'baggage-claim-forms';
-    displayName: 'Baggage Claim Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String;
-    city: Attribute.String;
-    passengerName: Attribute.String;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']>;
-    phoneNumber: Attribute.BigInteger;
-    email: Attribute.Email;
-    dateOfFlight: Attribute.Date;
-    luggageStyleType: Attribute.String;
-    damageDescription: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.baggage-claim-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.baggage-claim-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -1571,6 +1525,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'api::category.category'
     >;
     slug: Attribute.UID<'api::blog.blog', 'title'> & Attribute.Required;
+    readingTime: Attribute.String;
+    postedDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1882,11 +1838,7 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
   };
   attributes: {
     charteredFlightPage: Attribute.DynamicZone<
-      [
-        'common.accordian',
-        'elements.title-with-image',
-        'elements.title-with-description'
-      ]
+      ['common.accordian', 'elements.title-with-description']
     >;
     charteredFlightTab: Attribute.DynamicZone<
       [
@@ -1897,6 +1849,7 @@ export interface ApiCharteredFlightCharteredFlight extends Schema.SingleType {
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    pageTitle: Attribute.Component<'elements.title-with-image'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3066,6 +3019,8 @@ export interface ApiNewsNews extends Schema.CollectionType {
       'api::category.category'
     >;
     slug: Attribute.UID<'api::news.news', 'title'> & Attribute.Required;
+    readingTime: Attribute.String;
+    postedDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -3574,6 +3529,8 @@ export interface ApiStandbyTravelStandbyTravel extends Schema.SingleType {
     > &
       Attribute.Required;
     travelTabs: Attribute.DynamicZone<['standby-travel.travel-tab']>;
+    howToFly: Attribute.Component<'standby-travel.how-to-fly'>;
+    discountedTravelForm: Attribute.Component<'standby-travel.discounted-travel-form'>;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
@@ -3806,7 +3763,6 @@ declare module '@strapi/types' {
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
       'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
-      'plugin::forms.baggage-claim-form': PluginFormsBaggageClaimForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

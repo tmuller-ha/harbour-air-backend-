@@ -26,6 +26,16 @@
         "standby-travel.travel-tab"
       ]
     },
+    "howToFly": {
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.how-to-fly"
+    },
+    "discountedTravelForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.discounted-travel-form"
+    },
     "seo": {
       "type": "component",
       "repeatable": false,
