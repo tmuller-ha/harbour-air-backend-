@@ -151,7 +151,7 @@ const ContentTypePage = () => {
                       return (
                         <Td style={{ fontSize: "0.875rem" }}>
                           <Typography textColor="neutral1000">
-                            {content[field]}
+                            {typeof content[field] !== 'object' ? content[field] : ''}
                           </Typography>
                         </Td>
                       );
