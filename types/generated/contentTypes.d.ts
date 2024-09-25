@@ -1561,6 +1561,47 @@ export interface ApiAwardAward extends Schema.SingleType {
   };
 }
 
+export interface ApiBasePageBasePage extends Schema.CollectionType {
+  collectionName: 'base_pages';
+  info: {
+    singularName: 'base-page';
+    pluralName: 'base-pages';
+    displayName: 'Base Pages';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    components: Attribute.DynamicZone<
+      [
+        'elements.title-with-image',
+        'elements.title-with-ck-editor',
+        'elements.accordion-with-ck-editor',
+        'elements.title-with-desc-and-multi-media'
+      ]
+    >;
+    slug: Attribute.UID & Attribute.Required;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::base-page.base-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::base-page.base-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -3836,6 +3877,7 @@ declare module '@strapi/types' {
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
+      'api::base-page.base-page': ApiBasePageBasePage;
       'api::blog.blog': ApiBlogBlog;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
