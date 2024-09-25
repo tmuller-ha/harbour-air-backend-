@@ -1053,6 +1053,7 @@ export interface HomeNews extends Schema.Component {
     news: Attribute.Relation<'home.news', 'oneToMany', 'api::news.news'>;
     moreDetails: Attribute.Component<'elements.button'>;
     show: Attribute.Boolean;
+    title: Attribute.String;
   };
 }
 
