@@ -1713,7 +1713,7 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
     >;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
-    contactDetails: Attribute.Component<'further-questions.contact-form'>;
+    contactDetailForm: Attribute.Component<'further-questions.contact-form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
