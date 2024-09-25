@@ -26,9 +26,9 @@
         "images"
       ]
     },
-    "tour_location": {
+    "tour_locations": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::tour-location.tour-location",
       "inversedBy": "tours"
     },
