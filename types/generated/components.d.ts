@@ -1622,6 +1622,29 @@ export interface SchedulesSchedules extends Schema.Component {
   };
 }
 
+export interface SeoAdditional extends Schema.Component {
+  collectionName: 'components_seo_additionals';
+  info: {
+    displayName: 'additional';
+  };
+  attributes: {
+    key: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
+export interface SeoAnalytics extends Schema.Component {
+  collectionName: 'components_seo_analytics';
+  info: {
+    displayName: 'Analytics';
+  };
+  attributes: {
+    googleAnalyticsTrackingId: Attribute.String;
+    googleTagManagerId: Attribute.String;
+    hotjarSiteId: Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -1634,9 +1657,14 @@ export interface SeoSeo extends Schema.Component {
     metaTitle: Attribute.String;
     metaDescription: Attribute.String;
     canonicalUrl: Attribute.String;
-    ogImage: Attribute.Media;
-    markAsCanonical: Attribute.Boolean;
-    noFollowNoIndex: Attribute.Boolean;
+    openGraphImage: Attribute.Media;
+    openGraphTitle: Attribute.String;
+    openGraphDescription: Attribute.Text;
+    twitterCardImage: Attribute.Media;
+    twitterCardTitle: Attribute.String;
+    twitterCardDescription: Attribute.Text;
+    additional: Attribute.Component<'seo.additional', true>;
+    analytics: Attribute.Component<'seo.analytics'>;
   };
 }
 
@@ -1858,6 +1886,8 @@ declare module '@strapi/types' {
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'schedules.schedules': SchedulesSchedules;
+      'seo.additional': SeoAdditional;
+      'seo.analytics': SeoAnalytics;
       'seo.seo': SeoSeo;
       'standby-travel.criteria': StandbyTravelCriteria;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
