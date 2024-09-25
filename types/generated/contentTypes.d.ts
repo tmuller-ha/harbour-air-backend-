@@ -1577,8 +1577,8 @@ export interface ApiBasePageBasePage extends Schema.CollectionType {
       [
         'elements.title-with-image',
         'elements.title-with-ck-editor',
-        'elements.accordion-with-ck-editor',
-        'elements.title-with-desc-and-multi-media'
+        'elements.title-with-desc-and-multi-media',
+        'elements.accordion'
       ]
     >;
     slug: Attribute.UID & Attribute.Required;
