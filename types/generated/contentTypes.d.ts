@@ -1573,17 +1573,16 @@ export interface ApiBasePageBasePage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    components: Attribute.DynamicZone<
-      [
-        'elements.title-with-image',
-        'elements.title-with-ck-editor',
-        'elements.title-with-desc-and-multi-media',
-        'elements.accordion'
-      ]
-    >;
     slug: Attribute.UID & Attribute.Required;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    sections: Attribute.DynamicZone<
+      [
+        'elements.accordion',
+        'elements.title-with-ck-editor',
+        'elements.title-with-image'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
