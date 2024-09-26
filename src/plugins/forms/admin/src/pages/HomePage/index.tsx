@@ -17,9 +17,9 @@ import {
   Link,
   Typography,
 } from "@strapi/design-system";
-import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import { request } from "@strapi/helper-plugin";
 import { useEffect, useState } from "react";
+import { Page } from "@strapi/strapi/admin";
 
 const HomePage = () => {
   const [forms, setForms] = useState([]);
@@ -33,7 +33,7 @@ const HomePage = () => {
     });
   }, []);
 
-  if (isLoading) return <LoadingIndicatorPage />;
+  if (isLoading) return <Page.Loading />;
   return (
     <Layout>
       <BaseHeaderLayout

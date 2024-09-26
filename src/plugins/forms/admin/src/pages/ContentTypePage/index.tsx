@@ -11,18 +11,18 @@ import {
   Td,
   Typography,
   Flex,
+  EmptyStateLayout,
 } from "@strapi/design-system";
 import { PageSizeURLQuery } from "@strapi/helper-plugin";
 import { PaginationURLQuery } from "@strapi/helper-plugin";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useQueryParams } from "@strapi/helper-plugin";
-import { LoadingIndicatorPage } from "@strapi/helper-plugin";
 import useFetch from "../../hooks/useFetch";
-import { NoContent } from "@strapi/helper-plugin";
 import { CarretDown } from "@strapi/icons";
 import { CarretUp } from "@strapi/icons";
 import { camelCaseToReadable, kebabToReadable } from "../../utils";
+
+import { Page, useQueryParams } from "@strapi/strapi/admin";
 
 const ContentTypePage = () => {
   const { contentType } = useParams<{ contentType: string }>();
@@ -87,9 +87,9 @@ const ContentTypePage = () => {
       : setSorting?.({ [sortBy]: "asc" });
   };
 
-  if (isLoading) return <LoadingIndicatorPage />;
+  if (isLoading) return <Page.Loading />;
   return (
-    <Layout>
+    (<Layout>
       <BaseHeaderLayout
         title={`${kebabToReadable(contentType)}`}
         subtitle={`${totalDataCount} queries found`}
@@ -172,10 +172,10 @@ const ContentTypePage = () => {
         </Box>
       ) : (
         <div style={{ margin: "0 60px" }}>
-          <NoContent />
+          <EmptyStateLayout />
         </div>
       )}
-    </Layout>
+    </Layout>)
   );
 };
 

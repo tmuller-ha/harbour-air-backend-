@@ -1,19 +1,12 @@
-import previewConfig from "./preview/preview-config";
-
 module.exports = ({ env }) => ({
-  "web-deployment": {
-    enabled: true,
-    resolve: "./src/plugins/web-deployment",
-  },
-  forms: {
-    enabled: true,
-    resolve: "./src/plugins/forms",
-  },
-  "preview-button": {
-    config: {
-      contentTypes: [...previewConfig(env)],
-    },
-  },
+  // "web-deployment": {
+  //   enabled: true,
+  //   resolve: "./src/plugins/web-deployment",
+  // },
+  // forms: {
+  //   enabled: true,
+  //   resolve: "./src/plugins/forms",
+  // },
   upload: {
     config: {
       provider: "aws-s3",

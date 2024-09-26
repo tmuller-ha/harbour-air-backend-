@@ -1,3 +1,4 @@
+import { useQueryParams } from "@strapi/strapi/admin";
 /*
  *
  * HomePage
@@ -12,7 +13,6 @@ import {
   Button,
   Flex,
 } from "@strapi/design-system";
-import { useQueryParams } from "@strapi/helper-plugin";
 import HomePageContent from "../Workflow/HomePageContent";
 import deploymentService from "../../api/deployment";
 import { request } from "@strapi/helper-plugin";
