@@ -1786,8 +1786,11 @@ export interface ApiCarServiceCarService extends Schema.SingleType {
   attributes: {
     pageTitle: Attribute.Component<'elements.title-with-image'>;
     evoCar: Attribute.Component<'elements.title-with-desc-and-image'>;
-    carTypes: Attribute.Component<'elements.title-desc-with-image-links', true>;
-    carHireRequestForm: Attribute.Component<'further-questions.contact-form'>;
+    budgetCar: Attribute.Component<'elements.title-with-ck-editor'>;
+    otusCar: Attribute.Component<'elements.title-with-ck-editor'>;
+    showCarHireForm: Attribute.Boolean & Attribute.DefaultTo<true>;
+    seo: Attribute.Component<'seo.seo'>;
+    meta: Attribute.Component<'meta.meta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
