@@ -22,15 +22,29 @@
       "repeatable": false,
       "component": "elements.title-with-desc-and-image"
     },
-    "carTypes": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.title-desc-with-image-links"
-    },
-    "carHireRequestForm": {
+    "budgetCar": {
       "type": "component",
       "repeatable": false,
-      "component": "further-questions.contact-form"
+      "component": "elements.title-with-ck-editor"
+    },
+    "otusCar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "showCarHireForm": {
+      "type": "boolean",
+      "default": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
     }
   }
 }
