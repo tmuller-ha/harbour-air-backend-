@@ -985,8 +985,10 @@ export interface HomeHomeCarousel extends Schema.Component {
     description: Attribute.String;
     btnText: Attribute.String;
     slug: Attribute.String;
-    image: Attribute.Media;
+    desktopImg: Attribute.Media & Attribute.Required;
     imageLink: Attribute.String;
+    tabletImg: Attribute.Media & Attribute.Required;
+    mobileImg: Attribute.Media & Attribute.Required;
   };
 }
 
