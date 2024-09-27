@@ -1603,6 +1603,10 @@ export interface SchedulesSchedules extends Schema.Component {
   collectionName: 'components_schedules_schedules';
   info: {
     displayName: 'Schedules';
+    description: '';
+  };
+  options: {
+    privateAttributes: ['title'];
   };
   attributes: {
     documents: Attribute.Relation<
@@ -1614,12 +1618,15 @@ export interface SchedulesSchedules extends Schema.Component {
       'schedules.schedules',
       'oneToOne',
       'api::destination.destination'
-    >;
+    > &
+      Attribute.Required;
     arrival: Attribute.Relation<
       'schedules.schedules',
       'oneToOne',
       'api::destination.destination'
-    >;
+    > &
+      Attribute.Required;
+    title: Attribute.String & Attribute.Private;
   };
 }
 

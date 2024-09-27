@@ -754,12 +754,10 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
     passengerName: Attribute.String & Attribute.Required;
     phoneNumber: Attribute.BigInteger & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
-    city: Attribute.String;
+    city: Attribute.String & Attribute.Required;
     contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
       Attribute.Required;
     comments: Attribute.String;
-    flightNumber: Attribute.String;
-    departureDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1033,14 +1031,6 @@ export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     turbobucksType: Attribute.Enumeration<
       ['New Turbobucks Voucher', 'Top-up Existing Voucher']
@@ -1088,14 +1078,6 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
   options: {
     draftAndPublish: false;
     comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
   };
   attributes: {
     cardAdministratorName: Attribute.String & Attribute.Required;

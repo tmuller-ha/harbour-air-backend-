@@ -60,4 +60,10 @@ export default [
     // custom resolve to find a package or a path
     resolve: "./src/middlewares/upload.js",
   },
+  'strapi::session',
+  'strapi::favicon',
+  'strapi::public',
+  {
+    resolve: './src/api/schedule/middlewares/titleUpdater.js',
+  },
 ];
