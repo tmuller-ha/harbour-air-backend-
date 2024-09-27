@@ -410,19 +410,6 @@ export interface MobilityHeroSection extends Struct.ComponentSchema {
   };
 }
 
-export interface MetaMeta extends Struct.ComponentSchema {
-  collectionName: 'components_meta_metas';
-  info: {
-    displayName: 'Meta';
-    description: '';
-  };
-  attributes: {
-    showSideBookingWidget: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
-    helpSection: Schema.Attribute.Component<'common.help', false>;
-  };
-}
-
 export interface MainToursTourCards extends Struct.ComponentSchema {
   collectionName: 'components_main_tours_tour_cards';
   info: {
@@ -468,6 +455,19 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
       'elements.title-with-media-and-button',
       false
     >;
+  };
+}
+
+export interface MetaMeta extends Struct.ComponentSchema {
+  collectionName: 'components_meta_metas';
+  info: {
+    displayName: 'Meta';
+    description: '';
+  };
+  attributes: {
+    showSideBookingWidget: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    helpSection: Schema.Attribute.Component<'common.help', false>;
   };
 }
 
@@ -1210,71 +1210,6 @@ export interface ExtraAssistanceAccordionWithEditor
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
-export interface CommonHelp extends Struct.ComponentSchema {
-  collectionName: 'components_common_helps';
-  info: {
-    displayName: 'Help';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-    type: Schema.Attribute.Enumeration<['description', 'button']> &
-      Schema.Attribute.DefaultTo<'description'>;
-    buttonName: Schema.Attribute.String;
-    buttonUrl: Schema.Attribute.String;
-  };
-}
-
-export interface CommonAccordian extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordians';
-  info: {
-    displayName: 'Accordian';
-    icon: 'filter';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-    accordionDescription: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-    details: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    formIndex: Schema.Attribute.Integer;
-  };
-}
-
-export interface CommonAccordianDetails extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordian_details';
-  info: {
-    displayName: 'Accordian Details';
-    icon: 'bulletList';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
-  };
-}
-
 export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   collectionName: 'components_elements_trip_advisors';
   info: {
@@ -1667,6 +1602,71 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
+export interface CommonHelp extends Struct.ComponentSchema {
+  collectionName: 'components_common_helps';
+  info: {
+    displayName: 'Help';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+    type: Schema.Attribute.Enumeration<['description', 'button']> &
+      Schema.Attribute.DefaultTo<'description'>;
+    buttonName: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+  };
+}
+
+export interface CommonAccordian extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+    accordionDescription: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+    details: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    formIndex: Schema.Attribute.Integer;
+  };
+}
+
+export interface CommonAccordianDetails extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordian_details';
+  info: {
+    displayName: 'Accordian Details';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
+  };
+}
+
 export interface CharteredFlightsPagePricingTab extends Struct.ComponentSchema {
   collectionName: 'components_chartered_flights_page_pricing_tabs';
   info: {
@@ -1724,50 +1724,6 @@ export interface CharteredFlightsPageDestination
   };
 }
 
-export interface AircraftFleetFleetInfo extends Struct.ComponentSchema {
-  collectionName: 'components_aircraft_fleet_fleet_infos';
-  info: {
-    displayName: 'Fleet Information';
-    description: '';
-  };
-  attributes: {
-    name: Schema.Attribute.String;
-    value: Schema.Attribute.String;
-  };
-}
-
-export interface AircraftFleetAircraftFleetTabs extends Struct.ComponentSchema {
-  collectionName: 'components_aircraft_fleet_aircraft_fleet_tabs';
-  info: {
-    displayName: 'Aircraft Fleet Tabs';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    fleetInformations: Schema.Attribute.Component<
-      'aircraft-fleet.fleet-info',
-      true
-    >;
-  };
-}
-
-export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
-  collectionName: 'components_canadian_passenger_rights_tariffs';
-  info: {
-    displayName: 'Tariffs';
-  };
-  attributes: {
-    tariffsInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    > &
-      Schema.Attribute.Required;
-    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
-  };
-}
-
 export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
@@ -1811,6 +1767,50 @@ export interface CareersCareersTable extends Struct.ComponentSchema {
     careerOpportunities: Schema.Attribute.Relation<
       'oneToMany',
       'api::career-opportunity.career-opportunity'
+    >;
+  };
+}
+
+export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    > &
+      Schema.Attribute.Required;
+    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
+  };
+}
+
+export interface AircraftFleetFleetInfo extends Struct.ComponentSchema {
+  collectionName: 'components_aircraft_fleet_fleet_infos';
+  info: {
+    displayName: 'Fleet Information';
+    description: '';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface AircraftFleetAircraftFleetTabs extends Struct.ComponentSchema {
+  collectionName: 'components_aircraft_fleet_aircraft_fleet_tabs';
+  info: {
+    displayName: 'Aircraft Fleet Tabs';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    fleetInformations: Schema.Attribute.Component<
+      'aircraft-fleet.fleet-info',
+      true
     >;
   };
 }
@@ -1864,10 +1864,10 @@ declare module '@strapi/strapi' {
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
-      'meta.meta': MetaMeta;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
+      'meta.meta': MetaMeta;
       'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
@@ -1916,10 +1916,6 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
-      'common.help': CommonHelp;
-      'common.accordian': CommonAccordian;
-      'common.accordian-details': CommonAccordianDetails;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1943,15 +1939,19 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
+      'common.help': CommonHelp;
+      'common.accordian': CommonAccordian;
+      'common.accordian-details': CommonAccordianDetails;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
-      'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
-      'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
-      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
+      'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
+      'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
     }
   }
