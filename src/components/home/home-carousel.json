@@ -18,10 +18,10 @@
     "slug": {
       "type": "string"
     },
-    "image": {
+    "desktopImg": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
@@ -29,6 +29,24 @@
     },
     "imageLink": {
       "type": "string"
+    },
+    "tabletImg": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "mobileImg": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

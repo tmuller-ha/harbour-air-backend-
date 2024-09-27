@@ -19,7 +19,7 @@
     "canonicalUrl": {
       "type": "string"
     },
-    "ogImage": {
+    "openGraphImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -27,11 +27,37 @@
         "images"
       ]
     },
-    "markAsCanonical": {
-      "type": "boolean"
+    "openGraphTitle": {
+      "type": "string"
     },
-    "noFollowNoIndex": {
-      "type": "boolean"
+    "openGraphDescription": {
+      "type": "text"
+    },
+    "twitterCardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "twitterCardTitle": {
+      "type": "string"
+    },
+    "twitterCardDescription": {
+      "type": "text"
+    },
+    "additional": {
+      "displayName": "additional",
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.additional"
+    },
+    "analytics": {
+      "displayName": "Analytics",
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.analytics"
     }
   }
 }
