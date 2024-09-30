@@ -754,10 +754,12 @@ export interface PluginFormsContactForm extends Schema.CollectionType {
     passengerName: Attribute.String & Attribute.Required;
     phoneNumber: Attribute.BigInteger & Attribute.Required;
     email: Attribute.Email & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
+    city: Attribute.String;
     contactBy: Attribute.Enumeration<['Email', 'Phone Number']> &
       Attribute.Required;
     comments: Attribute.String;
+    flightNumber: Attribute.String;
+    departureDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -929,6 +931,14 @@ export interface PluginFormsCarserviceForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     name: Attribute.String & Attribute.Required;
     pickUpLocation: Attribute.String & Attribute.Required;
@@ -1023,6 +1033,14 @@ export interface PluginFormsTurbobucksOrderForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     turbobucksType: Attribute.Enumeration<
       ['New Turbobucks Voucher', 'Top-up Existing Voucher']
@@ -1071,6 +1089,14 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
     draftAndPublish: false;
     comment: '';
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     cardAdministratorName: Attribute.String & Attribute.Required;
     customerprofile: Attribute.String & Attribute.Required;
@@ -1091,6 +1117,95 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.high-flyer-rewards-application-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsInquiriesForm extends Schema.CollectionType {
+  collectionName: 'inquiries_forms';
+  info: {
+    singularName: 'inquiries-form';
+    pluralName: 'inquiries-forms';
+    displayName: 'Inquiries Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String;
+    country: Attribute.String;
+    email: Attribute.Email;
+    phoneNumber: Attribute.BigInteger;
+    planeConfiguration: Attribute.String;
+    message: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.inquiries-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
+  collectionName: 'baggage_claim_forms';
+  info: {
+    singularName: 'baggage-claim-form';
+    pluralName: 'baggage-claim-forms';
+    displayName: 'Baggage Claim Form';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contact: Attribute.String;
+    city: Attribute.String;
+    passengerName: Attribute.String;
+    contactBy: Attribute.Enumeration<['Email', 'Phone Number']>;
+    phoneNumber: Attribute.BigInteger;
+    email: Attribute.Email;
+    dateOfFlight: Attribute.Date;
+    luggageStyleType: Attribute.String;
+    damageDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::forms.baggage-claim-form',
       'oneToOne',
       'admin::user'
     > &
@@ -2694,7 +2809,10 @@ export interface ApiLoyaltyProgramLoyaltyProgram extends Schema.SingleType {
   attributes: {
     pageTitle: Attribute.Component<'elements.title-with-image'>;
     highFlyerRewards: Attribute.DynamicZone<
-      ['elements.title-with-ck-editor', 'elements.accordion']
+      [
+        'elements.title-with-ck-editor',
+        'loyalty-program.high-flyer-membership-levels'
+      ]
     >;
     turbobucksFlightCredits: Attribute.DynamicZone<
       ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
@@ -3790,6 +3908,8 @@ declare module '@strapi/types' {
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
+      'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
+      'plugin::forms.baggage-claim-form': PluginFormsBaggageClaimForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

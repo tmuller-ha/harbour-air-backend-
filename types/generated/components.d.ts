@@ -1143,6 +1143,18 @@ export interface LoyaltyProgramHighFlyerForm extends Schema.Component {
   };
 }
 
+export interface LoyaltyProgramHighFlyerMembershipLevels
+  extends Schema.Component {
+  collectionName: 'components_loyalty_program_high_flyer_membership_levels';
+  info: {
+    displayName: 'High Flyer Membership Levels';
+  };
+  attributes: {
+    overview: Attribute.Component<'elements.title-with-ck-editor'>;
+    levels: Attribute.Component<'elements.title-with-ck-editor', true>;
+  };
+}
+
 export interface LoyaltyProgramHighFlyerRewardsForm extends Schema.Component {
   collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
   info: {
@@ -1161,6 +1173,7 @@ export interface LoyaltyProgramPricingStructure extends Schema.Component {
     displayName: 'Pricing Structure';
   };
   attributes: {
+    level: Attribute.String & Attribute.Required;
     priceRange: Attribute.String & Attribute.Required;
     Bonus: Attribute.String & Attribute.Required;
   };
@@ -1867,6 +1880,7 @@ declare module '@strapi/types' {
       'inside-location.guide-information': InsideLocationGuideInformation;
       'inside-location.guide': InsideLocationGuide;
       'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
+      'loyalty-program.high-flyer-membership-levels': LoyaltyProgramHighFlyerMembershipLevels;
       'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
       'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
       'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
