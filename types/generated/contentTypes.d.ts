@@ -1637,6 +1637,7 @@ export interface ApiBookFlightBookFlight extends Schema.SingleType {
     specialOffersTitle: Attribute.String & Attribute.Required;
     seo: Attribute.Component<'seo.seo'>;
     meta: Attribute.Component<'meta.meta'>;
+    moreDeals: Attribute.Component<'elements.button'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
