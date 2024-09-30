@@ -929,14 +929,6 @@ export interface PluginFormsCarserviceForm extends Schema.CollectionType {
     draftAndPublish: false;
     comment: '';
   };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
   attributes: {
     name: Attribute.String & Attribute.Required;
     pickUpLocation: Attribute.String & Attribute.Required;
@@ -1099,95 +1091,6 @@ export interface PluginFormsHighFlyerRewardsApplicationForm
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::forms.high-flyer-rewards-application-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsInquiriesForm extends Schema.CollectionType {
-  collectionName: 'inquiries_forms';
-  info: {
-    singularName: 'inquiries-form';
-    pluralName: 'inquiries-forms';
-    displayName: 'Inquiries Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String;
-    country: Attribute.String;
-    email: Attribute.Email;
-    phoneNumber: Attribute.BigInteger;
-    planeConfiguration: Attribute.String;
-    message: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.inquiries-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.inquiries-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface PluginFormsBaggageClaimForm extends Schema.CollectionType {
-  collectionName: 'baggage_claim_forms';
-  info: {
-    singularName: 'baggage-claim-form';
-    pluralName: 'baggage-claim-forms';
-    displayName: 'Baggage Claim Form';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    contact: Attribute.String;
-    city: Attribute.String;
-    passengerName: Attribute.String;
-    contactBy: Attribute.Enumeration<['Email', 'Phone Number']>;
-    phoneNumber: Attribute.BigInteger;
-    email: Attribute.Email;
-    dateOfFlight: Attribute.Date;
-    luggageStyleType: Attribute.String;
-    damageDescription: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::forms.baggage-claim-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::forms.baggage-claim-form',
       'oneToOne',
       'admin::user'
     > &
@@ -1619,6 +1522,46 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogListBlogList extends Schema.SingleType {
+  collectionName: 'blog_lists';
+  info: {
+    singularName: 'blog-list';
+    pluralName: 'blog-lists';
+    displayName: 'Blog List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    latestBlog: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'api::blog.blog'
+    >;
+    categories: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -3847,8 +3790,6 @@ declare module '@strapi/types' {
       'plugin::forms.group-bookings-form': PluginFormsGroupBookingsForm;
       'plugin::forms.turbobucks-order-form': PluginFormsTurbobucksOrderForm;
       'plugin::forms.high-flyer-rewards-application-form': PluginFormsHighFlyerRewardsApplicationForm;
-      'plugin::forms.inquiries-form': PluginFormsInquiriesForm;
-      'plugin::forms.baggage-claim-form': PluginFormsBaggageClaimForm;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -3859,6 +3800,7 @@ declare module '@strapi/types' {
       'api::award.award': ApiAwardAward;
       'api::base-page.base-page': ApiBasePageBasePage;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
