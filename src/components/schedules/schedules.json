@@ -1,9 +1,14 @@
 {
   "collectionName": "components_schedules_schedules",
   "info": {
-    "displayName": "Schedules"
+    "displayName": "Schedules",
+    "description": ""
   },
-  "options": {},
+  "options": {
+    "privateAttributes": [
+      "title"
+    ]
+  },
   "attributes": {
     "documents": {
       "type": "relation",
@@ -13,12 +18,19 @@
     "departure": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::destination.destination"
+      "target": "api::destination.destination",
+      "required": true
     },
     "arrival": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::destination.destination"
+      "target": "api::destination.destination",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "private": true,
+      "configurable": false
     }
   }
 }
