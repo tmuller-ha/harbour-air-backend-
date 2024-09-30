@@ -1743,6 +1743,9 @@ export interface StandbyTravelTravelTab extends Schema.Component {
     decription: Attribute.Text;
     title: Attribute.String & Attribute.Required;
     travelInfo: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+    showDiscountedConformedTravel: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
