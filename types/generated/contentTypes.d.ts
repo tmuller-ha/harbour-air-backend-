@@ -873,8 +873,6 @@ export interface ApiCarServiceCarService extends Struct.SingleTypeSchema {
       'further-questions.contact-form',
       false
     >;
-    showCarHireForm: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
