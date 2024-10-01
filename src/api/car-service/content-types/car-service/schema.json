@@ -32,10 +32,6 @@
       "repeatable": false,
       "component": "further-questions.contact-form"
     },
-    "showCarHireForm": {
-      "type": "boolean",
-      "default": true
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
