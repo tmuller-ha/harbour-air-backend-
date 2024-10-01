@@ -1336,6 +1336,35 @@ export interface ApiDropdownMenuDropdownMenu
   };
 }
 
+export interface ApiEmailFormEmailForm extends Struct.SingleTypeSchema {
+  collectionName: 'email_forms';
+  info: {
+    singularName: 'email-form';
+    pluralName: 'email-forms';
+    displayName: 'Email Form';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactDetailsForm: Schema.Attribute.Component<'form.contact-form', false>;
+    loyaltyDetailsForm: Schema.Attribute.Component<'form.contact-form', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::email-form.email-form'
+    >;
+  };
+}
+
 export interface ApiExtraAssistanceExtraAssistance
   extends Struct.SingleTypeSchema {
   collectionName: 'extra_assistances';
@@ -3211,6 +3240,7 @@ declare module '@strapi/strapi' {
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
+      'api::email-form.email-form': ApiEmailFormEmailForm;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
