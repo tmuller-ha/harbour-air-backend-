@@ -18,6 +18,11 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.accordion-with-ck-editor"
+    },
+    "showDiscountedConformedTravel": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

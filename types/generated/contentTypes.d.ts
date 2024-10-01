@@ -704,6 +704,37 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
+  collectionName: 'blog_lists';
+  info: {
+    singularName: 'blog-list';
+    pluralName: 'blog-lists';
+    displayName: 'Blog List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    latestBlog: Schema.Attribute.Relation<'oneToOne', 'api::blog.blog'>;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-list.blog-list'
+    >;
+  };
+}
+
 export interface ApiBlogsAndNewBlogsAndNew extends Struct.SingleTypeSchema {
   collectionName: 'blogs_and_news';
   info: {
@@ -754,6 +785,7 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     specialOffers: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     specialOffersTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    moreDeals: Schema.Attribute.Component<'elements.button', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     meta: Schema.Attribute.Component<'meta.meta', false>;
     createdAt: Schema.Attribute.DateTime;
@@ -830,11 +862,14 @@ export interface ApiCarServiceCarService extends Struct.SingleTypeSchema {
       'elements.title-with-desc-and-image',
       false
     >;
-    budgetCar: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
+    carTypes: Schema.Attribute.Component<
+      'elements.title-desc-with-image-links',
+      true
+    >;
+    carHireRequestForm: Schema.Attribute.Component<
+      'further-questions.contact-form',
       false
     >;
-    otusCar: Schema.Attribute.Component<'elements.title-with-ck-editor', false>;
     showCarHireForm: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
@@ -3225,6 +3260,7 @@ declare module '@strapi/strapi' {
       'api::award.award': ApiAwardAward;
       'api::base-page.base-page': ApiBasePageBasePage;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
