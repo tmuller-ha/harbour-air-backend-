@@ -30,7 +30,7 @@
     "meta": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "contactDetailForm": {
       "type": "component",

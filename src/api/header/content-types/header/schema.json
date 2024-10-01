@@ -37,8 +37,7 @@
       "components": [
         "header.dropdown",
         "header.link"
-      ],
-      "required": true
+      ]
     }
   }
 }
