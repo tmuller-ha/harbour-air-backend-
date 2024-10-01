@@ -410,6 +410,19 @@ export interface MobilityHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface MetaDataMetaData extends Struct.ComponentSchema {
+  collectionName: 'components_meta_data_meta_datas';
+  info: {
+    displayName: 'Meta Data';
+    description: '';
+  };
+  attributes: {
+    showSideBookingWidget: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    helpSection: Schema.Attribute.Component<'common.help', false>;
+  };
+}
+
 export interface MainToursTourCards extends Struct.ComponentSchema {
   collectionName: 'components_main_tours_tour_cards';
   info: {
@@ -455,19 +468,6 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
       'elements.title-with-media-and-button',
       false
     >;
-  };
-}
-
-export interface MetaMeta extends Struct.ComponentSchema {
-  collectionName: 'components_meta_metas';
-  info: {
-    displayName: 'Meta';
-    description: '';
-  };
-  attributes: {
-    showSideBookingWidget: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
-    helpSection: Schema.Attribute.Component<'common.help', false>;
   };
 }
 
@@ -982,6 +982,16 @@ export interface GoingElectricGoingElectringInquires
   };
 }
 
+export interface FormContactUsDetails extends Struct.ComponentSchema {
+  collectionName: 'components_form_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+  };
+  attributes: {
+    helpOptions: Schema.Attribute.String;
+  };
+}
+
 export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
   collectionName: 'components_further_questions_contact_forms';
   info: {
@@ -1001,16 +1011,6 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
       'form.contact-us-details',
       true
     >;
-  };
-}
-
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
-  info: {
-    displayName: 'Contact Us Details';
-  };
-  attributes: {
-    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1864,10 +1864,10 @@ declare module '@strapi/strapi' {
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
+      'meta-data.meta-data': MetaDataMetaData;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
-      'meta.meta': MetaMeta;
       'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
@@ -1899,8 +1899,8 @@ declare module '@strapi/strapi' {
       'going-electric.specifications': GoingElectricSpecifications;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
-      'further-questions.contact-form': FurtherQuestionsContactForm;
       'form.contact-us-details': FormContactUsDetails;
+      'further-questions.contact-form': FurtherQuestionsContactForm;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;

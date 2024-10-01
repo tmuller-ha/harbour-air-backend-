@@ -33,10 +33,10 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "contactDetails": {
       "type": "component",
