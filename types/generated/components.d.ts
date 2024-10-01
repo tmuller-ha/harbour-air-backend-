@@ -349,6 +349,18 @@ export interface ElementsPricingTable extends Schema.Component {
   };
 }
 
+export interface ElementsTab extends Schema.Component {
+  collectionName: 'components_tab_tabs';
+  info: {
+    displayName: 'Tab';
+    description: '';
+  };
+  attributes: {
+    show: Attribute.Boolean;
+    tabDetails: Attribute.Component<'elements.accordion-with-ck-editor', true>;
+  };
+}
+
 export interface ElementsTableDetails extends Schema.Component {
   collectionName: 'components_elements_table_details';
   info: {
@@ -1817,6 +1829,7 @@ declare module '@strapi/types' {
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
+      'elements.tab': ElementsTab;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
