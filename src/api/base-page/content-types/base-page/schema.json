@@ -31,7 +31,8 @@
       "components": [
         "elements.accordion",
         "elements.title-with-ck-editor",
-        "elements.title-with-image"
+        "elements.title-with-image",
+        "elements.tab"
       ]
     }
   }
