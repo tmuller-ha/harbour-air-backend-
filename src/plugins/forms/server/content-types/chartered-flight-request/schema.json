@@ -24,7 +24,8 @@
       "required": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "telephone": {
       "type": "biginteger"
@@ -62,19 +63,24 @@
       "required": true
     },
     "includesChildren": {
-      "type": "boolean",
-      "required": true
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ]
     },
     "totalWeight": {
-      "type": "integer",
-      "required": true
+      "type": "integer"
     },
     "requests": {
       "type": "string"
     },
     "charteredAircraftBefore": {
-      "type": "boolean",
-      "required": true
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ]
     }
   }
 }

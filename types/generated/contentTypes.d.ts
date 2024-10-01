@@ -699,7 +699,7 @@ export interface PluginFormsCharteredFlightRequest
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    email: Attribute.Email;
+    email: Attribute.Email & Attribute.Required;
     telephone: Attribute.BigInteger;
     contactMethod: Attribute.Enumeration<['Email', 'Phone']> &
       Attribute.Required;
@@ -709,10 +709,10 @@ export interface PluginFormsCharteredFlightRequest
     preferredDeparture: Attribute.Time & Attribute.Required;
     preferredDeparturePoint: Attribute.String & Attribute.Required;
     groupSize: Attribute.Integer & Attribute.Required;
-    includesChildren: Attribute.Boolean & Attribute.Required;
-    totalWeight: Attribute.Integer & Attribute.Required;
+    includesChildren: Attribute.Enumeration<['Yes', 'No']>;
+    totalWeight: Attribute.Integer;
     requests: Attribute.String;
-    charteredAircraftBefore: Attribute.Boolean & Attribute.Required;
+    charteredAircraftBefore: Attribute.Enumeration<['Yes', 'No']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
