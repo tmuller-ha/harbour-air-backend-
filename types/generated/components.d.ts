@@ -410,10 +410,10 @@ export interface MobilityHeroSection extends Struct.ComponentSchema {
   };
 }
 
-export interface MetaMeta extends Struct.ComponentSchema {
-  collectionName: 'components_meta_metas';
+export interface MetaDataMetaData extends Struct.ComponentSchema {
+  collectionName: 'components_meta_data_meta_datas';
   info: {
-    displayName: 'Meta';
+    displayName: 'Meta Data';
     description: '';
   };
   attributes: {
@@ -616,65 +616,6 @@ export interface LuggageHeroDescription extends Struct.ComponentSchema {
   };
 }
 
-export interface LoyaltyProgramTurbobucksPricing
-  extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_turbobucks_pricings';
-  info: {
-    displayName: 'Turbobucks Pricing';
-  };
-  attributes: {
-    details: Schema.Attribute.Component<
-      'loyalty-program.pricing-structure',
-      true
-    >;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface LoyaltyProgramPricingStructure extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_pricing_structures';
-  info: {
-    displayName: 'Pricing Structure';
-  };
-  attributes: {
-    priceRange: Schema.Attribute.String & Schema.Attribute.Required;
-    Bonus: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface LoyaltyProgramHighFlyerRewardsForm
-  extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
-  info: {
-    displayName: 'High Flyer Rewards Form';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    membershipTypeQuote: Schema.Attribute.Text;
-  };
-}
-
-export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_high_flyer_forms';
-  info: {
-    displayName: 'Turbobucks Form';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    existingCustomerQuote: Schema.Attribute.Text;
-  };
-}
-
 export interface InsideLocationGuide extends Struct.ComponentSchema {
   collectionName: 'components_inside_location_guides';
   info: {
@@ -737,6 +678,65 @@ export interface InsideLocationAdditionalinfoDetails
     >;
     show: Schema.Attribute.Boolean;
     moreButton: Schema.Attribute.Component<'elements.button', false>;
+  };
+}
+
+export interface LoyaltyProgramTurbobucksPricing
+  extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_turbobucks_pricings';
+  info: {
+    displayName: 'Turbobucks Pricing';
+  };
+  attributes: {
+    details: Schema.Attribute.Component<
+      'loyalty-program.pricing-structure',
+      true
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramPricingStructure extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_pricing_structures';
+  info: {
+    displayName: 'Pricing Structure';
+  };
+  attributes: {
+    priceRange: Schema.Attribute.String & Schema.Attribute.Required;
+    Bonus: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramHighFlyerRewardsForm
+  extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
+  info: {
+    displayName: 'High Flyer Rewards Form';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    membershipTypeQuote: Schema.Attribute.Text;
+  };
+}
+
+export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_high_flyer_forms';
+  info: {
+    displayName: 'Turbobucks Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    existingCustomerQuote: Schema.Attribute.Text;
   };
 }
 
@@ -1108,61 +1108,6 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
   };
 }
 
-export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_files';
-  info: {
-    displayName: 'Files';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
-  };
-}
-
-export interface ExtraAssistanceCards extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_cards';
-  info: {
-    displayName: 'cards';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor
-  extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-    description: '';
-  };
-  attributes: {
-    accordion: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface FaqQuestions extends Struct.ComponentSchema {
   collectionName: 'components_faq_questions';
   info: {
@@ -1232,17 +1177,58 @@ export interface FaqAccordionData extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
+export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_files';
   info: {
-    displayName: 'Community Tabs';
+    displayName: 'Files';
+    description: '';
   };
   attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceAccordionWithEditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_accordion_with_editors';
+  info: {
+    displayName: 'Accordion With Editor';
+    description: '';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
       true
     >;
+    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -1638,6 +1624,20 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1886,7 +1886,7 @@ declare module '@strapi/strapi' {
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
-      'meta.meta': MetaMeta;
+      'meta-data.meta-data': MetaDataMetaData;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
@@ -1898,14 +1898,14 @@ declare module '@strapi/strapi' {
       'luggage.luggage-allowance': LuggageLuggageAllowance;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.hero-description': LuggageHeroDescription;
-      'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
-      'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
-      'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
-      'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
       'inside-location.guide': InsideLocationGuide;
       'inside-location.guide-information': InsideLocationGuideInformation;
       'inside-location.address': InsideLocationAddress;
       'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
+      'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
+      'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
+      'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
+      'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
       'home.news': HomeNews;
       'home.home-tours': HomeHomeTours;
       'home.home-locations': HomeHomeLocations;
@@ -1931,16 +1931,15 @@ declare module '@strapi/strapi' {
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
-      'extra-assistance.files': ExtraAssistanceFiles;
-      'extra-assistance.cards': ExtraAssistanceCards;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
       'faq.accordion': FaqAccordion;
       'faq.accordion-data': FaqAccordionData;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
+      'extra-assistance.files': ExtraAssistanceFiles;
+      'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1964,6 +1963,7 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;

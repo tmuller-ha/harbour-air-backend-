@@ -510,6 +510,9 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       true
     >;
     turbo: Schema.Attribute.Component<'about-us.about-us-turbo', false>;
+    sections: Schema.Attribute.DynamicZone<
+      ['canadian-passenger-rights.tariffs']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -542,7 +545,7 @@ export interface ApiAirCraftFleetAirCraftFleet extends Struct.SingleTypeSchema {
     >;
     tabs: Schema.Attribute.DynamicZone<['aircraft-fleet.aircraft-fleet-tabs']>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    meta: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -643,7 +646,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
   attributes: {
     slug: Schema.Attribute.UID & Schema.Attribute.Required;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     sections: Schema.Attribute.DynamicZone<
       [
         'elements.accordion',
@@ -721,7 +724,7 @@ export interface ApiBlogsAndNewBlogsAndNew extends Struct.SingleTypeSchema {
     latestBlogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     blogsCoverImage: Schema.Attribute.Media<'images'>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     latestNewsTitle: Schema.Attribute.String & Schema.Attribute.Required;
     latestBlogsTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -755,7 +758,7 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
     specialOffers: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     specialOffersTitle: Schema.Attribute.String & Schema.Attribute.Required;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -793,7 +796,7 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    meta: Schema.Attribute.Component<'meta-data.meta-data', false>;
     contactDetailForm: Schema.Attribute.Component<
       'further-questions.contact-form',
       false
@@ -838,7 +841,7 @@ export interface ApiCarServiceCarService extends Struct.SingleTypeSchema {
     showCarHireForm: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -876,7 +879,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    meta: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -974,7 +977,7 @@ export interface ApiCharteredFlightCharteredFlight
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1006,8 +1009,7 @@ export interface ApiCommunityInvolvementCommunityInvolvement
   attributes: {
     sections: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-ck-editor']
-    > &
-      Schema.Attribute.Required;
+    >;
     tabs: Schema.Attribute.Component<
       'elements.title-with-desc-and-image',
       true
@@ -1061,7 +1063,7 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
       false
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     contactDetails: Schema.Attribute.Component<
       'further-questions.contact-form',
       false
@@ -1103,7 +1105,7 @@ export interface ApiCorporateResposibilityCorporateResposibility
       true
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', true>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1317,8 +1319,7 @@ export interface ApiDropdownMenuDropdownMenu
     draftAndPublish: true;
   };
   attributes: {
-    menus: Schema.Attribute.DynamicZone<['header.link', 'header.media-links']> &
-      Schema.Attribute.Required;
+    menus: Schema.Attribute.DynamicZone<['header.link', 'header.media-links']>;
     menuTitle: Schema.Attribute.Component<'header.link', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1379,7 +1380,7 @@ export interface ApiExtraAssistanceExtraAssistance
   attributes: {
     cards: Schema.Attribute.DynamicZone<['extra-assistance.assistance']>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<
       'elements.title-with-media-and-button',
       false
@@ -1416,7 +1417,7 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     accordionSection: Schema.Attribute.Component<'faq.accordion', false>;
     searchButton: Schema.Attribute.Component<'faq.button-with-boolean', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     contactDetails: Schema.Attribute.Component<
       'further-questions.contact-form',
       false
@@ -1519,7 +1520,7 @@ export interface ApiFlightStatusFlightStatus extends Struct.SingleTypeSchema {
   };
   attributes: {
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     flightStatusInfo: Schema.Attribute.Blocks;
     flighStatusTitle: Schema.Attribute.Component<
       'elements.title-with-image',
@@ -1614,7 +1615,7 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
       false
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1654,7 +1655,7 @@ export interface ApiGroupBookingGroupBooking extends Struct.SingleTypeSchema {
     showBookingForm: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1687,8 +1688,7 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     profileButtonText: Schema.Attribute.String & Schema.Attribute.Required;
     navigationLinks: Schema.Attribute.DynamicZone<
       ['header.dropdown', 'header.link']
-    > &
-      Schema.Attribute.Required;
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1719,7 +1719,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     serviceHighlights: Schema.Attribute.Component<'home.description', false>;
     deals: Schema.Attribute.Component<'home.grab-deals', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     tours: Schema.Attribute.Component<'home.home-tours', false>;
     locations: Schema.Attribute.Component<'home.home-locations', false>;
     news: Schema.Attribute.Component<'home.news', false>;
@@ -1782,7 +1782,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     learnMoreBtnText: Schema.Attribute.String;
     shortDescription: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     guide: Schema.Attribute.Component<'inside-location.guide', false>;
     additionalInformation: Schema.Attribute.Component<
       'inside-location.additionalinfo-details',
@@ -1827,7 +1827,7 @@ export interface ApiLoyaltyProgramLoyaltyProgram
     highFlyerTabTitle: Schema.Attribute.String & Schema.Attribute.Required;
     turbobucksTabTitle: Schema.Attribute.String & Schema.Attribute.Required;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     turbobucksForm: Schema.Attribute.Component<
       'loyalty-program.high-flyer-form',
       false
@@ -1921,7 +1921,7 @@ export interface ApiMainDealMainDeal extends Struct.SingleTypeSchema {
     deals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     dealsBanner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1951,7 +1951,7 @@ export interface ApiMainLocationMainLocation extends Struct.SingleTypeSchema {
   attributes: {
     locations: Schema.Attribute.Relation<'oneToMany', 'api::location.location'>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<
       'elements.title-with-media-and-button',
       false
@@ -1987,7 +1987,7 @@ export interface ApiMainTourMainTour extends Struct.SingleTypeSchema {
       ['main-tours.fare-section', 'main-tours.featured-tours']
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2118,7 +2118,7 @@ export interface ApiMovingPastCarbonNeutralMovingPastCarbonNeutral
     >;
     tabs: Schema.Attribute.Component<'elements.title-with-ck-editor', true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2219,7 +2219,7 @@ export interface ApiNotFoundPageNotFoundPage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String;
     description: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2279,7 +2279,7 @@ export interface ApiOnAccountQuickTicketOnAccountQuickTicket
       false
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     form: Schema.Attribute.Component<'quick-ticket.quick-ticket-form', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2323,7 +2323,7 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
       true
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2388,7 +2388,7 @@ export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
     stories: Schema.Attribute.Component<'our-story.story', true>;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2476,7 +2476,7 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
       false
     >;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2582,7 +2582,7 @@ export interface ApiScheduleSchedule extends Struct.SingleTypeSchema {
       >;
     schedules: Schema.Attribute.Component<'schedules.schedules', true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2616,10 +2616,9 @@ export interface ApiSeatingOptionSeatingOption extends Struct.SingleTypeSchema {
         'elements.title-with-description',
         'common.accordian',
       ]
-    > &
-      Schema.Attribute.Required;
+    >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2649,8 +2648,7 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   attributes: {
     sections: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'standby-travel.standby-travel-info']
-    > &
-      Schema.Attribute.Required;
+    >;
     travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     howToFly: Schema.Attribute.Component<'standby-travel.how-to-fly', false>;
     discountedTravelForm: Schema.Attribute.Component<
@@ -2658,7 +2656,7 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
       false
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2703,7 +2701,7 @@ export interface ApiTourLocationTourLocation
     >;
     departure: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    meta: Schema.Attribute.Component<'meta.meta', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

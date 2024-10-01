@@ -17,8 +17,7 @@
       "components": [
         "elements.title-with-image",
         "standby-travel.standby-travel-info"
-      ],
-      "required": true
+      ]
     },
     "travelTabs": {
       "type": "dynamiczone",
@@ -41,10 +40,10 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     }
   }
 }

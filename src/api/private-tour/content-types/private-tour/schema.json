@@ -32,10 +32,10 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "seo": {
       "type": "component",
