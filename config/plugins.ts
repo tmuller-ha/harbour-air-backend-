@@ -3,10 +3,11 @@ module.exports = ({ env }) => ({
   //   enabled: true,
   //   resolve: "./src/plugins/web-deployment",
   // },
-  // forms: {
-  //   enabled: true,
-  //   resolve: "./src/plugins/forms",
-  // },
+// form plugin have been hidden
+  forms: {
+    enabled: false,
+    resolve: "./src/plugins/forms",
+  },
   upload: {
     config: {
       provider: "aws-s3",

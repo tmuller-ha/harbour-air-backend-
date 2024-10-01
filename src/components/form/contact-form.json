@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_contact_forms",
+  "info": {
+    "displayName": "Form ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "toEmails": {
+      "displayName": "Users",
+      "type": "component",
+      "repeatable": true,
+      "component": "form.users"
+    }
+  }
+}

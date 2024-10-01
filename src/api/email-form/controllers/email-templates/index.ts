@@ -1,0 +1,12 @@
+export { default as baggageClaimFormRequestTemplate } from "./baggage-claim-form";
+export {default as carServiceFormRequestTemplate} from "./carservice-form";
+export { default as charteredFlightRequestTemplate } from "./chartered-flight-request";
+export {default as contactFormTemplate} from "./contact-form";
+export { default as discountedTravelRequestTemplate } from "./discounted-travel";
+export {default as groupBookingsFormRequestTemplate} from "./group-bookings-form";
+export { default as highFlyerRewardsApplicationTemplate } from "./high-flyer-rewards-application-form";
+export {default as inquiriesFormRequestTemplate} from "./inquiries-form";
+export { default as onAccountTicketTemplate } from "./on-account-ticket";
+export {default as parcelExpressQuoteTemplate} from "./parcel-express-quote";
+export {default as tourRequestTemplate} from "./tour-request";
+export { default as turbobucksOrderTemplate } from "./turbobucks-order-form";
