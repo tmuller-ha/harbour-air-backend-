@@ -53,6 +53,9 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
       'elements.accordion-with-ck-editor',
       true
     >;
+    showDiscountedConformedTravel: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -815,7 +818,12 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     description: Schema.Attribute.String;
     btnText: Schema.Attribute.String;
     slug: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
+    desktopImg: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    tabletImg: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
+    mobileImg: Schema.Attribute.Media<'images' | 'videos'> &
+      Schema.Attribute.Required;
     imageLink: Schema.Attribute.String;
   };
 }

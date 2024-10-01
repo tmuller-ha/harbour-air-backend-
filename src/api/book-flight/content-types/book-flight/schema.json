@@ -26,6 +26,11 @@
       "type": "string",
       "required": true
     },
+    "moreDeals": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
     "seo": {
       "type": "component",
       "repeatable": false,
