@@ -3,45 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
-  "license": "MIT",
-  "author": {
-    "name": "Harbour CMS dev"
-  },
   "scripts": {
     "build": "strapi build",
-    "build-forms": "cd src/plugins/forms && yarn install && yarn build",
-    "build-web-deployment": "cd src/plugins/web-deployment && yarn install &&  yarn build",
+    "deploy": "strapi deploy",
     "develop": "strapi develop",
+    "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
-    "@_sh/strapi-plugin-ckeditor": "^4.0.3",
-    "@aws-sdk/client-secrets-manager": "^3.583.0",
-    "@strapi/plugin-cloud": "5.0.0",
-    "@strapi/plugin-color-picker": "^5.0.1",
-    "@strapi/plugin-graphql": "^5.0.1",
-    "@strapi/plugin-users-permissions": "5.0.0",
-    "@strapi/provider-email-amazon-ses": "^4.25.8",
-    "@strapi/provider-upload-aws-s3": "^5.0.1",
-    "@strapi/strapi": "5.0.0",
-    "@strapi/typescript-utils": "^4.24.5",
-    "better-sqlite3": "8.6.0",
-    "jimp": "^0.22.12",
-    "pg": "^8.11.5",
-    "qs": "^6.12.3",
+    "@strapi/plugin-cloud": "5.0.1",
+    "@strapi/plugin-users-permissions": "5.0.1",
+    "@strapi/strapi": "5.0.1",
+    "better-sqlite3": "9.4.3",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0",
-    "webp-converter": "^2.3.3"
+    "styled-components": "^6.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "c64ad848-5642-40aa-8c30-d506d0c52e73"
+    "uuid": "b7e2b666-2e1b-4725-a719-170226206411"
   }
 }
