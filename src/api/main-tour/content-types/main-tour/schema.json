@@ -17,10 +17,17 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
+    },
+    "mainTourPage": {
+      "type": "dynamiczone",
+      "components": [
+        "main-tours.featured-tours",
+        "main-tours.tour-cards"
+      ]
     }
   }
 }

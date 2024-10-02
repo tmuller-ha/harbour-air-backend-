@@ -4,11 +4,26 @@
   "info": {
     "singularName": "courtesy-shuttle",
     "pluralName": "courtesy-shuttles",
-    "displayName": "Courtesy shuttles"
+    "displayName": "Courtesy shuttles",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-ck-editor"
+      ]
+    },
+    "tabs": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor"
+      ]
+    }
+  }
 }

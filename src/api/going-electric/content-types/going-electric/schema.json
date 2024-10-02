@@ -43,10 +43,18 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
+    },
+    "tabs": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor",
+        "elements.gallery",
+        "going-electric.specifications"
+      ]
     }
   }
 }

@@ -40,10 +40,10 @@
       "repeatable": false,
       "component": "home.grab-deals"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "tours": {
       "type": "component",

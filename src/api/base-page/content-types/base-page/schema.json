@@ -21,10 +21,18 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.accordion",
+        "elements.title-with-ck-editor",
+        "elements.title-with-image"
+      ]
     }
   }
 }

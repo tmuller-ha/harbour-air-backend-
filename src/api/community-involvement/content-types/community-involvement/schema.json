@@ -16,6 +16,13 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.title-with-desc-and-image"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-ck-editor"
+      ]
     }
   }
 }

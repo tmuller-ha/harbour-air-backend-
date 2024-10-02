@@ -23,9 +23,10 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
-
     "tours": {
       "type": "relation",
       "relation": "oneToMany",
@@ -40,15 +41,23 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "country": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::country.country"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "tours.hero-description",
+        "tours.featured-tours",
+        "main-tours.tour-cards"
+      ]
     }
   }
 }

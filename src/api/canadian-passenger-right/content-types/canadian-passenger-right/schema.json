@@ -17,15 +17,24 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "contactDetailForm": {
       "type": "component",
       "repeatable": false,
       "component": "further-questions.contact-form"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-description",
+        "common.accordian",
+        "canadian-passenger-rights.tariffs"
+      ]
     }
   }
 }

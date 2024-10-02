@@ -17,7 +17,6 @@
       "repeatable": false,
       "component": "parcel-express.rates"
     },
-
     "faq": {
       "displayName": "ParcelFaq",
       "type": "component",
@@ -28,6 +27,22 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-description"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-description",
+        "common.help"
+      ]
+    },
+    "HowTo": {
+      "type": "dynamiczone",
+      "components": [
+        "parcel-express.how-to-accordion",
+        "parcel-express.shipping-cost",
+        "elements.title-with-ck-editor"
+      ]
     }
   }
 }

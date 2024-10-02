@@ -14,6 +14,16 @@
   "attributes": {
     "slug": {
       "type": "uid"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-description",
+        "common.help",
+        "extra-assistance.files",
+        "extra-assistance.accordion-with-editor"
+      ]
     }
   }
 }

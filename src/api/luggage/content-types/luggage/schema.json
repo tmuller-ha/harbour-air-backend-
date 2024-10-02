@@ -31,6 +31,13 @@
       "type": "component",
       "repeatable": false,
       "component": "luggage.special"
+    },
+    "luggagePage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "luggage.hero-description"
+      ]
     }
   }
 }

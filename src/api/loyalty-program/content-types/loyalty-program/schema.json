@@ -30,10 +30,10 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "turbobucksForm": {
       "displayName": "High Flyer Form",
@@ -51,6 +51,20 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-ck-editor"
+    },
+    "highFlyerRewards": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor",
+        "elements.accordion"
+      ]
+    },
+    "turbobucksFlightCredits": {
+      "type": "dynamiczone",
+      "components": [
+        "loyalty-program.turbobucks-pricing",
+        "elements.title-with-ck-editor"
+      ]
     }
   }
 }

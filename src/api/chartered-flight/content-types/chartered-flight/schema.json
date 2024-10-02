@@ -17,15 +17,30 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
     },
     "pageTitle": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-image"
+    },
+    "charteredFlightPage": {
+      "type": "dynamiczone",
+      "components": [
+        "common.accordian",
+        "elements.title-with-description"
+      ]
+    },
+    "charteredFlightTab": {
+      "type": "dynamiczone",
+      "components": [
+        "chartered-flights-page.pricing-tab",
+        "chartered-flights-page.fleet-tab",
+        "chartered-flights-page.destination"
+      ]
     }
   }
 }

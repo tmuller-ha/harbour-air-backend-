@@ -17,10 +17,19 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "meta": {
+    "metaData": {
       "type": "component",
       "repeatable": false,
-      "component": "meta.meta"
+      "component": "meta-data.meta-data"
+    },
+    "careerPage": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-description",
+        "careers.careers-table",
+        "elements.title-with-image",
+        "common.accordian"
+      ]
     }
   }
 }

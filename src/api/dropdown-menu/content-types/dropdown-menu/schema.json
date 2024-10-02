@@ -16,6 +16,13 @@
       "type": "component",
       "repeatable": false,
       "component": "header.link"
+    },
+    "menus": {
+      "type": "dynamiczone",
+      "components": [
+        "header.link",
+        "header.media-links"
+      ]
     }
   }
 }
