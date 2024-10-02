@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_harbour_air_services",
+  "info": {
+    "displayName": "Image With Description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_common_helps",
+  "info": {
+    "displayName": "Help",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "description",
+        "button"
+      ],
+      "default": "description",
+      "required": false
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "buttonUrl": {
+      "type": "string"
+    }
+  }
+}

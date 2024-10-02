@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_common_accordians",
+  "info": {
+    "displayName": "Accordian",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "infoText": {
+      "type": "blocks"
+    },
+    "accordionDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-description"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
+    },
+    "formIndex": {
+      "type": "integer"
+    }
+  }
+}

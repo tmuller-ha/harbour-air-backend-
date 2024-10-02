@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_home_tours",
+  "info": {
+    "displayName": "Tours",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tours-detail.tours-detail"
+    },
+    "title": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

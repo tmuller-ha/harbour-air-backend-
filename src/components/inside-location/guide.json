@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_inside_location_guides",
+  "info": {
+    "displayName": "Guide",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "moreArticles": {
+      "type": "string"
+    },
+    "moreArticlesSlug": {
+      "type": "string"
+    },
+    "guideInformations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inside-location.guide-information"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_extra_assistance_assistances",
+  "info": {
+    "displayName": "assistance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "assistanceCard": {
+      "displayName": "cards",
+      "type": "component",
+      "repeatable": true,
+      "component": "extra-assistance.cards"
+    }
+  }
+}

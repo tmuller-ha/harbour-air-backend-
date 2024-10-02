@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_main_tours_fare_sections",
+  "info": {
+    "displayName": "TourLocations",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tourLocations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tour-location.tour-location"
+    },
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-media-and-button"
+    }
+  }
+}

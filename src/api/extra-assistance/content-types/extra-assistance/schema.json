@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "extra_assistances",
+  "info": {
+    "singularName": "extra-assistance",
+    "pluralName": "extra-assistances",
+    "displayName": "Extra Assistance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cards": {
+      "type": "dynamiczone",
+      "components": [
+        "extra-assistance.assistance"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    },
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-media-and-button"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_tours_featured_tours",
+  "info": {
+    "displayName": "FeaturedTours",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "featuredTourTitle": {
+      "type": "string"
+    },
+    "featuredTour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::featured-tour.featured-tour"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

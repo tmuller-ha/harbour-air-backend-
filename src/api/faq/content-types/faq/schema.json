@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "Faq",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "knowBeforeTitle": {
+      "type": "string"
+    },
+    "accordionSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "faq.accordion"
+    },
+    "searchButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "faq.button-with-boolean"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    },
+    "contactDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "further-questions.contact-form"
+    }
+  }
+}

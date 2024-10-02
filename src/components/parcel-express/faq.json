@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_parcel_express_faqs",
+  "info": {
+    "displayName": "Faq",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "questionTitle": {
+      "type": "string"
+    },
+    "faq_contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq-content.faq-content"
+    },
+    "show": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_blocks_home_instagrams",
+  "info": {
+    "displayName": "HomeInstagram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "followUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "instaImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.instagram-images"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "authorName": {
+      "type": "string"
+    },
+    "authorAddress": {
+      "type": "string"
+    },
+    "instaProfileImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

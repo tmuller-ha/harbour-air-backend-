@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "trigger-build",
+  "info": {
+    "singularName": "trigger-build",
+    "pluralName": "trigger-builds",
+    "displayName": "trigger-build",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "isTriggerBuild": {
+      "type": "boolean",
+      "configurable": false,
+      "default": false
+    }
+  }
+}

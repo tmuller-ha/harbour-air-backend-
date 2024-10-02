@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_tours",
+  "info": {
+    "singularName": "featured-tour",
+    "pluralName": "featured-tours",
+    "displayName": "Featured Tour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "learnMoreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    },
+    "tripAdvisorComment": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trip-advisor-comment.trip-advisor-comment",
+      "mappedBy": "featured_tour"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

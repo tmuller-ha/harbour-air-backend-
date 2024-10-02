@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "standby_travels",
+  "info": {
+    "singularName": "standby-travel",
+    "pluralName": "standby-travels",
+    "displayName": "Standby Travel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "standby-travel.standby-travel-info"
+      ],
+      "required": true
+    },
+    "travelTabs": {
+      "type": "dynamiczone",
+      "components": [
+        "standby-travel.travel-tab"
+      ]
+    },
+    "howToFly": {
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.how-to-fly"
+    },
+    "discountedTravelForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.discounted-travel-form"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    }
+  }
+}

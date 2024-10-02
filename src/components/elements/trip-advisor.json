@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_elements_trip_advisors",
+  "info": {
+    "displayName": "TripAdvisor"
+  },
+  "options": {},
+  "attributes": {
+    "tripAdvisorLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "comment": {
+      "type": "string"
+    },
+    "authorName": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "quoteImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

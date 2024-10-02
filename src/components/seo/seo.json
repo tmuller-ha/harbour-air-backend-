@@ -1,0 +1,63 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "search",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "metaKeyword": {
+      "type": "string"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "openGraphImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "openGraphTitle": {
+      "type": "string"
+    },
+    "openGraphDescription": {
+      "type": "text"
+    },
+    "twitterCardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "twitterCardTitle": {
+      "type": "string"
+    },
+    "twitterCardDescription": {
+      "type": "text"
+    },
+    "additional": {
+      "displayName": "additional",
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.additional"
+    },
+    "analytics": {
+      "displayName": "Analytics",
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.analytics"
+    }
+  }
+}

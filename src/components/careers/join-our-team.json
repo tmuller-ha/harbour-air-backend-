@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_careers_join_our_teams",
+  "info": {
+    "displayName": "Join Our Team",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "infoText": {
+      "type": "blocks"
+    }
+  }
+}

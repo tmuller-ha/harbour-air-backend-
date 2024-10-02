@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_table_details",
+  "info": {
+    "displayName": "tableDetails"
+  },
+  "options": {},
+  "attributes": {
+    "position_Column": {
+      "type": "string"
+    },
+    "application_Deadline_Column": {
+      "type": "string"
+    },
+    "location_Column": {
+      "type": "string"
+    }
+  }
+}

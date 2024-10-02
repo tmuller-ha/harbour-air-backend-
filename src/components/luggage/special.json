@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_luggage_special_s",
+  "info": {
+    "displayName": "Special Luggage & Equipment",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "luggageAccordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordion-with-ck-editor"
+    }
+  }
+}

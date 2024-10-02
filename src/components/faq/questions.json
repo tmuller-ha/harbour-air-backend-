@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_faq_questions",
+  "info": {
+    "displayName": "Questions",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "faq_content": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::faq-content.faq-content"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_pdf_links",
+  "info": {
+    "displayName": "PdfLinks",
+    "icon": "filePdf",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "fileName": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_pricing_tables",
+  "info": {
+    "displayName": "pricingTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "destination_Column": {
+      "type": "string"
+    },
+    "starting_At_Column": {
+      "type": "string"
+    }
+  }
+}

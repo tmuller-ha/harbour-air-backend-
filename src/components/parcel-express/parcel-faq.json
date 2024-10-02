@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_parcel_express_parcel_faqs",
+  "info": {
+    "displayName": "ParcelFaq",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "parcelAccordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.accordian-details"
+    },
+    "accordionTitle": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "mobilities",
+  "info": {
+    "singularName": "mobility",
+    "pluralName": "mobilities",
+    "displayName": "Mobility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "section": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "mobility.hero-section",
+        "elements.title-with-description",
+        "mobility.images",
+        "common.help"
+      ]
+    }
+  }
+}

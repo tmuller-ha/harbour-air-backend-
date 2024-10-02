@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_luggage_travelling_with_excess_luggages",
+  "info": {
+    "displayName": "Travelling with Excess Luggage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "infoText": {
+      "type": "blocks"
+    }
+  }
+}

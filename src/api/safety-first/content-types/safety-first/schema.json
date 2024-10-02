@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "safety_firsts",
+  "info": {
+    "singularName": "safety-first",
+    "pluralName": "safety-firsts",
+    "displayName": "Safety First",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.text-with-image"
+      ]
+    },
+    "tabs": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor"
+      ]
+    }
+  }
+}

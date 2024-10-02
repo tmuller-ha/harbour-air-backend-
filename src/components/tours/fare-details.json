@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_tours_fare_details",
+  "info": {
+    "displayName": "fareDetails"
+  },
+  "options": {},
+  "attributes": {
+    "fareText": {
+      "type": "string"
+    },
+    "fare": {
+      "type": "string"
+    },
+    "person": {
+      "type": "string"
+    }
+  }
+}

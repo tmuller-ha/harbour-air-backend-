@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_our_promises_ha_promises",
+  "info": {
+    "displayName": "HA Promise"
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

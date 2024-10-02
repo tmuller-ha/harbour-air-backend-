@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_standby_travel_criteria",
+  "info": {
+    "displayName": "Criteria",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "eligibilityCriteria": {
+      "type": "string",
+      "required": true
+    },
+    "reference": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

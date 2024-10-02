@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_main_tours_tour_cards",
+  "info": {
+    "displayName": "TourCards",
+    "icon": "crown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "tourPlaces": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.tour-card"
+    }
+  }
+}

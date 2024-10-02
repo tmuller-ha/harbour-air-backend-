@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "title": {
+      "type": "string"
+    },
+    "homePageCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.hero-carousel"
+    },
+    "instagramSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-instagram"
+    },
+    "serviceHighlights": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.description"
+    },
+    "deals": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.grab-deals"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    },
+    "tours": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-tours"
+    },
+    "locations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-locations"
+    },
+    "news": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.news"
+    }
+  }
+}

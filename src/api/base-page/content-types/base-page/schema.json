@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "base_pages",
+  "info": {
+    "singularName": "base-page",
+    "pluralName": "base-pages",
+    "displayName": "Base Pages",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.meta"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.accordion",
+        "elements.title-with-ck-editor",
+        "elements.title-with-image"
+      ]
+    }
+  }
+}

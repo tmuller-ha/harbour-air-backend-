@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_standby_travel_discounted_travel_forms",
+  "info": {
+    "displayName": "Discounted Travel Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

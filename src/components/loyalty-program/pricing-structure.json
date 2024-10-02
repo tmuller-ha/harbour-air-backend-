@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_loyalty_program_pricing_structures",
+  "info": {
+    "displayName": "Pricing Structure"
+  },
+  "options": {},
+  "attributes": {
+    "priceRange": {
+      "type": "string",
+      "required": true
+    },
+    "Bonus": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

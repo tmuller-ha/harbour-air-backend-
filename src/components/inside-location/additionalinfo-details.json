@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_inside_location_additionalinfo_details",
+  "info": {
+    "displayName": "AdditionalInformationDetails",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "additionalInformationImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inside-location.guide-information"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "moreButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    }
+  }
+}

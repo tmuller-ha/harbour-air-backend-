@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "courtesy_shuttles",
+  "info": {
+    "singularName": "courtesy-shuttle",
+    "pluralName": "courtesy-shuttles",
+    "displayName": "Courtesy shuttles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "elements.title-with-ck-editor"
+      ]
+    },
+    "tabs": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-ck-editor"
+      ]
+    }
+  }
+}

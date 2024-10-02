@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_going_electric_specification_details",
+  "info": {
+    "displayName": "Specification Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "specifications": {
+      "type": "string",
+      "required": true
+    },
+    "standardRange": {
+      "type": "string",
+      "required": true
+    },
+    "extendedRange": {
+      "type": "string",
+      "required": true
+    },
+    "performance": {
+      "type": "string",
+      "required": true
+    },
+    "pistonBeaver": {
+      "type": "string",
+      "required": true
+    },
+    "haEBeaver": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

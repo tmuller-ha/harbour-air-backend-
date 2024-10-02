@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_inside_location_addresses",
+  "info": {
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "addressTitle": {
+      "type": "string"
+    },
+    "addressDetails": {
+      "type": "blocks"
+    },
+    "addressMapUrl": {
+      "type": "text"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "googleMapUrl": {
+      "type": "text"
+    }
+  }
+}
