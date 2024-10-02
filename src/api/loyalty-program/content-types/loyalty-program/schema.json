@@ -17,20 +17,6 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "highFlyerRewards": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-ck-editor",
-        "elements.accordion"
-      ]
-    },
-    "turbobucksFlightCredits": {
-      "type": "dynamiczone",
-      "components": [
-        "loyalty-program.turbobucks-pricing",
-        "elements.title-with-ck-editor"
-      ]
-    },
     "highFlyerTabTitle": {
       "type": "string",
       "required": true

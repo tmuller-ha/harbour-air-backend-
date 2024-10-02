@@ -12,19 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "elements.title-with-description"
-      ]
-    },
-    "tabs": {
-      "type": "dynamiczone",
-      "components": [
-        "aircraft-fleet.aircraft-fleet-tabs"
-      ]
-    },
     "seo": {
       "type": "component",
       "repeatable": false,

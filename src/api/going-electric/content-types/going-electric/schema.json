@@ -27,14 +27,6 @@
       "repeatable": true,
       "component": "elements.harbour-air-services"
     },
-    "tabs": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-ck-editor",
-        "elements.gallery",
-        "going-electric.specifications"
-      ]
-    },
     "stories": {
       "type": "relation",
       "relation": "oneToMany",

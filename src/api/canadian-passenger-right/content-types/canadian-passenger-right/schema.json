@@ -12,16 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "elements.title-with-description",
-        "common.accordian",
-        "canadian-passenger-rights.tariffs"
-      ],
-      "required": false
-    },
     "seo": {
       "type": "component",
       "repeatable": false,

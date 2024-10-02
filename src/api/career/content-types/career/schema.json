@@ -12,16 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "careerPage": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-description",
-        "careers.careers-table",
-        "elements.title-with-image",
-        "careers.tab-with-youtube-link",
-        "common.accordian"
-      ]
-    },
     "seo": {
       "type": "component",
       "repeatable": false,

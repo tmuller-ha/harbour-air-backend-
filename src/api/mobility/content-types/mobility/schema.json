@@ -11,16 +11,5 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
-    "section": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "mobility.hero-section",
-        "elements.title-with-description",
-        "mobility.images",
-        "common.help"
-      ]
-    }
-  }
+  "attributes": {}
 }

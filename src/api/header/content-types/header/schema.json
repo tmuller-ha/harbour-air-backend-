@@ -16,28 +16,16 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "desktopLogo": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "profileButtonText": {
       "type": "string",
-      "required": true
-    },
-    "navigationLinks": {
-      "type": "dynamiczone",
-      "components": [
-        "header.dropdown",
-        "header.link"
-      ],
       "required": true
     }
   }

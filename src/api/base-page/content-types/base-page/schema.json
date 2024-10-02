@@ -25,14 +25,6 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.meta"
-    },
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.accordion",
-        "elements.title-with-ck-editor",
-        "elements.title-with-image"
-      ]
     }
   }
 }

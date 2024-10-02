@@ -12,27 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "elements.title-with-description",
-        "common.help"
-      ]
-    },
     "rate": {
       "type": "component",
       "repeatable": false,
       "component": "parcel-express.rates"
     },
-    "HowTo": {
-      "type": "dynamiczone",
-      "components": [
-        "parcel-express.how-to-accordion",
-        "parcel-express.shipping-cost",
-        "elements.title-with-ck-editor"
-      ]
-    },
+
     "faq": {
       "displayName": "ParcelFaq",
       "type": "component",

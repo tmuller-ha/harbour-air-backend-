@@ -12,16 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "components": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "elements.title-with-description",
-        "extra-assistance.accordion-with-editor",
-        "common.help",
-        "extra-assistance.files"
-      ]
-    },
     "slug": {
       "type": "uid"
     }

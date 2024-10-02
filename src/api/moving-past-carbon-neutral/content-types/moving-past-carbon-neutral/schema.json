@@ -12,13 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "section": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-ck-editor",
-        "elements.title-with-image"
-      ]
-    },
     "tabs": {
       "type": "component",
       "repeatable": true,

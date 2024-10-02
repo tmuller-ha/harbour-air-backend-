@@ -12,15 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "elements.title-with-description",
-        "common.accordian"
-      ],
-      "required": true
-    },
     "seo": {
       "type": "component",
       "repeatable": false,

@@ -12,13 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "luggagePage": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "luggage.hero-description"
-      ]
-    },
     "luggageAllowanceTab": {
       "type": "component",
       "repeatable": false,
