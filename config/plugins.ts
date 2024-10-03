@@ -24,6 +24,17 @@ export default ({ env }) => ({
         },
       },
     },
+    breakpoints: {
+      large_x2: 2048,
+      extralarge: 1400,
+      large: 1024,
+      medium: 768,
+      small: 640,
+      extraSmall: 480,
+      thumbnail: 256,
+      icon_x2: 160,
+      icon: 80,
+    },
   },
   email: {
     config: {
