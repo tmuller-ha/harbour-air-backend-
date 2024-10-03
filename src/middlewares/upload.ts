@@ -33,14 +33,13 @@ module.exports = (config, { strapi }) => {
             await fs.unlink(outputPath);
 
             // Update file properties
-            console.log("content", context.request.body.fileInfo);
             const fileInfo = JSON.parse(context.request.body.fileInfo);
             context.request.body.fileInfo = {
               ...fileInfo,
               name: outputName,
             };
-            file.name = outputName;
-            file.type = "image/webp";
+            file.originalFilename = outputName;
+            file.mimetype = "image/webp";
           } catch (error) {
             console.error("Error converting image to WebP", error);
             context.throw(500, "Error processing upload");
