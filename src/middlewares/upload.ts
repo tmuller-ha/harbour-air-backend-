@@ -14,7 +14,10 @@ module.exports = (config, { strapi }) => {
       webp.grant_permission();
       // Function to convert images to WebP format
       const convertImageToWebP = async (file) => {
-        if (file.mimetype.startsWith("image/") && !file.type.includes("webp")) {
+        if (
+          file.mimetype.startsWith("image/") &&
+          !file.mimetype.includes("webp")
+        ) {
           try {
             const outputName = `${path.basename(
               file.originalFilename,
