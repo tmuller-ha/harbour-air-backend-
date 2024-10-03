@@ -1,0 +1,97 @@
+name: Build & Dev Deployment
+env:
+  HOST: ${{ secrets.HOST }}
+  PORT: ${{ secrets.PORT }}
+  APP_KEYS: ${{ secrets.APP_KEYS }}
+  API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+  ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+  TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
+  DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  STRAPI_ADMIN_GITHUB_TOKEN: ${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }}
+  WEB_PREVIEW_URL: ${{ secrets.WEB_PREVIEW_URL }}
+  DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
+  DEFAULT_REPLY_TO_EMAIL: ${{ secrets.DEFAULT_REPLY_TO_EMAIL }}
+
+on:
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Strapi
+        run: yarn build
+
+  deploy_dev:
+    runs-on: self-hosted
+    needs: build
+    if: github.ref == 'refs/heads/dev'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Create .env file
+        run: |
+          touch .env
+          echo HOST=${{ secrets.HOST }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo APP_KEYS=${{ secrets.APP_KEYS }} >> .env
+          echo API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }} >> .env
+          echo ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} >> .env
+          echo TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }} >> .env
+          echo DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }} >> .env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
+          echo AWS_ACCESS_SECRET=${{ secrets.AWS_ACCESS_SECRET }} >> .env
+          echo AWS_REGION=${{ secrets.AWS_REGION }} >> .env
+          echo AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+          echo STRAPI_ADMIN_GITHUB_TOKEN=${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }} >> .env
+          echo WEB_PREVIEW_URL=${{ secrets.WEB_PREVIEW_URL }} >> .env
+          echo DEFAULT_REPLY_TO_EMAIL=${{ secrets.DEFAULT_REPLY_TO_EMAIL }} >> .env
+          echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
+
+      - name: Stop Strapi with PM2
+        run: pm2 stop strapi
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Strapi
+        run: yarn build
+
+      - name: Start Strapi with PM2
+        run: pm2 restart strapi
