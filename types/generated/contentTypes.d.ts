@@ -908,6 +908,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
         'careers.careers-table',
         'elements.title-with-image',
         'common.accordian',
+        'careers.tab-with-youtube-link',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1988,7 +1989,7 @@ export interface ApiMainTourMainTour extends Struct.SingleTypeSchema {
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     mainTourPage: Schema.Attribute.DynamicZone<
-      ['main-tours.featured-tours', 'main-tours.tour-cards']
+      ['main-tours.featured-tours', 'main-tours.fare-section']
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2648,6 +2649,10 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    sections: Schema.Attribute.DynamicZone<
+      ['elements.title-with-image', 'standby-travel.standby-travel-info']
+    >;
+    travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     howToFly: Schema.Attribute.Component<'standby-travel.how-to-fly', false>;
     discountedTravelForm: Schema.Attribute.Component<
       'standby-travel.discounted-travel-form',
@@ -2655,9 +2660,6 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
-    sections: Schema.Attribute.DynamicZone<
-      ['elements.title-with-image', 'standby-travel.standby-travel-info']
-    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
