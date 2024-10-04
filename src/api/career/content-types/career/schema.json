@@ -28,7 +28,8 @@
         "elements.title-with-description",
         "careers.careers-table",
         "elements.title-with-image",
-        "common.accordian"
+        "common.accordian",
+        "careers.tab-with-youtube-link"
       ]
     }
   }
