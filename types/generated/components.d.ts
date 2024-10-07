@@ -1,45 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface ToursHeroDescription extends Struct.ComponentSchema {
-  collectionName: 'components_tours_hero_descriptions';
-  info: {
-    displayName: 'HeroDescription';
-    description: '';
-  };
-  attributes: {
-    heroDescription: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface ToursFeaturedTours extends Struct.ComponentSchema {
-  collectionName: 'components_tours_featured_tours';
-  info: {
-    displayName: 'FeaturedTours';
-    description: '';
-  };
-  attributes: {
-    featuredTourTitle: Schema.Attribute.String;
-    featuredTour: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::featured-tour.featured-tour'
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface ToursFareDetails extends Struct.ComponentSchema {
-  collectionName: 'components_tours_fare_details';
-  info: {
-    displayName: 'fareDetails';
-  };
-  attributes: {
-    fareText: Schema.Attribute.String;
-    fare: Schema.Attribute.String;
-    person: Schema.Attribute.String;
-  };
-}
-
 export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_travel_tabs';
   info: {
@@ -115,6 +75,46 @@ export interface StandbyTravelCriteria extends Struct.ComponentSchema {
   };
 }
 
+export interface ToursHeroDescription extends Struct.ComponentSchema {
+  collectionName: 'components_tours_hero_descriptions';
+  info: {
+    displayName: 'HeroDescription';
+    description: '';
+  };
+  attributes: {
+    heroDescription: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ToursFeaturedTours extends Struct.ComponentSchema {
+  collectionName: 'components_tours_featured_tours';
+  info: {
+    displayName: 'FeaturedTours';
+    description: '';
+  };
+  attributes: {
+    featuredTourTitle: Schema.Attribute.String;
+    featuredTour: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ToursFareDetails extends Struct.ComponentSchema {
+  collectionName: 'components_tours_fare_details';
+  info: {
+    displayName: 'fareDetails';
+  };
+  attributes: {
+    fareText: Schema.Attribute.String;
+    fare: Schema.Attribute.String;
+    person: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -134,7 +134,6 @@ export interface SeoSeo extends Struct.ComponentSchema {
     twitterCardTitle: Schema.Attribute.String;
     twitterCardDescription: Schema.Attribute.Text;
     additional: Schema.Attribute.Component<'seo.additional', true>;
-    analytics: Schema.Attribute.Component<'seo.analytics', false>;
   };
 }
 
@@ -1850,15 +1849,15 @@ export interface AboutUsAboutUsTurbo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'tours.hero-description': ToursHeroDescription;
-      'tours.featured-tours': ToursFeaturedTours;
-      'tours.fare-details': ToursFareDetails;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
       'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
       'standby-travel.criteria': StandbyTravelCriteria;
+      'tours.hero-description': ToursHeroDescription;
+      'tours.featured-tours': ToursFeaturedTours;
+      'tours.fare-details': ToursFareDetails;
       'seo.seo': SeoSeo;
       'seo.analytics': SeoAnalytics;
       'seo.additional': SeoAdditional;
