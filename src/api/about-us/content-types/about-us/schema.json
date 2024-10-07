@@ -32,6 +32,11 @@
       "type": "component",
       "repeatable": false,
       "component": "about-us.about-us-turbo"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

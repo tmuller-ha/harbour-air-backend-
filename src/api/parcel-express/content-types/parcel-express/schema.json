@@ -43,6 +43,11 @@
         "parcel-express.shipping-cost",
         "elements.title-with-ck-editor"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

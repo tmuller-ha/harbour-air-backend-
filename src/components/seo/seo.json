@@ -52,12 +52,6 @@
       "type": "component",
       "repeatable": true,
       "component": "seo.additional"
-    },
-    "analytics": {
-      "displayName": "Analytics",
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.analytics"
     }
   }
 }
