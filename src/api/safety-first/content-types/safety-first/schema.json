@@ -17,14 +17,14 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "sections": {
+    "safetyFirstPage": {
       "type": "dynamiczone",
       "components": [
         "elements.title-with-image",
         "elements.text-with-image"
       ]
     },
-    "tabs": {
+    "safetyFirstTabs": {
       "type": "dynamiczone",
       "components": [
         "elements.title-with-ck-editor"
