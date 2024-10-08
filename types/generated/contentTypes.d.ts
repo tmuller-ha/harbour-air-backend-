@@ -510,7 +510,6 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       true
     >;
     turbo: Schema.Attribute.Component<'about-us.about-us-turbo', false>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -618,7 +617,6 @@ export interface ApiAwardAward extends Struct.SingleTypeSchema {
         }
       >;
     awards: Schema.Attribute.Component<'elements.harbour-air-services', true>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -723,7 +721,6 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::category.category'
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1048,7 +1045,6 @@ export interface ApiCommunityInvolvementCommunityInvolvement
     sections: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-ck-editor']
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1205,7 +1201,6 @@ export interface ApiCourtesyShuttleCourtesyShuttle
       ['elements.title-with-image', 'elements.title-with-ck-editor']
     >;
     tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1891,7 +1886,6 @@ export interface ApiLuggageLuggage extends Struct.SingleTypeSchema {
     luggagePage: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'luggage.hero-description']
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2094,7 +2088,6 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
         'common.help',
       ]
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2188,7 +2181,6 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
     singularName: 'news-list';
     pluralName: 'news-lists';
     displayName: 'News List';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2199,7 +2191,6 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::category.category'
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2370,7 +2361,6 @@ export interface ApiOurPromiseOurPromise extends Struct.SingleTypeSchema {
     >;
     ourValues: Schema.Attribute.Component<'our-promises.our-values', false>;
     promise: Schema.Attribute.Component<'our-promises.ha-promise', false>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2449,7 +2439,6 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
         'elements.title-with-ck-editor',
       ]
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2555,7 +2544,6 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
       ['elements.title-with-image', 'elements.text-with-image']
     >;
     tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

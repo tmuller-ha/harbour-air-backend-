@@ -38,11 +38,6 @@
         "elements.title-with-image",
         "luggage.hero-description"
       ]
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
     }
   }
 }
