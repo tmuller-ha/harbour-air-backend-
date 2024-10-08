@@ -17,6 +17,11 @@
       "repeatable": true,
       "component": "elements.title-with-desc-and-image"
     },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "sections": {
       "type": "dynamiczone",
       "components": [

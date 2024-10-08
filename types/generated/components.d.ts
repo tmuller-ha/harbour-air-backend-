@@ -134,7 +134,6 @@ export interface SeoSeo extends Struct.ComponentSchema {
     twitterCardTitle: Schema.Attribute.String;
     twitterCardDescription: Schema.Attribute.Text;
     additional: Schema.Attribute.Component<'seo.additional', true>;
-    analytics: Schema.Attribute.Component<'seo.analytics', false>;
   };
 }
 

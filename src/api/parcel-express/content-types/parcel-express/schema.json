@@ -28,6 +28,11 @@
       "repeatable": false,
       "component": "elements.title-with-description"
     },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "sections": {
       "type": "dynamiczone",
       "components": [

@@ -32,6 +32,11 @@
       "repeatable": false,
       "component": "luggage.special"
     },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "luggagePage": {
       "type": "dynamiczone",
       "components": [
