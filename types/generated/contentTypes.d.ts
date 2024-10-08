@@ -1844,7 +1844,10 @@ export interface ApiLoyaltyProgramLoyaltyProgram
       false
     >;
     highFlyerRewards: Schema.Attribute.DynamicZone<
-      ['elements.title-with-ck-editor', 'elements.accordion']
+      [
+        'elements.title-with-ck-editor',
+        'loyalty-program.high-flyer-membership-levels',
+      ]
     >;
     turbobucksFlightCredits: Schema.Attribute.DynamicZone<
       ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']

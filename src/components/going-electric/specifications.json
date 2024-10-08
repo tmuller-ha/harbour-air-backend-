@@ -17,12 +17,15 @@
       "component": "going-electric.specification-details"
     },
     "specificationImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

@@ -5,6 +5,10 @@
   },
   "options": {},
   "attributes": {
+    "level": {
+      "type": "string",
+      "required": true
+    },
     "priceRange": {
       "type": "string",
       "required": true
