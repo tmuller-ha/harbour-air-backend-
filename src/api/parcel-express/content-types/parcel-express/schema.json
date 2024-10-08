@@ -33,7 +33,7 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "sections": {
+    "parcelExpressPage": {
       "type": "dynamiczone",
       "components": [
         "elements.title-with-image",
@@ -41,7 +41,7 @@
         "common.help"
       ]
     },
-    "HowTo": {
+    "additionalInfo": {
       "type": "dynamiczone",
       "components": [
         "parcel-express.how-to-accordion",

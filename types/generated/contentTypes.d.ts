@@ -1201,10 +1201,12 @@ export interface ApiCourtesyShuttleCourtesyShuttle
   };
   attributes: {
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    sections: Schema.Attribute.DynamicZone<
+    courtesyShuttlePage: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-ck-editor']
     >;
-    tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
+    courtesyShuttleTabs: Schema.Attribute.DynamicZone<
+      ['elements.title-with-ck-editor']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2432,14 +2434,14 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
       false
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    sections: Schema.Attribute.DynamicZone<
+    parcelExpressPage: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-image',
         'elements.title-with-description',
         'common.help',
       ]
     >;
-    HowTo: Schema.Attribute.DynamicZone<
+    additionalInfo: Schema.Attribute.DynamicZone<
       [
         'parcel-express.how-to-accordion',
         'parcel-express.shipping-cost',
@@ -2548,10 +2550,12 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
   };
   attributes: {
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    sections: Schema.Attribute.DynamicZone<
+    safetyFirstPage: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.text-with-image']
     >;
-    tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
+    safetyFirstTabs: Schema.Attribute.DynamicZone<
+      ['elements.title-with-ck-editor']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
