@@ -1,5 +1,45 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ToursHeroDescription extends Struct.ComponentSchema {
+  collectionName: 'components_tours_hero_descriptions';
+  info: {
+    displayName: 'HeroDescription';
+    description: '';
+  };
+  attributes: {
+    heroDescription: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ToursFeaturedTours extends Struct.ComponentSchema {
+  collectionName: 'components_tours_featured_tours';
+  info: {
+    displayName: 'FeaturedTours';
+    description: '';
+  };
+  attributes: {
+    featuredTourTitle: Schema.Attribute.String;
+    featuredTour: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::featured-tour.featured-tour'
+    >;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ToursFareDetails extends Struct.ComponentSchema {
+  collectionName: 'components_tours_fare_details';
+  info: {
+    displayName: 'fareDetails';
+  };
+  attributes: {
+    fareText: Schema.Attribute.String;
+    fare: Schema.Attribute.String;
+    person: Schema.Attribute.String;
+  };
+}
+
 export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_travel_tabs';
   info: {
@@ -72,46 +112,6 @@ export interface StandbyTravelCriteria extends Struct.ComponentSchema {
   attributes: {
     eligibilityCriteria: Schema.Attribute.String & Schema.Attribute.Required;
     reference: Schema.Attribute.Text & Schema.Attribute.Required;
-  };
-}
-
-export interface ToursHeroDescription extends Struct.ComponentSchema {
-  collectionName: 'components_tours_hero_descriptions';
-  info: {
-    displayName: 'HeroDescription';
-    description: '';
-  };
-  attributes: {
-    heroDescription: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface ToursFeaturedTours extends Struct.ComponentSchema {
-  collectionName: 'components_tours_featured_tours';
-  info: {
-    displayName: 'FeaturedTours';
-    description: '';
-  };
-  attributes: {
-    featuredTourTitle: Schema.Attribute.String;
-    featuredTour: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::featured-tour.featured-tour'
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface ToursFareDetails extends Struct.ComponentSchema {
-  collectionName: 'components_tours_fare_details';
-  info: {
-    displayName: 'fareDetails';
-  };
-  attributes: {
-    fareText: Schema.Attribute.String;
-    fare: Schema.Attribute.String;
-    person: Schema.Attribute.String;
   };
 }
 
@@ -529,6 +529,65 @@ export interface MainDealsDeals extends Struct.ComponentSchema {
   };
 }
 
+export interface LoyaltyProgramTurbobucksPricing
+  extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_turbobucks_pricings';
+  info: {
+    displayName: 'Turbobucks Pricing';
+  };
+  attributes: {
+    details: Schema.Attribute.Component<
+      'loyalty-program.pricing-structure',
+      true
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramPricingStructure extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_pricing_structures';
+  info: {
+    displayName: 'Pricing Structure';
+  };
+  attributes: {
+    priceRange: Schema.Attribute.String & Schema.Attribute.Required;
+    Bonus: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LoyaltyProgramHighFlyerRewardsForm
+  extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
+  info: {
+    displayName: 'High Flyer Rewards Form';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    membershipTypeQuote: Schema.Attribute.Text;
+  };
+}
+
+export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
+  collectionName: 'components_loyalty_program_high_flyer_forms';
+  info: {
+    displayName: 'Turbobucks Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    existingCustomerQuote: Schema.Attribute.Text;
+  };
+}
+
 export interface LuggageTravellingWithExcessLuggage
   extends Struct.ComponentSchema {
   collectionName: 'components_luggage_travelling_with_excess_luggages';
@@ -622,65 +681,6 @@ export interface LuggageHeroDescription extends Struct.ComponentSchema {
   attributes: {
     heroDescription: Schema.Attribute.Blocks;
     show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface LoyaltyProgramTurbobucksPricing
-  extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_turbobucks_pricings';
-  info: {
-    displayName: 'Turbobucks Pricing';
-  };
-  attributes: {
-    details: Schema.Attribute.Component<
-      'loyalty-program.pricing-structure',
-      true
-    >;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface LoyaltyProgramPricingStructure extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_pricing_structures';
-  info: {
-    displayName: 'Pricing Structure';
-  };
-  attributes: {
-    priceRange: Schema.Attribute.String & Schema.Attribute.Required;
-    Bonus: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface LoyaltyProgramHighFlyerRewardsForm
-  extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
-  info: {
-    displayName: 'High Flyer Rewards Form';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    membershipTypeQuote: Schema.Attribute.Text;
-  };
-}
-
-export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
-  collectionName: 'components_loyalty_program_high_flyer_forms';
-  info: {
-    displayName: 'Turbobucks Form';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    existingCustomerQuote: Schema.Attribute.Text;
   };
 }
 
@@ -1224,6 +1224,20 @@ export interface ExtraAssistanceAccordionWithEditor
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   collectionName: 'components_elements_trip_advisors';
   info: {
@@ -1616,20 +1630,6 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1738,6 +1738,21 @@ export interface CharteredFlightsPageDestination
   };
 }
 
+export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    > &
+      Schema.Attribute.Required;
+    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
+  };
+}
+
 export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
@@ -1782,21 +1797,6 @@ export interface CareersCareersTable extends Struct.ComponentSchema {
       'oneToMany',
       'api::career-opportunity.career-opportunity'
     >;
-  };
-}
-
-export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
-  collectionName: 'components_canadian_passenger_rights_tariffs';
-  info: {
-    displayName: 'Tariffs';
-  };
-  attributes: {
-    tariffsInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    > &
-      Schema.Attribute.Required;
-    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
   };
 }
 
@@ -1849,15 +1849,15 @@ export interface AboutUsAboutUsTurbo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'tours.hero-description': ToursHeroDescription;
+      'tours.featured-tours': ToursFeaturedTours;
+      'tours.fare-details': ToursFareDetails;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
       'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
       'standby-travel.criteria': StandbyTravelCriteria;
-      'tours.hero-description': ToursHeroDescription;
-      'tours.featured-tours': ToursFeaturedTours;
-      'tours.fare-details': ToursFareDetails;
       'seo.seo': SeoSeo;
       'seo.analytics': SeoAnalytics;
       'seo.additional': SeoAdditional;
@@ -1884,16 +1884,16 @@ declare module '@strapi/strapi' {
       'main-tours.fare-section': MainToursFareSection;
       'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
+      'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
+      'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
+      'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
+      'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
       'luggage.special': LuggageSpecial;
       'luggage.luggage-dimensions-table': LuggageLuggageDimensionsTable;
       'luggage.luggage-allowance': LuggageLuggageAllowance;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.hero-description': LuggageHeroDescription;
-      'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
-      'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
-      'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
-      'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
       'inside-location.guide': InsideLocationGuide;
       'inside-location.guide-information': InsideLocationGuideInformation;
       'inside-location.address': InsideLocationAddress;
@@ -1930,6 +1930,7 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1953,17 +1954,16 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
-      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;

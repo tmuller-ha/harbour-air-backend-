@@ -12,19 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sections": {
-      "type": "dynamiczone",
-      "components": [
-        "elements.title-with-image",
-        "standby-travel.standby-travel-info"
-      ]
-    },
-    "travelTabs": {
-      "type": "dynamiczone",
-      "components": [
-        "standby-travel.travel-tab"
-      ]
-    },
     "howToFly": {
       "type": "component",
       "repeatable": false,
@@ -44,6 +31,19 @@
       "type": "component",
       "repeatable": false,
       "component": "meta-data.meta-data"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.title-with-image",
+        "standby-travel.standby-travel-info"
+      ]
+    },
+    "travelTabs": {
+      "type": "dynamiczone",
+      "components": [
+        "standby-travel.travel-tab"
+      ]
     }
   }
 }

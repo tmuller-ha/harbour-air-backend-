@@ -12,13 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "rate": {
       "type": "component",
       "repeatable": false,
       "component": "parcel-express.rates"
     },
     "faq": {
-      "displayName": "ParcelFaq",
       "type": "component",
       "repeatable": false,
       "component": "parcel-express.parcel-faq"
@@ -43,11 +47,6 @@
         "parcel-express.shipping-cost",
         "elements.title-with-ck-editor"
       ]
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
     }
   }
 }

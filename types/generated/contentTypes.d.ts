@@ -1201,11 +1201,11 @@ export interface ApiCourtesyShuttleCourtesyShuttle
     draftAndPublish: true;
   };
   attributes: {
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     sections: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-ck-editor']
     >;
     tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2094,7 +2094,6 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
         'common.help',
       ]
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2429,6 +2428,7 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     rate: Schema.Attribute.Component<'parcel-express.rates', false>;
     faq: Schema.Attribute.Component<'parcel-express.parcel-faq', false>;
     quoteFormInfo: Schema.Attribute.Component<
@@ -2449,7 +2449,6 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
         'elements.title-with-ck-editor',
       ]
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2551,11 +2550,11 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     sections: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.text-with-image']
     >;
     tabs: Schema.Attribute.DynamicZone<['elements.title-with-ck-editor']>;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2661,10 +2660,6 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    sections: Schema.Attribute.DynamicZone<
-      ['elements.title-with-image', 'standby-travel.standby-travel-info']
-    >;
-    travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     howToFly: Schema.Attribute.Component<'standby-travel.how-to-fly', false>;
     discountedTravelForm: Schema.Attribute.Component<
       'standby-travel.discounted-travel-form',
@@ -2672,6 +2667,10 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    sections: Schema.Attribute.DynamicZone<
+      ['elements.title-with-image', 'standby-travel.standby-travel-info']
+    >;
+    travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

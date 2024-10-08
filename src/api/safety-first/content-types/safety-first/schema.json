@@ -12,6 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "sections": {
       "type": "dynamiczone",
       "components": [
@@ -24,11 +29,6 @@
       "components": [
         "elements.title-with-ck-editor"
       ]
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
     }
   }
 }
