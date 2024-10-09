@@ -69,6 +69,16 @@ export interface StandbyTravelStandbyTravelInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface StandbyTravelMicrosoftForm extends Struct.ComponentSchema {
+  collectionName: 'components_standby_travel_microsoft_forms';
+  info: {
+    displayName: 'Microsoft Form';
+  };
+  attributes: {
+    formUrl: Schema.Attribute.String;
+  };
+}
+
 export interface StandbyTravelHowToFly extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_how_to_flies';
   info: {
@@ -495,6 +505,40 @@ export interface MainLocationLocations extends Struct.ComponentSchema {
   };
 }
 
+export interface MainDealsDeals extends Struct.ComponentSchema {
+  collectionName: 'components_main_deals_deals';
+  info: {
+    displayName: 'Deals';
+    description: '';
+  };
+  attributes: {
+    dealMedia: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    destination: Schema.Attribute.String & Schema.Attribute.Required;
+    travelDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    price: Schema.Attribute.String & Schema.Attribute.Required;
+    departingText: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Departing'>;
+    origin: Schema.Attribute.String & Schema.Attribute.Required;
+    taxes: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Price all-in incl. taxes and fees'>;
+    termsApply: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Terms and conditions apply.'>;
+    dealTitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    dealDate: Schema.Attribute.String & Schema.Attribute.Required;
+    bookNowButton: Schema.Attribute.Component<'elements.button', false>;
+    dealDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    dealOverview: Schema.Attribute.Text & Schema.Attribute.Required;
+    termsAndConditionsText: Schema.Attribute.Text;
+    terms: Schema.Attribute.Component<'elements.drop-down-data', true>;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    calendarIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface LuggageTravellingWithExcessLuggage
   extends Struct.ComponentSchema {
   collectionName: 'components_luggage_travelling_with_excess_luggages';
@@ -591,40 +635,6 @@ export interface LuggageHeroDescription extends Struct.ComponentSchema {
   };
 }
 
-export interface MainDealsDeals extends Struct.ComponentSchema {
-  collectionName: 'components_main_deals_deals';
-  info: {
-    displayName: 'Deals';
-    description: '';
-  };
-  attributes: {
-    dealMedia: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    destination: Schema.Attribute.String & Schema.Attribute.Required;
-    travelDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    price: Schema.Attribute.String & Schema.Attribute.Required;
-    departingText: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Departing'>;
-    origin: Schema.Attribute.String & Schema.Attribute.Required;
-    taxes: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Price all-in incl. taxes and fees'>;
-    termsApply: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Terms and conditions apply.'>;
-    dealTitle: Schema.Attribute.Text & Schema.Attribute.Required;
-    dealDate: Schema.Attribute.String & Schema.Attribute.Required;
-    bookNowButton: Schema.Attribute.Component<'elements.button', false>;
-    dealDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    dealOverview: Schema.Attribute.Text & Schema.Attribute.Required;
-    termsAndConditionsText: Schema.Attribute.Text;
-    terms: Schema.Attribute.Component<'elements.drop-down-data', true>;
-    title: Schema.Attribute.Text & Schema.Attribute.Required;
-    description: Schema.Attribute.String & Schema.Attribute.Required;
-    calendarIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
 export interface LoyaltyProgramTurbobucksPricing
   extends Struct.ComponentSchema {
   collectionName: 'components_loyalty_program_turbobucks_pricings';
@@ -697,71 +707,6 @@ export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     existingCustomerQuote: Schema.Attribute.Text;
-  };
-}
-
-export interface InsideLocationGuide extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_guides';
-  info: {
-    displayName: 'Guide';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    moreArticles: Schema.Attribute.String;
-    moreArticlesSlug: Schema.Attribute.String;
-    guideInformations: Schema.Attribute.Component<
-      'inside-location.guide-information',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface InsideLocationGuideInformation extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_guide_informations';
-  info: {
-    displayName: 'Image Section';
-    description: '';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Text;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface InsideLocationAddress extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_addresses';
-  info: {
-    displayName: 'Address';
-    description: '';
-  };
-  attributes: {
-    addressTitle: Schema.Attribute.String;
-    addressDetails: Schema.Attribute.Blocks;
-    addressMapUrl: Schema.Attribute.Text;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    googleMapUrl: Schema.Attribute.Text;
-  };
-}
-
-export interface InsideLocationAdditionalinfoDetails
-  extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_additionalinfo_details';
-  info: {
-    displayName: 'AdditionalInformationDetails';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    additionalInformationImage: Schema.Attribute.Component<
-      'inside-location.guide-information',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-    moreButton: Schema.Attribute.Component<'elements.button', false>;
   };
 }
 
@@ -911,6 +856,71 @@ export interface HomeArticleCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface InsideLocationGuide extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_guides';
+  info: {
+    displayName: 'Guide';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    moreArticles: Schema.Attribute.String;
+    moreArticlesSlug: Schema.Attribute.String;
+    guideInformations: Schema.Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface InsideLocationGuideInformation extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_guide_informations';
+  info: {
+    displayName: 'Image Section';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface InsideLocationAddress extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_addresses';
+  info: {
+    displayName: 'Address';
+    description: '';
+  };
+  attributes: {
+    addressTitle: Schema.Attribute.String;
+    addressDetails: Schema.Attribute.Blocks;
+    addressMapUrl: Schema.Attribute.Text;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    googleMapUrl: Schema.Attribute.Text;
+  };
+}
+
+export interface InsideLocationAdditionalinfoDetails
+  extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_additionalinfo_details';
+  info: {
+    displayName: 'AdditionalInformationDetails';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    additionalInformationImage: Schema.Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+    moreButton: Schema.Attribute.Component<'elements.button', false>;
+  };
+}
+
 export interface HeaderMediaLinks extends Struct.ComponentSchema {
   collectionName: 'components_header_media_links';
   info: {
@@ -1013,16 +1023,6 @@ export interface GoingElectricGoingElectringInquires
   };
 }
 
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
-  info: {
-    displayName: 'Contact Us Details';
-  };
-  attributes: {
-    helpOptions: Schema.Attribute.String;
-  };
-}
-
 export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
   collectionName: 'components_further_questions_contact_forms';
   info: {
@@ -1042,6 +1042,16 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
       'form.contact-us-details',
       true
     >;
+  };
+}
+
+export interface FormContactUsDetails extends Struct.ComponentSchema {
+  collectionName: 'components_form_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+  };
+  attributes: {
+    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1117,61 +1127,6 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
   };
 }
 
-export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_files';
-  info: {
-    displayName: 'Files';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
-  };
-}
-
-export interface ExtraAssistanceCards extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_cards';
-  info: {
-    displayName: 'cards';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor
-  extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-    description: '';
-  };
-  attributes: {
-    accordion: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface FaqQuestions extends Struct.ComponentSchema {
   collectionName: 'components_faq_questions';
   info: {
@@ -1238,6 +1193,61 @@ export interface FaqAccordionData extends Struct.ComponentSchema {
       'oneToMany',
       'api::faq-content.faq-content'
     >;
+  };
+}
+
+export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_files';
+  info: {
+    displayName: 'Files';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceAccordionWithEditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_accordion_with_editors';
+  info: {
+    displayName: 'Accordion With Editor';
+    description: '';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -1871,6 +1881,7 @@ declare module '@strapi/strapi' {
       'tours.fare-details': ToursFareDetails;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
+      'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
       'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
@@ -1900,22 +1911,18 @@ declare module '@strapi/strapi' {
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
       'main-location.locations': MainLocationLocations;
+      'main-deals.deals': MainDealsDeals;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
       'luggage.special': LuggageSpecial;
       'luggage.luggage-dimensions-table': LuggageLuggageDimensionsTable;
       'luggage.luggage-allowance': LuggageLuggageAllowance;
       'luggage.luggage-allowance-table': LuggageLuggageAllowanceTable;
       'luggage.hero-description': LuggageHeroDescription;
-      'main-deals.deals': MainDealsDeals;
       'loyalty-program.turbobucks-pricing': LoyaltyProgramTurbobucksPricing;
       'loyalty-program.pricing-structure': LoyaltyProgramPricingStructure;
       'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
       'loyalty-program.high-flyer-membership-levels': LoyaltyProgramHighFlyerMembershipLevels;
       'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
-      'inside-location.guide': InsideLocationGuide;
-      'inside-location.guide-information': InsideLocationGuideInformation;
-      'inside-location.address': InsideLocationAddress;
-      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'home.news': HomeNews;
       'home.home-tours': HomeHomeTours;
       'home.home-locations': HomeHomeLocations;
@@ -1925,29 +1932,33 @@ declare module '@strapi/strapi' {
       'home.grab-deals': HomeGrabDeals;
       'home.description': HomeDescription;
       'home.article-carousel': HomeArticleCarousel;
+      'inside-location.guide': InsideLocationGuide;
+      'inside-location.guide-information': InsideLocationGuideInformation;
+      'inside-location.address': InsideLocationAddress;
+      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'header.media-links': HeaderMediaLinks;
       'header.link': HeaderLink;
       'header.dropdown': HeaderDropdown;
       'going-electric.specifications': GoingElectricSpecifications;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
-      'form.contact-us-details': FormContactUsDetails;
       'further-questions.contact-form': FurtherQuestionsContactForm;
+      'form.contact-us-details': FormContactUsDetails;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
-      'extra-assistance.files': ExtraAssistanceFiles;
-      'extra-assistance.cards': ExtraAssistanceCards;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
       'faq.accordion': FaqAccordion;
       'faq.accordion-data': FaqAccordionData;
+      'extra-assistance.files': ExtraAssistanceFiles;
+      'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;

@@ -2693,14 +2693,14 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
   attributes: {
     howToFly: Schema.Attribute.Component<'standby-travel.how-to-fly', false>;
-    discountedTravelForm: Schema.Attribute.Component<
-      'standby-travel.discounted-travel-form',
-      false
-    >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    discountedTravelForm: Schema.Attribute.Component<
+      'standby-travel.microsoft-form',
+      false
+    >;
     sections: Schema.Attribute.DynamicZone<
-      ['elements.title-with-image', 'standby-travel.standby-travel-info']
+      ['standby-travel.standby-travel-info', 'elements.title-with-image']
     >;
     travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     createdAt: Schema.Attribute.DateTime;
