@@ -1640,6 +1640,34 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGoogleAnlayticGoogleAnlaytic
+  extends Struct.SingleTypeSchema {
+  collectionName: 'google_anlaytics';
+  info: {
+    singularName: 'google-anlaytic';
+    pluralName: 'google-anlaytics';
+    displayName: 'Google Anlaytic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    analytics: Schema.Attribute.Component<'seo.analytics', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::google-anlaytic.google-anlaytic'
+    >;
+  };
+}
+
 export interface ApiGroupBookingGroupBooking extends Struct.SingleTypeSchema {
   collectionName: 'group_bookings';
   info: {
@@ -3266,6 +3294,7 @@ declare module '@strapi/strapi' {
       'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
       'api::going-electric.going-electric': ApiGoingElectricGoingElectric;
+      'api::google-anlaytic.google-anlaytic': ApiGoogleAnlayticGoogleAnlaytic;
       'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;
