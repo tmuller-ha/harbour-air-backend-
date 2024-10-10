@@ -1640,6 +1640,34 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGoogleAnlayticGoogleAnlaytic
+  extends Struct.SingleTypeSchema {
+  collectionName: 'google_anlaytics';
+  info: {
+    singularName: 'google-anlaytic';
+    pluralName: 'google-anlaytics';
+    displayName: 'Google Anlaytic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    analytics: Schema.Attribute.Component<'seo.analytics', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::google-anlaytic.google-anlaytic'
+    >;
+  };
+}
+
 export interface ApiGroupBookingGroupBooking extends Struct.SingleTypeSchema {
   collectionName: 'group_bookings';
   info: {
@@ -1844,7 +1872,10 @@ export interface ApiLoyaltyProgramLoyaltyProgram
       false
     >;
     highFlyerRewards: Schema.Attribute.DynamicZone<
-      ['elements.title-with-ck-editor', 'elements.accordion']
+      [
+        'elements.title-with-ck-editor',
+        'loyalty-program.high-flyer-membership-levels',
+      ]
     >;
     turbobucksFlightCredits: Schema.Attribute.DynamicZone<
       ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
@@ -2662,14 +2693,14 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
   attributes: {
     howToFly: Schema.Attribute.Component<'standby-travel.how-to-fly', false>;
-    discountedTravelForm: Schema.Attribute.Component<
-      'standby-travel.discounted-travel-form',
-      false
-    >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    discountedTravelForm: Schema.Attribute.Component<
+      'standby-travel.microsoft-form',
+      false
+    >;
     sections: Schema.Attribute.DynamicZone<
-      ['elements.title-with-image', 'standby-travel.standby-travel-info']
+      ['standby-travel.standby-travel-info', 'elements.title-with-image']
     >;
     travelTabs: Schema.Attribute.DynamicZone<['standby-travel.travel-tab']>;
     createdAt: Schema.Attribute.DateTime;
@@ -3263,6 +3294,7 @@ declare module '@strapi/strapi' {
       'api::flight-status.flight-status': ApiFlightStatusFlightStatus;
       'api::footer.footer': ApiFooterFooter;
       'api::going-electric.going-electric': ApiGoingElectricGoingElectric;
+      'api::google-anlaytic.google-anlaytic': ApiGoogleAnlayticGoogleAnlaytic;
       'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
       'api::home.home': ApiHomeHome;

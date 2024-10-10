@@ -56,7 +56,7 @@
       "type": "dynamiczone",
       "components": [
         "elements.title-with-ck-editor",
-        "elements.accordion"
+        "loyalty-program.high-flyer-membership-levels"
       ]
     },
     "turbobucksFlightCredits": {
