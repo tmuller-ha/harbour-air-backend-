@@ -17,11 +17,6 @@
       "repeatable": false,
       "component": "standby-travel.how-to-fly"
     },
-    "discountedTravelForm": {
-      "type": "component",
-      "repeatable": false,
-      "component": "standby-travel.discounted-travel-form"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
@@ -32,11 +27,17 @@
       "repeatable": false,
       "component": "meta-data.meta-data"
     },
+    "discountedTravelForm": {
+      "displayName": "Microsoft Form",
+      "type": "component",
+      "repeatable": false,
+      "component": "standby-travel.microsoft-form"
+    },
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "elements.title-with-image",
-        "standby-travel.standby-travel-info"
+        "standby-travel.standby-travel-info",
+        "elements.title-with-image"
       ]
     },
     "travelTabs": {

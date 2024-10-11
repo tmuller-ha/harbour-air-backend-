@@ -69,6 +69,16 @@ export interface StandbyTravelStandbyTravelInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface StandbyTravelMicrosoftForm extends Struct.ComponentSchema {
+  collectionName: 'components_standby_travel_microsoft_forms';
+  info: {
+    displayName: 'Microsoft Form';
+  };
+  attributes: {
+    formUrl: Schema.Attribute.String;
+  };
+}
+
 export interface StandbyTravelHowToFly extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_how_to_flies';
   info: {
@@ -1036,27 +1046,6 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
   };
 }
 
-export interface FormEmailForm extends Struct.ComponentSchema {
-  collectionName: 'components_form_email_forms';
-  info: {
-    displayName: 'Email Form';
-    description: '';
-  };
-  attributes: {
-    email: Schema.Attribute.String;
-  };
-}
-
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
-  info: {
-    displayName: 'Contact Us Details';
-  };
-  attributes: {
-    helpOptions: Schema.Attribute.String;
-  };
-}
-
 export interface FooterLink extends Struct.ComponentSchema {
   collectionName: 'components_footer_links';
   info: {
@@ -1126,6 +1115,27 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
     harbourairLogo: Schema.Attribute.Media<'images'>;
     copyrights: Schema.Attribute.String;
     bottomLinks: Schema.Attribute.Component<'footer.link', true>;
+  };
+}
+
+export interface FormEmailForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_email_forms';
+  info: {
+    displayName: 'Email Form';
+    description: '';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+  };
+}
+
+export interface FormContactUsDetails extends Struct.ComponentSchema {
+  collectionName: 'components_form_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+  };
+  attributes: {
+    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1250,6 +1260,20 @@ export interface ExtraAssistanceAccordionWithEditor
       true
     >;
     show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
   };
 }
 
@@ -1645,20 +1669,6 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1883,6 +1893,7 @@ declare module '@strapi/strapi' {
       'tours.fare-details': ToursFareDetails;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
+      'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
       'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
@@ -1944,14 +1955,14 @@ declare module '@strapi/strapi' {
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'further-questions.contact-form': FurtherQuestionsContactForm;
-      'form.email-form': FormEmailForm;
-      'form.contact-us-details': FormContactUsDetails;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
+      'form.email-form': FormEmailForm;
+      'form.contact-us-details': FormContactUsDetails;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
@@ -1961,6 +1972,7 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1984,7 +1996,6 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
