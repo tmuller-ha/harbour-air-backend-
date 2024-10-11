@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "email_options",
+  "info": {
+    "singularName": "email-option",
+    "pluralName": "email-options",
+    "displayName": "Email Option",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "unique": true
+    },
+    "toEmails": {
+      "displayName": "Email Form",
+      "type": "component",
+      "repeatable": true,
+      "component": "form.email-form"
+    }
+  }
+}
