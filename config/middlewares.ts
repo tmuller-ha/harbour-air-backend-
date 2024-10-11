@@ -22,6 +22,8 @@ export default [
             "dl.airtable.com",
             `${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com`,
             `${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
+            `${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
+            "loved-serenity-e0ed39558b.media.strapiapp.com",
           ],
           "media-src": [
             "'self'",
@@ -32,6 +34,7 @@ export default [
             "dl.airtable.com",
             `${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com`,
             `${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
+            "loved-serenity-e0ed39558b.media.strapiapp.com",
           ],
           upgradeInsecureRequests: null,
         },
