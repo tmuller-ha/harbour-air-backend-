@@ -710,6 +710,71 @@ export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
   };
 }
 
+export interface InsideLocationGuide extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_guides';
+  info: {
+    displayName: 'Guide';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    moreArticles: Schema.Attribute.String;
+    moreArticlesSlug: Schema.Attribute.String;
+    guideInformations: Schema.Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface InsideLocationGuideInformation extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_guide_informations';
+  info: {
+    displayName: 'Image Section';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface InsideLocationAddress extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_addresses';
+  info: {
+    displayName: 'Address';
+    description: '';
+  };
+  attributes: {
+    addressTitle: Schema.Attribute.String;
+    addressDetails: Schema.Attribute.Blocks;
+    addressMapUrl: Schema.Attribute.Text;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    googleMapUrl: Schema.Attribute.Text;
+  };
+}
+
+export interface InsideLocationAdditionalinfoDetails
+  extends Struct.ComponentSchema {
+  collectionName: 'components_inside_location_additionalinfo_details';
+  info: {
+    displayName: 'AdditionalInformationDetails';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    additionalInformationImage: Schema.Attribute.Component<
+      'inside-location.guide-information',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+    moreButton: Schema.Attribute.Component<'elements.button', false>;
+  };
+}
+
 export interface HomeNews extends Struct.ComponentSchema {
   collectionName: 'components_home_news';
   info: {
@@ -856,71 +921,6 @@ export interface HomeArticleCarousel extends Struct.ComponentSchema {
   };
 }
 
-export interface InsideLocationGuide extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_guides';
-  info: {
-    displayName: 'Guide';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    moreArticles: Schema.Attribute.String;
-    moreArticlesSlug: Schema.Attribute.String;
-    guideInformations: Schema.Attribute.Component<
-      'inside-location.guide-information',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface InsideLocationGuideInformation extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_guide_informations';
-  info: {
-    displayName: 'Image Section';
-    description: '';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Text;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface InsideLocationAddress extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_addresses';
-  info: {
-    displayName: 'Address';
-    description: '';
-  };
-  attributes: {
-    addressTitle: Schema.Attribute.String;
-    addressDetails: Schema.Attribute.Blocks;
-    addressMapUrl: Schema.Attribute.Text;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    googleMapUrl: Schema.Attribute.Text;
-  };
-}
-
-export interface InsideLocationAdditionalinfoDetails
-  extends Struct.ComponentSchema {
-  collectionName: 'components_inside_location_additionalinfo_details';
-  info: {
-    displayName: 'AdditionalInformationDetails';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    additionalInformationImage: Schema.Attribute.Component<
-      'inside-location.guide-information',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-    moreButton: Schema.Attribute.Component<'elements.button', false>;
-  };
-}
-
 export interface HeaderMediaLinks extends Struct.ComponentSchema {
   collectionName: 'components_header_media_links';
   info: {
@@ -1027,6 +1027,7 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
   collectionName: 'components_further_questions_contact_forms';
   info: {
     displayName: 'Contact Form';
+    description: '';
   };
   attributes: {
     title: Schema.Attribute.String;
@@ -1038,20 +1039,10 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
           preset: 'toolbar';
         }
       >;
-    contactUsOptions: Schema.Attribute.Component<
-      'form.contact-us-details',
-      true
+    emailOptions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::email-option.email-option'
     >;
-  };
-}
-
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
-  info: {
-    displayName: 'Contact Us Details';
-  };
-  attributes: {
-    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1124,6 +1115,27 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
     harbourairLogo: Schema.Attribute.Media<'images'>;
     copyrights: Schema.Attribute.String;
     bottomLinks: Schema.Attribute.Component<'footer.link', true>;
+  };
+}
+
+export interface FormEmailForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_email_forms';
+  info: {
+    displayName: 'Email Form';
+    description: '';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+  };
+}
+
+export interface FormContactUsDetails extends Struct.ComponentSchema {
+  collectionName: 'components_form_contact_us_details';
+  info: {
+    displayName: 'Contact Us Details';
+  };
+  attributes: {
+    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1248,6 +1260,20 @@ export interface ExtraAssistanceAccordionWithEditor
       true
     >;
     show: Schema.Attribute.Boolean;
+  };
+}
+
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
   };
 }
 
@@ -1643,20 +1669,6 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1923,6 +1935,10 @@ declare module '@strapi/strapi' {
       'loyalty-program.high-flyer-rewards-form': LoyaltyProgramHighFlyerRewardsForm;
       'loyalty-program.high-flyer-membership-levels': LoyaltyProgramHighFlyerMembershipLevels;
       'loyalty-program.high-flyer-form': LoyaltyProgramHighFlyerForm;
+      'inside-location.guide': InsideLocationGuide;
+      'inside-location.guide-information': InsideLocationGuideInformation;
+      'inside-location.address': InsideLocationAddress;
+      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'home.news': HomeNews;
       'home.home-tours': HomeHomeTours;
       'home.home-locations': HomeHomeLocations;
@@ -1932,10 +1948,6 @@ declare module '@strapi/strapi' {
       'home.grab-deals': HomeGrabDeals;
       'home.description': HomeDescription;
       'home.article-carousel': HomeArticleCarousel;
-      'inside-location.guide': InsideLocationGuide;
-      'inside-location.guide-information': InsideLocationGuideInformation;
-      'inside-location.address': InsideLocationAddress;
-      'inside-location.additionalinfo-details': InsideLocationAdditionalinfoDetails;
       'header.media-links': HeaderMediaLinks;
       'header.link': HeaderLink;
       'header.dropdown': HeaderDropdown;
@@ -1943,13 +1955,14 @@ declare module '@strapi/strapi' {
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'further-questions.contact-form': FurtherQuestionsContactForm;
-      'form.contact-us-details': FormContactUsDetails;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
+      'form.email-form': FormEmailForm;
+      'form.contact-us-details': FormContactUsDetails;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
@@ -1959,6 +1972,7 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1982,7 +1996,6 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;

@@ -1374,6 +1374,35 @@ export interface ApiDropdownMenuDropdownMenu
   };
 }
 
+export interface ApiEmailOptionEmailOption extends Struct.CollectionTypeSchema {
+  collectionName: 'email_options';
+  info: {
+    singularName: 'email-option';
+    pluralName: 'email-options';
+    displayName: 'Email Option';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Schema.Attribute.String & Schema.Attribute.Unique;
+    toEmails: Schema.Attribute.Component<'form.email-form', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
 export interface ApiExtraAssistanceExtraAssistance
   extends Struct.SingleTypeSchema {
   collectionName: 'extra_assistances';
@@ -3287,6 +3316,7 @@ declare module '@strapi/strapi' {
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
+      'api::email-option.email-option': ApiEmailOptionEmailOption;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_further_questions_contact_forms",
   "info": {
-    "displayName": "Contact Form"
+    "displayName": "Contact Form",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,10 +19,10 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "contactUsOptions": {
-      "type": "component",
-      "repeatable": true,
-      "component": "form.contact-us-details"
+    "emailOptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email-option.email-option"
     }
   }
 }
