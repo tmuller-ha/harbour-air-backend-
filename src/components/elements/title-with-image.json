@@ -52,9 +52,9 @@
     "mobileImagePosition": {
       "type": "enumeration",
       "enum": [
-        "object-left",
-        "object-right",
-        "object-center"
+        "left",
+        "right",
+        "center"
       ]
     }
   }
