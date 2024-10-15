@@ -1006,10 +1006,10 @@ export interface ApiCharteredFlightCharteredFlight
       'form.car-service-hire-form',
       false
     >;
-    charteredFlightPage: Schema.Attribute.DynamicZone<
+    charteredFlightSection: Schema.Attribute.DynamicZone<
       ['common.accordian', 'elements.title-with-description']
     >;
-    charteredFlightTab: Schema.Attribute.DynamicZone<
+    additionalInfo: Schema.Attribute.DynamicZone<
       [
         'chartered-flights-page.pricing-tab',
         'chartered-flights-page.fleet-tab',
