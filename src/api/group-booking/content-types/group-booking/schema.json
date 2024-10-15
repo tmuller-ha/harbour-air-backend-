@@ -40,6 +40,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta-data.meta-data"
+    },
+    "groupBookingForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.car-service-hire-form"
     }
   }
 }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_loyalty_program_high_flyer_rewards_forms",
   "info": {
-    "displayName": "High Flyer Rewards Form"
+    "displayName": "High Flyer Rewards Form",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,6 +16,11 @@
     },
     "membershipTypeQuote": {
       "type": "text"
+    },
+    "emailOption": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::email-option.email-option"
     }
   }
 }

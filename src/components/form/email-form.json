@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_form_email_forms",
+  "info": {
+    "displayName": "Email Form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "string",
+      "regex": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+    }
+  }
+}

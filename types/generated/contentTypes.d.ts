@@ -1002,10 +1002,14 @@ export interface ApiCharteredFlightCharteredFlight
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
-    charteredFlightPage: Schema.Attribute.DynamicZone<
+    charteredFlightForm: Schema.Attribute.Component<
+      'form.car-service-hire-form',
+      false
+    >;
+    charteredFlightSection: Schema.Attribute.DynamicZone<
       ['common.accordian', 'elements.title-with-description']
     >;
-    charteredFlightTab: Schema.Attribute.DynamicZone<
+    additionalInfo: Schema.Attribute.DynamicZone<
       [
         'chartered-flights-page.pricing-tab',
         'chartered-flights-page.fleet-tab',
@@ -1374,6 +1378,35 @@ export interface ApiDropdownMenuDropdownMenu
   };
 }
 
+export interface ApiEmailOptionEmailOption extends Struct.CollectionTypeSchema {
+  collectionName: 'email_options';
+  info: {
+    singularName: 'email-option';
+    pluralName: 'email-options';
+    displayName: 'Email Option';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Schema.Attribute.String & Schema.Attribute.Unique;
+    toEmails: Schema.Attribute.Component<'form.email-form', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
 export interface ApiExtraAssistanceExtraAssistance
   extends Struct.SingleTypeSchema {
   collectionName: 'extra_assistances';
@@ -1693,6 +1726,10 @@ export interface ApiGroupBookingGroupBooking extends Struct.SingleTypeSchema {
       Schema.Attribute.DefaultTo<true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    groupBookingForm: Schema.Attribute.Component<
+      'form.car-service-hire-form',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2051,6 +2088,7 @@ export interface ApiMakeItPrivateModalMakeItPrivateModal
     singularName: 'make-it-private-modal';
     pluralName: 'make-it-private-modals';
     displayName: 'Make It Private Modal';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2058,6 +2096,10 @@ export interface ApiMakeItPrivateModalMakeItPrivateModal
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2309,6 +2351,7 @@ export interface ApiOnAccountQuickTicketOnAccountQuickTicket
     singularName: 'on-account-quick-ticket';
     pluralName: 'on-account-quick-tickets';
     displayName: 'On-Account Quick Tickets';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2460,11 +2503,11 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
   attributes: {
     rate: Schema.Attribute.Component<'parcel-express.rates', false>;
     faq: Schema.Attribute.Component<'parcel-express.parcel-faq', false>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     quoteFormInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
+      'form.car-service-hire-form',
       false
     >;
-    seo: Schema.Attribute.Component<'seo.seo', false>;
     parcelExpressPage: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-image',
@@ -2521,6 +2564,10 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    privateToursForm: Schema.Attribute.Component<
+      'form.car-service-hire-form',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -3287,6 +3334,7 @@ declare module '@strapi/strapi' {
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
+      'api::email-option.email-option': ApiEmailOptionEmailOption;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq.faq': ApiFaqFaq;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;

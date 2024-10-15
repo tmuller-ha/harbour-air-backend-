@@ -41,6 +41,11 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "privateToursForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.car-service-hire-form"
     }
   }
 }
