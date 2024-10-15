@@ -195,6 +195,22 @@ export interface SchedulesSchedules extends Struct.ComponentSchema {
   };
 }
 
+export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
+  collectionName: 'components_quick_ticket_quick_ticket_forms';
+  info: {
+    displayName: 'QuickTicketForm';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
 export interface ParcelExpressShippingCost extends Struct.ComponentSchema {
   collectionName: 'components_parcel_express_shipping_costs';
   info: {
@@ -346,17 +362,6 @@ export interface OurPromisesHaPromise extends Struct.ComponentSchema {
   };
 }
 
-export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
-  collectionName: 'components_quick_ticket_quick_ticket_forms';
-  info: {
-    displayName: 'QuickTicketForm';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface OurFaresFareHelperContent extends Struct.ComponentSchema {
   collectionName: 'components_our_fares_fare_helper_contents';
   info: {
@@ -398,6 +403,34 @@ export interface OurFaresFareDetailsContent extends Struct.ComponentSchema {
     comfortSuperScript: Schema.Attribute.String;
     flexSuperScript: Schema.Attribute.String;
     subLabel: Schema.Attribute.String;
+  };
+}
+
+export interface MobilityImages extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_images';
+  info: {
+    displayName: 'Images';
+    description: '';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images' | 'videos', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MobilityHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    description: '';
+  };
+  attributes: {
+    heroSection: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+    image: Schema.Attribute.Media<'videos'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -459,34 +492,6 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
       'elements.title-with-media-and-button',
       false
     >;
-  };
-}
-
-export interface MobilityImages extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_images';
-  info: {
-    displayName: 'Images';
-    description: '';
-  };
-  attributes: {
-    images: Schema.Attribute.Media<'images' | 'videos', true>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-  };
-}
-
-export interface MobilityHeroSection extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_hero_sections';
-  info: {
-    displayName: 'HeroSection';
-    description: '';
-  };
-  attributes: {
-    heroSection: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-    image: Schema.Attribute.Media<'videos'>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -667,11 +672,16 @@ export interface LoyaltyProgramHighFlyerRewardsForm
   collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
   info: {
     displayName: 'High Flyer Rewards Form';
+    description: '';
   };
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     membershipTypeQuote: Schema.Attribute.Text;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -707,6 +717,10 @@ export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     existingCustomerQuote: Schema.Attribute.Text;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -1020,6 +1034,10 @@ export interface GoingElectricGoingElectringInquires
       'images' | 'files' | 'videos' | 'audios'
     >;
     formDescription: Schema.Attribute.Blocks;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -1057,13 +1075,26 @@ export interface FormEmailForm extends Struct.ComponentSchema {
   };
 }
 
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
+export interface FormCarServiceHireForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_car_service_hire_forms';
   info: {
-    displayName: 'Contact Us Details';
+    displayName: 'Specific Email Form';
+    description: '';
   };
   attributes: {
-    helpOptions: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -1780,6 +1811,21 @@ export interface CharteredFlightsPageDestination
   };
 }
 
+export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    > &
+      Schema.Attribute.Required;
+    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
+  };
+}
+
 export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
@@ -1824,21 +1870,6 @@ export interface CareersCareersTable extends Struct.ComponentSchema {
       'oneToMany',
       'api::career-opportunity.career-opportunity'
     >;
-  };
-}
-
-export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
-  collectionName: 'components_canadian_passenger_rights_tariffs';
-  info: {
-    displayName: 'Tariffs';
-  };
-  attributes: {
-    tariffsInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    > &
-      Schema.Attribute.Required;
-    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
   };
 }
 
@@ -1905,6 +1936,7 @@ declare module '@strapi/strapi' {
       'seo.analytics': SeoAnalytics;
       'seo.additional': SeoAdditional;
       'schedules.schedules': SchedulesSchedules;
+      'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.parcel-faq': ParcelExpressParcelFaq;
@@ -1915,16 +1947,15 @@ declare module '@strapi/strapi' {
       'our-promises.our-values': OurPromisesOurValues;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.ha-promise': OurPromisesHaPromise;
-      'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'our-fares.fare-helper-content': OurFaresFareHelperContent;
       'our-fares.fare-details': OurFaresFareDetails;
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
+      'mobility.images': MobilityImages;
+      'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
-      'mobility.images': MobilityImages;
-      'mobility.hero-section': MobilityHeroSection;
       'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
@@ -1959,7 +1990,7 @@ declare module '@strapi/strapi' {
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'further-questions.contact-form': FurtherQuestionsContactForm;
       'form.email-form': FormEmailForm;
-      'form.contact-us-details': FormContactUsDetails;
+      'form.car-service-hire-form': FormCarServiceHireForm;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
@@ -2005,10 +2036,10 @@ declare module '@strapi/strapi' {
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
-      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
