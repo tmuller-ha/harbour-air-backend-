@@ -4,7 +4,8 @@
   "info": {
     "singularName": "on-account-quick-ticket",
     "pluralName": "on-account-quick-tickets",
-    "displayName": "On-Account Quick Tickets"
+    "displayName": "On-Account Quick Tickets",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

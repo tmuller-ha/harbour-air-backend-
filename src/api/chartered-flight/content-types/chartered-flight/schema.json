@@ -27,6 +27,11 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
+    "charteredFlightForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.car-service-hire-form"
+    },
     "charteredFlightPage": {
       "type": "dynamiczone",
       "components": [

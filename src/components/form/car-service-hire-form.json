@@ -1,14 +1,16 @@
 {
-  "collectionName": "components_loyalty_program_high_flyer_forms",
+  "collectionName": "components_form_car_service_hire_forms",
   "info": {
-    "displayName": "Turbobucks Form",
+    "displayName": "Specific Email Form",
     "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
     },
     "description": {
       "type": "customField",
@@ -16,13 +18,6 @@
         "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
-    },
-    "show": {
-      "type": "boolean",
-      "default": true
-    },
-    "existingCustomerQuote": {
-      "type": "text"
     },
     "emailOption": {
       "type": "relation",

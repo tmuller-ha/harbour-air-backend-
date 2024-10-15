@@ -199,10 +199,15 @@ export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
   collectionName: 'components_quick_ticket_quick_ticket_forms';
   info: {
     displayName: 'QuickTicketForm';
+    description: '';
   };
   attributes: {
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -667,11 +672,16 @@ export interface LoyaltyProgramHighFlyerRewardsForm
   collectionName: 'components_loyalty_program_high_flyer_rewards_forms';
   info: {
     displayName: 'High Flyer Rewards Form';
+    description: '';
   };
   attributes: {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     membershipTypeQuote: Schema.Attribute.Text;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -707,6 +717,10 @@ export interface LoyaltyProgramHighFlyerForm extends Struct.ComponentSchema {
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     existingCustomerQuote: Schema.Attribute.Text;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -1020,6 +1034,10 @@ export interface GoingElectricGoingElectringInquires
       'images' | 'files' | 'videos' | 'audios'
     >;
     formDescription: Schema.Attribute.Blocks;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
   };
 }
 
@@ -1041,6 +1059,40 @@ export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
       >;
     emailOptions: Schema.Attribute.Relation<
       'oneToMany',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
+export interface FormEmailForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_email_forms';
+  info: {
+    displayName: 'Email Form';
+    description: '';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+  };
+}
+
+export interface FormCarServiceHireForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_car_service_hire_forms';
+  info: {
+    displayName: 'Specific Email Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
       'api::email-option.email-option'
     >;
   };
@@ -1115,27 +1167,6 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
     harbourairLogo: Schema.Attribute.Media<'images'>;
     copyrights: Schema.Attribute.String;
     bottomLinks: Schema.Attribute.Component<'footer.link', true>;
-  };
-}
-
-export interface FormEmailForm extends Struct.ComponentSchema {
-  collectionName: 'components_form_email_forms';
-  info: {
-    displayName: 'Email Form';
-    description: '';
-  };
-  attributes: {
-    email: Schema.Attribute.String;
-  };
-}
-
-export interface FormContactUsDetails extends Struct.ComponentSchema {
-  collectionName: 'components_form_contact_us_details';
-  info: {
-    displayName: 'Contact Us Details';
-  };
-  attributes: {
-    helpOptions: Schema.Attribute.String;
   };
 }
 
@@ -1260,20 +1291,6 @@ export interface ExtraAssistanceAccordionWithEditor
       true
     >;
     show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
   };
 }
 
@@ -1669,6 +1686,20 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1955,14 +1986,14 @@ declare module '@strapi/strapi' {
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'further-questions.contact-form': FurtherQuestionsContactForm;
+      'form.email-form': FormEmailForm;
+      'form.car-service-hire-form': FormCarServiceHireForm;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
-      'form.email-form': FormEmailForm;
-      'form.contact-us-details': FormContactUsDetails;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
@@ -1972,7 +2003,6 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -1996,6 +2026,7 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
