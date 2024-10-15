@@ -4,5 +4,5 @@ export default ({ env }) => ({
   app: {
     keys: env.array("APP_KEYS"),
   },
-  // url: env("CMS_URL", "https://cms.hbair.biz"),
+   url: env("CMS_URL", "https://cms.hbair.biz"),
 });
