@@ -4,7 +4,8 @@
   "info": {
     "singularName": "make-it-private-modal",
     "pluralName": "make-it-private-modals",
-    "displayName": "Make It Private Modal"
+    "displayName": "Make It Private Modal",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,11 @@
     "description": {
       "type": "blocks",
       "required": true
+    },
+    "emailOption": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::email-option.email-option"
     }
   }
 }

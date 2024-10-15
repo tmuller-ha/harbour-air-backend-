@@ -40,6 +40,11 @@
     },
     "formDescription": {
       "type": "blocks"
+    },
+    "emailOption": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::email-option.email-option"
     }
   }
 }

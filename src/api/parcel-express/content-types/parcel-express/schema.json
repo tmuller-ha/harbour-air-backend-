@@ -23,15 +23,15 @@
       "repeatable": false,
       "component": "parcel-express.parcel-faq"
     },
-    "quoteFormInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-description"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "quoteFormInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "form.car-service-hire-form"
     },
     "parcelExpressPage": {
       "type": "dynamiczone",
