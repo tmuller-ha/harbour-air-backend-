@@ -32,11 +32,11 @@
       "type": "string",
       "required": true
     },
-    "navigationLinks": {
+    "navLinks": {
       "type": "dynamiczone",
       "components": [
-        "header.link",
-        "header.dropdown"
+        "header.menu-dropdown",
+        "header.link"
       ]
     }
   }

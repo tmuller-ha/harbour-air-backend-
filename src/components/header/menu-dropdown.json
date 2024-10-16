@@ -1,20 +1,19 @@
 {
-  "collectionName": "components_header_dropdowns",
+  "collectionName": "components_header_menu_dropdowns",
   "info": {
-    "displayName": "Dropdown",
-    "description": ""
+    "displayName": "Menu Dropdown"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "dropdownTitle": {
       "type": "string"
     },
-    "dropdownMenus": {
+    "dropdown_links": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::dropdown-menu.dropdown-menu"
     },
-    "cardMenus": {
+    "dropdown_cards": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::menu-image-link.menu-image-link"
