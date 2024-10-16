@@ -32,14 +32,14 @@
       "repeatable": false,
       "component": "form.car-service-hire-form"
     },
-    "charteredFlightPage": {
+    "charteredFlightSection": {
       "type": "dynamiczone",
       "components": [
         "common.accordian",
         "elements.title-with-description"
       ]
     },
-    "charteredFlightTab": {
+    "additionalInfo": {
       "type": "dynamiczone",
       "components": [
         "chartered-flights-page.pricing-tab",
