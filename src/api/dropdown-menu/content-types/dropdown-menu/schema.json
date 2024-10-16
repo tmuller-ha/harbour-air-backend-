@@ -12,17 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "menuTitle": {
-      "type": "component",
-      "repeatable": false,
-      "component": "header.link"
-    },
     "menus": {
       "type": "dynamiczone",
       "components": [
         "header.link",
         "header.media-links"
       ]
+    },
+    "menuTitle": {
+      "type": "string",
+      "unique": false
+    },
+    "slug": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

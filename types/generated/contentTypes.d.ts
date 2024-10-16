@@ -1361,8 +1361,10 @@ export interface ApiDropdownMenuDropdownMenu
     draftAndPublish: true;
   };
   attributes: {
-    menuTitle: Schema.Attribute.Component<'header.link', false>;
     menus: Schema.Attribute.DynamicZone<['header.link', 'header.media-links']>;
+    menuTitle: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1760,8 +1762,8 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     mobileLogo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     desktopLogo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     profileButtonText: Schema.Attribute.String & Schema.Attribute.Required;
-    navigationLinks: Schema.Attribute.DynamicZone<
-      ['header.link', 'header.dropdown']
+    navLinks: Schema.Attribute.DynamicZone<
+      ['header.menu-dropdown', 'header.link']
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
