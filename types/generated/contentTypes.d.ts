@@ -1777,6 +1777,47 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHighFlyerRewardHighFlyerReward
+  extends Struct.SingleTypeSchema {
+  collectionName: 'high_flyer_rewards';
+  info: {
+    singularName: 'high-flyer-reward';
+    pluralName: 'high-flyer-rewards';
+    displayName: 'High Flyer Reward';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
+    highFlyerForm: Schema.Attribute.Component<
+      'loyalty-program.high-flyer-rewards-form',
+      false
+    >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    highFlyerRewards: Schema.Attribute.DynamicZone<
+      [
+        'elements.title-with-ck-editor',
+        'loyalty-program.high-flyer-membership-levels',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::high-flyer-reward.high-flyer-reward'
+    >;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -2937,6 +2978,44 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
   };
 }
 
+export interface ApiTurbobucksFlightCreditTurbobucksFlightCredit
+  extends Struct.SingleTypeSchema {
+  collectionName: 'turbobucks_flight_credits';
+  info: {
+    singularName: 'turbobucks-flight-credit';
+    pluralName: 'turbobucks-flight-credits';
+    displayName: 'Turbobucks Flight Credit';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
+    turbobucksForm: Schema.Attribute.Component<
+      'loyalty-program.high-flyer-form',
+      false
+    >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    turbobucksFlightCredits: Schema.Attribute.DynamicZone<
+      ['loyalty-program.turbobucks-pricing', 'elements.title-with-ck-editor']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::turbobucks-flight-credit.turbobucks-flight-credit'
+    >;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -3347,6 +3426,7 @@ declare module '@strapi/strapi' {
       'api::google-anlaytic.google-anlaytic': ApiGoogleAnlayticGoogleAnlaytic;
       'api::group-booking.group-booking': ApiGroupBookingGroupBooking;
       'api::header.header': ApiHeaderHeader;
+      'api::high-flyer-reward.high-flyer-reward': ApiHighFlyerRewardHighFlyerReward;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
@@ -3378,6 +3458,7 @@ declare module '@strapi/strapi' {
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;
       'api::trip-advisor-comment.trip-advisor-comment': ApiTripAdvisorCommentTripAdvisorComment;
+      'api::turbobucks-flight-credit.turbobucks-flight-credit': ApiTurbobucksFlightCreditTurbobucksFlightCredit;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
