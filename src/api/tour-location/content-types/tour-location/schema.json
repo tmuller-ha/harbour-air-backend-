@@ -77,6 +77,14 @@
         "opacity-100"
       ]
     },
+    "mobileImagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
+    },
     "components": {
       "type": "dynamiczone",
       "components": [

@@ -1931,6 +1931,9 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
         'opacity-100',
       ]
     >;
+    mobileImagePosition: Schema.Attribute.Enumeration<
+      ['left', 'right', 'center']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2881,6 +2884,9 @@ export interface ApiTourLocationTourLocation
         'opacity-95',
         'opacity-100',
       ]
+    >;
+    mobileImagePosition: Schema.Attribute.Enumeration<
+      ['left', 'right', 'center']
     >;
     components: Schema.Attribute.DynamicZone<
       [
