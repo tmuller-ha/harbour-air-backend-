@@ -27,19 +27,28 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "videos"]
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "locationPhotos": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "videos"]
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "locationVideo": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "videos"]
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "learnMoreBtnText": {
       "type": "string"
@@ -71,6 +80,32 @@
       "type": "component",
       "repeatable": false,
       "component": "inside-location.address"
+    },
+    "opacity": {
+      "type": "enumeration",
+      "enum": [
+        "opacity-0",
+        "opacity-5",
+        "opacity-10",
+        "opacity-15",
+        "opacity-20",
+        "opacity-25",
+        "opacity-30",
+        "opacity-35",
+        "opacity-40",
+        "opacity-45",
+        "opacity-50",
+        "opacity-55",
+        "opacity-60",
+        "opacity-65",
+        "opacity-70",
+        "opacity-75",
+        "opacity-80",
+        "opacity-85",
+        "opacity-90",
+        "opacity-95",
+        "opacity-100"
+      ]
     }
   }
 }
