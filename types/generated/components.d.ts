@@ -447,6 +447,21 @@ export interface MetaDataMetaData extends Struct.ComponentSchema {
   };
 }
 
+export interface MainLocationLocations extends Struct.ComponentSchema {
+  collectionName: 'components_main_location_locations';
+  info: {
+    displayName: 'locations';
+    description: '';
+  };
+  attributes: {
+    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
+    pageTitle: Schema.Attribute.Component<
+      'elements.title-with-media-and-button',
+      false
+    >;
+  };
+}
+
 export interface MainToursTourCards extends Struct.ComponentSchema {
   collectionName: 'components_main_tours_tour_cards';
   info: {
@@ -488,21 +503,6 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
       'oneToMany',
       'api::tour-location.tour-location'
     >;
-    pageTitle: Schema.Attribute.Component<
-      'elements.title-with-media-and-button',
-      false
-    >;
-  };
-}
-
-export interface MainLocationLocations extends Struct.ComponentSchema {
-  collectionName: 'components_main_location_locations';
-  info: {
-    displayName: 'locations';
-    description: '';
-  };
-  attributes: {
-    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
     pageTitle: Schema.Attribute.Component<
       'elements.title-with-media-and-button',
       false
@@ -779,13 +779,19 @@ export interface InsideLocationAdditionalinfoDetails
   };
   attributes: {
     title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
     additionalInformationImage: Schema.Attribute.Component<
       'inside-location.guide-information',
       true
     >;
     show: Schema.Attribute.Boolean;
     moreButton: Schema.Attribute.Component<'elements.button', false>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
   };
 }
 
@@ -980,40 +986,6 @@ export interface HeaderLink extends Struct.ComponentSchema {
   };
 }
 
-export interface FormEmailForm extends Struct.ComponentSchema {
-  collectionName: 'components_form_email_forms';
-  info: {
-    displayName: 'Email Form';
-    description: '';
-  };
-  attributes: {
-    email: Schema.Attribute.String;
-  };
-}
-
-export interface FormCarServiceHireForm extends Struct.ComponentSchema {
-  collectionName: 'components_form_car_service_hire_forms';
-  info: {
-    displayName: 'Specific Email Form';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    emailOption: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::email-option.email-option'
-    >;
-  };
-}
-
 export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
   collectionName: 'components_further_questions_contact_forms';
   info: {
@@ -1090,6 +1062,40 @@ export interface GoingElectricGoingElectringInquires
       'images' | 'files' | 'videos' | 'audios'
     >;
     formDescription: Schema.Attribute.Blocks;
+    emailOption: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
+export interface FormEmailForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_email_forms';
+  info: {
+    displayName: 'Email Form';
+    description: '';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+  };
+}
+
+export interface FormCarServiceHireForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_car_service_hire_forms';
+  info: {
+    displayName: 'Specific Email Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     emailOption: Schema.Attribute.Relation<
       'oneToOne',
       'api::email-option.email-option'
@@ -1952,10 +1958,10 @@ declare module '@strapi/strapi' {
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
+      'main-location.locations': MainLocationLocations;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
-      'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
       'luggage.special': LuggageSpecial;
@@ -1984,12 +1990,12 @@ declare module '@strapi/strapi' {
       'header.menu-dropdown': HeaderMenuDropdown;
       'header.media-links': HeaderMediaLinks;
       'header.link': HeaderLink;
-      'form.email-form': FormEmailForm;
-      'form.car-service-hire-form': FormCarServiceHireForm;
       'further-questions.contact-form': FurtherQuestionsContactForm;
       'going-electric.specifications': GoingElectricSpecifications;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
+      'form.email-form': FormEmailForm;
+      'form.car-service-hire-form': FormCarServiceHireForm;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;

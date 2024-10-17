@@ -9,9 +9,6 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
-    },
     "additionalInformationImage": {
       "type": "component",
       "repeatable": true,
@@ -24,6 +21,13 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.button"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
