@@ -106,6 +106,14 @@
         "opacity-95",
         "opacity-100"
       ]
+    },
+    "mobileImagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
     }
   }
 }
