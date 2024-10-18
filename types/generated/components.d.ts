@@ -447,21 +447,6 @@ export interface MetaDataMetaData extends Struct.ComponentSchema {
   };
 }
 
-export interface MainLocationLocations extends Struct.ComponentSchema {
-  collectionName: 'components_main_location_locations';
-  info: {
-    displayName: 'locations';
-    description: '';
-  };
-  attributes: {
-    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
-    pageTitle: Schema.Attribute.Component<
-      'elements.title-with-media-and-button',
-      false
-    >;
-  };
-}
-
 export interface MainToursTourCards extends Struct.ComponentSchema {
   collectionName: 'components_main_tours_tour_cards';
   info: {
@@ -510,6 +495,21 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
   };
 }
 
+export interface MainLocationLocations extends Struct.ComponentSchema {
+  collectionName: 'components_main_location_locations';
+  info: {
+    displayName: 'locations';
+    description: '';
+  };
+  attributes: {
+    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
+    pageTitle: Schema.Attribute.Component<
+      'elements.title-with-media-and-button',
+      false
+    >;
+  };
+}
+
 export interface MainDealsDeals extends Struct.ComponentSchema {
   collectionName: 'components_main_deals_deals';
   info: {
@@ -541,6 +541,20 @@ export interface MainDealsDeals extends Struct.ComponentSchema {
     title: Schema.Attribute.Text & Schema.Attribute.Required;
     description: Schema.Attribute.String & Schema.Attribute.Required;
     calendarIcon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface MainDealsCampaignSection extends Struct.ComponentSchema {
+  collectionName: 'components_main_deals_campaign_sections';
+  info: {
+    displayName: 'CampaignSection';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+    moreDetails: Schema.Attribute.Component<'elements.button', false>;
+    campaigns: Schema.Attribute.Relation<'oneToMany', 'api::campaign.campaign'>;
   };
 }
 
@@ -986,29 +1000,6 @@ export interface HeaderLink extends Struct.ComponentSchema {
   };
 }
 
-export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
-  collectionName: 'components_further_questions_contact_forms';
-  info: {
-    displayName: 'Contact Form';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    emailOptions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::email-option.email-option'
-    >;
-  };
-}
-
 export interface GoingElectricSpecifications extends Struct.ComponentSchema {
   collectionName: 'components_going_electric_specifications';
   info: {
@@ -1064,6 +1055,29 @@ export interface GoingElectricGoingElectringInquires
     formDescription: Schema.Attribute.Blocks;
     emailOption: Schema.Attribute.Relation<
       'oneToOne',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
+export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_further_questions_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    emailOptions: Schema.Attribute.Relation<
+      'oneToMany',
       'api::email-option.email-option'
     >;
   };
@@ -1958,11 +1972,12 @@ declare module '@strapi/strapi' {
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
-      'main-location.locations': MainLocationLocations;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
+      'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
+      'main-deals.campaign-section': MainDealsCampaignSection;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
       'luggage.special': LuggageSpecial;
       'luggage.luggage-dimensions-table': LuggageLuggageDimensionsTable;
@@ -1990,10 +2005,10 @@ declare module '@strapi/strapi' {
       'header.menu-dropdown': HeaderMenuDropdown;
       'header.media-links': HeaderMediaLinks;
       'header.link': HeaderLink;
-      'further-questions.contact-form': FurtherQuestionsContactForm;
       'going-electric.specifications': GoingElectricSpecifications;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
+      'further-questions.contact-form': FurtherQuestionsContactForm;
       'form.email-form': FormEmailForm;
       'form.car-service-hire-form': FormCarServiceHireForm;
       'footer.link': FooterLink;
