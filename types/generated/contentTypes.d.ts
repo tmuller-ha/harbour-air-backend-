@@ -806,6 +806,47 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
+  collectionName: 'campaigns';
+  info: {
+    singularName: 'campaign';
+    pluralName: 'campaigns';
+    displayName: 'Campaign';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    shortDescription: Schema.Attribute.String;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    coverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    slug: Schema.Attribute.UID<'title'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::campaign.campaign'
+    >;
+  };
+}
+
 export interface ApiCanadianPassengerRightCanadianPassengerRight
   extends Struct.SingleTypeSchema {
   collectionName: 'canadian_passenger_rights';
@@ -2071,6 +2112,10 @@ export interface ApiMainDealMainDeal extends Struct.SingleTypeSchema {
     dealsBanner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    campaignSection: Schema.Attribute.Component<
+      'main-deals.campaign-section',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -3456,6 +3501,7 @@ declare module '@strapi/strapi' {
       'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blogs-and-new.blogs-and-new': ApiBlogsAndNewBlogsAndNew;
       'api::book-flight.book-flight': ApiBookFlightBookFlight;
+      'api::campaign.campaign': ApiCampaignCampaign;
       'api::canadian-passenger-right.canadian-passenger-right': ApiCanadianPassengerRightCanadianPassengerRight;
       'api::car-service.car-service': ApiCarServiceCarService;
       'api::career.career': ApiCareerCareer;

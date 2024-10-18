@@ -37,7 +37,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "seo": {
       "type": "component",
@@ -48,6 +50,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta-data.meta-data"
+    },
+    "campaignSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main-deals.campaign-section"
     }
   }
 }
