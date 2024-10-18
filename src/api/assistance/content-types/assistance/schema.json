@@ -19,10 +19,10 @@
       "type": "dynamiczone",
       "components": [
         "elements.title-with-image",
-        "elements.title-with-description",
         "common.help",
         "extra-assistance.files",
-        "extra-assistance.accordion-with-editor"
+        "extra-assistance.accordion-with-editor",
+        "elements.title-with-ck-editor"
       ]
     }
   }

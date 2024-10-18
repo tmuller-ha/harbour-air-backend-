@@ -575,10 +575,10 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
     components: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-image',
-        'elements.title-with-description',
         'common.help',
         'extra-assistance.files',
         'extra-assistance.accordion-with-editor',
+        'elements.title-with-ck-editor',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -2234,9 +2234,9 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
       [
         'elements.title-with-image',
         'mobility.hero-section',
-        'elements.title-with-description',
         'mobility.images',
         'common.help',
+        'elements.title-with-ck-editor',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
