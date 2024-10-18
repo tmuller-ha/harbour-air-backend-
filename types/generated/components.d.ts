@@ -425,12 +425,12 @@ export interface MobilityHeroSection extends Struct.ComponentSchema {
     description: '';
   };
   attributes: {
-    heroSection: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
     image: Schema.Attribute.Media<'videos'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    heroSection: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
   };
 }
 
@@ -1773,6 +1773,53 @@ export interface CommonAccordianDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
+  collectionName: 'components_careers_tab_with_youtube_links';
+  info: {
+    displayName: 'Career Hero Section';
+    description: '';
+  };
+  attributes: {
+    titleWithLink: Schema.Attribute.Component<
+      'elements.title-with-youtube-link',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+    careersInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+  };
+}
+
+export interface CareersJoinOurTeam extends Struct.ComponentSchema {
+  collectionName: 'components_careers_join_our_teams';
+  info: {
+    displayName: 'Join Our Team';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+  };
+}
+
+export interface CareersCareersTable extends Struct.ComponentSchema {
+  collectionName: 'components_careers_careers_tables';
+  info: {
+    displayName: 'Careers Oppurtunity Table';
+    description: '';
+  };
+  attributes: {
+    tableTitle: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    careerOpportunities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-opportunity.career-opportunity'
+    >;
+  };
+}
+
 export interface CharteredFlightsPagePricingTab extends Struct.ComponentSchema {
   collectionName: 'components_chartered_flights_page_pricing_tabs';
   info: {
@@ -1826,53 +1873,6 @@ export interface CharteredFlightsPageDestination
     accordian: Schema.Attribute.Component<
       'elements.accordion-with-ck-editor',
       true
-    >;
-  };
-}
-
-export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
-  collectionName: 'components_careers_tab_with_youtube_links';
-  info: {
-    displayName: 'Career Hero Section';
-    description: '';
-  };
-  attributes: {
-    titleWithLink: Schema.Attribute.Component<
-      'elements.title-with-youtube-link',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-    careersInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-  };
-}
-
-export interface CareersJoinOurTeam extends Struct.ComponentSchema {
-  collectionName: 'components_careers_join_our_teams';
-  info: {
-    displayName: 'Join Our Team';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-  };
-}
-
-export interface CareersCareersTable extends Struct.ComponentSchema {
-  collectionName: 'components_careers_careers_tables';
-  info: {
-    displayName: 'Careers Oppurtunity Table';
-    description: '';
-  };
-  attributes: {
-    tableTitle: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    careerOpportunities: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::career-opportunity.career-opportunity'
     >;
   };
 }
@@ -2053,12 +2053,12 @@ declare module '@strapi/strapi' {
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
-      'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
-      'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
-      'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
+      'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
+      'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
+      'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;

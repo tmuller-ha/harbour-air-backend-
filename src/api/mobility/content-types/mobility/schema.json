@@ -17,9 +17,9 @@
       "components": [
         "elements.title-with-image",
         "mobility.hero-section",
-        "elements.title-with-description",
         "mobility.images",
-        "common.help"
+        "common.help",
+        "elements.title-with-ck-editor"
       ]
     }
   }
