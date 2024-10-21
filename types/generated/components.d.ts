@@ -362,6 +362,34 @@ export interface OurPromisesHaPromise extends Struct.ComponentSchema {
   };
 }
 
+export interface MobilityImages extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_images';
+  info: {
+    displayName: 'Images';
+    description: '';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images' | 'videos', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MobilityHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'videos'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    heroSection: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+  };
+}
+
 export interface OurFaresFareHelperContent extends Struct.ComponentSchema {
   collectionName: 'components_our_fares_fare_helper_contents';
   info: {
@@ -403,34 +431,6 @@ export interface OurFaresFareDetailsContent extends Struct.ComponentSchema {
     comfortSuperScript: Schema.Attribute.String;
     flexSuperScript: Schema.Attribute.String;
     subLabel: Schema.Attribute.String;
-  };
-}
-
-export interface MobilityImages extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_images';
-  info: {
-    displayName: 'Images';
-    description: '';
-  };
-  attributes: {
-    images: Schema.Attribute.Media<'images' | 'videos', true>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-  };
-}
-
-export interface MobilityHeroSection extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_hero_sections';
-  info: {
-    displayName: 'HeroSection';
-    description: '';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'videos'>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    heroSection: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      false
-    >;
   };
 }
 
@@ -1980,11 +1980,11 @@ declare module '@strapi/strapi' {
       'our-promises.our-values': OurPromisesOurValues;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.ha-promise': OurPromisesHaPromise;
+      'mobility.images': MobilityImages;
+      'mobility.hero-section': MobilityHeroSection;
       'our-fares.fare-helper-content': OurFaresFareHelperContent;
       'our-fares.fare-details': OurFaresFareDetails;
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
-      'mobility.images': MobilityImages;
-      'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;

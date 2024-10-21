@@ -948,11 +948,11 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     careerPage: Schema.Attribute.DynamicZone<
       [
-        'elements.title-with-description',
         'careers.careers-table',
         'elements.title-with-image',
         'common.accordian',
         'careers.tab-with-youtube-link',
+        'elements.title-with-ck-editor',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -982,8 +982,8 @@ export interface ApiCareerOpportunityCareerOpportunity
   attributes: {
     position: Schema.Attribute.String;
     location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
-    slug: Schema.Attribute.UID;
     applicationDeadline: Schema.Attribute.Date;
+    careerDescription: Schema.Attribute.Media<'files'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

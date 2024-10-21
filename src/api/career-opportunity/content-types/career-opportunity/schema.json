@@ -20,11 +20,15 @@
       "relation": "oneToOne",
       "target": "api::location.location"
     },
-    "slug": {
-      "type": "uid"
-    },
     "applicationDeadline": {
       "type": "date"
+    },
+    "careerDescription": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
