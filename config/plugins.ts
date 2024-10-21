@@ -56,6 +56,7 @@ export default ({ env }) => ({
       shadowCRUD: true,
       playgroundAlways: true,
       depthLimit: 10,
+      defaultLimit: -1,
       amountLimit: 100,
       apolloServer: {
         tracing: false,

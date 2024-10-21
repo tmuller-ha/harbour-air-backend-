@@ -54,6 +54,9 @@ export default [
     resolve: "./src/middlewares/upload.js",
   },
   {
+    resolve: "./src/api/schedule/middlewares/titleUpdater.js",
+  },
+  {
     name: "strapi::cors",
     config: {
       origin: "*",

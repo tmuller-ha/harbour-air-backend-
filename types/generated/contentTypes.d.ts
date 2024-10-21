@@ -651,6 +651,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'elements.accordion',
         'elements.title-with-ck-editor',
         'elements.title-with-image',
+        'elements.tab',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
