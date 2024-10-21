@@ -1313,6 +1313,20 @@ export interface ExtraAssistanceAccordionWithEditor
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   collectionName: 'components_elements_trip_advisors';
   info: {
@@ -1563,6 +1577,20 @@ export interface ElementsTableDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsTab extends Struct.ComponentSchema {
+  collectionName: 'components_elements_tabs';
+  info: {
+    displayName: 'Tab';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    tabDetails: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+  };
+}
+
 export interface ElementsPricingTable extends Struct.ComponentSchema {
   collectionName: 'components_elements_pricing_tables';
   info: {
@@ -1708,20 +1736,6 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1770,53 +1784,6 @@ export interface CommonAccordianDetails extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     content: Schema.Attribute.Blocks;
-  };
-}
-
-export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
-  collectionName: 'components_careers_tab_with_youtube_links';
-  info: {
-    displayName: 'Career Hero Section';
-    description: '';
-  };
-  attributes: {
-    titleWithLink: Schema.Attribute.Component<
-      'elements.title-with-youtube-link',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-    careersInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-  };
-}
-
-export interface CareersJoinOurTeam extends Struct.ComponentSchema {
-  collectionName: 'components_careers_join_our_teams';
-  info: {
-    displayName: 'Join Our Team';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-  };
-}
-
-export interface CareersCareersTable extends Struct.ComponentSchema {
-  collectionName: 'components_careers_careers_tables';
-  info: {
-    displayName: 'Careers Oppurtunity Table';
-    description: '';
-  };
-  attributes: {
-    tableTitle: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    careerOpportunities: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::career-opportunity.career-opportunity'
-    >;
   };
 }
 
@@ -1873,6 +1840,53 @@ export interface CharteredFlightsPageDestination
     accordian: Schema.Attribute.Component<
       'elements.accordion-with-ck-editor',
       true
+    >;
+  };
+}
+
+export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
+  collectionName: 'components_careers_tab_with_youtube_links';
+  info: {
+    displayName: 'Career Hero Section';
+    description: '';
+  };
+  attributes: {
+    titleWithLink: Schema.Attribute.Component<
+      'elements.title-with-youtube-link',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+    careersInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+  };
+}
+
+export interface CareersJoinOurTeam extends Struct.ComponentSchema {
+  collectionName: 'components_careers_join_our_teams';
+  info: {
+    displayName: 'Join Our Team';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+  };
+}
+
+export interface CareersCareersTable extends Struct.ComponentSchema {
+  collectionName: 'components_careers_careers_tables';
+  info: {
+    displayName: 'Careers Oppurtunity Table';
+    description: '';
+  };
+  attributes: {
+    tableTitle: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    careerOpportunities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career-opportunity.career-opportunity'
     >;
   };
 }
@@ -2026,6 +2040,7 @@ declare module '@strapi/strapi' {
       'extra-assistance.cards': ExtraAssistanceCards;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -2039,6 +2054,7 @@ declare module '@strapi/strapi' {
       'elements.text-with-image': ElementsTextWithImage;
       'elements.table-fields': ElementsTableFields;
       'elements.table-details': ElementsTableDetails;
+      'elements.tab': ElementsTab;
       'elements.pricing-table': ElementsPricingTable;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.instagram-images': ElementsInstagramImages;
@@ -2049,16 +2065,15 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
-      'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
-      'careers.join-our-team': CareersJoinOurTeam;
-      'careers.careers-table': CareersCareersTable;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
+      'careers.join-our-team': CareersJoinOurTeam;
+      'careers.careers-table': CareersCareersTable;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
