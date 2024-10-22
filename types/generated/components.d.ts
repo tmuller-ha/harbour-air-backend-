@@ -362,34 +362,6 @@ export interface OurPromisesHaPromise extends Struct.ComponentSchema {
   };
 }
 
-export interface MobilityImages extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_images';
-  info: {
-    displayName: 'Images';
-    description: '';
-  };
-  attributes: {
-    images: Schema.Attribute.Media<'images' | 'videos', true>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-  };
-}
-
-export interface MobilityHeroSection extends Struct.ComponentSchema {
-  collectionName: 'components_mobility_hero_sections';
-  info: {
-    displayName: 'HeroSection';
-    description: '';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'videos'>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    heroSection: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      false
-    >;
-  };
-}
-
 export interface OurFaresFareHelperContent extends Struct.ComponentSchema {
   collectionName: 'components_our_fares_fare_helper_contents';
   info: {
@@ -431,6 +403,34 @@ export interface OurFaresFareDetailsContent extends Struct.ComponentSchema {
     comfortSuperScript: Schema.Attribute.String;
     flexSuperScript: Schema.Attribute.String;
     subLabel: Schema.Attribute.String;
+  };
+}
+
+export interface MobilityImages extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_images';
+  info: {
+    displayName: 'Images';
+    description: '';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images' | 'videos', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface MobilityHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_mobility_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'videos'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    heroSection: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
   };
 }
 
@@ -806,6 +806,7 @@ export interface InsideLocationAdditionalinfoDetails
           preset: 'toolbar';
         }
       >;
+    discColor: Schema.Attribute.Enumeration<['white', 'black']>;
   };
 }
 
@@ -1189,6 +1190,61 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
   };
 }
 
+export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_files';
+  info: {
+    displayName: 'Files';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceAccordionWithEditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_accordion_with_editors';
+  info: {
+    displayName: 'Accordion With Editor';
+    description: '';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
 export interface FaqQuestions extends Struct.ComponentSchema {
   collectionName: 'components_faq_questions';
   info: {
@@ -1254,75 +1310,6 @@ export interface FaqAccordionData extends Struct.ComponentSchema {
     faq_contents: Schema.Attribute.Relation<
       'oneToMany',
       'api::faq-content.faq-content'
-    >;
-  };
-}
-
-export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_files';
-  info: {
-    displayName: 'Files';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
-  };
-}
-
-export interface ExtraAssistanceCards extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_cards';
-  info: {
-    displayName: 'cards';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor
-  extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-    description: '';
-  };
-  attributes: {
-    accordion: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
     >;
   };
 }
@@ -1736,6 +1723,20 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -1980,11 +1981,11 @@ declare module '@strapi/strapi' {
       'our-promises.our-values': OurPromisesOurValues;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.ha-promise': OurPromisesHaPromise;
-      'mobility.images': MobilityImages;
-      'mobility.hero-section': MobilityHeroSection;
       'our-fares.fare-helper-content': OurFaresFareHelperContent;
       'our-fares.fare-details': OurFaresFareDetails;
       'our-fares.fare-details-content': OurFaresFareDetailsContent;
+      'mobility.images': MobilityImages;
+      'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
@@ -2031,16 +2032,15 @@ declare module '@strapi/strapi' {
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
+      'extra-assistance.files': ExtraAssistanceFiles;
+      'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
       'faq.accordion': FaqAccordion;
       'faq.accordion-data': FaqAccordionData;
-      'extra-assistance.files': ExtraAssistanceFiles;
-      'extra-assistance.cards': ExtraAssistanceCards;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -2065,6 +2065,7 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
