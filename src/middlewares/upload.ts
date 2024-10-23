@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs").promises;
-const fsSync = require("fs"); // Synchronous version for folder creation
 const webp = require("webp-converter");
 const Jimp = require("jimp");
 
@@ -13,15 +12,6 @@ module.exports = (config, { strapi }) => {
       console.log("context.request.files", context.request.files);
       webp.grant_permission();
 
-      // Create a temp folder in the base directory
-      const baseDir = process.cwd(); // Base directory
-      const tempDir = path.join(baseDir, "temp");
-
-      // Ensure the temp folder exists
-      if (!fsSync.existsSync(tempDir)) {
-        fsSync.mkdirSync(tempDir);
-      }
-
       // Function to convert images to WebP format
       const convertImageToWebP = async (file) => {
         if (
@@ -33,16 +23,24 @@ module.exports = (config, { strapi }) => {
               file.originalFilename,
               path.extname(file.originalFilename)
             )}.webp`;
-            const outputPath = path.join(tempDir, outputName); // Save in the temp folder
+            console.log("1.", file.filepath);
+            const outputPath = file.filepath + "1"; // Save in the temp folder
+            console.log("2.", outputPath);
             const image = await Jimp.read(file.filepath);
+            console.log("3. Image fetched");
             await image.quality(80).writeAsync(file.filepath);
+            console.log("4. Image rewrite");
 
             // Convert image to WebP format using webp-converter
             await webp.cwebp(file.filepath, outputPath, "-q 80");
+            console.log("5. Image converted");
 
             await fs.copyFile(outputPath, file.filepath);
+            console.log("6. Image copied");
+
             // Delete the converted WebP file from temp folder
             await fs.unlink(outputPath);
+            console.log("7. Removed temp path");
 
             // Update file properties
             const fileInfo = JSON.parse(context.request.body.fileInfo);
