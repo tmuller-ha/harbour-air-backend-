@@ -1,9 +1,7 @@
 const path = require("path");
 const fs = require("fs").promises;
-const os = require("os");
 const webp = require("webp-converter");
 const Jimp = require("jimp");
-import fse from "fs-extra";
 
 module.exports = (config, { strapi }) => {
   return async (context, next) => {
@@ -11,10 +9,9 @@ module.exports = (config, { strapi }) => {
       context.request.method === "POST" &&
       context.request.url.startsWith("/upload")
     ) {
-      const tempDir = await createTmpWorkingDirectory();
-
       console.log("context.request.files", context.request.files);
       webp.grant_permission();
+
       // Function to convert images to WebP format
       const convertImageToWebP = async (file) => {
         if (
@@ -27,26 +24,19 @@ module.exports = (config, { strapi }) => {
               path.extname(file.originalFilename)
             )}.webp`;
 
-            console.log("0.", tempDir);
-            const outputPath = path.join(tempDir, file.newFilename);
-            console.log("1.", outputPath);
+            console.log("1. Converting Image");
 
             const image = await Jimp.read(file.filepath);
-            console.log("2.", "Read Image");
+            console.log("2. Image Loaded");
 
+            // Adjust image quality using Jimp
             await image.quality(80).writeAsync(file.filepath);
-            console.log("3.", "Rewrite Image");
+            console.log("3. Image Quality Adjusted");
 
-            // Convert image to WebP format using webp-converter
+            // Convert image to WebP format using webp-converter, outputting to the same path
+            const outputPath = file.filepath;
             await webp.cwebp(file.filepath, outputPath, "-q 80");
-            console.log("4.", "Image Converted");
-
-            await fs.copyFile(outputPath, file.filepath);
-            console.log("5.", "Image Copied to existing path");
-
-            // Delete the original file
-            await fs.unlink(outputPath);
-            console.log("6.", "Removed temp image");
+            console.log("4. Image Converted to WebP");
 
             // Update file properties
             const fileInfo = JSON.parse(context.request.body.fileInfo);
@@ -62,6 +52,7 @@ module.exports = (config, { strapi }) => {
           }
         }
       };
+
       // Convert images and handle next middleware
       try {
         if (context.request.files && context.request.files.files) {
@@ -76,20 +67,9 @@ module.exports = (config, { strapi }) => {
       } catch (error) {
         console.error("Error processing upload", error);
         context.throw(500, "Error processing upload");
-      } finally {
-        await fse.remove(tempDir);
-        console.log("7.", "Removed temp dir");
       }
     } else {
       await next();
     }
   };
-};
-
-const createTmpWorkingDirectory = async (): Promise<string> => {
-  const tmpWorkingDirectory = await fse.mkdtemp(
-    path.join(os.tmpdir(), "ha-upload")
-  );
-
-  return tmpWorkingDirectory;
 };
