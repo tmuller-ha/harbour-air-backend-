@@ -17,7 +17,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "name",
+      "regex": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
     "heroBackgroundImage": {
       "type": "media",
