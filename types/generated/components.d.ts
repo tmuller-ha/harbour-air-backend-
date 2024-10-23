@@ -211,6 +211,34 @@ export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
   };
 }
 
+export interface OurStoryStory extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_stories';
+  info: {
+    displayName: 'Story';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    decade: Schema.Attribute.String;
+    details: Schema.Attribute.Component<'our-story.details', true>;
+  };
+}
+
+export interface OurStoryDetails extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_details';
+  info: {
+    displayName: 'details';
+    icon: 'earth';
+    description: '';
+  };
+  attributes: {
+    year: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
 export interface ParcelExpressShippingCost extends Struct.ComponentSchema {
   collectionName: 'components_parcel_express_shipping_costs';
   info: {
@@ -296,34 +324,6 @@ export interface ParcelExpressFaq extends Struct.ComponentSchema {
       'api::faq-content.faq-content'
     >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-  };
-}
-
-export interface OurStoryStory extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_stories';
-  info: {
-    displayName: 'Story';
-    icon: 'chartCircle';
-  };
-  attributes: {
-    decade: Schema.Attribute.String;
-    details: Schema.Attribute.Component<'our-story.details', true>;
-  };
-}
-
-export interface OurStoryDetails extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_details';
-  info: {
-    displayName: 'details';
-    icon: 'earth';
-    description: '';
-  };
-  attributes: {
-    year: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    color: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -1737,6 +1737,57 @@ export interface CommunityInvolvementCommunityTabs
   };
 }
 
+export interface CommonHelp extends Struct.ComponentSchema {
+  collectionName: 'components_common_helps';
+  info: {
+    displayName: 'Help';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+    type: Schema.Attribute.Enumeration<['description', 'button']> &
+      Schema.Attribute.DefaultTo<'description'>;
+    buttonName: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+  };
+}
+
+export interface CommonAccordian extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+    accordionDescription: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+    details: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    formIndex: Schema.Attribute.Integer;
+  };
+}
+
+export interface CommonAccordianDetails extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordian_details';
+  info: {
+    displayName: 'Accordian Details';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
+  };
+}
+
 export interface CharteredFlightsPagePricingTab extends Struct.ComponentSchema {
   collectionName: 'components_chartered_flights_page_pricing_tabs';
   info: {
@@ -1791,57 +1842,6 @@ export interface CharteredFlightsPageDestination
       'elements.accordion-with-ck-editor',
       true
     >;
-  };
-}
-
-export interface CommonHelp extends Struct.ComponentSchema {
-  collectionName: 'components_common_helps';
-  info: {
-    displayName: 'Help';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-    type: Schema.Attribute.Enumeration<['description', 'button']> &
-      Schema.Attribute.DefaultTo<'description'>;
-    buttonName: Schema.Attribute.String;
-    buttonUrl: Schema.Attribute.String;
-  };
-}
-
-export interface CommonAccordian extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordians';
-  info: {
-    displayName: 'Accordian';
-    icon: 'filter';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-    accordionDescription: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-    details: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    formIndex: Schema.Attribute.Integer;
-  };
-}
-
-export interface CommonAccordianDetails extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordian_details';
-  info: {
-    displayName: 'Accordian Details';
-    icon: 'bulletList';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
   };
 }
 
@@ -1971,13 +1971,13 @@ declare module '@strapi/strapi' {
       'seo.additional': SeoAdditional;
       'schedules.schedules': SchedulesSchedules;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
+      'our-story.story': OurStoryStory;
+      'our-story.details': OurStoryDetails;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.parcel-faq': ParcelExpressParcelFaq;
       'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
       'parcel-express.faq': ParcelExpressFaq;
-      'our-story.story': OurStoryStory;
-      'our-story.details': OurStoryDetails;
       'our-promises.our-values': OurPromisesOurValues;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.ha-promise': OurPromisesHaPromise;
@@ -2066,12 +2066,12 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
-      'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
-      'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
-      'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'common.help': CommonHelp;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
+      'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
+      'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
+      'chartered-flights-page.destination': CharteredFlightsPageDestination;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;

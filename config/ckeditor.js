@@ -32,7 +32,9 @@ const CKEConfig = () => ({
           
         }
 
-        .ck-dropdown__panel-visible {
+        .ck-dropdown__panel-visible .ck-list {
+            position: absolute !important;
+            bottom: 0 !important;
             height:200px !important;
             overflow-y: scroll !important;
           }
