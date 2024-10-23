@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "regex": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
     "components": {
       "type": "dynamiczone",
