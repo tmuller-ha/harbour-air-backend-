@@ -211,6 +211,34 @@ export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
   };
 }
 
+export interface OurStoryStory extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_stories';
+  info: {
+    displayName: 'Story';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    decade: Schema.Attribute.String;
+    details: Schema.Attribute.Component<'our-story.details', true>;
+  };
+}
+
+export interface OurStoryDetails extends Struct.ComponentSchema {
+  collectionName: 'components_our_story_details';
+  info: {
+    displayName: 'details';
+    icon: 'earth';
+    description: '';
+  };
+  attributes: {
+    year: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+  };
+}
+
 export interface ParcelExpressShippingCost extends Struct.ComponentSchema {
   collectionName: 'components_parcel_express_shipping_costs';
   info: {
@@ -296,34 +324,6 @@ export interface ParcelExpressFaq extends Struct.ComponentSchema {
       'api::faq-content.faq-content'
     >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-  };
-}
-
-export interface OurStoryStory extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_stories';
-  info: {
-    displayName: 'Story';
-    icon: 'chartCircle';
-  };
-  attributes: {
-    decade: Schema.Attribute.String;
-    details: Schema.Attribute.Component<'our-story.details', true>;
-  };
-}
-
-export interface OurStoryDetails extends Struct.ComponentSchema {
-  collectionName: 'components_our_story_details';
-  info: {
-    displayName: 'details';
-    icon: 'earth';
-    description: '';
-  };
-  attributes: {
-    year: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    color: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
 
@@ -1190,61 +1190,6 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
   };
 }
 
-export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_files';
-  info: {
-    displayName: 'Files';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
-  };
-}
-
-export interface ExtraAssistanceCards extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_cards';
-  info: {
-    displayName: 'cards';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor
-  extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-    description: '';
-  };
-  attributes: {
-    accordion: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface FaqQuestions extends Struct.ComponentSchema {
   collectionName: 'components_faq_questions';
   info: {
@@ -1311,6 +1256,61 @@ export interface FaqAccordionData extends Struct.ComponentSchema {
       'oneToMany',
       'api::faq-content.faq-content'
     >;
+  };
+}
+
+export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_files';
+  info: {
+    displayName: 'Files';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceAccordionWithEditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_accordion_with_editors';
+  info: {
+    displayName: 'Accordion With Editor';
+    description: '';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -1971,13 +1971,13 @@ declare module '@strapi/strapi' {
       'seo.additional': SeoAdditional;
       'schedules.schedules': SchedulesSchedules;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
+      'our-story.story': OurStoryStory;
+      'our-story.details': OurStoryDetails;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.parcel-faq': ParcelExpressParcelFaq;
       'parcel-express.how-to-accordion': ParcelExpressHowToAccordion;
       'parcel-express.faq': ParcelExpressFaq;
-      'our-story.story': OurStoryStory;
-      'our-story.details': OurStoryDetails;
       'our-promises.our-values': OurPromisesOurValues;
       'our-promises.mission-and-vision': OurPromisesMissionAndVision;
       'our-promises.ha-promise': OurPromisesHaPromise;
@@ -2032,15 +2032,15 @@ declare module '@strapi/strapi' {
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
-      'extra-assistance.files': ExtraAssistanceFiles;
-      'extra-assistance.cards': ExtraAssistanceCards;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
       'faq.accordion': FaqAccordion;
       'faq.accordion-data': FaqAccordionData;
+      'extra-assistance.files': ExtraAssistanceFiles;
+      'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
