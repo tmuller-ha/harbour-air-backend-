@@ -29,7 +29,13 @@ const CKEConfig = () => ({
               stroke: #7b79ff !important;
             }
           }
+          
         }
+
+        .ck-dropdown__panel-visible {
+            height:200px !important;
+            overflow-y: scroll !important;
+          }
   
         .ck {
           --ck-scroll-track-background: #3d3d57;

@@ -1190,61 +1190,6 @@ export interface FooterBottomContent extends Struct.ComponentSchema {
   };
 }
 
-export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_files';
-  info: {
-    displayName: 'Files';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
-  };
-}
-
-export interface ExtraAssistanceCards extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_cards';
-  info: {
-    displayName: 'cards';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'videos'>;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_assistances';
-  info: {
-    displayName: 'assistance';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
-  };
-}
-
-export interface ExtraAssistanceAccordionWithEditor
-  extends Struct.ComponentSchema {
-  collectionName: 'components_extra_assistance_accordion_with_editors';
-  info: {
-    displayName: 'Accordion With Editor';
-    description: '';
-  };
-  attributes: {
-    accordion: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface FaqQuestions extends Struct.ComponentSchema {
   collectionName: 'components_faq_questions';
   info: {
@@ -1311,6 +1256,61 @@ export interface FaqAccordionData extends Struct.ComponentSchema {
       'oneToMany',
       'api::faq-content.faq-content'
     >;
+  };
+}
+
+export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_files';
+  info: {
+    displayName: 'Files';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+  };
+}
+
+export interface ExtraAssistanceCards extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_cards';
+  info: {
+    displayName: 'cards';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface ExtraAssistanceAssistance extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_assistances';
+  info: {
+    displayName: 'assistance';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    assistanceCard: Schema.Attribute.Component<'extra-assistance.cards', true>;
+  };
+}
+
+export interface ExtraAssistanceAccordionWithEditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_extra_assistance_accordion_with_editors';
+  info: {
+    displayName: 'Accordion With Editor';
+    description: '';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -1737,57 +1737,6 @@ export interface CommunityInvolvementCommunityTabs
   };
 }
 
-export interface CommonHelp extends Struct.ComponentSchema {
-  collectionName: 'components_common_helps';
-  info: {
-    displayName: 'Help';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-    type: Schema.Attribute.Enumeration<['description', 'button']> &
-      Schema.Attribute.DefaultTo<'description'>;
-    buttonName: Schema.Attribute.String;
-    buttonUrl: Schema.Attribute.String;
-  };
-}
-
-export interface CommonAccordian extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordians';
-  info: {
-    displayName: 'Accordian';
-    icon: 'filter';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-    accordionDescription: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-    details: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    formIndex: Schema.Attribute.Integer;
-  };
-}
-
-export interface CommonAccordianDetails extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordian_details';
-  info: {
-    displayName: 'Accordian Details';
-    icon: 'bulletList';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
-  };
-}
-
 export interface CharteredFlightsPagePricingTab extends Struct.ComponentSchema {
   collectionName: 'components_chartered_flights_page_pricing_tabs';
   info: {
@@ -1842,6 +1791,57 @@ export interface CharteredFlightsPageDestination
       'elements.accordion-with-ck-editor',
       true
     >;
+  };
+}
+
+export interface CommonHelp extends Struct.ComponentSchema {
+  collectionName: 'components_common_helps';
+  info: {
+    displayName: 'Help';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+    type: Schema.Attribute.Enumeration<['description', 'button']> &
+      Schema.Attribute.DefaultTo<'description'>;
+    buttonName: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+  };
+}
+
+export interface CommonAccordian extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+    accordionDescription: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+    details: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    formIndex: Schema.Attribute.Integer;
+  };
+}
+
+export interface CommonAccordianDetails extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordian_details';
+  info: {
+    displayName: 'Accordian Details';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
   };
 }
 
@@ -2032,15 +2032,15 @@ declare module '@strapi/strapi' {
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-links': FooterFooterLinks;
       'footer.bottom-content': FooterBottomContent;
-      'extra-assistance.files': ExtraAssistanceFiles;
-      'extra-assistance.cards': ExtraAssistanceCards;
-      'extra-assistance.assistance': ExtraAssistanceAssistance;
-      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'faq.questions': FaqQuestions;
       'faq.know-before': FaqKnowBefore;
       'faq.button-with-boolean': FaqButtonWithBoolean;
       'faq.accordion': FaqAccordion;
       'faq.accordion-data': FaqAccordionData;
+      'extra-assistance.files': ExtraAssistanceFiles;
+      'extra-assistance.cards': ExtraAssistanceCards;
+      'extra-assistance.assistance': ExtraAssistanceAssistance;
+      'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'elements.trip-advisor': ElementsTripAdvisor;
       'elements.tour-card': ElementsTourCard;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
@@ -2066,12 +2066,12 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
-      'common.help': CommonHelp;
-      'common.accordian': CommonAccordian;
-      'common.accordian-details': CommonAccordianDetails;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'common.help': CommonHelp;
+      'common.accordian': CommonAccordian;
+      'common.accordian-details': CommonAccordianDetails;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
