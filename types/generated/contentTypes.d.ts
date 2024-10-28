@@ -572,13 +572,14 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
   };
   attributes: {
     slug: Schema.Attribute.UID;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     components: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-image',
         'common.help',
         'extra-assistance.files',
-        'extra-assistance.accordion-with-editor',
         'elements.title-with-ck-editor',
+        'extra-assistance.accordion-with-editor',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -724,6 +725,7 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::category.category'
     >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2276,6 +2278,7 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     section: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-image',
@@ -2378,6 +2381,7 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
     singularName: 'news-list';
     pluralName: 'news-lists';
     displayName: 'News List';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2388,6 +2392,7 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::category.category'
     >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -21,6 +21,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
