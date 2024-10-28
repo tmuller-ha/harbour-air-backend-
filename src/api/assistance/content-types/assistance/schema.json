@@ -16,14 +16,19 @@
       "type": "uid",
       "regex": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
     "components": {
       "type": "dynamiczone",
       "components": [
         "elements.title-with-image",
         "common.help",
         "extra-assistance.files",
-        "extra-assistance.accordion-with-editor",
-        "elements.title-with-ck-editor"
+        "elements.title-with-ck-editor",
+        "extra-assistance.accordion-with-editor"
       ]
     }
   }

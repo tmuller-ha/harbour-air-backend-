@@ -35,7 +35,7 @@
     },
     "twitterCardImage": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images"
@@ -52,6 +52,32 @@
       "type": "component",
       "repeatable": true,
       "component": "seo.additional"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "article",
+        "book",
+        "website"
+      ],
+      "default": "website"
+    },
+    "twitterCard": {
+      "type": "enumeration",
+      "enum": [
+        "summary_large_image",
+        "summary",
+        "app",
+        "player"
+      ],
+      "default": "summary_large_image"
+    },
+    "siteName": {
+      "type": "string",
+      "default": "Harbour Air Seapplanes"
+    },
+    "robots": {
+      "type": "string"
     }
   }
 }

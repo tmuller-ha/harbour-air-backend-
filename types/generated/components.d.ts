@@ -140,10 +140,19 @@ export interface SeoSeo extends Struct.ComponentSchema {
     openGraphImage: Schema.Attribute.Media<'images'>;
     openGraphTitle: Schema.Attribute.String;
     openGraphDescription: Schema.Attribute.Text;
-    twitterCardImage: Schema.Attribute.Media<'images'>;
+    twitterCardImage: Schema.Attribute.Media<'images', true>;
     twitterCardTitle: Schema.Attribute.String;
     twitterCardDescription: Schema.Attribute.Text;
     additional: Schema.Attribute.Component<'seo.additional', true>;
+    type: Schema.Attribute.Enumeration<['article', 'book', 'website']> &
+      Schema.Attribute.DefaultTo<'website'>;
+    twitterCard: Schema.Attribute.Enumeration<
+      ['summary_large_image', 'summary', 'app', 'player']
+    > &
+      Schema.Attribute.DefaultTo<'summary_large_image'>;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Harbour Air Seapplanes'>;
+    robots: Schema.Attribute.String;
   };
 }
 
@@ -163,10 +172,11 @@ export interface SeoAdditional extends Struct.ComponentSchema {
   collectionName: 'components_seo_additionals';
   info: {
     displayName: 'additional';
+    description: '';
   };
   attributes: {
-    key: Schema.Attribute.String;
-    value: Schema.Attribute.String;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

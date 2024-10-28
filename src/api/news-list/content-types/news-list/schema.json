@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-list",
     "pluralName": "news-lists",
-    "displayName": "News List"
+    "displayName": "News List",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
