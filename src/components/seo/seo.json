@@ -65,7 +65,10 @@
     "twitterCard": {
       "type": "enumeration",
       "enum": [
-        "summary_large_image"
+        "summary_large_image",
+        "summary",
+        "app",
+        "player"
       ],
       "default": "summary_large_image"
     },
