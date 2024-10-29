@@ -40,6 +40,61 @@ export interface ToursFareDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface SeoSeo extends Struct.ComponentSchema {
+  collectionName: 'components_seo_seos';
+  info: {
+    displayName: 'SEO';
+    icon: 'search';
+    description: '';
+  };
+  attributes: {
+    metaKeyword: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.String;
+    canonicalUrl: Schema.Attribute.String;
+    openGraphImage: Schema.Attribute.Media<'images'>;
+    openGraphTitle: Schema.Attribute.String;
+    openGraphDescription: Schema.Attribute.Text;
+    twitterCardImage: Schema.Attribute.Media<'images'>;
+    twitterCardTitle: Schema.Attribute.String;
+    twitterCardDescription: Schema.Attribute.Text;
+    additional: Schema.Attribute.Component<'seo.additional', true>;
+    type: Schema.Attribute.Enumeration<['article', 'book', 'website']> &
+      Schema.Attribute.DefaultTo<'website'>;
+    twitterCard: Schema.Attribute.Enumeration<
+      ['summary_large_image', 'summary', 'app', 'player']
+    > &
+      Schema.Attribute.DefaultTo<'summary_large_image'>;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Harbour Air Seapplanes'>;
+    robots: Schema.Attribute.String;
+  };
+}
+
+export interface SeoAnalytics extends Struct.ComponentSchema {
+  collectionName: 'components_seo_analytics';
+  info: {
+    displayName: 'Analytics';
+  };
+  attributes: {
+    googleAnalyticsTrackingId: Schema.Attribute.String;
+    googleTagManagerId: Schema.Attribute.String;
+    hotjarSiteId: Schema.Attribute.String;
+  };
+}
+
+export interface SeoAdditional extends Struct.ComponentSchema {
+  collectionName: 'components_seo_additionals';
+  info: {
+    displayName: 'additional';
+    description: '';
+  };
+  attributes: {
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_travel_tabs';
   info: {
@@ -122,51 +177,6 @@ export interface StandbyTravelCriteria extends Struct.ComponentSchema {
   attributes: {
     eligibilityCriteria: Schema.Attribute.String & Schema.Attribute.Required;
     reference: Schema.Attribute.Text & Schema.Attribute.Required;
-  };
-}
-
-export interface SeoSeo extends Struct.ComponentSchema {
-  collectionName: 'components_seo_seos';
-  info: {
-    displayName: 'SEO';
-    icon: 'search';
-    description: '';
-  };
-  attributes: {
-    metaKeyword: Schema.Attribute.String;
-    metaTitle: Schema.Attribute.String;
-    metaDescription: Schema.Attribute.String;
-    canonicalUrl: Schema.Attribute.String;
-    openGraphImage: Schema.Attribute.Media<'images'>;
-    openGraphTitle: Schema.Attribute.String;
-    openGraphDescription: Schema.Attribute.Text;
-    twitterCardImage: Schema.Attribute.Media<'images'>;
-    twitterCardTitle: Schema.Attribute.String;
-    twitterCardDescription: Schema.Attribute.Text;
-    additional: Schema.Attribute.Component<'seo.additional', true>;
-  };
-}
-
-export interface SeoAnalytics extends Struct.ComponentSchema {
-  collectionName: 'components_seo_analytics';
-  info: {
-    displayName: 'Analytics';
-  };
-  attributes: {
-    googleAnalyticsTrackingId: Schema.Attribute.String;
-    googleTagManagerId: Schema.Attribute.String;
-    hotjarSiteId: Schema.Attribute.String;
-  };
-}
-
-export interface SeoAdditional extends Struct.ComponentSchema {
-  collectionName: 'components_seo_additionals';
-  info: {
-    displayName: 'additional';
-  };
-  attributes: {
-    key: Schema.Attribute.String;
-    value: Schema.Attribute.String;
   };
 }
 
@@ -447,6 +457,21 @@ export interface MetaDataMetaData extends Struct.ComponentSchema {
   };
 }
 
+export interface MainLocationLocations extends Struct.ComponentSchema {
+  collectionName: 'components_main_location_locations';
+  info: {
+    displayName: 'locations';
+    description: '';
+  };
+  attributes: {
+    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
+    pageTitle: Schema.Attribute.Component<
+      'elements.title-with-media-and-button',
+      false
+    >;
+  };
+}
+
 export interface MainToursTourCards extends Struct.ComponentSchema {
   collectionName: 'components_main_tours_tour_cards';
   info: {
@@ -488,21 +513,6 @@ export interface MainToursFareSection extends Struct.ComponentSchema {
       'oneToMany',
       'api::tour-location.tour-location'
     >;
-    pageTitle: Schema.Attribute.Component<
-      'elements.title-with-media-and-button',
-      false
-    >;
-  };
-}
-
-export interface MainLocationLocations extends Struct.ComponentSchema {
-  collectionName: 'components_main_location_locations';
-  info: {
-    displayName: 'locations';
-    description: '';
-  };
-  attributes: {
-    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
     pageTitle: Schema.Attribute.Component<
       'elements.title-with-media-and-button',
       false
@@ -1060,29 +1070,6 @@ export interface GoingElectricGoingElectringInquires
   };
 }
 
-export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
-  collectionName: 'components_further_questions_contact_forms';
-  info: {
-    displayName: 'Contact Form';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    emailOptions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::email-option.email-option'
-    >;
-  };
-}
-
 export interface FormEmailForm extends Struct.ComponentSchema {
   collectionName: 'components_form_email_forms';
   info: {
@@ -1112,6 +1099,29 @@ export interface FormCarServiceHireForm extends Struct.ComponentSchema {
       >;
     emailOption: Schema.Attribute.Relation<
       'oneToOne',
+      'api::email-option.email-option'
+    >;
+  };
+}
+
+export interface FurtherQuestionsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_further_questions_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    emailOptions: Schema.Attribute.Relation<
+      'oneToMany',
       'api::email-option.email-option'
     >;
   };
@@ -1337,9 +1347,9 @@ export interface ElementsTourCard extends Struct.ComponentSchema {
   };
   attributes: {
     name: Schema.Attribute.String;
-    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     shortDescription: Schema.Attribute.String;
     learnMoreBtnText: Schema.Attribute.String;
+    tileImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -1722,71 +1732,6 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
   };
 }
 
-export interface CommunityInvolvementCommunityTabs
-  extends Struct.ComponentSchema {
-  collectionName: 'components_community_involvement_community_tabs';
-  info: {
-    displayName: 'Community Tabs';
-  };
-  attributes: {
-    communityTabs: Schema.Attribute.Component<
-      'elements.title-with-desc-and-image',
-      true
-    >;
-  };
-}
-
-export interface CommonHelp extends Struct.ComponentSchema {
-  collectionName: 'components_common_helps';
-  info: {
-    displayName: 'Help';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    show: Schema.Attribute.Boolean;
-    type: Schema.Attribute.Enumeration<['description', 'button']> &
-      Schema.Attribute.DefaultTo<'description'>;
-    buttonName: Schema.Attribute.String;
-    buttonUrl: Schema.Attribute.String;
-  };
-}
-
-export interface CommonAccordian extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordians';
-  info: {
-    displayName: 'Accordian';
-    icon: 'filter';
-    description: '';
-  };
-  attributes: {
-    show: Schema.Attribute.Boolean;
-    infoText: Schema.Attribute.Blocks;
-    accordionDescription: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    >;
-    details: Schema.Attribute.Component<
-      'elements.accordion-with-ck-editor',
-      true
-    >;
-    formIndex: Schema.Attribute.Integer;
-  };
-}
-
-export interface CommonAccordianDetails extends Struct.ComponentSchema {
-  collectionName: 'components_common_accordian_details';
-  info: {
-    displayName: 'Accordian Details';
-    icon: 'bulletList';
-  };
-  attributes: {
-    label: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
-  };
-}
-
 export interface CharteredFlightsPagePricingTab extends Struct.ComponentSchema {
   collectionName: 'components_chartered_flights_page_pricing_tabs';
   info: {
@@ -1844,6 +1789,20 @@ export interface CharteredFlightsPageDestination
   };
 }
 
+export interface CommunityInvolvementCommunityTabs
+  extends Struct.ComponentSchema {
+  collectionName: 'components_community_involvement_community_tabs';
+  info: {
+    displayName: 'Community Tabs';
+  };
+  attributes: {
+    communityTabs: Schema.Attribute.Component<
+      'elements.title-with-desc-and-image',
+      true
+    >;
+  };
+}
+
 export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
@@ -1891,18 +1850,54 @@ export interface CareersCareersTable extends Struct.ComponentSchema {
   };
 }
 
-export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
-  collectionName: 'components_canadian_passenger_rights_tariffs';
+export interface CommonHelp extends Struct.ComponentSchema {
+  collectionName: 'components_common_helps';
   info: {
-    displayName: 'Tariffs';
+    displayName: 'Help';
+    description: '';
   };
   attributes: {
-    tariffsInfo: Schema.Attribute.Component<
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    show: Schema.Attribute.Boolean;
+    type: Schema.Attribute.Enumeration<['description', 'button']> &
+      Schema.Attribute.DefaultTo<'description'>;
+    buttonName: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+  };
+}
+
+export interface CommonAccordian extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordians';
+  info: {
+    displayName: 'Accordian';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    infoText: Schema.Attribute.Blocks;
+    accordionDescription: Schema.Attribute.Component<
       'elements.title-with-description',
       false
-    > &
-      Schema.Attribute.Required;
-    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
+    >;
+    details: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    formIndex: Schema.Attribute.Integer;
+  };
+}
+
+export interface CommonAccordianDetails extends Struct.ComponentSchema {
+  collectionName: 'components_common_accordian_details';
+  info: {
+    displayName: 'Accordian Details';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
   };
 }
 
@@ -1935,6 +1930,21 @@ export interface AircraftFleetAircraftFleetTabs extends Struct.ComponentSchema {
   };
 }
 
+export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    > &
+      Schema.Attribute.Required;
+    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
+  };
+}
+
 export interface AboutUsAboutUsTurbo extends Struct.ComponentSchema {
   collectionName: 'components_about_us_about_us_turbos';
   info: {
@@ -1958,6 +1968,9 @@ declare module '@strapi/strapi' {
       'tours.hero-description': ToursHeroDescription;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.fare-details': ToursFareDetails;
+      'seo.seo': SeoSeo;
+      'seo.analytics': SeoAnalytics;
+      'seo.additional': SeoAdditional;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
@@ -1965,9 +1978,6 @@ declare module '@strapi/strapi' {
       'standby-travel.how-to-fly-section': StandbyTravelHowToFlySection;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
       'standby-travel.criteria': StandbyTravelCriteria;
-      'seo.seo': SeoSeo;
-      'seo.analytics': SeoAnalytics;
-      'seo.additional': SeoAdditional;
       'schedules.schedules': SchedulesSchedules;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
@@ -1986,10 +1996,10 @@ declare module '@strapi/strapi' {
       'mobility.images': MobilityImages;
       'mobility.hero-section': MobilityHeroSection;
       'meta-data.meta-data': MetaDataMetaData;
+      'main-location.locations': MainLocationLocations;
       'main-tours.tour-cards': MainToursTourCards;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.fare-section': MainToursFareSection;
-      'main-location.locations': MainLocationLocations;
       'main-deals.deals': MainDealsDeals;
       'main-deals.campaign-section': MainDealsCampaignSection;
       'luggage.travelling-with-excess-luggage': LuggageTravellingWithExcessLuggage;
@@ -2022,9 +2032,9 @@ declare module '@strapi/strapi' {
       'going-electric.specifications': GoingElectricSpecifications;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
-      'further-questions.contact-form': FurtherQuestionsContactForm;
       'form.email-form': FormEmailForm;
       'form.car-service-hire-form': FormCarServiceHireForm;
+      'further-questions.contact-form': FurtherQuestionsContactForm;
       'footer.link': FooterLink;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.footer-logos': FooterFooterLogos;
@@ -2064,19 +2074,19 @@ declare module '@strapi/strapi' {
       'elements.button': ElementsButton;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
-      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
-      'common.help': CommonHelp;
-      'common.accordian': CommonAccordian;
-      'common.accordian-details': CommonAccordianDetails;
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
+      'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
-      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
+      'common.help': CommonHelp;
+      'common.accordian': CommonAccordian;
+      'common.accordian-details': CommonAccordianDetails;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
     }
   }
