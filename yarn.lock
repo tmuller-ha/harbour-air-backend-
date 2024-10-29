@@ -5049,7 +5049,7 @@
     yup "0.32.9"
     zod "^3.22.4"
 
-"@strapi/utils@^5.1.0":
+"@strapi/utils@^5.1.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-5.1.1.tgz#cc9ca6f67dde7eafd0c9baffb631bf71bcbb4ab8"
   integrity sha512-w12aOwWZnIbueVVMUc6iq5+Ybc0Ili35tOmJKcl0lH3FkmQRSCqeeEapnswyn/QJ0w8cMGoUCFlRdnalc3p+vw==
@@ -12068,7 +12068,7 @@ react-intl@6.6.2:
     intl-messageformat "10.5.11"
     tslib "^2.4.0"
 
-react-intl@^6.8.0:
+react-intl@^6.8.4:
   version "6.8.4"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.8.4.tgz#e39b6a71bbce5db90460abba4869c9f58b38fc1e"
   integrity sha512-UKYrCIztyvSiZCpvHjDwAHlXT735fDioABVP+uhRAOhDSBS9NQ2vVbxiUikvVEBdr2b0cTe1tUfOfvhbmSPi/A==
@@ -13219,17 +13219,17 @@ statuses@2.0.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
-strapi-plugin-strapi-algolia@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/strapi-plugin-strapi-algolia/-/strapi-plugin-strapi-algolia-2.0.0.tgz#256aaf861534ace744ab5e4a8a79c03b42d841e0"
-  integrity sha512-9zUq9q7hMFX2fFiGl37q9G/q2ZG7jGCxa3WrryVJb0tu7JCuevAyGH++N+xpadYGlj6k2nnTlP1VmrYBEVnFFQ==
+strapi-plugin-strapi-algolia@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-strapi-algolia/-/strapi-plugin-strapi-algolia-2.0.1.tgz#0d538648884a69c2c99c1b92bba39db7f665633c"
+  integrity sha512-WvPbvxEGt0rZI/ZVh5/VPXb1SRfsyOPI6I0jYIy0XhO9o2TrEa6FhE+y+a7TkmW9LHzzFJtW1lamHIZS4YXEMQ==
   dependencies:
     "@strapi/design-system" "^2.0.0-rc.11"
     "@strapi/icons" "^2.0.0-rc.11"
-    "@strapi/utils" "^5.1.0"
+    "@strapi/utils" "^5.1.1"
     algoliasearch "5.8.1"
     deep-reduce "^1.0.5"
-    react-intl "^6.8.0"
+    react-intl "^6.8.4"
 
 stream-browserify@3.0.0:
   version "3.0.0"

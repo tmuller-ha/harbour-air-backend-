@@ -68,8 +68,10 @@ export default ({ env }) => ({
     config: {
       apiKey: env("ALGOLIA_ADMIN_KEY"),
       applicationId: env("ALGOLIA_APP_ID"),
-      contentTypes: [{ name: "api::assistance.assistance" }],
+      contentTypes: [
+        { name: "api::assistance.assistance" },
+        { name: "api::base-page.base-page" },
+      ],
     },
   },
 });
-  

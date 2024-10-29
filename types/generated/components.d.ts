@@ -1844,21 +1844,6 @@ export interface CharteredFlightsPageDestination
   };
 }
 
-export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
-  collectionName: 'components_canadian_passenger_rights_tariffs';
-  info: {
-    displayName: 'Tariffs';
-  };
-  attributes: {
-    tariffsInfo: Schema.Attribute.Component<
-      'elements.title-with-description',
-      false
-    > &
-      Schema.Attribute.Required;
-    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
-  };
-}
-
 export interface CareersTabWithYoutubeLink extends Struct.ComponentSchema {
   collectionName: 'components_careers_tab_with_youtube_links';
   info: {
@@ -1903,6 +1888,21 @@ export interface CareersCareersTable extends Struct.ComponentSchema {
       'oneToMany',
       'api::career-opportunity.career-opportunity'
     >;
+  };
+}
+
+export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
+  collectionName: 'components_canadian_passenger_rights_tariffs';
+  info: {
+    displayName: 'Tariffs';
+  };
+  attributes: {
+    tariffsInfo: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    > &
+      Schema.Attribute.Required;
+    tariffsFiles: Schema.Attribute.Component<'elements.pdf-links', true>;
   };
 }
 
@@ -2071,10 +2071,10 @@ declare module '@strapi/strapi' {
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'chartered-flights-page.fleet-tab': CharteredFlightsPageFleetTab;
       'chartered-flights-page.destination': CharteredFlightsPageDestination;
-      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.careers-table': CareersCareersTable;
+      'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
