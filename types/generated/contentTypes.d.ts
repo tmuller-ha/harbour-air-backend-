@@ -1978,6 +1978,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     mobileImagePosition: Schema.Attribute.Enumeration<
       ['left', 'right', 'center']
     >;
+    tileImage: Schema.Attribute.Media<'images' | 'files'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

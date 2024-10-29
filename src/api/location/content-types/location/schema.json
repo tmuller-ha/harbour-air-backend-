@@ -115,6 +115,15 @@
         "right",
         "center"
       ]
+    },
+    "tileImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
     }
   }
 }
