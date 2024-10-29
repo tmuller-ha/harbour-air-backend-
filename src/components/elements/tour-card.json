@@ -10,22 +10,19 @@
     "name": {
       "type": "string"
     },
-    "heroImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "shortDescription": {
       "type": "string"
     },
     "learnMoreBtnText": {
       "type": "string"
+    },
+    "tileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
