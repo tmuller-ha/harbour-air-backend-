@@ -23,6 +23,10 @@
       "relation": "manyToOne",
       "target": "api::destination.destination",
       "inversedBy": "routesArrivals"
+    },
+    "title": {
+      "type": "string",
+      "default": "Arrival - Departure"
     }
   }
 }
