@@ -983,9 +983,9 @@ export interface ApiCareerOpportunityCareerOpportunity
   };
   attributes: {
     position: Schema.Attribute.String;
-    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
     applicationDeadline: Schema.Attribute.Date;
     careerDescription: Schema.Attribute.Media<'files'>;
+    location: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
