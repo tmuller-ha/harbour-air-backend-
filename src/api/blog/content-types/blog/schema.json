@@ -52,6 +52,13 @@
     },
     "postedDate": {
       "type": "date"
+    },
+    "bannerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
