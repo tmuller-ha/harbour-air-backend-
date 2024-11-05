@@ -1603,6 +1603,31 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heroImageOpacity: Schema.Attribute.Enumeration<
+      [
+        'opacity-0',
+        'opacity-5',
+        'opacity-10',
+        'opacity-15',
+        'opacity-20',
+        'opacity-25',
+        'opacity-30',
+        'opacity-35',
+        'opacity-40',
+        'opacity-45',
+        'opacity-50',
+        'opacity-55',
+        'opacity-60',
+        'opacity-65',
+        'opacity-70',
+        'opacity-75',
+        'opacity-80',
+        'opacity-85',
+        'opacity-90',
+        'opacity-95',
+        'opacity-100',
+      ]
+    >;
     infoSection: Schema.Attribute.Component<
       'elements.harbour-air-services',
       true
@@ -1618,6 +1643,9 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    mobileImagePosition: Schema.Attribute.Enumeration<
+      ['left', 'center', 'right']
+    >;
     pageAbout: Schema.Attribute.Component<
       'elements.title-with-desc-and-image',
       false
