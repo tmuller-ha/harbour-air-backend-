@@ -47,11 +47,6 @@
       "repeatable": false,
       "component": "meta-data.meta-data"
     },
-    "country": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::country.country"
-    },
     "opacity": {
       "type": "enumeration",
       "enum": [
@@ -93,6 +88,12 @@
         "tours.featured-tours",
         "main-tours.tour-cards"
       ]
+    },
+    "departureLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::destination.destination",
+      "inversedBy": "tourDepartures"
     }
   }
 }
