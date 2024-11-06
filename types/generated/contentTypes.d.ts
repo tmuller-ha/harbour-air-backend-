@@ -2990,6 +2990,7 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
     locationImage: Schema.Attribute.Media<'images'>;
     makeitPrivateBtnSlug: Schema.Attribute.String;
     makeitPrivateBtnText: Schema.Attribute.String;
+    microsoftFormUrl: Schema.Attribute.String;
     overviewDescription: Schema.Attribute.Blocks;
     overviewTitle: Schema.Attribute.String;
     person: Schema.Attribute.String;

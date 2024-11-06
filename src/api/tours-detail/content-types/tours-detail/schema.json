@@ -78,6 +78,9 @@
     },
     "makeitPrivateBtnSlug": {
       "type": "string"
+    },
+    "microsoftFormUrl": {
+      "type": "string"
     }
   }
 }
