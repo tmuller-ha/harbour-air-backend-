@@ -696,6 +696,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     readingTime: Schema.Attribute.String;
     postedDate: Schema.Attribute.Date;
+    bannerImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -720,12 +721,12 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    latestBlog: Schema.Attribute.Relation<'oneToOne', 'api::blog.blog'>;
     categories: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -753,7 +754,6 @@ export interface ApiBlogsAndNewBlogsAndNew extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    breakingNews: Schema.Attribute.Relation<'oneToOne', 'api::news.news'>;
     latestNews: Schema.Attribute.Relation<'oneToMany', 'api::news.news'>;
     latestBlogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     blogsCoverImage: Schema.Attribute.Media<'images'>;
@@ -761,6 +761,7 @@ export interface ApiBlogsAndNewBlogsAndNew extends Struct.SingleTypeSchema {
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     latestNewsTitle: Schema.Attribute.String & Schema.Attribute.Required;
     latestBlogsTitle: Schema.Attribute.String;
+    pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -2393,6 +2394,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     readingTime: Schema.Attribute.String;
     postedDate: Schema.Attribute.Date;
+    bannerImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
