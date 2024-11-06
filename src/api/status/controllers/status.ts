@@ -1,12 +1,12 @@
-module.exports = ({ env }) => ({
+module.exports = {
   async getStatus(ctx) {
     const body = ctx.request.body;
 
     // Modify the payload as needed
-    body["key"] = env("BLUESKY_BOOKING_SCHEDULES_ID");
+    body["key"] = process.env.BLUESKY_BOOKING_SCHEDULES_ID;
 
     try {
-      const response = await fetch(env("BLUESKY_BOOKING_SCHEDULES_API"), {
+      const response = await fetch(process.env.BLUESKY_BOOKING_SCHEDULES_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -22,4 +22,4 @@ module.exports = ({ env }) => ({
       ctx.throw(500, `Error in fetch request: ${error.message}`);
     }
   },
-});
+};
