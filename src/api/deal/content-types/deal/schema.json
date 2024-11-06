@@ -69,13 +69,13 @@
     "departureLocation": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::destination.destination",
-      "inversedBy": "dealsDeparture"
+      "target": "api::country.country",
+      "inversedBy": "dealsDepartures"
     },
     "arrivalLocation": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::destination.destination",
+      "target": "api::country.country",
       "inversedBy": "dealsArrivals"
     }
   }
