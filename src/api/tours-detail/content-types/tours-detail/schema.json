@@ -78,6 +78,21 @@
     },
     "makeitPrivateBtnSlug": {
       "type": "string"
+    },
+    "departureLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::destination.destination",
+      "inversedBy": "toursDetailsDeparture"
+    },
+    "arrivalLocation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::destination.destination",
+      "inversedBy": "toursDetailsArrivals"
+    },
+    "segmentId": {
+      "type": "string"
     }
   }
 }
