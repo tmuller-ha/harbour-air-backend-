@@ -2658,7 +2658,7 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   };
   attributes: {
     bookPrivateTour: Schema.Attribute.Component<
-      'elements.title-with-desc-and-multi-media',
+      'private-tours.book-private-tour',
       false
     >;
     createdAt: Schema.Attribute.DateTime;
