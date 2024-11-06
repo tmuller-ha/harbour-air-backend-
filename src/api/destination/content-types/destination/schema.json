@@ -76,36 +76,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "dealsDeparture": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::deal.deal",
-      "mappedBy": "departureLocation"
-    },
-    "dealsArrivals": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::deal.deal",
-      "mappedBy": "arrivalLocation"
-    },
-    "tourDepartures": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tour-location.tour-location",
-      "mappedBy": "departureLocation"
-    },
-    "toursDetailsDeparture": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tours-detail.tours-detail",
-      "mappedBy": "departureLocation"
-    },
-    "toursDetailsArrivals": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tours-detail.tours-detail",
-      "mappedBy": "arrivalLocation"
     }
   }
 }
