@@ -2680,7 +2680,7 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   };
   attributes: {
     bookPrivateTour: Schema.Attribute.Component<
-      'elements.title-with-desc-and-multi-media',
+      'private-tours.book-private-tour',
       false
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -3023,6 +3023,7 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
     locationImage: Schema.Attribute.Media<'images'>;
     makeitPrivateBtnSlug: Schema.Attribute.String;
     makeitPrivateBtnText: Schema.Attribute.String;
+    microsoftFormUrl: Schema.Attribute.String;
     overviewDescription: Schema.Attribute.Blocks;
     overviewTitle: Schema.Attribute.String;
     person: Schema.Attribute.String;

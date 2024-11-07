@@ -93,6 +93,9 @@
     },
     "segmentId": {
       "type": "string"
+    },
+    "microsoftFormUrl": {
+      "type": "string"
     }
   }
 }

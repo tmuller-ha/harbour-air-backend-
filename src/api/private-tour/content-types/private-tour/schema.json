@@ -22,11 +22,6 @@
       "repeatable": false,
       "component": "elements.title-with-ck-editor"
     },
-    "bookPrivateTour": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-desc-and-multi-media"
-    },
     "pageTitle": {
       "type": "component",
       "repeatable": false,
@@ -49,6 +44,11 @@
     },
     "microsoft_url": {
       "type": "string"
+    },
+    "bookPrivateTour": {
+      "type": "component",
+      "repeatable": false,
+      "component": "private-tours.book-private-tour"
     }
   }
 }
