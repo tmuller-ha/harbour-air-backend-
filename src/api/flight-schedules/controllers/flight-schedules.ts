@@ -19,7 +19,7 @@ module.exports = {
 
       const result = await response.json() as FlightStatusResponseType; // Parse the response
 
-      const scheduledFlights = result.scheduleList.filter((element) =>
+      const scheduledFlights = result?.scheduleList?.filter?.((element) =>
         element.schedule?.includes?.('Flight') && flightStatus.includes(element.status.status),
       );
 
