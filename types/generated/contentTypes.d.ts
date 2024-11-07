@@ -1121,6 +1121,14 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     code: Schema.Attribute.String;
     countryWeightId: Schema.Attribute.String;
@@ -1194,7 +1202,7 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     active: Schema.Attribute.Boolean;
     arrivalLocation: Schema.Attribute.Relation<
       'manyToOne',
-      'api::country.country'
+      'api::destination.destination'
     >;
     bookNowButton: Schema.Attribute.Component<'elements.button', false> &
       Schema.Attribute.Required;
@@ -1205,7 +1213,7 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     dealImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     departureLocation: Schema.Attribute.Relation<
       'manyToOne',
-      'api::country.country'
+      'api::destination.destination'
     >;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     destination: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1243,6 +1251,8 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dealsArrivals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
+    dealsDeparture: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     destinationImg: Schema.Attribute.Media<'images'>;
     dropOff: Schema.Attribute.String;
     dropOffDefault: Schema.Attribute.String;
@@ -1269,6 +1279,18 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     routesArrivals: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
     routesDeparture: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
     tag: Schema.Attribute.String;
+    tourDepartures: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tour-location.tour-location'
+    >;
+    toursDetailsArrivals: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tours-detail.tours-detail'
+    >;
+    toursDetailsDeparture: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tours-detail.tours-detail'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2658,7 +2680,7 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   };
   attributes: {
     bookPrivateTour: Schema.Attribute.Component<
-      'elements.title-with-desc-and-multi-media',
+      'private-tours.book-private-tour',
       false
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -2902,11 +2924,14 @@ export interface ApiTourLocationTourLocation
         'main-tours.tour-cards',
       ]
     >;
-    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     departure: Schema.Attribute.String;
+    departureLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::destination.destination'
+    >;
     heroBackgroundImage: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2969,6 +2994,10 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    arrivalLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::destination.destination'
+    >;
     availableOffers: Schema.Attribute.String;
     bookBtnSlug: Schema.Attribute.String;
     bookBtnText: Schema.Attribute.String;
@@ -2976,6 +3005,10 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    departureLocation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::destination.destination'
+    >;
     detailsDescription: Schema.Attribute.Blocks;
     detailsTitle: Schema.Attribute.String;
     fare: Schema.Attribute.String;
@@ -2995,6 +3028,7 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
     overviewTitle: Schema.Attribute.String;
     person: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    segmentId: Schema.Attribute.String;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
     tour_location: Schema.Attribute.Relation<
