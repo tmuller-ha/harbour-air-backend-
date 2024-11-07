@@ -4,8 +4,8 @@ module.exports = {
     routes: [
       {
         method: 'POST',
-        path: '/status',
-        handler: 'status.getStatus',
+        path: '/flight-schedules',
+        handler: 'flight-schedules.getStatus',
         config: {
           auth: false,  // Set to true if you want to require authentication
         },
