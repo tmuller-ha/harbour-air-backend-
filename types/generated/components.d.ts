@@ -1742,6 +1742,18 @@ export interface ParcelExpressShippingCost extends Struct.ComponentSchema {
   };
 }
 
+export interface PrivateToursBookPrivateTour extends Struct.ComponentSchema {
+  collectionName: 'components_private_tours_book_private_tours';
+  info: {
+    displayName: 'Book Private Tour';
+  };
+  attributes: {
+    media: Schema.Attribute.Media<'images', true>;
+    media_url: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
 export interface QuickTicketQuickTicketForm extends Struct.ComponentSchema {
   collectionName: 'components_quick_ticket_quick_ticket_forms';
   info: {
@@ -2074,6 +2086,7 @@ declare module '@strapi/strapi' {
       'parcel-express.parcel-faq': ParcelExpressParcelFaq;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
+      'private-tours.book-private-tour': PrivateToursBookPrivateTour;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'schedules.schedules': SchedulesSchedules;
       'seo.additional': SeoAdditional;

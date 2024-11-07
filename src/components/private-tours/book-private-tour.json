@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_private_tours_book_private_tours",
+  "info": {
+    "displayName": "Book Private Tour"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "media_url": {
+      "type": "string"
+    }
+  }
+}
