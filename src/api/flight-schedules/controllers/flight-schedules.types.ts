@@ -1,8 +1,8 @@
 export type FlightStatusResponseType = {
-  scheduleList: {
-    schedule: string;
-    status: {
-      status: string;
+  scheduleList?: {
+    schedule?: string;
+    status?: {
+      status?: string;
     };
   }[];
 };
