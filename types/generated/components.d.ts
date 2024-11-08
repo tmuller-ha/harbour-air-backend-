@@ -982,6 +982,7 @@ export interface HeaderMediaLinks extends Struct.ComponentSchema {
 export interface HeaderMenuDropdown extends Struct.ComponentSchema {
   collectionName: 'components_header_menu_dropdowns';
   info: {
+    description: '';
     displayName: 'Menu Dropdown';
   };
   attributes: {
@@ -994,6 +995,7 @@ export interface HeaderMenuDropdown extends Struct.ComponentSchema {
       'api::dropdown-menu.dropdown-menu'
     >;
     dropdownTitle: Schema.Attribute.String;
+    showImage: Schema.Attribute.Boolean;
   };
 }
 

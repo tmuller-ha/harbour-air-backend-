@@ -1,7 +1,8 @@
 {
   "collectionName": "components_header_menu_dropdowns",
   "info": {
-    "displayName": "Menu Dropdown"
+    "displayName": "Menu Dropdown",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::menu-image-link.menu-image-link"
+    },
+    "showImage": {
+      "type": "boolean"
     }
   }
 }
