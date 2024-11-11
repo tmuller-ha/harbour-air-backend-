@@ -174,7 +174,7 @@ export interface CommonAccordian extends Struct.ComponentSchema {
   };
   attributes: {
     accordionDescription: Schema.Attribute.Component<
-      'elements.title-with-description',
+      'elements.title-with-ck-editor',
       false
     >;
     details: Schema.Attribute.Component<
