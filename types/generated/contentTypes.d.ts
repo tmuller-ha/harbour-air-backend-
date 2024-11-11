@@ -1246,6 +1246,14 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     Category: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -1276,8 +1284,6 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     pickupRequired: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
-    routesArrivals: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
-    routesDeparture: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
     tag: Schema.Attribute.String;
     tourDepartures: Schema.Attribute.Relation<
       'oneToMany',
@@ -2727,17 +2733,9 @@ export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    arrival: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::destination.destination'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    departure: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::destination.destination'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::route.route'> &
       Schema.Attribute.Private;
