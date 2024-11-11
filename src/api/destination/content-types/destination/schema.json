@@ -10,14 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "content-manager": {
-      "visible": false
-    },
-    "content-type-builder": {
-      "visible": false
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "location": {
       "type": "string"
@@ -68,9 +61,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "dealsDeparture": {
       "type": "relation",
