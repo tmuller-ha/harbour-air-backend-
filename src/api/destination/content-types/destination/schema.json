@@ -57,18 +57,6 @@
     "map": {
       "type": "string"
     },
-    "routesDeparture": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::route.route",
-      "mappedBy": "departure"
-    },
-    "routesArrivals": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::route.route",
-      "mappedBy": "arrival"
-    },
     "destinationImg": {
       "type": "media",
       "multiple": false,

@@ -10,20 +10,15 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
   "attributes": {
-    "departure": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::destination.destination",
-      "inversedBy": "routesDeparture"
-    },
-    "arrival": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::destination.destination",
-      "inversedBy": "routesArrivals"
-    },
     "title": {
       "type": "string",
       "default": "Arrival - Departure"
