@@ -1276,8 +1276,6 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     pickupRequired: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
-    routesArrivals: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
-    routesDeparture: Schema.Attribute.Relation<'oneToMany', 'api::route.route'>;
     tag: Schema.Attribute.String;
     tourDepartures: Schema.Attribute.Relation<
       'oneToMany',
@@ -2715,41 +2713,6 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
-  collectionName: 'routes';
-  info: {
-    description: '';
-    displayName: 'Routes';
-    pluralName: 'routes';
-    singularName: 'route';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    arrival: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::destination.destination'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    departure: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::destination.destination'
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::route.route'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Arrival - Departure'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
   collectionName: 'safety_firsts';
   info: {
@@ -3722,7 +3685,6 @@ declare module '@strapi/strapi' {
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
       'api::private-tour.private-tour': ApiPrivateTourPrivateTour;
-      'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
       'api::schedule.schedule': ApiScheduleSchedule;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
