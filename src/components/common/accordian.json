@@ -13,11 +13,6 @@
     "infoText": {
       "type": "blocks"
     },
-    "accordionDescription": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-description"
-    },
     "details": {
       "type": "component",
       "repeatable": true,
@@ -25,6 +20,11 @@
     },
     "formIndex": {
       "type": "integer"
+    },
+    "accordionDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
     }
   }
 }
