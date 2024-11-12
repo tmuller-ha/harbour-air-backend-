@@ -1239,20 +1239,12 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
   collectionName: 'destinations';
   info: {
     description: '';
-    displayName: 'Destinations';
+    displayName: 'Locations';
     pluralName: 'destinations';
     singularName: 'destination';
   };
   options: {
     draftAndPublish: true;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
   };
   attributes: {
     Category: Schema.Attribute.String;
@@ -1915,7 +1907,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
     description: '';
-    displayName: 'Location';
+    displayName: 'Destinations';
     pluralName: 'locations';
     singularName: 'location';
   };
@@ -2730,7 +2722,13 @@ export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
     singularName: 'route';
   };
   options: {
-    draftAndPublish: true;
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -3333,6 +3331,10 @@ export interface PluginReviewWorkflowsWorkflow
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
+    stageRequiredToPublish: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::review-workflows.workflow-stage'
+    >;
     stages: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::review-workflows.workflow-stage'

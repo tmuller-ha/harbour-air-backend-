@@ -4,7 +4,7 @@
   "info": {
     "singularName": "destination",
     "pluralName": "destinations",
-    "displayName": "Destinations",
+    "displayName": "Locations",
     "description": ""
   },
   "options": {
@@ -61,7 +61,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "dealsDeparture": {
       "type": "relation",
