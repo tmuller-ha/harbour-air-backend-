@@ -184,6 +184,7 @@ export interface CommonAccordian extends Struct.ComponentSchema {
     formIndex: Schema.Attribute.Integer;
     infoText: Schema.Attribute.Blocks;
     show: Schema.Attribute.Boolean;
+    showForm: Schema.Attribute.Boolean;
   };
 }
 
