@@ -65,6 +65,11 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "metaData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta-data.meta-data"
     }
   }
 }
