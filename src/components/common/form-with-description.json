@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_common_form_with_descriptions",
+  "info": {
+    "displayName": "Form With Description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "formUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "showComponent": {
+      "type": "boolean"
+    },
+    "showForm": {
+      "type": "boolean"
+    }
+  }
+}
