@@ -625,6 +625,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -2393,9 +2394,11 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'> &
       Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     shortDescription: Schema.Attribute.String & Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
