@@ -549,6 +549,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'elements.title-with-ck-editor',
         'elements.title-with-image',
         'elements.tab',
+        'common.form-with-description',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

@@ -200,6 +200,23 @@ export interface CommonAccordianDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonFormWithDescription extends Struct.ComponentSchema {
+  collectionName: 'components_common_form_with_descriptions';
+  info: {
+    description: '';
+    displayName: 'Form With Description';
+  };
+  attributes: {
+    description: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+    formUrl: Schema.Attribute.String;
+    showComponent: Schema.Attribute.Boolean;
+    showForm: Schema.Attribute.Boolean;
+  };
+}
+
 export interface CommonHelp extends Struct.ComponentSchema {
   collectionName: 'components_common_helps';
   info: {
@@ -2019,6 +2036,7 @@ declare module '@strapi/strapi' {
       'chartered-flights-page.pricing-tab': CharteredFlightsPagePricingTab;
       'common.accordian': CommonAccordian;
       'common.accordian-details': CommonAccordianDetails;
+      'common.form-with-description': CommonFormWithDescription;
       'common.help': CommonHelp;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
       'elements.accordion': ElementsAccordion;
