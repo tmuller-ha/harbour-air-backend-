@@ -23,6 +23,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::email-option.email-option"
+    },
+    "formUrl": {
+      "type": "string"
+    },
+    "showMicrosoftForm": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

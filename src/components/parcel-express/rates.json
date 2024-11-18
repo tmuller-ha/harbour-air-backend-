@@ -6,9 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "description": {
-      "type": "blocks"
-    },
     "title": {
       "type": "string"
     },
@@ -20,6 +17,13 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.accordion-with-ck-editor"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
