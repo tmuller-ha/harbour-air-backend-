@@ -13,17 +13,10 @@ export default [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "default-src": ["'self'"],
-          "frame-src": [
-            "'self'",
-            "https://www.youtube.com",
-            "https://www.youtube-nocookie.com",
-          ],
           "img-src": [
             "'self'",
             "data:",
             "blob:",
-            "https://i.ytimg.com",
             "strapi.io",
             "market-assets.strapi.io",
             "dl.airtable.com",
@@ -36,7 +29,6 @@ export default [
             "'self'",
             "data:",
             "blob:",
-            "https://www.youtube.com",
             "strapi.io",
             "market-assets.strapi.io",
             "dl.airtable.com",
