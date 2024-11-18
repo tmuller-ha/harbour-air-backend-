@@ -352,6 +352,9 @@ const CKEConfig = () => ({
             },
           ],
         },
+        mediaEmbed: {
+          previewsInData: true,
+        },
         htmlSupport: {
           allow: [
             {
