@@ -16,7 +16,8 @@ module.exports = (config, { strapi }) => {
       const convertImageToWebP = async (file) => {
         if (
           file.mimetype.startsWith("image/") &&
-          !file.mimetype.includes("webp")
+          !file.mimetype.includes("webp") &&
+          !file.mimetype.includes("gif")
         ) {
           try {
             const outputName = `${path.basename(

@@ -1390,6 +1390,37 @@ export interface ApiEmailOptionEmailOption extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEmergencyAlertEmergencyAlert
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'emergency_alerts';
+  info: {
+    displayName: 'Emergency Alert';
+    pluralName: 'emergency-alerts';
+    singularName: 'emergency-alert';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::emergency-alert.emergency-alert'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExtraAssistanceExtraAssistance
   extends Struct.SingleTypeSchema {
   collectionName: 'extra_assistances';
@@ -1784,6 +1815,7 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     desktopLogo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    emergencyAlert: Schema.Attribute.Component<'header.alert', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -2436,36 +2468,6 @@ export interface ApiNotFoundPageNotFoundPage extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
-  collectionName: 'notices';
-  info: {
-    displayName: 'Notice';
-    pluralName: 'notices';
-    singularName: 'notice';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::notice.notice'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    subTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3694,6 +3696,7 @@ declare module '@strapi/strapi' {
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;
       'api::email-option.email-option': ApiEmailOptionEmailOption;
+      'api::emergency-alert.emergency-alert': ApiEmergencyAlertEmergencyAlert;
       'api::extra-assistance.extra-assistance': ApiExtraAssistanceExtraAssistance;
       'api::faq-content.faq-content': ApiFaqContentFaqContent;
       'api::faq.faq': ApiFaqFaq;
@@ -3720,7 +3723,6 @@ declare module '@strapi/strapi' {
       'api::news-list.news-list': ApiNewsListNewsList;
       'api::news.news': ApiNewsNews;
       'api::not-found-page.not-found-page': ApiNotFoundPageNotFoundPage;
-      'api::notice.notice': ApiNoticeNotice;
       'api::on-account-quick-ticket.on-account-quick-ticket': ApiOnAccountQuickTicketOnAccountQuickTicket;
       'api::our-fare.our-fare': ApiOurFareOurFare;
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;

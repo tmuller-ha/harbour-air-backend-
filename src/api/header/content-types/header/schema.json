@@ -38,6 +38,11 @@
         "header.menu-dropdown",
         "header.link"
       ]
+    },
+    "emergencyAlert": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.alert"
     }
   }
 }
