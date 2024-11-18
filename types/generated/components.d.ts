@@ -897,7 +897,9 @@ export interface FormCarServiceHireForm extends Struct.ComponentSchema {
       'oneToOne',
       'api::email-option.email-option'
     >;
+    formUrl: Schema.Attribute.String;
     show: Schema.Attribute.Boolean;
+    showMicrosoftForm: Schema.Attribute.Boolean & Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
@@ -1744,12 +1746,15 @@ export interface ParcelExpressParcelFaq extends Struct.ComponentSchema {
     displayName: 'ParcelFaq';
   };
   attributes: {
+    accordionData: Schema.Attribute.Component<'faq.accordion-data', true>;
     accordionTitle: Schema.Attribute.String;
-    description: Schema.Attribute.Blocks;
-    parcelAccordion: Schema.Attribute.Component<
-      'common.accordian-details',
-      true
-    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
   };
@@ -1762,7 +1767,13 @@ export interface ParcelExpressRates extends Struct.ComponentSchema {
     displayName: 'Rates';
   };
   attributes: {
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     details: Schema.Attribute.Component<
       'elements.accordion-with-ck-editor',
       true

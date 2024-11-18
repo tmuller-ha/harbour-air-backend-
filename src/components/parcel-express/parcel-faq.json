@@ -9,19 +9,23 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
-    },
     "show": {
       "type": "boolean"
     },
-    "parcelAccordion": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.accordian-details"
-    },
     "accordionTitle": {
       "type": "string"
+    },
+    "accordionData": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.accordion-data"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
