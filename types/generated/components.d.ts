@@ -998,21 +998,6 @@ export interface GoingElectricSpecifications extends Struct.ComponentSchema {
   };
 }
 
-export interface HeaderAlert extends Struct.ComponentSchema {
-  collectionName: 'components_header_alerts';
-  info: {
-    description: '';
-    displayName: 'alert';
-  };
-  attributes: {
-    emergency_alerts: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::emergency-alert.emergency-alert'
-    >;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface HeaderLink extends Struct.ComponentSchema {
   collectionName: 'components_header_links';
   info: {
@@ -2110,7 +2095,6 @@ declare module '@strapi/strapi' {
       'going-electric.going-electring-inquires': GoingElectricGoingElectringInquires;
       'going-electric.specification-details': GoingElectricSpecificationDetails;
       'going-electric.specifications': GoingElectricSpecifications;
-      'header.alert': HeaderAlert;
       'header.link': HeaderLink;
       'header.media-links': HeaderMediaLinks;
       'header.menu-dropdown': HeaderMenuDropdown;

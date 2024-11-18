@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "emergency_alerts",
+  "collectionName": "notices",
   "info": {
-    "singularName": "emergency-alert",
-    "pluralName": "emergency-alerts",
-    "displayName": "Emergency Alert"
+    "singularName": "notice",
+    "pluralName": "notices",
+    "displayName": "Notice"
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +20,7 @@
       "required": true
     },
     "description": {
-      "type": "string",
+      "type": "text",
       "required": true
     }
   }
