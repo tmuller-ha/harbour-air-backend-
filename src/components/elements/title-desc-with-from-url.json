@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_elements_title_desc_with_from_urls",
+  "info": {
+    "displayName": "Title Desc With FromUrl",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "microsoft_url": {
+      "type": "string"
+    }
+  }
+}

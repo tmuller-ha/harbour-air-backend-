@@ -19,6 +19,16 @@
     },
     "showForm": {
       "type": "boolean"
+    },
+    "formType": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "popup"
+      ]
+    },
+    "buttonName": {
+      "type": "string"
     }
   }
 }
