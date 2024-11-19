@@ -207,10 +207,12 @@ export interface CommonFormWithDescription extends Struct.ComponentSchema {
     displayName: 'Form With Description';
   };
   attributes: {
+    buttonName: Schema.Attribute.String;
     description: Schema.Attribute.Component<
       'elements.title-with-ck-editor',
       false
     >;
+    formType: Schema.Attribute.Enumeration<['default', 'popup']>;
     formUrl: Schema.Attribute.String;
     showComponent: Schema.Attribute.Boolean;
     showForm: Schema.Attribute.Boolean;
@@ -448,6 +450,26 @@ export interface ElementsTextWithImage extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ElementsTitleDescWithFromUrl extends Struct.ComponentSchema {
+  collectionName: 'components_elements_title_desc_with_from_urls';
+  info: {
+    description: '';
+    displayName: 'Title Desc With FromUrl';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    microsoft_url: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2079,6 +2101,7 @@ declare module '@strapi/strapi' {
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
+      'elements.title-desc-with-from-url': ElementsTitleDescWithFromUrl;
       'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
       'elements.title-with-desc-and-image': ElementsTitleWithDescAndImage;
