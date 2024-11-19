@@ -26,6 +26,9 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-image"
+    },
+    "sectionTitle": {
+      "type": "string"
     }
   }
 }

@@ -587,6 +587,7 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
+    sectionTitle: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2392,6 +2393,7 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
+    sectionTitle: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3338,10 +3340,6 @@ export interface PluginReviewWorkflowsWorkflow
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
-    stageRequiredToPublish: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::review-workflows.workflow-stage'
-    >;
     stages: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::review-workflows.workflow-stage'
