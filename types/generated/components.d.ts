@@ -205,6 +205,7 @@ export interface CommonFormWithDescription extends Struct.ComponentSchema {
   info: {
     description: '';
     displayName: 'Form With Description';
+    icon: 'bulletList';
   };
   attributes: {
     buttonName: Schema.Attribute.String;

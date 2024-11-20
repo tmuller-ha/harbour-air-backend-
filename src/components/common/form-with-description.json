@@ -2,13 +2,11 @@
   "collectionName": "components_common_form_with_descriptions",
   "info": {
     "displayName": "Form With Description",
-    "description": ""
+    "description": "",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {
-    "formUrl": {
-      "type": "string"
-    },
     "description": {
       "type": "component",
       "repeatable": false,
@@ -28,6 +26,9 @@
       ]
     },
     "buttonName": {
+      "type": "string"
+    },
+    "formUrl": {
       "type": "string"
     }
   }
