@@ -29,7 +29,6 @@ const CKEConfig = () => ({
               stroke: #7b79ff !important;
             }
           }
-          
         }
 
         .ck-dropdown__panel-visible .ck-list {
@@ -40,6 +39,16 @@ const CKEConfig = () => ({
           }
   
         .ck {
+        .ck-media__wrapper iframe {
+          resize: both !important;
+          overflow: auto !important;
+        }
+        .ck-content.ck-editor__editable{
+            min-height: 700px!important;
+        }
+            .ck-sticky-panel__content_sticky{
+            position: static !important;
+            }
           --ck-scroll-track-background: #3d3d57;
           --ck-scroll-thumb-background: #181826;
           --ck-scroll-thumb-border-color: rgb(70, 70, 70);
@@ -425,14 +434,49 @@ const CKEConfig = () => ({
               value: null,
             },
             {
+              name: "resizeImage:10",
+              label: "10% page width",
+              value: "10",
+            },
+            {
+              name: "resizeImage:20",
+              label: "20% page width",
+              value: "20",
+            },
+            {
+              name: "resizeImage:30",
+              label: "30% page width",
+              value: "30",
+            },
+            {
+              name: "resizeImage:40",
+              label: "40% page width",
+              value: "40",
+            },
+            {
               name: "resizeImage:50",
               label: "50% page width",
               value: "50",
             },
             {
-              name: "resizeImage:75",
-              label: "75% page width",
-              value: "75",
+              name: "resizeImage:60",
+              label: "60% page width",
+              value: "60",
+            },
+            {
+              name: "resizeImage:70",
+              label: "70% page width",
+              value: "70",
+            },
+            {
+              name: "resizeImage:80",
+              label: "80% page width",
+              value: "80",
+            },
+            {
+              name: "resizeImage:90",
+              label: "90% page width",
+              value: "90",
             },
           ],
           toolbar: [
