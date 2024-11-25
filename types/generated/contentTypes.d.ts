@@ -2664,10 +2664,6 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
       ]
     >;
     publishedAt: Schema.Attribute.DateTime;
-    quoteFormInfo: Schema.Attribute.Component<
-      'form.car-service-hire-form',
-      false
-    >;
     rate: Schema.Attribute.Component<'parcel-express.rates', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
