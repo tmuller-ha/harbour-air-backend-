@@ -19,6 +19,11 @@
     "show": {
       "type": "boolean",
       "default": true
+    },
+    "requestQuoteForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.form-with-description"
     }
   }
 }

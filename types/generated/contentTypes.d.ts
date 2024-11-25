@@ -550,6 +550,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'elements.title-with-image',
         'elements.tab',
         'common.form-with-description',
+        'elements.title-with-desc-and-image',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
@@ -2663,10 +2664,6 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
       ]
     >;
     publishedAt: Schema.Attribute.DateTime;
-    quoteFormInfo: Schema.Attribute.Component<
-      'form.car-service-hire-form',
-      false
-    >;
     rate: Schema.Attribute.Component<'parcel-express.rates', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
