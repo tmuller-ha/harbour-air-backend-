@@ -299,9 +299,9 @@ export interface ElementsButton extends Struct.ComponentSchema {
     displayName: 'Button';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    slug: Schema.Attribute.String;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1295,9 +1295,9 @@ export interface InsideLocationGuideInformation extends Struct.ComponentSchema {
     displayName: 'Image Section';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    slug: Schema.Attribute.String;
-    title: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
