@@ -362,7 +362,8 @@ export interface ElementsHarbourAirServices extends Struct.ComponentSchema {
 export interface ElementsImageCreditors extends Struct.ComponentSchema {
   collectionName: 'components_elements_image_creditors';
   info: {
-    displayName: 'Image Creditors';
+    description: '';
+    displayName: 'Image Text Block';
   };
   attributes: {
     description: Schema.Attribute.RichText &

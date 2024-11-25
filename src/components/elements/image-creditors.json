@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_image_creditors",
   "info": {
-    "displayName": "Image Creditors"
+    "displayName": "Image Text Block",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,11 +17,12 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "imagePosition": {
       "type": "enumeration",
