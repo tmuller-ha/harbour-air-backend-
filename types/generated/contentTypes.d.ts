@@ -550,7 +550,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'elements.title-with-image',
         'elements.tab',
         'common.form-with-description',
-        'elements.image-creditors',
+        'elements.image-text-block',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

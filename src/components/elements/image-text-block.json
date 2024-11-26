@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_elements_image_creditors",
+  "collectionName": "components_elements_image_text_blocks",
   "info": {
-    "displayName": "Image Text Block",
-    "description": ""
+    "displayName": "Image Text Block"
   },
   "options": {},
   "attributes": {
@@ -17,20 +16,21 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "media": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
-        "images"
-      ]
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "imagePosition": {
+    "mediaPosition": {
       "type": "enumeration",
       "enum": [
         "left",
         "right"
-      ],
-      "default": "left"
+      ]
     },
     "show": {
       "type": "boolean"
