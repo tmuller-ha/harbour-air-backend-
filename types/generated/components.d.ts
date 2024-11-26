@@ -299,9 +299,9 @@ export interface ElementsButton extends Struct.ComponentSchema {
     displayName: 'Button';
   };
   attributes: {
-    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
+    buttonText: Schema.Attribute.String;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String;
   };
 }
 

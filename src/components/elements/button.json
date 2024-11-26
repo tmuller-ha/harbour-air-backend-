@@ -8,11 +8,11 @@
   "attributes": {
     "buttonText": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "slug": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "show": {
       "type": "boolean",
