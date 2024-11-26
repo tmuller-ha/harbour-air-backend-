@@ -359,6 +359,26 @@ export interface ElementsHarbourAirServices extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsImageTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_text_blocks';
+  info: {
+    displayName: 'Image Text Block';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mediaPosition: Schema.Attribute.Enumeration<['left', 'right']>;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsInstagramImages extends Struct.ComponentSchema {
   collectionName: 'components_elements_instagram_images';
   info: {
@@ -2099,6 +2119,7 @@ declare module '@strapi/strapi' {
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.image-text-block': ElementsImageTextBlock;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
