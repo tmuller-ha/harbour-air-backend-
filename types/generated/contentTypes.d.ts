@@ -2266,6 +2266,7 @@ export interface ApiMenuImageLinkMenuImageLink
   extends Struct.CollectionTypeSchema {
   collectionName: 'menu_image_links';
   info: {
+    description: '';
     displayName: 'Menu Image Link';
     pluralName: 'menu-image-links';
     singularName: 'menu-image-link';
@@ -2278,6 +2279,7 @@ export interface ApiMenuImageLinkMenuImageLink
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    isIframe: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
