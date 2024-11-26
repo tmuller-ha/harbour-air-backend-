@@ -806,7 +806,7 @@ export interface ApiCarServiceCarService extends Struct.SingleTypeSchema {
   };
   attributes: {
     carHireRequestForm: Schema.Attribute.Component<
-      'further-questions.contact-form',
+      'common.form-with-description',
       false
     >;
     carTypes: Schema.Attribute.Component<
