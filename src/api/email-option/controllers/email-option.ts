@@ -66,8 +66,8 @@ export default factories.createCoreController(
             text: "",
             html: `
             <p>Thank you for contacting Harbour Air!</p><b>We have received your message.</b>
-            <p>For queries that request a response, our current reply times are within 1 to 5 business days. If your inquiry is urgent, please connect with our Contact Centre toll-free at 1.800.665.0212 or via email at <a href="mailto:reservation@harbourair.com">reservation@harbourair.com</a>.</p>
-            <p>Please note, our teams are currently experiencing higher-than-anticipated call and email volumes. We appreciate your patience as we do our best to assist all guests in a timely manner.</p>
+            <p>For queries that request a response, our current reply times are within 1 to 5 business days. If your inquiry is of urgent nature, please connect with our Contact Centre toll-free at 1.800.665.0212 or via email at <a href="mailto:reservation@harbourair.com">reservation@harbourair.com</a>.</p>
+            <p>Please note, since our teams have been experiencing a higher-than-anticipated call and email volume, we appreciate your patience as we do our best to assist all guests in a timely manner.</p>
             <p>Have a very nice day!</p>
           `,
           }
