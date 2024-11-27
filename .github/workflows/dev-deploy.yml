@@ -19,6 +19,7 @@ env:
   DEFAULT_REPLY_TO_EMAIL: ${{ secrets.DEFAULT_REPLY_TO_EMAIL }}
   BLUESKY_BOOKING_SCHEDULES_API: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }}
   BLUESKY_BOOKING_SCHEDULES_ID: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }}
+  SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
 
 on:
   pull_request:
@@ -84,6 +85,8 @@ jobs:
           echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
           echo BLUESKY_BOOKING_SCHEDULES_API=${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }} >> .env
           echo BLUESKY_BOOKING_SCHEDULES_ID=${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }} >> .env
+          echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
+
 
       - name: Stop Strapi with PM2
         run: pm2 stop strapi
