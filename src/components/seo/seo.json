@@ -23,9 +23,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "openGraphTitle": {
       "type": "string"
@@ -37,9 +35,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "twitterCardTitle": {
       "type": "string"
@@ -55,26 +51,17 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "article",
-        "book",
-        "website"
-      ],
+      "enum": ["article", "book", "website"],
       "default": "website"
     },
     "twitterCard": {
       "type": "enumeration",
-      "enum": [
-        "summary_large_image",
-        "summary",
-        "app",
-        "player"
-      ],
+      "enum": ["summary_large_image", "summary", "app", "player"],
       "default": "summary_large_image"
     },
     "siteName": {
       "type": "string",
-      "default": "Harbour Air Seapplanes"
+      "default": "Harbour Air"
     },
     "robots": {
       "type": "string"
