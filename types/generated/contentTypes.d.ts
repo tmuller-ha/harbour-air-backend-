@@ -625,6 +625,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    mobileImagePosition: Schema.Attribute.Enumeration<
+      ['left', 'right', 'top', 'bottom', 'center']
+    >;
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.String;
