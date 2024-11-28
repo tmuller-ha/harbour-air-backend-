@@ -70,6 +70,16 @@
       "type": "component",
       "repeatable": false,
       "component": "meta-data.meta-data"
+    },
+    "mobileImagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom",
+        "center"
+      ]
     }
   }
 }

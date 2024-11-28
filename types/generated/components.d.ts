@@ -1956,7 +1956,7 @@ export interface SeoSeo extends Struct.ComponentSchema {
     openGraphTitle: Schema.Attribute.String;
     robots: Schema.Attribute.String;
     siteName: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Harbour Air Seapplanes'>;
+      Schema.Attribute.DefaultTo<'Harbour Air'>;
     twitterCard: Schema.Attribute.Enumeration<
       ['summary_large_image', 'summary', 'app', 'player']
     > &
