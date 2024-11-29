@@ -25,6 +25,7 @@ export default factories.createCoreController(
   "api::email-option.email-option",
   () => ({
     async trigger(ctx) {
+      console.log("request", ctx.request.body);
       try {
         const body = ctx.request.body as any;
         const formType = pick(body, ["formType"]);
@@ -74,6 +75,7 @@ export default factories.createCoreController(
         );
         return emailForm;
       } catch (error) {
+        console.error("Error in email-option controller", error);
         ctx.throw(500, error);
       }
     },
