@@ -50,8 +50,7 @@ export default factories.createCoreController(
               <strong>MESSAGE FORWARD TO: ${
                 process.env.DEFAULT_FROM_EMAIL
               }</strong><br>
-              <p>Message Details:<p>
-              <strong>Message:</strong><br>
+              <strong>Message Details:</strong><br>
               ${getTemplate(body?.data)}
               <p>This e-mail was sent from a contact form on the Harbour Air Website (harbourair.com)</p>`,
             }
