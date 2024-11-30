@@ -1134,7 +1134,7 @@ export interface HomeDescription extends Struct.ComponentSchema {
         number
       >;
     show: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 

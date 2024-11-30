@@ -1595,7 +1595,6 @@ export interface ApiFlightStatusFlightStatus extends Struct.SingleTypeSchema {
       'elements.title-with-description',
       false
     >;
-    flightStatusInfo: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
