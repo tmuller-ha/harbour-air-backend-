@@ -38,6 +38,16 @@ const CKEConfig = () => ({
             overflow-y: scroll !important;
           }
   
+          .ck {.ck-content {
+          max-height: auto !important;
+          overflow: unset !important;
+          }
+        .ck.ck-editor__main{     
+        .ck-blurred  {
+        max-height: fit-content !important}
+        .ck-focused  {
+        max-height: fit-content !important}
+        }}
         .ck {
         .ck-media__wrapper iframe {
           resize: both !important;
