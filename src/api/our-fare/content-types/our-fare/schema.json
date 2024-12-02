@@ -17,11 +17,6 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "pageAbout": {
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
     "fareOptions": {
       "type": "component",
       "repeatable": true,
@@ -48,6 +43,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta-data.meta-data"
+    },
+    "farePageInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
     }
   }
 }
