@@ -2539,6 +2539,10 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
       'elements.title-with-ck-editor',
       true
     >;
+    farePageInfo: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
     helperContent: Schema.Attribute.Component<
       'our-fares.fare-helper-content',
       true
@@ -2550,10 +2554,6 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
-    pageAbout: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      false
-    >;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
