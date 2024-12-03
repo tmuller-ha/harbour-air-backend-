@@ -1717,6 +1717,7 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     stories: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    storiesTitle: Schema.Attribute.String;
     tabs: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-ck-editor',
