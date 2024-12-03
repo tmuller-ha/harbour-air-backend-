@@ -586,6 +586,7 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
       'api::blog-list.blog-list'
     > &
       Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     sectionTitle: Schema.Attribute.String;

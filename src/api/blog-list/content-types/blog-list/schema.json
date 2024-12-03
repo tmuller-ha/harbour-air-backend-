@@ -29,6 +29,11 @@
     },
     "sectionTitle": {
       "type": "string"
+    },
+    "metaData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta-data.meta-data"
     }
   }
 }
