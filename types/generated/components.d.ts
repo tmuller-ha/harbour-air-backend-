@@ -776,7 +776,7 @@ export interface ExtraAssistanceFiles extends Struct.ComponentSchema {
     displayName: 'Files';
   };
   attributes: {
-    document: Schema.Attribute.Relation<'oneToOne', 'api::document.document'>;
+    documents: Schema.Attribute.Relation<'oneToMany', 'api::document.document'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
