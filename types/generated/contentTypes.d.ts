@@ -586,7 +586,6 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
       'api::blog-list.blog-list'
     > &
       Schema.Attribute.Private;
-    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     sectionTitle: Schema.Attribute.String;
@@ -626,9 +625,6 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
-    mobileImagePosition: Schema.Attribute.Enumeration<
-      ['left', 'right', 'top', 'bottom', 'center']
-    >;
     postedDate: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.String;
@@ -1596,6 +1592,7 @@ export interface ApiFlightStatusFlightStatus extends Struct.SingleTypeSchema {
       'elements.title-with-description',
       false
     >;
+    flightStatusInfo: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1717,7 +1714,6 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     stories: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
-    storiesTitle: Schema.Attribute.String;
     tabs: Schema.Attribute.DynamicZone<
       [
         'elements.title-with-ck-editor',
@@ -2541,10 +2537,6 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
       'elements.title-with-ck-editor',
       true
     >;
-    farePageInfo: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      false
-    >;
     helperContent: Schema.Attribute.Component<
       'our-fares.fare-helper-content',
       true
@@ -2556,6 +2548,10 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    pageAbout: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;

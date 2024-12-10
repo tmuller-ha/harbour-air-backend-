@@ -27,9 +27,6 @@
       "repeatable": true,
       "component": "elements.harbour-air-services"
     },
-    "storiesTitle": {
-      "type": "string"
-    },
     "stories": {
       "type": "relation",
       "relation": "oneToMany",
@@ -88,7 +85,11 @@
     },
     "mobileImagePosition": {
       "type": "enumeration",
-      "enum": ["left", "center", "right"]
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
     }
   }
 }
