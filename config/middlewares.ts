@@ -6,6 +6,7 @@ export default [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+  "strapi::cors",
   {
     name: "strapi::security",
     config: {
@@ -65,10 +66,6 @@ export default [
     resolve: "./src/api/schedule/middlewares/titleUpdater.js",
   },
   {
-    name: "strapi::cors",
-    config: {
-      origin: "*",
-      headers: "*",
-    },
+    resolve: "./src/middlewares/cors.js",
   },
 ];
