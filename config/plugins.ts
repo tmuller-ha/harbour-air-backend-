@@ -58,7 +58,7 @@ export default ({ env }) => ({
       defaultLimit: 100,
       apolloServer: {
         tracing: false,
-        introspection: false,
+        introspection: env('NODE_ENV') === 'production',
       },
     },
   },
