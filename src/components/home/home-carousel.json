@@ -6,6 +6,10 @@
   },
   "options": {},
   "attributes": {
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
     "title": {
       "type": "string"
     },
@@ -22,31 +26,22 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "allowedTypes": ["images", "videos"]
     },
     "imageLink": {
       "type": "string"
     },
     "tabletImg": {
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": ["images", "videos"]
     },
     "mobileImg": {
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": ["images", "videos"]
     }
   }
 }

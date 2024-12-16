@@ -1178,6 +1178,7 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     imageLink: Schema.Attribute.String;
     mobileImg: Schema.Attribute.Media<'images' | 'videos'> &
       Schema.Attribute.Required;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
     tabletImg: Schema.Attribute.Media<'images' | 'videos'> &
       Schema.Attribute.Required;
