@@ -20,6 +20,7 @@ env:
   BLUESKY_BOOKING_SCHEDULES_API: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }}
   BLUESKY_BOOKING_SCHEDULES_ID: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }}
   SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+  IMAGE_HANDLER_URL: ${{ secrets.IMAGE_HANDLER_URL }}
 
 on:
   pull_request:
@@ -86,7 +87,7 @@ jobs:
           echo BLUESKY_BOOKING_SCHEDULES_API=${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }} >> .env
           echo BLUESKY_BOOKING_SCHEDULES_ID=${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }} >> .env
           echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
-
+          echo IMAGE_HANDLER_URL=${{ secrets.IMAGE_HANDLER_URL }} >> .env
 
       - name: Stop Strapi with PM2
         run: pm2 stop strapi
