@@ -1,17 +1,14 @@
-const path = require("path");
-const fs = require("fs").promises;
-const webp = require("webp-converter");
-const Jimp = require("jimp");
+import axios from "axios";
+import fs from "fs";
 
+const path = require("path");
+const image_handler_url = process.env.IMAGE_HANDLER_URL;
 module.exports = (config, { strapi }) => {
   return async (context, next) => {
     if (
       context.request.method === "POST" &&
       context.request.url.startsWith("/upload")
     ) {
-      console.log("context.request.files", context.request.files);
-      webp.grant_permission();
-
       // Function to convert images to WebP format
       const convertImageToWebP = async (file) => {
         if (
@@ -24,29 +21,25 @@ module.exports = (config, { strapi }) => {
               file.originalFilename,
               path.extname(file.originalFilename)
             )}.webp`;
-
-            console.log("1. Converting Image");
-
-            const image = await Jimp.read(file.filepath);
-            console.log("2. Image Loaded");
-
-            // Adjust image quality using Jimp
-            await image.quality(80).writeAsync(file.filepath);
-            console.log("3. Image Quality Adjusted");
-
-            // Convert image to WebP format using webp-converter, outputting to the same path
             const outputPath = file.filepath;
-            await webp.cwebp(file.filepath, outputPath, "-q 80");
-            console.log("4. Image Converted to WebP");
 
-            // Update file properties
-            const fileInfo = JSON.parse(context.request.body.fileInfo);
-            context.request.body.fileInfo = {
-              ...fileInfo,
-              name: outputName,
-            };
-            file.originalFilename = outputName;
-            file.mimetype = "image/webp";
+            const result = await convertToWebP(outputPath, image_handler_url);
+
+            if (result?.success) {
+              const fileInfo = JSON.parse(context.request.body.fileInfo);
+              context.request.body.fileInfo = {
+                ...fileInfo,
+                name: outputName,
+              };
+              file.originalFilename = outputName;
+              file.mimetype = "image/webp";
+            }
+            /**
+             * Uncomment the following block to throw an error if the image conversion fails
+             */
+            // if (!result?.success) {
+            //   context.throw(500, "Error processing upload");
+            // }
           } catch (error) {
             console.error("Error converting image to WebP", error);
             context.throw(500, "Error processing upload");
@@ -73,4 +66,32 @@ module.exports = (config, { strapi }) => {
       await next();
     }
   };
+};
+
+const convertToWebP = async (filePath, apiUrl) => {
+  try {
+    const imageBuffer = fs.readFileSync(filePath);
+    const base64Image = imageBuffer.toString("base64");
+    const response = await axios.post(
+      apiUrl,
+      { file: base64Image },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log("Image successfully converted and saved as converted.webp");
+    const base64OutputFile = response.data;
+    const buffer = Buffer.from(base64OutputFile, "base64");
+    fs.writeFileSync(filePath + "test", buffer);
+    fs.writeFileSync(filePath, buffer);
+    return { success: true };
+  } catch (error) {
+    console.error(
+      "Error consuming the API:",
+      error.response ? error.response.data : error.message
+    );
+    return { success: false };
+  }
 };
