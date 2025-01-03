@@ -10,9 +10,9 @@
       "type": "boolean",
       "default": true
     },
-    "document": {
+    "documents": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::document.document"
     }
   }
