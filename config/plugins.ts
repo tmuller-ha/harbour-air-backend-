@@ -69,59 +69,7 @@ export default ({ env }) => ({
       applicationId: env("ALGOLIA_APP_ID"),
       contentTypes: [
         {
-          name: "api::assistance.assistance",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::base-page.base-page",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        { name: "api::blog.blog", hideFields: ["createdBy", "updatedBy"] },
-        {
-          name: "api::campaign.campaign",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::career-opportunity.career-opportunity",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::category.category",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::featured-tour.featured-tour",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        { name: "api::deal.deal", hideFields: ["createdBy", "updatedBy"] },
-        {
-          name: "api::document.document",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::faq-content.faq-content",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::destination.destination",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        { name: "api::link.link", hideFields: ["createdBy", "updatedBy"] },
-        {
-          name: "api::menu-image-link.menu-image-link",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        { name: "api::news.news", hideFields: ["createdBy", "updatedBy"] },
-        {
-          name: "api::tour-location.tour-location",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::tours-detail.tours-detail",
-          hideFields: ["createdBy", "updatedBy"],
-        },
-        {
-          name: "api::trip-advisor-comment.trip-advisor-comment",
+          name: "api::location.location",
           hideFields: ["createdBy", "updatedBy"],
         },
       ],
