@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "latestBlog": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::blog.blog"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",
@@ -26,6 +21,19 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "pageTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "sectionTitle": {
+      "type": "string"
+    },
+    "metaData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta-data.meta-data"
     }
   }
 }

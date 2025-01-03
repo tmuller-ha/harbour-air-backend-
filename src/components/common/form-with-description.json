@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_common_form_with_descriptions",
+  "info": {
+    "displayName": "Form With Description",
+    "description": "",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "showComponent": {
+      "type": "boolean"
+    },
+    "showForm": {
+      "type": "boolean"
+    },
+    "formType": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "popup"
+      ]
+    },
+    "buttonName": {
+      "type": "string"
+    },
+    "formUrl": {
+      "type": "string"
+    }
+  }
+}

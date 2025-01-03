@@ -28,11 +28,6 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "quoteFormInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "form.car-service-hire-form"
-    },
     "parcelExpressPage": {
       "type": "dynamiczone",
       "components": [

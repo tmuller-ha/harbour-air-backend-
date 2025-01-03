@@ -33,7 +33,9 @@
         "elements.accordion",
         "elements.title-with-ck-editor",
         "elements.title-with-image",
-        "elements.tab"
+        "elements.tab",
+        "common.form-with-description",
+        "elements.image-text-block"
       ]
     }
   }

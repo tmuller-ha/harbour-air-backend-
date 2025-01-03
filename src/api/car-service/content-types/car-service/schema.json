@@ -40,7 +40,7 @@
     "carHireRequestForm": {
       "type": "component",
       "repeatable": false,
-      "component": "further-questions.contact-form"
+      "component": "common.form-with-description"
     }
   }
 }

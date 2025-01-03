@@ -7,10 +7,12 @@
   "options": {},
   "attributes": {
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "show": {
       "type": "boolean",

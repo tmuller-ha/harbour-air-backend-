@@ -17,6 +17,10 @@ env:
   WEB_PREVIEW_URL: ${{ secrets.WEB_PREVIEW_URL }}
   DEFAULT_FROM_EMAIL: ${{ secrets.DEFAULT_FROM_EMAIL }}
   DEFAULT_REPLY_TO_EMAIL: ${{ secrets.DEFAULT_REPLY_TO_EMAIL }}
+  BLUESKY_BOOKING_SCHEDULES_API: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }}
+  BLUESKY_BOOKING_SCHEDULES_ID: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }}
+  SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+  IMAGE_HANDLER_URL: ${{ secrets.IMAGE_HANDLER_URL }}
   ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
   ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
 
@@ -82,6 +86,10 @@ jobs:
           echo WEB_PREVIEW_URL=${{ secrets.WEB_PREVIEW_URL }} >> .env
           echo DEFAULT_REPLY_TO_EMAIL=${{ secrets.DEFAULT_REPLY_TO_EMAIL }} >> .env
           echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
+          echo BLUESKY_BOOKING_SCHEDULES_API=${{ secrets.BLUESKY_BOOKING_SCHEDULES_API }} >> .env
+          echo BLUESKY_BOOKING_SCHEDULES_ID=${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }} >> .env
+          echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
+          echo IMAGE_HANDLER_URL=${{ secrets.IMAGE_HANDLER_URL }} >> .env
 
       - name: Stop Strapi with PM2
         run: pm2 stop strapi

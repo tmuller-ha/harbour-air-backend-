@@ -22,9 +22,6 @@
       "repeatable": false,
       "component": "meta-data.meta-data"
     },
-    "flightStatusInfo": {
-      "type": "blocks"
-    },
     "flighStatusTitle": {
       "type": "component",
       "repeatable": false,

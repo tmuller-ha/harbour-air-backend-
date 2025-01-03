@@ -4,7 +4,8 @@
   "info": {
     "singularName": "menu-image-link",
     "pluralName": "menu-image-links",
-    "displayName": "Menu Image Link"
+    "displayName": "Menu Image Link",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,17 +17,21 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "slug": {
       "type": "string",
       "required": true,
       "default": "/"
+    },
+    "isIframe": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

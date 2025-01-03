@@ -38,11 +38,9 @@ export default ({ env }) => ({
   },
   email: {
     config: {
-      provider: "amazon-ses",
+      provider: "sendgrid",
       providerOptions: {
-        key: env("AWS_ACCESS_KEY_ID"),
-        secret: env("AWS_ACCESS_SECRET"),
-        amazon: "https://email.us-east-1.amazonaws.com",
+        apiKey: env("SENDGRID_API_KEY"),
       },
       settings: {
         defaultFrom: env("DEFAULT_FROM_EMAIL"),
@@ -57,6 +55,7 @@ export default ({ env }) => ({
       playgroundAlways: true,
       depthLimit: 10,
       amountLimit: 100,
+      defaultLimit: 100,
       apolloServer: {
         tracing: false,
         introspection: true,
@@ -69,20 +68,62 @@ export default ({ env }) => ({
       apiKey: env("ALGOLIA_ADMIN_KEY"),
       applicationId: env("ALGOLIA_APP_ID"),
       contentTypes: [
-        { name: "api::assistance.assistance" },
-        { name: "api::base-page.base-page" },
-        { name: "api::blog.blog" },
-        { name: "api::campaign.campaign" },
-        { name: "api::deal.deal" },
-        { name: "api::document.document" },
-        { name: "api::faq-content.faq-content" },
-        { name: "api::location.location" },
-        { name: "api::link.link" },
-        { name: "api::menu-image-link.menu-image-link" },
-        { name: "api::news.news" },
-        { name: "api::tour-location.tour-location" },
-        { name: "api::tours-detail.tours-detail" },
-        { name: "api::trip-advisor-comment.trip-advisor-comment" },
+        {
+          name: "api::assistance.assistance",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::base-page.base-page",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        { name: "api::blog.blog", hideFields: ["createdBy", "updatedBy"] },
+        {
+          name: "api::campaign.campaign",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::career-opportunity.career-opportunity",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::category.category",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::featured-tour.featured-tour",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        { name: "api::deal.deal", hideFields: ["createdBy", "updatedBy"] },
+        {
+          name: "api::document.document",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::faq-content.faq-content",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::destination.destination",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        { name: "api::link.link", hideFields: ["createdBy", "updatedBy"] },
+        {
+          name: "api::menu-image-link.menu-image-link",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        { name: "api::news.news", hideFields: ["createdBy", "updatedBy"] },
+        {
+          name: "api::tour-location.tour-location",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::tours-detail.tours-detail",
+          hideFields: ["createdBy", "updatedBy"],
+        },
+        {
+          name: "api::trip-advisor-comment.trip-advisor-comment",
+          hideFields: ["createdBy", "updatedBy"],
+        },
       ],
     },
   },

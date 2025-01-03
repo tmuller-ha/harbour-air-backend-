@@ -8,21 +8,18 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
   },
   "pluginOptions": {},
   "attributes": {
-    "departure": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::destination.destination",
-      "inversedBy": "routesDeparture"
-    },
-    "arrival": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::destination.destination",
-      "inversedBy": "routesArrivals"
+    "title": {
+      "type": "string",
+      "default": "Arrival - Departure"
     }
   }
 }

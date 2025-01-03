@@ -26,6 +26,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "sectionTitle": {
+      "type": "string"
     }
   }
 }

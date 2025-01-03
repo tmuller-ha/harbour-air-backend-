@@ -36,7 +36,8 @@
       "type": "dynamiczone",
       "components": [
         "elements.title-with-ck-editor",
-        "loyalty-program.high-flyer-membership-levels"
+        "loyalty-program.high-flyer-membership-levels",
+        "common.form-with-description"
       ]
     }
   }
