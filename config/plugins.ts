@@ -1,3 +1,15 @@
+const metaData = [
+  "createdAt",
+  "createdBy",
+  "updatedAt",
+  "updatedBy",
+  "localizations",
+  "locale",
+  "documentId",
+  "id",
+];
+const fieldNames = [...metaData, "seo", "metaData"];
+
 export default ({ env }) => ({
   upload: {
     config: {
@@ -71,56 +83,45 @@ export default ({ env }) => ({
         {
           name: "api::location.location",
           hideFields: [
+            ...fieldNames,
             "description",
             "locationPhotos",
             "locationVideo",
             "learnMoreBtnText",
-            "seo",
-            "metaData",
             "guide",
             "additionalInformation",
             "address",
             "opacity",
             "mobileImagePosition",
             "tileImage",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
-            "updatedBy",
           ],
         },
         {
           name: "api::blog.blog",
           hideFields: [
+            ...fieldNames,
             "content",
             "category",
             "readingTime",
             "bannerImage",
-            "seo",
-            "metaData",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
             "mobileImagePosition",
           ],
         },
         {
           name: "api::news.news",
           hideFields: [
+            ...fieldNames,
             "content",
             "category",
             "readingTime",
             "bannerImage",
-            "seo",
-            "metaData",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
           ],
         },
         {
-          name:"api::tours-detail.tours-detail",
+          name: "api::tours-detail.tours-detail",
           hideFields: [
+            ...metaData,
+            "show",
             "tour_location",
             "overviewTitle",
             "detailsTitle",
@@ -136,14 +137,12 @@ export default ({ env }) => ({
             "bookBtnSlug",
             "makeitPrivateBtnText",
             "makeitPrivateBtnSlug",
-            "createdAt",
-            "createdBy",
             "departureLocation",
             "arrivalLocation",
             "segmentId",
             "microsoftFormUrl",
-          ]
-        }
+          ],
+        },
       ],
     },
   },
