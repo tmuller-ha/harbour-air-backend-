@@ -125,10 +125,23 @@ export default ({ env }) => ({
             "tours",
             "departure",
             "opacity",
-            "components",
             "mobileImagePosition",
             "departureLocation",
+            "heroBackgroundImage"
           ],
+          populate: {
+            components: {
+              on: {
+                "main-tours.tour-cards": {
+                  populate: {
+                    tourPlaces: {
+                      populate: "*",
+                    },
+                  },
+                },
+              },
+            },
+          },
         },
       ],
     },
