@@ -5,8 +5,6 @@ const metaData = [
   "updatedBy",
   "localizations",
   "locale",
-  "documentId",
-  "id",
 ];
 const fieldNames = [...metaData, "seo", "metaData"];
 
