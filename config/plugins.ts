@@ -1,3 +1,13 @@
+const metaData = [
+  "createdAt",
+  "createdBy",
+  "updatedAt",
+  "updatedBy",
+  "localizations",
+  "locale",
+];
+const fieldNames = [...metaData, "seo", "metaData"];
+
 export default ({ env }) => ({
   upload: {
     config: {
@@ -71,79 +81,66 @@ export default ({ env }) => ({
         {
           name: "api::location.location",
           hideFields: [
+            ...fieldNames,
             "description",
             "locationPhotos",
             "locationVideo",
             "learnMoreBtnText",
-            "seo",
-            "metaData",
             "guide",
             "additionalInformation",
             "address",
             "opacity",
             "mobileImagePosition",
             "tileImage",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
-            "updatedBy",
           ],
         },
         {
           name: "api::blog.blog",
           hideFields: [
+            ...fieldNames,
             "content",
             "category",
             "readingTime",
             "bannerImage",
-            "seo",
-            "metaData",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
             "mobileImagePosition",
           ],
         },
         {
           name: "api::news.news",
           hideFields: [
+            ...fieldNames,
             "content",
             "category",
             "readingTime",
             "bannerImage",
-            "seo",
-            "metaData",
-            "createdAt",
-            "createdBy",
-            "updatedAt",
           ],
         },
         {
-          name:"api::tours-detail.tours-detail",
+          name: "api::tour-location.tour-location",
           hideFields: [
-            "tour_location",
-            "overviewTitle",
-            "detailsTitle",
-            "detailsDescription",
-            "tourFareDetail",
-            "flightDuration",
-            "availableOffers",
-            "cardDescription",
-            "fareCategory",
-            "fare",
-            "person",
-            "bookBtnText",
-            "bookBtnSlug",
-            "makeitPrivateBtnText",
-            "makeitPrivateBtnSlug",
-            "createdAt",
-            "createdBy",
+            ...fieldNames,
+            "show",
+            "tours",
+            "departure",
+            "opacity",
+            "mobileImagePosition",
             "departureLocation",
-            "arrivalLocation",
-            "segmentId",
-            "microsoftFormUrl",
-          ]
-        }
+            "heroBackgroundImage"
+          ],
+          populate: {
+            components: {
+              on: {
+                "main-tours.tour-cards": {
+                  populate: {
+                    tourPlaces: {
+                      populate: "*",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       ],
     },
   },
