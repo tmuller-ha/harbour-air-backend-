@@ -11,7 +11,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
+  AWS_BUCKET_NAME: ${{ secrets/?terminal=3.AWS_BUCKET_NAME }}
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
   STRAPI_ADMIN_GITHUB_TOKEN: ${{ secrets.STRAPI_ADMIN_GITHUB_TOKEN }}
   WEB_PREVIEW_URL: ${{ secrets.WEB_PREVIEW_URL }}
@@ -26,9 +26,7 @@ on:
   pull_request:
     branches:
       - "*"
-  push:
-    branches:
-      - dev
+  workflow_dispatch:
 
 jobs:
   build:
@@ -54,7 +52,6 @@ jobs:
   deploy_dev:
     runs-on: self-hosted
     needs: build
-    if: github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
