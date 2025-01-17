@@ -1706,6 +1706,7 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
     mobileImagePosition: Schema.Attribute.Enumeration<
       ['left', 'center', 'right']
     >;
+    news: Schema.Attribute.Relation<'oneToMany', 'api::news.news'>;
     pageAbout: Schema.Attribute.Component<
       'elements.title-with-desc-and-image',
       false
