@@ -88,7 +88,16 @@
     },
     "mobileImagePosition": {
       "type": "enumeration",
-      "enum": ["left", "center", "right"]
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news.news"
     }
   }
 }
