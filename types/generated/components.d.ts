@@ -455,6 +455,16 @@ export interface ElementsTableFields extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsTags extends Struct.ComponentSchema {
+  collectionName: 'components_elements_tags';
+  info: {
+    displayName: 'Tags';
+  };
+  attributes: {
+    keys: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsTextWithImage extends Struct.ComponentSchema {
   collectionName: 'components_elements_text_with_images';
   info: {
@@ -2126,6 +2136,7 @@ declare module '@strapi/strapi' {
       'elements.tab': ElementsTab;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
+      'elements.tags': ElementsTags;
       'elements.text-with-image': ElementsTextWithImage;
       'elements.title-desc-with-from-url': ElementsTitleDescWithFromUrl;
       'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;

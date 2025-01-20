@@ -80,6 +80,12 @@
         "bottom",
         "center"
       ]
+    },
+    "tags": {
+      "displayName": "Tags",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.tags"
     }
   }
 }
