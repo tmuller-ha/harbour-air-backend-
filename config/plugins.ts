@@ -62,4 +62,8 @@ export default ({ env }) => ({
       },
     },
   },
+  "ai-text-field": {
+    enabled: true,
+    resolve: "./src/plugins/ai-text-field",
+  },
 });
