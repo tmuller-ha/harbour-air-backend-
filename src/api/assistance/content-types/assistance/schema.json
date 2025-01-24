@@ -28,7 +28,8 @@
         "common.help",
         "extra-assistance.files",
         "elements.title-with-ck-editor",
-        "extra-assistance.accordion-with-editor"
+        "extra-assistance.accordion-with-editor",
+        "common.form-with-description"
       ]
     }
   }
