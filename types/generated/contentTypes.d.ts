@@ -635,6 +635,8 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     seo: Schema.Attribute.Component<'seo.seo', false>;
     shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    textfield: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::ai-text-field.ai-text-field'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2913,6 +2915,32 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTestTest extends Struct.SingleTypeSchema {
+  collectionName: 'tests';
+  info: {
+    displayName: 'test';
+    pluralName: 'tests';
+    singularName: 'test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test.test'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    testai: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::ai-text-field.ai-text-field'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTourLocationTourLocation
   extends Struct.CollectionTypeSchema {
   collectionName: 'tour_locations';
@@ -3740,6 +3768,7 @@ declare module '@strapi/strapi' {
       'api::schedule.schedule': ApiScheduleSchedule;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::standby-travel.standby-travel': ApiStandbyTravelStandbyTravel;
+      'api::test.test': ApiTestTest;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

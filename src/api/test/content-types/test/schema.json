@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testai": {
+      "type": "customField",
+      "customField": "plugin::ai-text-field.ai-text-field"
+    }
+  }
+}

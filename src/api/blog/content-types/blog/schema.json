@@ -80,6 +80,10 @@
         "bottom",
         "center"
       ]
+    },
+    "textfield": {
+      "type": "customField",
+      "customField": "plugin::ai-text-field.ai-text-field"
     }
   }
 }
