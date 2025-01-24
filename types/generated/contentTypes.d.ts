@@ -464,6 +464,7 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
         'extra-assistance.files',
         'elements.title-with-ck-editor',
         'extra-assistance.accordion-with-editor',
+        'common.form-with-description',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -2330,6 +2331,7 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
         'mobility.images',
         'common.help',
         'elements.title-with-ck-editor',
+        'common.form-with-description',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

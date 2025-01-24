@@ -24,7 +24,8 @@
         "mobility.hero-section",
         "mobility.images",
         "common.help",
-        "elements.title-with-ck-editor"
+        "elements.title-with-ck-editor",
+        "common.form-with-description"
       ]
     }
   }
