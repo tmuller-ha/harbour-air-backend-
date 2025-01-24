@@ -1,4 +1,4 @@
-name: Build & Dev Deployment
+name: Build
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
