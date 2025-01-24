@@ -23,7 +23,9 @@ env:
   IMAGE_HANDLER_URL: ${{ secrets.IMAGE_HANDLER_URL }}
 
 on:
-  workflow_dispatch:
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   build:
