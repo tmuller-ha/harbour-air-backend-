@@ -40,10 +40,10 @@ function getComponent(component) {
 }
 
 export function getPageContent(pageContentModel: string, data: any) {
-  const { documentId } = data;
+  const { documentId, publishedAt } = data;
   switch (pageContentModel) {
     case PageContentModel.aboutUs:
-      const { heading, publishedAt } = data;
+      const { heading } = data;
       const { title, description, media } = heading;
       return {
         documentId,
@@ -59,6 +59,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         getComponent(airCraftFleetSection);
       return {
         documentId,
+        publishedAt,
         title: airCraftTitle,
         media: airCraftCoverImage,
         slug: "/aircraft-fleet",
@@ -68,6 +69,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { title: bookFlightTitle = "", coverImage = "" } = pageTitle;
       return {
         documentId,
+        publishedAt,
         title: bookFlightTitle,
         media: coverImage?.url || "",
         slug: "/book-flight",
@@ -80,6 +82,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = charteredFlightPageTitle;
       return {
         documentId,
+        publishedAt,
         title: charteredFlightTitle,
         media: charteredFlightMedia,
         slug: "/chartered-flight",
@@ -90,6 +93,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         carServicePageTitle;
       return {
         documentId,
+        publishedAt,
         title: carServiceTitle,
         media: carServiceImage?.url || "",
         slug: "/car-services",
@@ -100,6 +104,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         getComponent(careerPage);
       return {
         documentId,
+        publishedAt,
         title: careerTitle,
         media: careerImage,
         slug: "/careers",
@@ -112,6 +117,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = getComponent(communityInvolvementSection);
       return {
         documentId,
+        publishedAt,
         title: communityInvolvementTitle,
         media: communityInvolvementMedia,
         slug: "/community-involvement",
@@ -124,6 +130,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = extraAssistancePageTitle;
       return {
         documentId,
+        publishedAt,
         title: extraAssistanceTitle,
         media: extraAssistanceImage?.url || "",
         slug: "/extra-assistance",
@@ -132,6 +139,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { title: faqTitle } = data;
       return {
         documentId,
+        publishedAt,
         title: faqTitle,
         slug: "/faq",
       };
@@ -143,6 +151,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = contactUsTitle;
       return {
         documentId,
+        publishedAt,
         title: contactUsPageTitle,
         media: contactUsImage?.url || "",
         slug: "/contact-us",
@@ -155,6 +164,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = corporateResponsibilityPageTitle;
       return {
         documentId,
+        publishedAt,
         title: corporateResponsibilityTitle,
         media: corporateResponsibilityImage?.url || "",
         slug: "/corporate-responsibility",
@@ -167,6 +177,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = getComponent(courtesyShuttlePage);
       return {
         documentId,
+        publishedAt,
         title: courtesyShuttleTitle,
         media: courtesyShuttleImage,
         slug: "/courtesy-shuttles",
@@ -180,6 +191,7 @@ export function getPageContent(pageContentModel: string, data: any) {
 
       return {
         documentId,
+        publishedAt,
         title: flightStatusPageTitle,
         media: flightStatusImage?.url || "",
         slug: "/flight-status",
@@ -191,6 +203,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         goingElectricPage;
       return {
         documentId,
+        publishedAt,
         title: goingElectricTitle,
         media: goingElectricImage?.url,
         slug: "/going-electric",
@@ -201,6 +214,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         groupBookingPage;
       return {
         documentId,
+        publishedAt,
         title: groupBookingTitle,
         media: groupBookingImage?.url,
         slug: "/group-bookings",
@@ -211,6 +225,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         highFlyerRewardPage;
       return {
         documentId,
+        publishedAt,
         title: highFlyerRewardTitle,
         media: highFlyerRewardImage,
         slug: "/high-flyer-rewards",
@@ -221,6 +236,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         loyaltyProgramPage;
       return {
         documentId,
+        publishedAt,
         title: loyaltyProgramTitle,
         media: loyaltyProgramImage?.url,
         slug: "/loyalty-program",
@@ -231,6 +247,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         getComponent(luggagePage);
       return {
         documentId,
+        publishedAt,
         title: luggageTitle,
         media: luggageImage,
         slug: "/luggage",
@@ -242,6 +259,8 @@ export function getPageContent(pageContentModel: string, data: any) {
         url: movingPastCarbonNeutralImage,
       } = getComponent(section);
       return {
+        documentId,
+        publishedAt,
         title: movingPastCarbonNeutralTitle,
         media: movingPastCarbonNeutralImage,
         slug: "/moving-past-carbon-neutral",
@@ -254,6 +273,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = onAccountQuickTicketPage;
       return {
         documentId,
+        publishedAt,
         title: onAccountQuickTicketTitle,
         media: onAccountQuickTicketImage?.url,
         slug: "/on-account-quick-tickets",
@@ -264,6 +284,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         ourFarePage;
       return {
         documentId,
+        publishedAt,
         title: ourFareTitle,
         media: ourFareImage?.url,
         slug: "/fares",
@@ -274,6 +295,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         getComponent(parcelExpressPage);
       return {
         documentId,
+        publishedAt,
         title: parcelExpressTitle,
         media: parcelExpressImage,
         slug: "/parcel-express",
@@ -284,6 +306,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         schedulePage;
       return {
         documentId,
+        publishedAt,
         title: scheduleTitle,
         media: scheduleImage?.url,
         slug: "/schedules",
@@ -294,6 +317,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         getComponent(seatingOptionSection);
       return {
         documentId,
+        publishedAt,
         title: seatingOptionTitle,
         media: seatingOptionImage,
         slug: "/seating-options",
@@ -303,6 +327,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { title: stanbyTitle, url } = getComponent(standbyTravelSection);
       return {
         documentId,
+        publishedAt,
         title: stanbyTitle,
         media: url,
         slug: "/stand-by-travel",
@@ -315,6 +340,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       } = turboBucksTitle;
       return {
         documentId,
+        publishedAt,
         title: turboBucksPageTitle,
         media: turboBucksImage?.url,
         slug: "/turbobucks-flight-credits",
