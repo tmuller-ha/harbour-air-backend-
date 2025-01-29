@@ -69,7 +69,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       return {
         documentId,
         title: bookFlightTitle,
-        media: coverImage,
+        media: coverImage?.url || "",
         slug: "/book-flight",
       };
     case PageContentModel.charteredFlight:
@@ -86,12 +86,12 @@ export function getPageContent(pageContentModel: string, data: any) {
       };
     case PageContentModel.carService:
       const { pageTitle: carServicePageTitle } = data;
-      const { title: carServiceTitle = "", coverImage: carServiceImage = "" } =
+      const { title: carServiceTitle = "", coverImage: carServiceImage = {} } =
         carServicePageTitle;
       return {
         documentId,
         title: carServiceTitle,
-        media: carServiceImage,
+        media: carServiceImage?.url || "",
         slug: "/car-services",
       };
     case PageContentModel.career:
@@ -120,12 +120,12 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { pageTitle: extraAssistancePageTitle } = data;
       const {
         title: extraAssistanceTitle = "",
-        coverImage: extraAssistanceImage = "",
+        coverImage: extraAssistanceImage = {},
       } = extraAssistancePageTitle;
       return {
         documentId,
         title: extraAssistanceTitle,
-        media: extraAssistanceImage,
+        media: extraAssistanceImage?.url || "",
         slug: "/extra-assistance",
       };
     case PageContentModel.faq:
@@ -139,24 +139,24 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { pageTitle: contactUsTitle } = data;
       const {
         title: contactUsPageTitle = "",
-        coverImage: contactUsImage = "",
+        coverImage: contactUsImage = {},
       } = contactUsTitle;
       return {
         documentId,
         title: contactUsPageTitle,
-        media: contactUsImage,
+        media: contactUsImage?.url || "",
         slug: "/contact-us",
       };
     case PageContentModel.corporateResponsibility:
       const { pageTitle: corporateResponsibilityPageTitle } = data;
       const {
         title: corporateResponsibilityTitle = "",
-        media: corporateResponsibilityImage = "",
+        media: corporateResponsibilityImage = {},
       } = corporateResponsibilityPageTitle;
       return {
         documentId,
         title: corporateResponsibilityTitle,
-        media: corporateResponsibilityImage,
+        media: corporateResponsibilityImage?.url || "",
         slug: "/corporate-responsibility",
       };
     case PageContentModel.courtesyShuttle:
@@ -181,7 +181,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       return {
         documentId,
         title: flightStatusPageTitle,
-        media: flightStatusImage,
+        media: flightStatusImage?.url || "",
         slug: "/flight-status",
       };
 
