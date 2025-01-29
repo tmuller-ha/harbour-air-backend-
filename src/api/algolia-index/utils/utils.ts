@@ -4,7 +4,7 @@ enum PageContentModel {
   bookFlight = "book-flight",
   carService = "car-service",
   communityInvolvement = "community-involvement",
-  corporateResponsibility = "corporate-responsibility",
+  corporateResponsibility = "corporate-resposibility",
   courtesyShuttle = "courtesy-shuttle",
   flightStatus = "flight-status",
   extraAssistance = "extra-assistance",
@@ -31,22 +31,19 @@ enum PageContentModel {
   turboBucks = "turbo-bucks-flight-credit",
 }
 
-const pageType = "ComponentElementsTitleWithImage";
+const pageType = "elements.title-with-image";
 
 function getComponent(component) {
-  switch (component.type) {
-    case pageType:
-      const { title, coverImage } = component || {};
-      const { url } = coverImage || {};
-      return { title, url };
-  }
+  const pageTitle = component.find((item) => item.__component === pageType);
+  const { url } = pageTitle.coverImage || {};
+  return { title: pageTitle.title || "", url: url || "" };
 }
 
 export function getPageContent(pageContentModel: string, data: any) {
-  console.log("data", data);
+  const { documentId } = data;
   switch (pageContentModel) {
     case PageContentModel.aboutUs:
-      const { heading, publishedAt, documentId } = data;
+      const { heading, publishedAt } = data;
       const { title, description, media } = heading;
       return {
         documentId,
@@ -61,40 +58,48 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { title: airCraftTitle, url: airCraftCoverImage } =
         getComponent(airCraftFleetSection);
       return {
+        documentId,
         title: airCraftTitle,
         media: airCraftCoverImage,
         slug: "/aircraft-fleet",
       };
     case PageContentModel.bookFlight:
       const { pageTitle } = data;
-      const { title: bookFlightTitle, coverImage } = pageTitle;
+      const { title: bookFlightTitle = "", coverImage = "" } = pageTitle;
       return {
+        documentId,
         title: bookFlightTitle,
         media: coverImage,
         slug: "/book-flight",
       };
     case PageContentModel.charteredFlight:
-      const { sections } = data;
-      const { title: charteredFlightTitle, url: charteredFlightMedia } =
-        getComponent(sections);
+      const { pageTitle: charteredFlightPageTitle } = data;
+      const {
+        title: charteredFlightTitle = "",
+        url: charteredFlightMedia = "",
+      } = charteredFlightPageTitle;
       return {
+        documentId,
         title: charteredFlightTitle,
         media: charteredFlightMedia,
         slug: "/chartered-flight",
       };
     case PageContentModel.carService:
       const { pageTitle: carServicePageTitle } = data;
-      const { title: carServiceTitle, coverImage: carServiceImage } =
+      const { title: carServiceTitle = "", coverImage: carServiceImage = "" } =
         carServicePageTitle;
       return {
+        documentId,
         title: carServiceTitle,
         media: carServiceImage,
         slug: "/car-services",
       };
     case PageContentModel.career:
       const { careerPage } = data;
-      const { title: careerTitle, url: careerImage } = getComponent(careerPage);
+      const { title: careerTitle = "", url: careerImage = "" } =
+        getComponent(careerPage);
       return {
+        documentId,
         title: careerTitle,
         media: careerImage,
         slug: "/careers",
@@ -102,36 +107,42 @@ export function getPageContent(pageContentModel: string, data: any) {
     case PageContentModel.communityInvolvement:
       const { sections: communityInvolvementSection } = data;
       const {
-        title: communityInvolvementTitle,
-        url: communityInvolvementMedia,
+        title: communityInvolvementTitle = "",
+        url: communityInvolvementMedia = "",
       } = getComponent(communityInvolvementSection);
       return {
+        documentId,
         title: communityInvolvementTitle,
         media: communityInvolvementMedia,
-        slug: "/chartered-flight",
+        slug: "/community-involvement",
       };
     case PageContentModel.extraAssistance:
-      const { pageTitle:extraAssistancePageTitle} = data;
-      const { title: extraAssistanceTitle, coverImage: extraAssistanceImage } = extraAssistancePageTitle;
+      const { pageTitle: extraAssistancePageTitle } = data;
+      const {
+        title: extraAssistanceTitle = "",
+        coverImage: extraAssistanceImage = "",
+      } = extraAssistancePageTitle;
       return {
+        documentId,
         title: extraAssistanceTitle,
         media: extraAssistanceImage,
         slug: "/extra-assistance",
       };
     case PageContentModel.faq:
-      const { title: faqTitle, accordionSection, documentId: faqId } = data;
-      const { description: faqDescription } = accordionSection;
+      const { title: faqTitle } = data;
       return {
-        documentId: faqId,
+        documentId,
         title: faqTitle,
-        description: faqDescription,
         slug: "/faq",
       };
     case PageContentModel.contactUs:
       const { pageTitle: contactUsTitle } = data;
-      const { title: contactUsPageTitle, coverImage: contactUsImage } =
-        contactUsTitle;
+      const {
+        title: contactUsPageTitle = "",
+        coverImage: contactUsImage = "",
+      } = contactUsTitle;
       return {
+        documentId,
         title: contactUsPageTitle,
         media: contactUsImage,
         slug: "/contact-us",
@@ -139,139 +150,176 @@ export function getPageContent(pageContentModel: string, data: any) {
     case PageContentModel.corporateResponsibility:
       const { pageTitle: corporateResponsibilityPageTitle } = data;
       const {
-        title: corporateResponsibilityTitle,
-        coverImage: corporateResponsibilityImage,
+        title: corporateResponsibilityTitle = "",
+        media: corporateResponsibilityImage = "",
       } = corporateResponsibilityPageTitle;
       return {
+        documentId,
         title: corporateResponsibilityTitle,
         media: corporateResponsibilityImage,
         slug: "/corporate-responsibility",
       };
     case PageContentModel.courtesyShuttle:
       const { courtesyShuttlePage } = data;
-      const { title: courtesyShuttleTitle, url: courtesyShuttleImage } =
-        getComponent(courtesyShuttlePage);
+      const {
+        title: courtesyShuttleTitle = "",
+        url: courtesyShuttleImage = "",
+      } = getComponent(courtesyShuttlePage);
       return {
+        documentId,
         title: courtesyShuttleTitle,
         media: courtesyShuttleImage,
         slug: "/courtesy-shuttles",
       };
     case PageContentModel.flightStatus:
-      const { flightStatusTitle, flightStatusDescription } = data;
-      const { title: flightStatusPageTitle, coverImage: flightStatusImage } =
-        flightStatusTitle;
-      const { description: flightStatusPageDescription } =
-        flightStatusDescription;
+      const { flighStatusTitle } = data;
+      const {
+        title: flightStatusPageTitle = "",
+        coverImage: flightStatusImage = {},
+      } = flighStatusTitle;
+
       return {
+        documentId,
         title: flightStatusPageTitle,
-        description: flightStatusPageDescription,
         media: flightStatusImage,
         slug: "/flight-status",
       };
- 
+
     case PageContentModel.goingElectric:
-      const { pageTitle:goingElectricPage } = data;
-      const { title: goingElectricTitle, coverImage: goingElectricImage } = goingElectricPage;
+      const { pageTitle: goingElectricPage } = data;
+      const { title: goingElectricTitle, media: goingElectricImage } =
+        goingElectricPage;
       return {
+        documentId,
         title: goingElectricTitle,
-        media: goingElectricImage,
+        media: goingElectricImage?.url,
         slug: "/going-electric",
       };
     case PageContentModel.groupBooking:
-      const { pageTitle:groupBookingPage } = data;
-      const { title: groupBookingTitle, coverImage: groupBookingImage } = groupBookingPage;
+      const { pageTitle: groupBookingPage } = data;
+      const { title: groupBookingTitle, coverImage: groupBookingImage } =
+        groupBookingPage;
       return {
+        documentId,
         title: groupBookingTitle,
-        media: groupBookingImage,
-        slug: "/group-booking",
+        media: groupBookingImage?.url,
+        slug: "/group-bookings",
       };
     case PageContentModel.highFlyerReward:
-      const { pageTitle:highFlyerRewardPage } = data;
-      const { title: highFlyerRewardTitle, coverImage: highFlyerRewardImage } = highFlyerRewardPage;
+      const { pageTitle: highFlyerRewardPage } = data;
+      const { title: highFlyerRewardTitle, coverImage: highFlyerRewardImage } =
+        highFlyerRewardPage;
       return {
+        documentId,
         title: highFlyerRewardTitle,
         media: highFlyerRewardImage,
-        slug: "/high-flyer-reward",
+        slug: "/high-flyer-rewards",
       };
     case PageContentModel.loyaltyProgram:
-      const { pageTitle:loyaltyProgramPage } = data;
-      const { title: loyaltyProgramTitle, coverImage: loyaltyProgramImage } = loyaltyProgramPage;
+      const { pageTitle: loyaltyProgramPage } = data;
+      const { title: loyaltyProgramTitle, coverImage: loyaltyProgramImage } =
+        loyaltyProgramPage;
       return {
+        documentId,
         title: loyaltyProgramTitle,
-        media: loyaltyProgramImage,
+        media: loyaltyProgramImage?.url,
         slug: "/loyalty-program",
       };
     case PageContentModel.luggage:
       const { luggagePage } = data;
-      const { title: luggageTitle, coverImage: luggageImage } = luggagePage;
+      const { title: luggageTitle, url: luggageImage } =
+        getComponent(luggagePage);
       return {
+        documentId,
         title: luggageTitle,
         media: luggageImage,
-        slug: "/luggages",
+        slug: "/luggage",
       };
     case PageContentModel.movingPastCarbonNeutral:
-      const {section} = data;
-      const {title: movingPastCarbonNeutralTitle, url: movingPastCarbonNeutralImage} = getComponent(section);
+      const { section } = data;
+      const {
+        title: movingPastCarbonNeutralTitle,
+        url: movingPastCarbonNeutralImage,
+      } = getComponent(section);
       return {
         title: movingPastCarbonNeutralTitle,
         media: movingPastCarbonNeutralImage,
         slug: "/moving-past-carbon-neutral",
       };
     case PageContentModel.onAccountQuickTicket:
-      const { pageTitle:onAccountQuickTicketPage } = data;
-      const { title: onAccountQuickTicketTitle, coverImage: onAccountQuickTicketImage } = onAccountQuickTicketPage;
+      const { pageTitle: onAccountQuickTicketPage } = data;
+      const {
+        title: onAccountQuickTicketTitle = "",
+        coverImage: onAccountQuickTicketImage,
+      } = onAccountQuickTicketPage;
       return {
+        documentId,
         title: onAccountQuickTicketTitle,
-        media: onAccountQuickTicketImage,
+        media: onAccountQuickTicketImage?.url,
         slug: "/on-account-quick-tickets",
       };
     case PageContentModel.ourFare:
-      const { pageTitle:ourFarePage } = data;
-      const { title: ourFareTitle, coverImage: ourFareImage } = ourFarePage;
+      const { pageTitle: ourFarePage } = data;
+      const { title: ourFareTitle = "", coverImage: ourFareImage = "" } =
+        ourFarePage;
       return {
+        documentId,
         title: ourFareTitle,
-        media: ourFareImage,
+        media: ourFareImage?.url,
         slug: "/fares",
       };
     case PageContentModel.parcelExpress:
       const { parcelExpressPage } = data;
-      const { title: parcelExpressTitle, coverImage: parcelExpressImage } = parcelExpressPage;
+      const { title: parcelExpressTitle, url: parcelExpressImage } =
+        getComponent(parcelExpressPage);
       return {
+        documentId,
         title: parcelExpressTitle,
         media: parcelExpressImage,
         slug: "/parcel-express",
       };
     case PageContentModel.schedule:
-      const { pageTitle:schedulePage } = data;
-      const { title: scheduleTitle, coverImage: scheduleImage } = schedulePage;
+      const { pageTitle: schedulePage } = data;
+      const { title: scheduleTitle = "", coverImage: scheduleImage = "" } =
+        schedulePage;
       return {
+        documentId,
         title: scheduleTitle,
-        media: scheduleImage,
+        media: scheduleImage?.url,
         slug: "/schedules",
       };
     case PageContentModel.seatingOption:
-      const { sections:seatingOptionSection } = data;
-      const { title: seatingOptionTitle, url: seatingOptionImage } = getComponent(seatingOptionSection);
+      const { sections: seatingOptionSection } = data;
+      const { title: seatingOptionTitle, url: seatingOptionImage } =
+        getComponent(seatingOptionSection);
       return {
+        documentId,
         title: seatingOptionTitle,
         media: seatingOptionImage,
         slug: "/seating-options",
       };
     case PageContentModel.standbyTravel:
-      const { sections:standbyTravelSection } = data;
-      const { title: standbyTravelTitle, url: standbyTravelImage } = getComponent(standbyTravelSection);
+      const { sections: standbyTravelSection } = data;
+      const { title: stanbyTitle, url } = getComponent(standbyTravelSection);
       return {
-        title: standbyTravelTitle,
-        media: standbyTravelImage,
-        slug: "/standby-travel",
+        documentId,
+        title: stanbyTitle,
+        media: url,
+        slug: "/stand-by-travel",
       };
     case PageContentModel.turboBucks:
-      const { pageTitle:turboBucksTitle} = data;
-      const { title: turboBucksPageTitle, coverImage: turboBucksImage } = turboBucksTitle;
+      const { pageTitle: turboBucksTitle } = data;
+      const {
+        title: turboBucksPageTitle = "",
+        coverImage: turboBucksImage = "",
+      } = turboBucksTitle;
       return {
+        documentId,
         title: turboBucksPageTitle,
-        media: turboBucksImage,
-        slug: "/turbo-bucks",
-      }; 
+        media: turboBucksImage?.url,
+        slug: "/turbobucks-flight-credits",
+      };
+    default:
+      return null;
   }
 }
