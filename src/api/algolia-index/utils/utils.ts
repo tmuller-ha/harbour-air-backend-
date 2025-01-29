@@ -28,44 +28,22 @@ enum PageContentModel {
   canadianPassengerRight = "canadian-passenger-right",
   seatingOption = "seating-option",
   standbyTravel = "standby-travel",
+  turboBucks = "turbo-bucks-flight-credit",
 }
 
-const pageSlugs = [
-  { model: "about-us", slug: "/about-us" },
-  { model: "air-craft-fleet", slug: "/aircraft-fleet" },
-  { model: "book-flight", slug: "/book-flight" },
-  { model: "car-service", slug: "/car-services" },
-  { model: "community-involvement", slug: "/community-involvement" },
-  {
-    model: "corporate-responsibility",
-    slug: "/corporate-responsibility",
-  },
-  { model: "courtesy-shuttle", slug: "/courtesy-shuttles" },
-  { model: "flight-status", slug: "/flight-status" },
-  { model: "extra-assistance", slug: "/extra-assistance" },
-  { model: "going-electric", slug: "/going-electric" },
-  { model: "group-booking", slug: "/group-bookings" },
-  { model: "high-flyer-reward", slug: "/high-flyer-reward" },
-  { model: "loyalty-program", slug: "/loyalty-programs" },
-  { model: "luggage", slug: "luggages" },
-  { model: "main-deal", slug: "/deals" },
-  { model: "on-account-quick-ticket", slug: "/on-account-quick-tickets" },
-  { model: "moving-past-carbon-neutral", slug: "/moving-past-carbon-neutral" },
-  { model: "our-fare", slug: "/fares" },
-  { model: "schedule", slug: "/schedules" },
-  { model: "parcel-express", slug: "/parcel-express" },
-  { model: "faq", slug: "/faq" },
-  { model: "contact-us", slug: "/contact-us" },
-  { model: "chartered-flight", slug: "/chartered-flight" },
-  { model: "main-location", slug: "/locations" },
-  { model: "main-tour", slug: "/tours" },
-  { model: "career", slug: "/careers" },
-  { model: "canadian-passenger-right", slug: "/tariff" },
-  { model: "seating-option", slug: "/seating-options" },
-  { model: "standby-travel", slug: "/standby-travel" },
-];
+const pageType = "ComponentElementsTitleWithImage";
+
+function getComponent(component) {
+  switch (component.type) {
+    case pageType:
+      const { title, coverImage } = component || {};
+      const { url } = coverImage || {};
+      return { title, url };
+  }
+}
 
 export function getPageContent(pageContentModel: string, data: any) {
+  console.log("data", data);
   switch (pageContentModel) {
     case PageContentModel.aboutUs:
       const { heading, publishedAt, documentId } = data;
@@ -78,17 +56,15 @@ export function getPageContent(pageContentModel: string, data: any) {
         publishedAt,
         slug: "/about-us",
       };
-    case PageContentModel.faq:
-      const { title: faqTitle, accordionSection, documentId: faqId } = data;
-      const { description: faqDescription } = accordionSection;
-      return {
-        documentId: faqId,
-        title: faqTitle,
-        description: faqDescription,
-        slug: "/faq",
-      };
     case PageContentModel.airCraftFleet:
-      break;
+      const { sections: airCraftFleetSection } = data;
+      const { title: airCraftTitle, url: airCraftCoverImage } =
+        getComponent(airCraftFleetSection);
+      return {
+        title: airCraftTitle,
+        media: airCraftCoverImage,
+        slug: "/aircraft-fleet",
+      };
     case PageContentModel.bookFlight:
       const { pageTitle } = data;
       const { title: bookFlightTitle, coverImage } = pageTitle;
@@ -99,21 +75,87 @@ export function getPageContent(pageContentModel: string, data: any) {
       };
     case PageContentModel.charteredFlight:
       const { sections } = data;
-      const { title: charteredFlightTitle, coverImage: charteredFlightMedia } =
-        sections[0];
+      const { title: charteredFlightTitle, url: charteredFlightMedia } =
+        getComponent(sections);
       return {
         title: charteredFlightTitle,
         media: charteredFlightMedia,
         slug: "/chartered-flight",
       };
     case PageContentModel.carService:
-      break;
+      const { pageTitle: carServicePageTitle } = data;
+      const { title: carServiceTitle, coverImage: carServiceImage } =
+        carServicePageTitle;
+      return {
+        title: carServiceTitle,
+        media: carServiceImage,
+        slug: "/car-services",
+      };
+    case PageContentModel.career:
+      const { careerPage } = data;
+      const { title: careerTitle, url: careerImage } = getComponent(careerPage);
+      return {
+        title: careerTitle,
+        media: careerImage,
+        slug: "/careers",
+      };
     case PageContentModel.communityInvolvement:
-      break;
+      const { sections: communityInvolvementSection } = data;
+      const {
+        title: communityInvolvementTitle,
+        url: communityInvolvementMedia,
+      } = getComponent(communityInvolvementSection);
+      return {
+        title: communityInvolvementTitle,
+        media: communityInvolvementMedia,
+        slug: "/chartered-flight",
+      };
+    case PageContentModel.extraAssistance:
+      const { pageTitle:extraAssistancePageTitle} = data;
+      const { title: extraAssistanceTitle, coverImage: extraAssistanceImage } = extraAssistancePageTitle;
+      return {
+        title: extraAssistanceTitle,
+        media: extraAssistanceImage,
+        slug: "/extra-assistance",
+      };
+    case PageContentModel.faq:
+      const { title: faqTitle, accordionSection, documentId: faqId } = data;
+      const { description: faqDescription } = accordionSection;
+      return {
+        documentId: faqId,
+        title: faqTitle,
+        description: faqDescription,
+        slug: "/faq",
+      };
+    case PageContentModel.contactUs:
+      const { pageTitle: contactUsTitle } = data;
+      const { title: contactUsPageTitle, coverImage: contactUsImage } =
+        contactUsTitle;
+      return {
+        title: contactUsPageTitle,
+        media: contactUsImage,
+        slug: "/contact-us",
+      };
     case PageContentModel.corporateResponsibility:
-      break;
+      const { pageTitle: corporateResponsibilityPageTitle } = data;
+      const {
+        title: corporateResponsibilityTitle,
+        coverImage: corporateResponsibilityImage,
+      } = corporateResponsibilityPageTitle;
+      return {
+        title: corporateResponsibilityTitle,
+        media: corporateResponsibilityImage,
+        slug: "/corporate-responsibility",
+      };
     case PageContentModel.courtesyShuttle:
-      break;
+      const { courtesyShuttlePage } = data;
+      const { title: courtesyShuttleTitle, url: courtesyShuttleImage } =
+        getComponent(courtesyShuttlePage);
+      return {
+        title: courtesyShuttleTitle,
+        media: courtesyShuttleImage,
+        slug: "/courtesy-shuttles",
+      };
     case PageContentModel.flightStatus:
       const { flightStatusTitle, flightStatusDescription } = data;
       const { title: flightStatusPageTitle, coverImage: flightStatusImage } =
@@ -126,17 +168,110 @@ export function getPageContent(pageContentModel: string, data: any) {
         media: flightStatusImage,
         slug: "/flight-status",
       };
-    case PageContentModel.extraAssistance:
-      break;
+ 
     case PageContentModel.goingElectric:
-      break;
+      const { pageTitle:goingElectricPage } = data;
+      const { title: goingElectricTitle, coverImage: goingElectricImage } = goingElectricPage;
+      return {
+        title: goingElectricTitle,
+        media: goingElectricImage,
+        slug: "/going-electric",
+      };
     case PageContentModel.groupBooking:
-      break;
+      const { pageTitle:groupBookingPage } = data;
+      const { title: groupBookingTitle, coverImage: groupBookingImage } = groupBookingPage;
+      return {
+        title: groupBookingTitle,
+        media: groupBookingImage,
+        slug: "/group-booking",
+      };
     case PageContentModel.highFlyerReward:
-      break;
+      const { pageTitle:highFlyerRewardPage } = data;
+      const { title: highFlyerRewardTitle, coverImage: highFlyerRewardImage } = highFlyerRewardPage;
+      return {
+        title: highFlyerRewardTitle,
+        media: highFlyerRewardImage,
+        slug: "/high-flyer-reward",
+      };
     case PageContentModel.loyaltyProgram:
-      break;
+      const { pageTitle:loyaltyProgramPage } = data;
+      const { title: loyaltyProgramTitle, coverImage: loyaltyProgramImage } = loyaltyProgramPage;
+      return {
+        title: loyaltyProgramTitle,
+        media: loyaltyProgramImage,
+        slug: "/loyalty-program",
+      };
     case PageContentModel.luggage:
-      break;
+      const { luggagePage } = data;
+      const { title: luggageTitle, coverImage: luggageImage } = luggagePage;
+      return {
+        title: luggageTitle,
+        media: luggageImage,
+        slug: "/luggages",
+      };
+    case PageContentModel.movingPastCarbonNeutral:
+      const {section} = data;
+      const {title: movingPastCarbonNeutralTitle, url: movingPastCarbonNeutralImage} = getComponent(section);
+      return {
+        title: movingPastCarbonNeutralTitle,
+        media: movingPastCarbonNeutralImage,
+        slug: "/moving-past-carbon-neutral",
+      };
+    case PageContentModel.onAccountQuickTicket:
+      const { pageTitle:onAccountQuickTicketPage } = data;
+      const { title: onAccountQuickTicketTitle, coverImage: onAccountQuickTicketImage } = onAccountQuickTicketPage;
+      return {
+        title: onAccountQuickTicketTitle,
+        media: onAccountQuickTicketImage,
+        slug: "/on-account-quick-tickets",
+      };
+    case PageContentModel.ourFare:
+      const { pageTitle:ourFarePage } = data;
+      const { title: ourFareTitle, coverImage: ourFareImage } = ourFarePage;
+      return {
+        title: ourFareTitle,
+        media: ourFareImage,
+        slug: "/fares",
+      };
+    case PageContentModel.parcelExpress:
+      const { parcelExpressPage } = data;
+      const { title: parcelExpressTitle, coverImage: parcelExpressImage } = parcelExpressPage;
+      return {
+        title: parcelExpressTitle,
+        media: parcelExpressImage,
+        slug: "/parcel-express",
+      };
+    case PageContentModel.schedule:
+      const { pageTitle:schedulePage } = data;
+      const { title: scheduleTitle, coverImage: scheduleImage } = schedulePage;
+      return {
+        title: scheduleTitle,
+        media: scheduleImage,
+        slug: "/schedules",
+      };
+    case PageContentModel.seatingOption:
+      const { sections:seatingOptionSection } = data;
+      const { title: seatingOptionTitle, url: seatingOptionImage } = getComponent(seatingOptionSection);
+      return {
+        title: seatingOptionTitle,
+        media: seatingOptionImage,
+        slug: "/seating-options",
+      };
+    case PageContentModel.standbyTravel:
+      const { sections:standbyTravelSection } = data;
+      const { title: standbyTravelTitle, url: standbyTravelImage } = getComponent(standbyTravelSection);
+      return {
+        title: standbyTravelTitle,
+        media: standbyTravelImage,
+        slug: "/standby-travel",
+      };
+    case PageContentModel.turboBucks:
+      const { pageTitle:turboBucksTitle} = data;
+      const { title: turboBucksPageTitle, coverImage: turboBucksImage } = turboBucksTitle;
+      return {
+        title: turboBucksPageTitle,
+        media: turboBucksImage,
+        slug: "/turbo-bucks",
+      }; 
   }
 }
