@@ -28,7 +28,7 @@ enum PageContentModel {
   canadianPassengerRight = "canadian-passenger-right",
   seatingOption = "seating-option",
   standbyTravel = "standby-travel",
-  turboBucks = "turbo-bucks-flight-credit",
+  turboBucks = "turbobucks-flight-credit",
 }
 
 const pageType = "elements.title-with-image";
