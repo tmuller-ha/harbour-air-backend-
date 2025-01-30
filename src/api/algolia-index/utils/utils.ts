@@ -33,10 +33,8 @@ enum PageContentModel {
 }
 
 const pageType = "elements.title-with-image";
-const titleWithDesc = "elements.title-with-description";
 const tourPage = "main-tours.fare-section";
 const titleWithCkEditor = "elements.title-with-ck-editor";
-const standbyTravel = "standby-travel.standby-travel-info";
 
 function getComponent(component) {
   const findComponent = (component, type) =>
