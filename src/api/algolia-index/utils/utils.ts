@@ -44,21 +44,15 @@ function getComponent(component) {
 
   const pageTitle = findComponent(component, pageType);
   const tourPageTitle = findComponent(component, tourPage);
-  const titleWithDescComponent = findComponent(component, titleWithDesc);
   const titleWithCKEditorComponent = findComponent(
     component,
     titleWithCkEditor
   );
-  const standbyTravelComponent = findComponent(component, standbyTravel);
   const { url } = pageTitle?.coverImage || {};
   return {
     title: pageTitle?.title || tourPageTitle?.title || "",
     description:
-      tourPageTitle?.description ||
-      titleWithDescComponent?.description ||
-      titleWithCKEditorComponent?.content ||
-      standbyTravelComponent?.overview ||
-      "",
+      tourPageTitle?.description || titleWithCKEditorComponent?.content || "",
     url: url || tourPageTitle?.image?.url,
   };
 }
