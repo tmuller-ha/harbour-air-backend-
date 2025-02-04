@@ -77,6 +77,14 @@
       "relation": "manyToOne",
       "target": "api::destination.destination",
       "inversedBy": "dealsArrivals"
+    },
+    "travelStartDate": {
+      "type": "date",
+      "required": false
+    },
+    "travelEndDate": {
+      "type": "date",
+      "required": false
     }
   }
 }
