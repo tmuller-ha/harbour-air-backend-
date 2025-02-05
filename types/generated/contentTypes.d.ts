@@ -1239,7 +1239,6 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     route: Schema.Attribute.Text & Schema.Attribute.Required;
     summary: Schema.Attribute.Blocks & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    travelEndDate: Schema.Attribute.Date;
     travelStartDate: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
