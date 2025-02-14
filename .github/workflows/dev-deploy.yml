@@ -21,6 +21,8 @@ env:
   BLUESKY_BOOKING_SCHEDULES_ID: ${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }}
   SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
   IMAGE_HANDLER_URL: ${{ secrets.IMAGE_HANDLER_URL }}
+  ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+  ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
 
 on:
   workflow_dispatch:
@@ -82,6 +84,8 @@ jobs:
           echo BLUESKY_BOOKING_SCHEDULES_ID=${{ secrets.BLUESKY_BOOKING_SCHEDULES_ID }} >> .env
           echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
           echo IMAGE_HANDLER_URL=${{ secrets.IMAGE_HANDLER_URL }} >> .env
+          echo ALGOLIA_APP_ID=${{ secrets.ALGOLIA_APP_ID }} >> .env
+          echo ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY }} >> .env
 
       - name: Stop Strapi with PM2
         run: pm2 stop strapi
