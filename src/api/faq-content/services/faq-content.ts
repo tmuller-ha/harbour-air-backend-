@@ -1,7 +1,0 @@
-/**
- * faq-content service
- */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreService('api::faq-content.faq-content');
