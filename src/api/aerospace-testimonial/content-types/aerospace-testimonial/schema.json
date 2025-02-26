@@ -14,7 +14,7 @@
   "attributes": {
     "testimonials": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "aerospace-home.testimonials"
     }
   }

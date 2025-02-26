@@ -484,7 +484,7 @@ export interface ApiAerospaceTestimonialAerospaceTestimonial
     publishedAt: Schema.Attribute.DateTime;
     testimonials: Schema.Attribute.Component<
       'aerospace-home.testimonials',
-      true
+      false
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

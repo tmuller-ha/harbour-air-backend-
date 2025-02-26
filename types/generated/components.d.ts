@@ -85,7 +85,7 @@ export interface AerospaceHomeStcKits extends Struct.ComponentSchema {
     displayName: 'STCKits';
   };
   attributes: {
-    KitsCards: Schema.Attribute.Component<'main-tours.tour-cards', true>;
+    KitsCards: Schema.Attribute.Component<'main-tours.tour-cards', false>;
   };
 }
 
