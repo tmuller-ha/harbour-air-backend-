@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_aerospace_home_hiring_sections",
+  "info": {
+    "displayName": "hiringSection"
+  },
+  "options": {},
+  "attributes": {
+    "hiringIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "hiringTitle": {
+      "type": "string"
+    },
+    "hiringSubtitle": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonUrl": {
+      "type": "string"
+    }
+  }
+}
