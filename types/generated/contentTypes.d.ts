@@ -423,18 +423,15 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    About: Schema.Attribute.Component<
-      'service-overview.service-overview',
-      false
-    >;
+    About: Schema.Attribute.Component<'aerospace-home.service-overview', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    expertise: Schema.Attribute.Component<'expertise.expertise', true>;
+    expertise: Schema.Attribute.Component<'aerospace-home.expertise', true>;
     heroCarousel: Schema.Attribute.Component<'home.hero-carousel', true>;
     hiringSection: Schema.Attribute.Component<
-      'hiring-section.hiring-section',
-      false
+      'aerospace-home.hiring-section',
+      true
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -443,12 +440,12 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     PartsSales: Schema.Attribute.Component<
-      'service-overview.service-overview',
+      'aerospace-home.service-overview',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
     serviceInsights: Schema.Attribute.Component<
-      'maintenance-services.maintenance-services',
+      'aerospace-home.service-insights',
       true
     >;
     stcKits: Schema.Attribute.Relation<'oneToMany', 'api::kits-card.kits-card'>;
@@ -485,7 +482,10 @@ export interface ApiAerospaceTestimonialAerospaceTestimonial
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Testimonials: Schema.Attribute.Component<'testimonials.testimonials', true>;
+    testimonials: Schema.Attribute.Component<
+      'aerospace-home.testimonials',
+      true
+    >;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

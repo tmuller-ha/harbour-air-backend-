@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Testimonials": {
-      "type": "component",
-      "repeatable": true,
-      "component": "testimonials.testimonials"
-    },
     "Title": {
       "type": "string"
+    },
+    "testimonials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aerospace-home.testimonials"
     }
   }
 }

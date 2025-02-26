@@ -27,30 +27,30 @@
       "repeatable": true,
       "component": "home.hero-carousel"
     },
-    "serviceInsights": {
-      "type": "component",
-      "repeatable": true,
-      "component": "maintenance-services.maintenance-services"
-    },
     "expertise": {
       "type": "component",
       "repeatable": true,
-      "component": "expertise.expertise"
-    },
-    "hiringSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "hiring-section.hiring-section"
+      "component": "aerospace-home.expertise"
     },
     "PartsSales": {
       "type": "component",
       "repeatable": false,
-      "component": "service-overview.service-overview"
+      "component": "aerospace-home.service-overview"
     },
     "About": {
       "type": "component",
-      "repeatable": false,
-      "component": "service-overview.service-overview"
+      "repeatable": true,
+      "component": "aerospace-home.service-overview"
+    },
+    "serviceInsights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aerospace-home.service-insights"
+    },
+    "hiringSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aerospace-home.hiring-section"
     }
   }
 }

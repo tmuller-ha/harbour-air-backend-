@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_service_overview_service_overviews",
+  "collectionName": "components_aerospace_home_service_overviews",
   "info": {
     "displayName": "ServiceOverview"
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
-      "type": "text"
+    "description": {
+      "type": "string"
     },
     "buttonText": {
       "type": "string"
@@ -18,7 +18,8 @@
       "type": "string"
     },
     "show": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }

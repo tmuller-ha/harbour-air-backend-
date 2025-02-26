@@ -17,6 +17,60 @@ export interface AboutUsAboutUsTurbo extends Struct.ComponentSchema {
   };
 }
 
+export interface AerospaceHomeExpertise extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_expertise';
+  info: {
+    displayName: 'Expertise';
+  };
+  attributes: {
+    expertiseDescription: Schema.Attribute.String;
+    expertiseTitle: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_hiring_sections';
+  info: {
+    displayName: 'hiringSection';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+    hiringIcon: Schema.Attribute.Media<'images'>;
+    hiringSubtitle: Schema.Attribute.String;
+    hiringTitle: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface AerospaceHomeServiceInsights extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_service_insights';
+  info: {
+    displayName: 'serviceInsights';
+  };
+  attributes: {
+    coverage: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_service_overviews';
+  info: {
+    displayName: 'ServiceOverview';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface AerospaceHomeStcKits extends Struct.ComponentSchema {
   collectionName: 'components_aerospace_home_stc_kits';
   info: {
@@ -34,6 +88,23 @@ export interface AerospaceHomeStcKits extends Struct.ComponentSchema {
     KitsCards: Schema.Attribute.Component<'main-tours.tour-cards', true>;
     show: Schema.Attribute.Boolean;
     Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface AerospaceHomeTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_testimonials';
+  info: {
+    description: '';
+    displayName: 'Testimonials';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    designation: Schema.Attribute.String;
+    profileImage: Schema.Attribute.Media<'images'>;
+    profileName: Schema.Attribute.String;
+    quotesLogo: Schema.Attribute.Media<'images'>;
+    ratings: Schema.Attribute.Integer;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -746,26 +817,6 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
-export interface ExpertiseExpertise extends Struct.ComponentSchema {
-  collectionName: 'components_expertise_expertise';
-  info: {
-    description: '';
-    displayName: 'Expertise';
-  };
-  attributes: {
-    expertiseDescription: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    expertiseTitle: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -1140,21 +1191,6 @@ export interface HeaderMenuDropdown extends Struct.ComponentSchema {
     >;
     dropdownTitle: Schema.Attribute.String;
     showImage: Schema.Attribute.Boolean;
-  };
-}
-
-export interface HiringSectionHiringSection extends Struct.ComponentSchema {
-  collectionName: 'components_hiring_section_hiring_sections';
-  info: {
-    description: '';
-    displayName: 'HiringSection';
-  };
-  attributes: {
-    buttonText: Schema.Attribute.String;
-    hiringIcon: Schema.Attribute.Media<'images'>;
-    hiringSubtitle: Schema.Attribute.Text;
-    hiringTitle: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -1668,20 +1704,6 @@ export interface MainToursTourCards extends Struct.ComponentSchema {
   };
 }
 
-export interface MaintenanceServicesMaintenanceServices
-  extends Struct.ComponentSchema {
-  collectionName: 'components_maintenance_services_maintenance_services';
-  info: {
-    description: '';
-    displayName: 'maintenanceServices';
-  };
-  attributes: {
-    coverage: Schema.Attribute.Integer;
-    show: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface MetaDataMetaData extends Struct.ComponentSchema {
   collectionName: 'components_meta_data_meta_datas';
   info: {
@@ -1931,18 +1953,6 @@ export interface ParcelExpressShippingCost extends Struct.ComponentSchema {
   };
 }
 
-export interface PartsSalesPartsSales extends Struct.ComponentSchema {
-  collectionName: 'components_parts_sales_parts_sales';
-  info: {
-    description: '';
-    displayName: 'PartsSales';
-  };
-  attributes: {
-    MetaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
 export interface PrivateToursBookPrivateTour extends Struct.ComponentSchema {
   collectionName: 'components_private_tours_book_private_tours';
   info: {
@@ -2051,20 +2061,6 @@ export interface SeoSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface ServiceOverviewServiceOverview extends Struct.ComponentSchema {
-  collectionName: 'components_service_overview_service_overviews';
-  info: {
-    displayName: 'ServiceOverview';
-  };
-  attributes: {
-    buttonText: Schema.Attribute.String;
-    buttonUrl: Schema.Attribute.String;
-    Description: Schema.Attribute.Text;
-    show: Schema.Attribute.Boolean;
-    Title: Schema.Attribute.String;
-  };
-}
-
 export interface StandbyTravelCriteria extends Struct.ComponentSchema {
   collectionName: 'components_standby_travel_criteria';
   info: {
@@ -2150,39 +2146,6 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
-export interface TestimonialsTestimonials extends Struct.ComponentSchema {
-  collectionName: 'components_testimonials_testimonials';
-  info: {
-    description: '';
-    displayName: 'Testimonials';
-  };
-  attributes: {
-    Description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    Designation: Schema.Attribute.String;
-    ProfileImage: Schema.Attribute.Media<'images'>;
-    ProfileName: Schema.Attribute.String;
-    QuotesLogo: Schema.Attribute.Media<'images'>;
-    Ratings: Schema.Attribute.Integer;
-    show: Schema.Attribute.Boolean;
-  };
-}
-
-export interface TestimonialsTestimonialsCards extends Struct.ComponentSchema {
-  collectionName: 'components_testimonials_testimonials_cards';
-  info: {
-    displayName: 'TestimonialsCards';
-  };
-  attributes: {
-    Cards: Schema.Attribute.Component<'testimonials.testimonials', true>;
-  };
-}
-
 export interface ToursFareDetails extends Struct.ComponentSchema {
   collectionName: 'components_tours_fare_details';
   info: {
@@ -2227,7 +2190,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
+      'aerospace-home.expertise': AerospaceHomeExpertise;
+      'aerospace-home.hiring-section': AerospaceHomeHiringSection;
+      'aerospace-home.service-insights': AerospaceHomeServiceInsights;
+      'aerospace-home.service-overview': AerospaceHomeServiceOverview;
       'aerospace-home.stc-kits': AerospaceHomeStcKits;
+      'aerospace-home.testimonials': AerospaceHomeTestimonials;
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
@@ -2268,7 +2236,6 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
-      'expertise.expertise': ExpertiseExpertise;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
@@ -2294,7 +2261,6 @@ declare module '@strapi/strapi' {
       'header.link': HeaderLink;
       'header.media-links': HeaderMediaLinks;
       'header.menu-dropdown': HeaderMenuDropdown;
-      'hiring-section.hiring-section': HiringSectionHiringSection;
       'home.article-carousel': HomeArticleCarousel;
       'home.description': HomeDescription;
       'home.grab-deals': HomeGrabDeals;
@@ -2325,7 +2291,6 @@ declare module '@strapi/strapi' {
       'main-tours.fare-section': MainToursFareSection;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.tour-cards': MainToursTourCards;
-      'maintenance-services.maintenance-services': MaintenanceServicesMaintenanceServices;
       'meta-data.meta-data': MetaDataMetaData;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
@@ -2342,14 +2307,12 @@ declare module '@strapi/strapi' {
       'parcel-express.parcel-faq': ParcelExpressParcelFaq;
       'parcel-express.rates': ParcelExpressRates;
       'parcel-express.shipping-cost': ParcelExpressShippingCost;
-      'parts-sales.parts-sales': PartsSalesPartsSales;
       'private-tours.book-private-tour': PrivateToursBookPrivateTour;
       'quick-ticket.quick-ticket-form': QuickTicketQuickTicketForm;
       'schedules.schedules': SchedulesSchedules;
       'seo.additional': SeoAdditional;
       'seo.analytics': SeoAnalytics;
       'seo.seo': SeoSeo;
-      'service-overview.service-overview': ServiceOverviewServiceOverview;
       'standby-travel.criteria': StandbyTravelCriteria;
       'standby-travel.discounted-travel-form': StandbyTravelDiscountedTravelForm;
       'standby-travel.how-to-fly': StandbyTravelHowToFly;
@@ -2357,8 +2320,6 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
-      'testimonials.testimonials': TestimonialsTestimonials;
-      'testimonials.testimonials-cards': TestimonialsTestimonialsCards;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;
