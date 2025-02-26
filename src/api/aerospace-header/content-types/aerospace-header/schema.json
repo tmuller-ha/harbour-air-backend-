@@ -19,6 +19,11 @@
     },
     "contactNo": {
       "type": "string"
+    },
+    "quoteText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
     }
   }
 }
