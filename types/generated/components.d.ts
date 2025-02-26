@@ -24,16 +24,11 @@ export interface AerospaceHomeExpertise extends Struct.ComponentSchema {
     displayName: 'Expertise';
   };
   attributes: {
-    expertiseDescription: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    expertiseTitle: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    ExpertiseSection: Schema.Attribute.Component<
+      'expertise-section.expertise-section',
+      true
+    >;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -67,12 +62,19 @@ export interface AerospaceHomeServiceInsights extends Struct.ComponentSchema {
 export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
   collectionName: 'components_aerospace_home_service_overviews';
   info: {
+    description: '';
     displayName: 'ServiceOverview';
   };
   attributes: {
     buttonText: Schema.Attribute.String;
     buttonUrl: Schema.Attribute.String;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
   };
@@ -100,7 +102,8 @@ export interface AerospaceHomeTestimonials extends Struct.ComponentSchema {
     designation: Schema.Attribute.String;
     profileImage: Schema.Attribute.Media<'images'>;
     profileName: Schema.Attribute.String;
-    quotesLogo: Schema.Attribute.Media<'images'>;
+    quotesDownLogo: Schema.Attribute.Media<'images'>;
+    quotesUpLogo: Schema.Attribute.Media<'images'>;
     ratings: Schema.Attribute.Integer;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
@@ -812,6 +815,26 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
     quoteImage: Schema.Attribute.Media<'images'>;
     tripAdvisorLogo: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface ExpertiseSectionExpertiseSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_expertise_section_expertise_sections';
+  info: {
+    displayName: 'expertiseSection';
+  };
+  attributes: {
+    expertiseDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    expertiseTitle: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -2266,6 +2289,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'expertise-section.expertise-section': ExpertiseSectionExpertiseSection;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;

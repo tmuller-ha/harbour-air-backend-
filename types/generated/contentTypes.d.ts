@@ -444,6 +444,7 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     serviceInsights: Schema.Attribute.Component<
       'aerospace-home.service-insights',
       true

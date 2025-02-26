@@ -6,27 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "ExpertiseSection": {
+      "displayName": "expertiseSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "expertise-section.expertise-section"
     },
-    "expertiseTitle": {
+    "Title": {
       "type": "string"
-    },
-    "show": {
-      "type": "boolean",
-      "default": false
-    },
-    "expertiseDescription": {
-      "type": "customField",
-      "options": {
-        "preset": "default"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

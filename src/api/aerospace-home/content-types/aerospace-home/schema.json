@@ -17,12 +17,7 @@
       "repeatable": false,
       "component": "home.hero-carousel"
     },
-    "expertise": {
-      "type": "component",
-      "repeatable": true,
-      "component": "aerospace-home.expertise"
-    },
-    "PartsSales": {
+    "partsSales": {
       "type": "component",
       "repeatable": false,
       "component": "aerospace-home.service-overview"
@@ -53,6 +48,16 @@
       "type": "component",
       "repeatable": false,
       "component": "testimonials.testimonials"
+    },
+    "expertise": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.expertise"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
