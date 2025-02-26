@@ -492,7 +492,7 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    expertise: Schema.Attribute.Component<'aerospace-home.expertise', true>;
+    expertise: Schema.Attribute.Component<'aerospace-home.expertise', false>;
     heroCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
     hiringSection: Schema.Attribute.Component<
       'aerospace-home.hiring-section',
@@ -504,11 +504,12 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       'api::aerospace-home.aerospace-home'
     > &
       Schema.Attribute.Private;
-    PartsSales: Schema.Attribute.Component<
+    partsSales: Schema.Attribute.Component<
       'aerospace-home.service-overview',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     serviceInsights: Schema.Attribute.Component<
       'aerospace-home.service-insights',
       true
