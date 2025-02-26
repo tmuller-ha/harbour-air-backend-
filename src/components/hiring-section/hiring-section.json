@@ -25,6 +25,9 @@
     },
     "show": {
       "type": "boolean"
+    },
+    "buttonUrl": {
+      "type": "string"
     }
   }
 }
