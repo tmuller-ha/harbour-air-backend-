@@ -411,6 +411,70 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceFooterAerospaceFooter
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_footers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Footer';
+    pluralName: 'aerospace-footers';
+    singularName: 'aerospace-footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    copyrights: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footerlinks: Schema.Attribute.Component<'footer.footer-links', true>;
+    footerlogos: Schema.Attribute.Component<'footer.footer-logos', false>;
+    footerMaps: Schema.Attribute.Component<'footer.footer-map-links', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-footer.aerospace-footer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceHeaderAerospaceHeader
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_headers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Header';
+    pluralName: 'aerospace-headers';
+    singularName: 'aerospace-header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactNo: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-header.aerospace-header'
+    > &
+      Schema.Attribute.Private;
+    navTitle: Schema.Attribute.Component<'elements.button', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_homes';
   info: {
@@ -3790,6 +3854,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
+      'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;

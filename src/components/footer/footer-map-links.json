@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_footer_footer_map_links",
+  "info": {
+    "displayName": "FooterMapLinks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "mapUrl": {
+      "type": "string"
+    },
+    "addressDetails": {
+      "type": "blocks"
+    },
+    "showMap": {
+      "type": "boolean"
+    }
+  }
+}
