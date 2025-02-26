@@ -429,7 +429,7 @@ export interface ApiAerospaceFooterAerospaceFooter
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     footerlinks: Schema.Attribute.Component<'footer.footer-links', true>;
-    footerlogos: Schema.Attribute.Component<'footer.footer-logos', false>;
+    footerlogos: Schema.Attribute.Component<'footer.footer-logo-links', false>;
     footerMaps: Schema.Attribute.Component<'footer.footer-map-links', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
