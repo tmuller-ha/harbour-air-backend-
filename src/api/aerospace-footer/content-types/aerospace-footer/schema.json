@@ -20,16 +20,16 @@
     "copyrights": {
       "type": "string"
     },
-    "footerlogos": {
-      "type": "component",
-      "repeatable": false,
-      "component": "footer.footer-logos"
-    },
     "footerMaps": {
       "displayName": "FooterMapLinks",
       "type": "component",
       "repeatable": false,
       "component": "footer.footer-map-links"
+    },
+    "footerlogos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.footer-logo-links"
     }
   }
 }
