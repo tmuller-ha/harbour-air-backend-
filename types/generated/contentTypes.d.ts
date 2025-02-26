@@ -423,15 +423,15 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    About: Schema.Attribute.Component<'aerospace-home.service-overview', true>;
+    About: Schema.Attribute.Component<'aerospace-home.service-overview', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     expertise: Schema.Attribute.Component<'aerospace-home.expertise', true>;
-    heroCarousel: Schema.Attribute.Component<'home.hero-carousel', true>;
+    heroCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
     hiringSection: Schema.Attribute.Component<
       'aerospace-home.hiring-section',
-      true
+      false
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -449,9 +449,9 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       true
     >;
     stcKits: Schema.Attribute.Component<'stc-kits.stc-kits', false>;
-    testimonials: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::aerospace-testimonial.aerospace-testimonial'
+    testimonials: Schema.Attribute.Component<
+      'testimonials.testimonials',
+      false
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -486,7 +486,6 @@ export interface ApiAerospaceTestimonialAerospaceTestimonial
       'aerospace-home.testimonials',
       true
     >;
-    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

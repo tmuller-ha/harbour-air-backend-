@@ -2158,6 +2158,20 @@ export interface StcKitsStcKits extends Struct.ComponentSchema {
   };
 }
 
+export interface TestimonialsTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_testimonials_testimonials';
+  info: {
+    displayName: 'testimonials';
+  };
+  attributes: {
+    aerospace_testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-testimonial.aerospace-testimonial'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ToursFareDetails extends Struct.ComponentSchema {
   collectionName: 'components_tours_fare_details';
   info: {
@@ -2333,6 +2347,7 @@ declare module '@strapi/strapi' {
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'stc-kits.stc-kits': StcKitsStcKits;
+      'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;

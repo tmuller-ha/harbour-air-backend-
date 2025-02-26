@@ -12,14 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "testimonials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::aerospace-testimonial.aerospace-testimonial"
-    },
     "heroCarousel": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "home.hero-carousel"
     },
     "expertise": {
@@ -34,7 +29,7 @@
     },
     "About": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "aerospace-home.service-overview"
     },
     "serviceInsights": {
@@ -44,7 +39,7 @@
     },
     "hiringSection": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "aerospace-home.hiring-section"
     },
     "stcKits": {
@@ -52,6 +47,12 @@
       "type": "component",
       "repeatable": false,
       "component": "stc-kits.stc-kits"
+    },
+    "testimonials": {
+      "displayName": "testimonials",
+      "type": "component",
+      "repeatable": false,
+      "component": "testimonials.testimonials"
     }
   }
 }

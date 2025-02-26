@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
     "testimonials": {
       "type": "component",
       "repeatable": true,
