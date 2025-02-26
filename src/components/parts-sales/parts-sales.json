@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_parts_sales_parts_sales",
+  "info": {
+    "displayName": "PartsSales",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "MetaData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta-data.meta-data"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

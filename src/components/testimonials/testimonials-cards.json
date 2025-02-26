@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_testimonials_testimonials_cards",
+  "info": {
+    "displayName": "TestimonialsCards"
+  },
+  "options": {},
+  "attributes": {
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "testimonials.testimonials"
+    }
+  }
+}

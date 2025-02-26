@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_homes",
+  "info": {
+    "singularName": "aerospace-home",
+    "pluralName": "aerospace-homes",
+    "displayName": "Aerospace-Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stcKits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kits-card.kits-card"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::aerospace-testimonial.aerospace-testimonial"
+    },
+    "heroCarousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-carousel"
+    },
+    "serviceInsights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "maintenance-services.maintenance-services"
+    },
+    "expertise": {
+      "type": "component",
+      "repeatable": true,
+      "component": "expertise.expertise"
+    },
+    "hiringSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hiring-section.hiring-section"
+    },
+    "PartsSales": {
+      "type": "component",
+      "repeatable": false,
+      "component": "service-overview.service-overview"
+    },
+    "About": {
+      "type": "component",
+      "repeatable": false,
+      "component": "service-overview.service-overview"
+    }
+  }
+}

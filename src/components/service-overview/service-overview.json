@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_service_overview_service_overviews",
+  "info": {
+    "displayName": "ServiceOverview"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonUrl": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

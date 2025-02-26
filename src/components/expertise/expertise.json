@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_expertise_expertise",
+  "info": {
+    "displayName": "Expertise",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "expertiseTitle": {
+      "type": "string"
+    },
+    "expertiseDescription": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
