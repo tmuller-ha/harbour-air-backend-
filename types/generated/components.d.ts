@@ -20,10 +20,17 @@ export interface AboutUsAboutUsTurbo extends Struct.ComponentSchema {
 export interface AerospaceHomeExpertise extends Struct.ComponentSchema {
   collectionName: 'components_aerospace_home_expertise';
   info: {
+    description: '';
     displayName: 'Expertise';
   };
   attributes: {
-    expertiseDescription: Schema.Attribute.String;
+    expertiseDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     expertiseTitle: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;

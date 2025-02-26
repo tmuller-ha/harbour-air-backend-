@@ -1,26 +1,32 @@
 {
   "collectionName": "components_aerospace_home_expertise",
   "info": {
-    "displayName": "Expertise"
+    "displayName": "Expertise",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "expertiseTitle": {
-      "type": "string"
-    },
-    "expertiseDescription": {
       "type": "string"
     },
     "show": {
       "type": "boolean",
       "default": false
+    },
+    "expertiseDescription": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
