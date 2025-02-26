@@ -1034,6 +1034,21 @@ export interface FooterFooterLogos extends Struct.ComponentSchema {
   attributes: {
     logos: Schema.Attribute.Media<'images'>;
     slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FooterFooterMapLinks extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_map_links';
+  info: {
+    description: '';
+    displayName: 'FooterMapLinks';
+  };
+  attributes: {
+    addressDetails: Schema.Attribute.Blocks;
+    mapUrl: Schema.Attribute.String;
+    showMap: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2332,6 +2347,7 @@ declare module '@strapi/strapi' {
       'footer.footer-links': FooterFooterLinks;
       'footer.footer-logo-links': FooterFooterLogoLinks;
       'footer.footer-logos': FooterFooterLogos;
+      'footer.footer-map-links': FooterFooterMapLinks;
       'footer.footer-stay-update': FooterFooterStayUpdate;
       'footer.link': FooterLink;
       'form.car-service-hire-form': FormCarServiceHireForm;
