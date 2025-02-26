@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "stcKits": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kits-card.kits-card"
-    },
     "testimonials": {
       "type": "relation",
       "relation": "oneToMany",
@@ -51,6 +46,12 @@
       "type": "component",
       "repeatable": true,
       "component": "aerospace-home.hiring-section"
+    },
+    "stcKits": {
+      "displayName": "stcKits",
+      "type": "component",
+      "repeatable": false,
+      "component": "stc-kits.stc-kits"
     }
   }
 }

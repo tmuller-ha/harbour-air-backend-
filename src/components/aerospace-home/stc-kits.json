@@ -6,24 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string",
-      "required": true
-    },
-    "Description": {
-      "type": "customField",
-      "options": {
-        "preset": "default"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
-    },
     "KitsCards": {
       "type": "component",
       "repeatable": true,
       "component": "main-tours.tour-cards"
-    },
-    "show": {
-      "type": "boolean"
     }
   }
 }

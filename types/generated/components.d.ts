@@ -78,16 +78,7 @@ export interface AerospaceHomeStcKits extends Struct.ComponentSchema {
     displayName: 'STCKits';
   };
   attributes: {
-    Description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
     KitsCards: Schema.Attribute.Component<'main-tours.tour-cards', true>;
-    show: Schema.Attribute.Boolean;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -2146,6 +2137,27 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
+export interface StcKitsStcKits extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_stc_kits';
+  info: {
+    displayName: 'stcKits';
+  };
+  attributes: {
+    aerospace_stc_kits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ToursFareDetails extends Struct.ComponentSchema {
   collectionName: 'components_tours_fare_details';
   info: {
@@ -2320,6 +2332,7 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
+      'stc-kits.stc-kits': StcKitsStcKits;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;
