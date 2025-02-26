@@ -469,6 +469,7 @@ export interface ApiAerospaceHeaderAerospaceHeader
       Schema.Attribute.Private;
     navTitle: Schema.Attribute.Component<'elements.button', true>;
     publishedAt: Schema.Attribute.DateTime;
+    quoteText: Schema.Attribute.Component<'elements.button', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
