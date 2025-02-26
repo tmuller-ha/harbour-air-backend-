@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aerospace_testimonials",
+  "info": {
+    "singularName": "aerospace-testimonial",
+    "pluralName": "aerospace-testimonials",
+    "displayName": "Aerospace-testimonial",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testimonials": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.testimonials"
+    }
+  }
+}
