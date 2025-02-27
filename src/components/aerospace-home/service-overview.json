@@ -1,14 +1,12 @@
 {
   "collectionName": "components_aerospace_home_service_overviews",
   "info": {
-    "displayName": "ServiceOverview"
+    "displayName": "ServiceOverview",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "description": {
       "type": "string"
     },
     "buttonText": {
@@ -20,6 +18,13 @@
     "show": {
       "type": "boolean",
       "default": false
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

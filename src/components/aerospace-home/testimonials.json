@@ -30,7 +30,15 @@
     "profileName": {
       "type": "string"
     },
-    "quotesLogo": {
+    "quotesUpLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "quotesDownLogo": {
       "allowedTypes": [
         "images"
       ],
