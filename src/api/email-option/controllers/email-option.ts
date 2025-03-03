@@ -1,6 +1,15 @@
 import { factories } from "@strapi/strapi";
 import { pick } from "lodash";
 
+export type RecaptchaVerifyResponse = {
+  success: boolean; // Whether the verification was successful
+  challenge_ts?: string; // Timestamp of the challenge
+  hostname?: string; // Hostname of the site where reCAPTCHA was solved
+  "error-codes"?: string[]; // List of error codes if verification fails
+  score?: number; // (For reCAPTCHA v3) Score between 0.0 and 1.0
+  action?: string; // (For reCAPTCHA v3) The action name for which token was issued
+};
+
 const formatKey = (key: string) => {
   return key
     .replace(/([a-z])([A-Z])/g, "$1 $2")
@@ -76,6 +85,39 @@ export default factories.createCoreController(
       } catch (error) {
         console.error("Error in email-option controller", error);
         ctx.throw(500, error);
+      }
+    },
+
+    async verifyCaptcha(ctx) {
+      try {
+        const { token } = ctx.request.body;
+        const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+        if (!token) {
+          return ctx.badRequest("Missing reCAPTCHA token");
+        }
+        const response = await fetch(
+          "https://www.google.com/recaptcha/api/siteverify",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `secret=${secretKey}&response=${token}`,
+          }
+        );
+
+        const data: RecaptchaVerifyResponse =
+          (await response.json()) as RecaptchaVerifyResponse;
+
+        console.log("reCAPTCHA Response", data);
+        if (data.success) {
+          return ctx.send({ success: true });
+        } else {
+          return ctx.badRequest({ success: false });
+        }
+      } catch (error) {
+        console.error("reCAPTCHA Error:", error);
+        return ctx.internalServerError(
+          "An error occurred while verifying reCAPTCHA"
+        );
       }
     },
   })
