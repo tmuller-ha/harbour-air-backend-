@@ -13,5 +13,10 @@ export default {
       path: "/email-option/trigger",
       handler: "api::email-option.email-option.trigger",
     },
+    {
+      method: "POST",
+      path: "/email-option/verify-captcha",
+      handler: "api::email-option.email-option.verifyCaptcha",
+    },
   ],
 };
