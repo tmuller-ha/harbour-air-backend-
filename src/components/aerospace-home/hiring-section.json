@@ -1,21 +1,20 @@
 {
   "collectionName": "components_aerospace_home_hiring_sections",
   "info": {
-    "displayName": "hiringSection"
+    "displayName": "hiringSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "hiringIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "hiringTitle": {
-      "type": "string"
-    },
-    "hiringSubtitle": {
       "type": "string"
     },
     "show": {
@@ -27,6 +26,13 @@
     },
     "buttonUrl": {
       "type": "string"
+    },
+    "hiringSubtitle": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

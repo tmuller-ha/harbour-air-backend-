@@ -35,15 +35,34 @@ export interface AerospaceHomeExpertise extends Struct.ComponentSchema {
 export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
   collectionName: 'components_aerospace_home_hiring_sections';
   info: {
+    description: '';
     displayName: 'hiringSection';
   };
   attributes: {
     buttonText: Schema.Attribute.String;
     buttonUrl: Schema.Attribute.String;
     hiringIcon: Schema.Attribute.Media<'images'>;
-    hiringSubtitle: Schema.Attribute.String;
+    hiringSubtitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     hiringTitle: Schema.Attribute.String;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface AerospaceHomeKitsCards extends Struct.ComponentSchema {
+  collectionName: 'components_aerospace_home_kits_cards';
+  info: {
+    description: '';
+    displayName: 'kitsCards';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    tourCards: Schema.Attribute.Component<'elements.tour-card', false>;
   };
 }
 
@@ -66,6 +85,7 @@ export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
     displayName: 'ServiceOverview';
   };
   attributes: {
+    BgImage: Schema.Attribute.Media<'images'>;
     buttonText: Schema.Attribute.String;
     buttonUrl: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
@@ -104,7 +124,14 @@ export interface AerospaceHomeTestimonials extends Struct.ComponentSchema {
     profileName: Schema.Attribute.String;
     quotesDownLogo: Schema.Attribute.Media<'images'>;
     quotesUpLogo: Schema.Attribute.Media<'images'>;
-    ratings: Schema.Attribute.Integer;
+    ratings: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 0;
+        },
+        number
+      >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
@@ -797,6 +824,7 @@ export interface ElementsTourCard extends Struct.ComponentSchema {
   };
   attributes: {
     learnMoreBtnText: Schema.Attribute.String;
+    LearnMoreUrl: Schema.Attribute.String;
     name: Schema.Attribute.String;
     shortDescription: Schema.Attribute.String;
     tileImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
@@ -2245,6 +2273,7 @@ declare module '@strapi/strapi' {
       'about-us.about-us-turbo': AboutUsAboutUsTurbo;
       'aerospace-home.expertise': AerospaceHomeExpertise;
       'aerospace-home.hiring-section': AerospaceHomeHiringSection;
+      'aerospace-home.kits-cards': AerospaceHomeKitsCards;
       'aerospace-home.service-insights': AerospaceHomeServiceInsights;
       'aerospace-home.service-overview': AerospaceHomeServiceOverview;
       'aerospace-home.stc-kits': AerospaceHomeStcKits;

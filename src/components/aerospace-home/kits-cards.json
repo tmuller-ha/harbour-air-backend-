@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_aerospace_home_kits_cards",
+  "info": {
+    "displayName": "kitsCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean",
+      "default": false
+    },
+    "tourCards": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.tour-card"
+    }
+  }
+}

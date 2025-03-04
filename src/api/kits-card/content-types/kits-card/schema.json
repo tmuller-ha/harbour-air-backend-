@@ -12,10 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "stcKits": {
+    "kitsCards": {
+      "displayName": "kitsCards",
       "type": "component",
       "repeatable": false,
-      "component": "aerospace-home.stc-kits"
+      "component": "aerospace-home.kits-cards"
+    },
+    "Title": {
+      "type": "string",
+      "required": true
     }
   }
 }
