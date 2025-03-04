@@ -22,7 +22,9 @@
       "default": false
     },
     "ratings": {
-      "type": "integer"
+      "type": "integer",
+      "max": 5,
+      "min": 0
     },
     "designation": {
       "type": "string"
@@ -39,11 +41,12 @@
       ]
     },
     "quotesDownLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
