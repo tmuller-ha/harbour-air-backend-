@@ -81,10 +81,6 @@
     "travelStartDate": {
       "type": "date",
       "required": false
-    },
-    "travelEndDate": {
-      "type": "date",
-      "required": false
     }
   }
 }

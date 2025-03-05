@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_homes",
+  "info": {
+    "singularName": "aerospace-home",
+    "pluralName": "aerospace-homes",
+    "displayName": "Aerospace-Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.hero-carousel"
+    },
+    "partsSales": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.service-overview"
+    },
+    "About": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.service-overview"
+    },
+    "serviceInsights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "aerospace-home.service-insights"
+    },
+    "hiringSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.hiring-section"
+    },
+    "stcKits": {
+      "displayName": "stcKits",
+      "type": "component",
+      "repeatable": false,
+      "component": "stc-kits.stc-kits"
+    },
+    "testimonials": {
+      "displayName": "testimonials",
+      "type": "component",
+      "repeatable": false,
+      "component": "testimonials.testimonials"
+    },
+    "expertise": {
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.expertise"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

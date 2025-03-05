@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_footers",
+  "info": {
+    "singularName": "aerospace-footer",
+    "pluralName": "aerospace-footers",
+    "displayName": "Aerospace-Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "footerlinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.footer-links"
+    },
+    "copyrights": {
+      "type": "string"
+    },
+    "footerMaps": {
+      "displayName": "FooterMapLinks",
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.footer-map-links"
+    },
+    "footerlogos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.footer-logo-links"
+    }
+  }
+}

@@ -411,6 +411,154 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceFooterAerospaceFooter
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_footers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Footer';
+    pluralName: 'aerospace-footers';
+    singularName: 'aerospace-footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    copyrights: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footerlinks: Schema.Attribute.Component<'footer.footer-links', true>;
+    footerlogos: Schema.Attribute.Component<'footer.footer-logo-links', false>;
+    footerMaps: Schema.Attribute.Component<'footer.footer-map-links', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-footer.aerospace-footer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceHeaderAerospaceHeader
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_headers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Header';
+    pluralName: 'aerospace-headers';
+    singularName: 'aerospace-header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactNo: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-header.aerospace-header'
+    > &
+      Schema.Attribute.Private;
+    navTitle: Schema.Attribute.Component<'elements.button', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    quoteText: Schema.Attribute.Component<'elements.button', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_homes';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Home';
+    pluralName: 'aerospace-homes';
+    singularName: 'aerospace-home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    About: Schema.Attribute.Component<'aerospace-home.service-overview', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    expertise: Schema.Attribute.Component<'aerospace-home.expertise', false>;
+    heroCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
+    hiringSection: Schema.Attribute.Component<
+      'aerospace-home.hiring-section',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-home.aerospace-home'
+    > &
+      Schema.Attribute.Private;
+    partsSales: Schema.Attribute.Component<
+      'aerospace-home.service-overview',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    serviceInsights: Schema.Attribute.Component<
+      'aerospace-home.service-insights',
+      true
+    >;
+    stcKits: Schema.Attribute.Component<'stc-kits.stc-kits', false>;
+    testimonials: Schema.Attribute.Component<
+      'testimonials.testimonials',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceTestimonialAerospaceTestimonial
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'aerospace_testimonials';
+  info: {
+    description: '';
+    displayName: 'Aerospace-testimonial';
+    pluralName: 'aerospace-testimonials';
+    singularName: 'aerospace-testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-testimonial.aerospace-testimonial'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    testimonials: Schema.Attribute.Component<
+      'aerospace-home.testimonials',
+      false
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAirCraftFleetAirCraftFleet extends Struct.SingleTypeSchema {
   collectionName: 'air_craft_fleets';
   info: {
@@ -1239,7 +1387,6 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     route: Schema.Attribute.Text & Schema.Attribute.Required;
     summary: Schema.Attribute.Blocks & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    travelEndDate: Schema.Attribute.Date;
     travelStartDate: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1915,6 +2062,36 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     serviceHighlights: Schema.Attribute.Component<'home.description', false>;
     title: Schema.Attribute.String;
     tours: Schema.Attribute.Component<'home.home-tours', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKitsCardKitsCard extends Struct.CollectionTypeSchema {
+  collectionName: 'kits_cards';
+  info: {
+    description: '';
+    displayName: 'Aerospace-stcKit';
+    pluralName: 'kits-cards';
+    singularName: 'kits-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    kitsCards: Schema.Attribute.Component<'aerospace-home.kits-cards', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3681,6 +3858,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
+      'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
+      'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
+      'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
@@ -3719,6 +3900,7 @@ declare module '@strapi/strapi' {
       'api::header.header': ApiHeaderHeader;
       'api::high-flyer-reward.high-flyer-reward': ApiHighFlyerRewardHighFlyerReward;
       'api::home.home': ApiHomeHome;
+      'api::kits-card.kits-card': ApiKitsCardKitsCard;
       'api::link.link': ApiLinkLink;
       'api::location.location': ApiLocationLocation;
       'api::loyalty-program.loyalty-program': ApiLoyaltyProgramLoyaltyProgram;
