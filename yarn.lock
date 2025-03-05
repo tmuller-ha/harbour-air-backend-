@@ -3,15 +3,15 @@
 
 
 "@_sh/strapi-plugin-ckeditor@^4.0.4":
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/@_sh/strapi-plugin-ckeditor/-/strapi-plugin-ckeditor-4.0.11.tgz#c27e74a7482e17adf0860cd1cefd217253f47d87"
-  integrity sha512-OJ4BTWxG7wVZXNln1lzXJzgzinUrbzo72ZAwYOXVOyVq08GM+6kfOcJNIlrtFaHKhhbmkNvJMOFAjfS4nNqb9A==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@_sh/strapi-plugin-ckeditor/-/strapi-plugin-ckeditor-4.0.4.tgz#b64e0973450b021cac28a3ac4270ca9c78936c88"
+  integrity sha512-r0IVCr+McnWHznRKxZCD10X1vtboqN2ickRTHBfAYdtIoDM+l+PAynfg0hyTdIdqk9X6FNafUIhHcr/Qv0sJCQ==
   dependencies:
-    "@ckeditor/ckeditor5-react" "^9.3.1"
+    "@ckeditor/ckeditor5-react" "^9.1.0"
     "@strapi/design-system" "^2.0.0-rc.11"
-    ckeditor5 "^43.3.1"
+    ckeditor5 "^43.1.0"
     prop-types "^15.8.1"
-    sanitize-html "^2.13.1"
+    sanitize-html "^2.13.0"
 
 "@algolia/client-abtesting@5.8.1":
   version "5.8.1"
@@ -1453,7 +1453,7 @@
     "@ckeditor/ckeditor5-engine" "43.3.1"
     ckeditor5 "43.3.1"
 
-"@ckeditor/ckeditor5-react@^9.3.1":
+"@ckeditor/ckeditor5-react@^9.1.0":
   version "9.5.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-9.5.0.tgz#c539b8d2013573254619b62b9ccbcbf870abeebf"
   integrity sha512-0NEBg3EDQaQDwj9xswC34qspDiNgXMIn41lZ3pjNx915NWRabqQDnR5a8TisPaOlx3gHnIdOXJ0BH1wRHsJxhQ==
@@ -6551,7 +6551,7 @@ ci-info@4.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-4.0.0.tgz#65466f8b280fc019b9f50a5388115d17a63a44f2"
   integrity sha512-TdHqgGf9odd8SXNuxtUBVx8Nv+qZOejE6qyqiy5NtbYYQOeFa6zmHkxlPzmaLxWWHsU6nJmB7AETdVPi+2NBUg==
 
-ckeditor5@43.3.1, ckeditor5@^43.3.1:
+ckeditor5@43.3.1, ckeditor5@^43.1.0:
   version "43.3.1"
   resolved "https://registry.yarnpkg.com/ckeditor5/-/ckeditor5-43.3.1.tgz#95db2b8f793191987bf2fc01e22b0a9a4d62250c"
   integrity sha512-ZZ6nIdlr9rCCp21o9d5/mVUeVPwpQKEVxkeq1MU/Jax1w8U6rnMiQWxB954Ky/HNjhZ1v1ll2+VRzb7XA+1emA==
@@ -11990,7 +11990,7 @@ sanitize-html@2.13.0:
     parse-srcset "^1.0.2"
     postcss "^8.3.11"
 
-sanitize-html@^2.13.1:
+sanitize-html@^2.13.0:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.14.0.tgz#bd2a7b97ee1d86a7f0e0babf3a4468f639c3a429"
   integrity sha512-CafX+IUPxZshXqqRaG9ZClSlfPVjSxI0td7n07hk8QO2oO+9JDnlcL8iM8TWeOXOIBFgIOx6zioTzM53AOMn3g==
