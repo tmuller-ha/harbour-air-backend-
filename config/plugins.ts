@@ -141,6 +141,21 @@ export default ({ env }) => ({
             },
           },
         },
+        {
+          name: "api::base-page.base-page",
+          hideFields: [
+            ...fieldNames,
+          ],
+          populate: {
+            sections: {
+              on: {
+                "elements.title-with-image": {
+                  populate: "*",
+                },
+              },
+            },
+          },
+        },
       ],
     },
   },
