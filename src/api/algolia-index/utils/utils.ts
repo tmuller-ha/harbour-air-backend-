@@ -99,7 +99,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         data;
       const {
         title: charteredFlightTitle = "",
-        url: charteredFlightMedia = "",
+        coverImage: charteredFlightMedia,
       } = charteredFlightPageTitle;
       const { description: charteredFlightDescription } = getComponent(
         charteredFlightSection
@@ -108,7 +108,7 @@ export function getPageContent(pageContentModel: string, data: any) {
         documentId,
         publishedAt,
         title: charteredFlightTitle,
-        media: charteredFlightMedia,
+        media: charteredFlightMedia?.url,
         description: charteredFlightDescription,
         slug: "/chartered-flight",
       };
@@ -213,7 +213,7 @@ export function getPageContent(pageContentModel: string, data: any) {
       const { pageTitle: extraAssistancePageTitle } = data;
       const {
         title: extraAssistanceTitle = "",
-        coverImage: extraAssistanceImage = {},
+        image: extraAssistanceImage = {},
         description: extraAssistanceDescription,
       } = extraAssistancePageTitle;
       return {
