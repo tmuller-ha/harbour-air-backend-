@@ -2963,7 +2963,11 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     safetyFirstPage: Schema.Attribute.DynamicZone<
-      ['elements.title-with-image', 'elements.text-with-image']
+      [
+        'elements.title-with-image',
+        'elements.text-with-image',
+        'elements.accordion',
+      ]
     >;
     safetyFirstTabs: Schema.Attribute.DynamicZone<
       ['elements.title-with-ck-editor']
