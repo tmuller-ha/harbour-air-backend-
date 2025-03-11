@@ -1328,15 +1328,12 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
   attributes: {
     btnText: Schema.Attribute.String;
     description: Schema.Attribute.String;
-    desktopImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    desktopImg: Schema.Attribute.Media<'images' | 'videos'>;
     imageLink: Schema.Attribute.String;
-    mobileImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    mobileImg: Schema.Attribute.Media<'images' | 'videos'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
-    tabletImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
   };
 }
