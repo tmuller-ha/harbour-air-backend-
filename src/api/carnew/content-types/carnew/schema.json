@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "carnews",
+  "info": {
+    "singularName": "carnew",
+    "pluralName": "carnews",
+    "displayName": "carnew"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Career": {
+      "type": "string"
+    }
+  }
+}

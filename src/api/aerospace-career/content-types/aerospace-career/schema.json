@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_careers",
+  "info": {
+    "singularName": "aerospace-career",
+    "pluralName": "aerospace-careers",
+    "displayName": "Aerospace-career",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headerlink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "header.media-links"
+    },
+    "titlewithimage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "titlewithckeditor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-ck-editor"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.button"
+    },
+    "img": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.instagram-images"
+    },
+    "footerlink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.footer-links"
+    },
+    "footermap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.footer-map-links"
+    },
+    "footerlogolink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.footer-logo-links"
+    },
+    "bottomfooter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.bottom-content"
+    }
+  }
+}

@@ -411,6 +411,53 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceCareerAerospaceCareer
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_careers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-career';
+    pluralName: 'aerospace-careers';
+    singularName: 'aerospace-career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bottomfooter: Schema.Attribute.Component<'footer.bottom-content', false>;
+    button: Schema.Attribute.Component<'elements.button', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    footerlink: Schema.Attribute.Component<'footer.footer-links', true>;
+    footerlogolink: Schema.Attribute.Component<
+      'footer.footer-logo-links',
+      true
+    >;
+    footermap: Schema.Attribute.Component<'footer.footer-map-links', false>;
+    headerlink: Schema.Attribute.Component<'header.media-links', true>;
+    img: Schema.Attribute.Component<'elements.instagram-images', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-career.aerospace-career'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titlewithckeditor: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      true
+    >;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceFooterAerospaceFooter
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_footers';
@@ -1055,6 +1102,34 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCarnewCarnew extends Struct.SingleTypeSchema {
+  collectionName: 'carnews';
+  info: {
+    displayName: 'carnew';
+    pluralName: 'carnews';
+    singularName: 'carnew';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Career: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::carnew.carnew'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3863,6 +3938,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-career.aerospace-career': ApiAerospaceCareerAerospaceCareer;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
@@ -3880,6 +3956,7 @@ declare module '@strapi/strapi' {
       'api::car-service.car-service': ApiCarServiceCarService;
       'api::career-opportunity.career-opportunity': ApiCareerOpportunityCareerOpportunity;
       'api::career.career': ApiCareerCareer;
+      'api::carnew.carnew': ApiCarnewCarnew;
       'api::category.category': ApiCategoryCategory;
       'api::chartered-flight.chartered-flight': ApiCharteredFlightCharteredFlight;
       'api::community-involvement.community-involvement': ApiCommunityInvolvementCommunityInvolvement;
