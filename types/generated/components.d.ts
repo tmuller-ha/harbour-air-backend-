@@ -251,9 +251,33 @@ export interface CommunityInvolvementCommunityTabs
   };
 }
 
+export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_accordian_with_images';
+  info: {
+    description: '';
+    displayName: 'Accordian-with-image';
+  };
+  attributes: {
+    bool: Schema.Attribute.Boolean;
+    Content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_elements_accordions';
   info: {
+    description: '';
     displayName: 'Accordion';
   };
   attributes: {
@@ -265,7 +289,7 @@ export interface ElementsAccordion extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'toolbar';
+          preset: 'default';
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
@@ -284,7 +308,7 @@ export interface ElementsAccordionWithCkEditor extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'toolbar';
+          preset: 'default';
         }
       >;
     documents: Schema.Attribute.Relation<'oneToMany', 'api::document.document'>;
@@ -2110,6 +2134,7 @@ declare module '@strapi/strapi' {
       'common.form-with-description': CommonFormWithDescription;
       'common.help': CommonHelp;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
+      'elements.accordian-with-image': ElementsAccordianWithImage;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
