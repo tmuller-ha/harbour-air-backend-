@@ -1394,6 +1394,47 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDeploymentDeployment extends Struct.CollectionTypeSchema {
+  collectionName: 'deployments';
+  info: {
+    description: '';
+    displayName: 'Deployment';
+    pluralName: 'deployments';
+    singularName: 'deployment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    deploymentStatus: Schema.Attribute.Enumeration<
+      ['Failed', 'Deployed', 'In-progress']
+    > &
+      Schema.Attribute.DefaultTo<'In-progress'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::deployment.deployment'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
   collectionName: 'destinations';
   info: {
@@ -3887,6 +3928,7 @@ declare module '@strapi/strapi' {
       'api::country.country': ApiCountryCountry;
       'api::courtesy-shuttle.courtesy-shuttle': ApiCourtesyShuttleCourtesyShuttle;
       'api::deal.deal': ApiDealDeal;
+      'api::deployment.deployment': ApiDeploymentDeployment;
       'api::destination.destination': ApiDestinationDestination;
       'api::document.document': ApiDocumentDocument;
       'api::dropdown-menu.dropdown-menu': ApiDropdownMenuDropdownMenu;

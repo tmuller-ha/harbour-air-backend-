@@ -5,8 +5,8 @@ import axios from 'axios';
  */
 const GITHUB_TOKEN = process.env.STRAPI_ADMIN_GITHUB_TOKEN;
 const REPO_OWNER = 'tmuller-ha';
-const REPO_NAME = 'harbour-air-frontend-';
-const WORKFLOW_ID = 'deploy-cron-5.yml';
+const REPO_NAME = 'aerospace-services-frontend';
+const WORKFLOW_ID = 's3-deploy.yml';
 
 const headers = {
   Authorization: `token ${GITHUB_TOKEN}`,
@@ -29,14 +29,12 @@ const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/wor
 
 const deploymentService = {
   async createDeployment(deployment: any): Promise<DeploymentResponse> {
-    return axios.post('/api/web-deployment/deployment', deployment);
+    return axios.post('/api/deployments', deployment);
   },
 
-//   getDeployments: async (query: string) => {
-//     return await request(`/api/web-deployment/deployment?${query}`, {
-//       method: 'GET',
-//     });
-//   },
+  getDeployments: async (query: string) => {
+    return await axios.get(`/api/deployments?${query}`);
+  },
 
   /**
    * // TODO: This function is to be modified to get the status of the workflow runs
@@ -73,12 +71,9 @@ const deploymentService = {
   async triggerDeploy(id: string) {
     const payload = {
       ref: 'main', // The branch to run the workflow on
-      inputs: {
-        id,
-      },
     };
     return axios.post(
-      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/triggered-workflow.yml/dispatches`,
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${WORKFLOW_ID}/dispatches`,
       payload,
       { headers }
     );
