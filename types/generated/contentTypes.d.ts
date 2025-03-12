@@ -2967,6 +2967,7 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
         'elements.title-with-image',
         'elements.text-with-image',
         'elements.accordion',
+        'elements.title-with-ck-editor',
       ]
     >;
     safetyFirstTabs: Schema.Attribute.DynamicZone<
