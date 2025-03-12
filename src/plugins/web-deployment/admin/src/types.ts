@@ -33,6 +33,10 @@ export interface SortingType {
   
   export const columns = [
     {
+      label: "ID",
+      id: "id",
+    },
+    {
       label: "User",
       id: "user",
     },
@@ -46,7 +50,7 @@ export interface SortingType {
     },
     {
       label: "Status",
-      id: "status",
+      id: "deploymentStatus",
     },
   ];
   

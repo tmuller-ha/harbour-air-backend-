@@ -78,9 +78,10 @@ const HomePage = () => {
   const fetchData = async () => {
     deploymentService
       .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}`)
-      .then((response: any) => {
-        setData(response.data);
-        setTotalWorkFlowCount(response.totalCount || 0);
+      .then((response: { data: { data: any } }) => {
+        const { data } = response.data;
+        setData(data);
+        setTotalWorkFlowCount(data.length || 0);
         getAllWorkFlowPagination();
       });
   };
