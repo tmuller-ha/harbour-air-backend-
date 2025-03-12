@@ -1,11 +1,11 @@
-import { Main } from '@strapi/design-system';
-import { Button } from '@strapi/design-system';
-import { Layouts, useQueryParams } from '@strapi/admin/strapi-admin';
-import { Flex } from '@strapi/design-system';
-import HomePageContent from './HomePageContent';
+import qs from 'qs';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Main, Button, Flex } from '@strapi/design-system';
+import { Layouts, useQueryParams } from '@strapi/admin/strapi-admin';
+import HomePageContent from './HomePageContent';
 import deploymentService from '../api/deployment';
 import { columns, ColumnType } from '../types';
+import { useFetchClient } from '@strapi/strapi/admin';
 
 interface Role {
   code: string;
@@ -15,17 +15,17 @@ interface Role {
 }
 
 interface UserResponse {
-  blocked: boolean;
-  createdAt: string;
-  email: string;
+  blocked?: boolean;
+  createdAt?: string;
+  email?: string;
   firstname: string;
-  id: number;
-  isActive: boolean;
-  lastname: string;
-  preferedLanguage: string | null;
-  roles: Role[];
-  updatedAt: string;
-  username: string | null;
+  id?: number;
+  isActive?: boolean;
+  lastname?: string;
+  preferedLanguage?: string | null;
+  roles?: Role[];
+  updatedAt?: string;
+  username?: string | null;
 }
 
 const HomePage = () => {
@@ -35,6 +35,7 @@ const HomePage = () => {
   const [{ query }, setQuery] = useQueryParams({ page: 0, pageSize: 10 });
   const { page = 1, pageSize = 10 } = query || {};
   const [totalWorkFlowCount, setTotalWorkFlowCount] = useState<number>(0);
+  const { get } = useFetchClient();
 
   const paginationNumber = useMemo(() => page - 1, [page]);
 
@@ -45,23 +46,23 @@ const HomePage = () => {
     [totalWorkFlowCount, pageSize]
   );
 
-  // const getAllWorkFlowPagination = useCallback(() => {
-  //   const getQuery = () =>
-  //     qs.stringify({
-  //       page: startingPage,
-  //       pageSize: pageSize,
-  //     });
+  const getAllWorkFlowPagination = useCallback(() => {
+    const getQuery = () =>
+      qs.stringify({
+        page: startingPage,
+        pageSize: pageSize,
+      });
 
-  //   return getQuery();
-  // }, [startingPage, pageSize]);
+    return getQuery();
+  }, [startingPage, pageSize]);
 
-  // useEffect(() => {
-  //   setQuery({
-  //     ...query,
-  //     page: 1,
-  //     pageSize: 10,
-  //   });
-  // }, []);
+  useEffect(() => {
+    setQuery({
+      ...query,
+      page: 1,
+      pageSize: 10,
+    });
+  }, []);
 
   const pagination = useMemo(
     () => ({
@@ -74,35 +75,36 @@ const HomePage = () => {
   );
 
   // TODO: Implement the fetchData function with react query
-  // const fetchData = async () => {
-  //   deploymentService
-  //     .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}`)
-  //     .then((response: any) => {
-  //       setData(response.data);
-  //       setTotalWorkFlowCount(response.totalCount || 0);
-  //       getAllWorkFlowPagination();
-  //     });
-  // };
+  const fetchData = async () => {
+    deploymentService
+      .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}`)
+      .then((response: any) => {
+        setData(response.data);
+        setTotalWorkFlowCount(response.totalCount || 0);
+        getAllWorkFlowPagination();
+      });
+  };
 
   const fetchWorkFlowStatus = async () => {
     await deploymentService.getWorkFlowStatus();
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  //   request('/admin/users/me').then((response: { data: UserResponse }) => {
-  //     setCurrentUser(response.data);
-  //   });
-  //   fetchWorkFlowStatus();
-  // }, [page, pageSize]);
+  useEffect(() => {
+    fetchData();
+    get('/admin/users/me').then((response: { data: { data: UserResponse } }) => {
+      const { data } = response.data;
+      setCurrentUser(data);
+    });
+    fetchWorkFlowStatus();
+  }, [page, pageSize]);
 
   const onTriggerDeploy = async () => {
     try {
       const deployment = await deploymentService.createDeployment({
-        user: `${currentUser?.firstname || ''} ${currentUser?.lastname || ''}`,
+        data: { user: `${currentUser?.firstname || ''} ${currentUser?.lastname || ''}` },
       });
       await deploymentService.triggerDeploy(`${deployment?.data?.id}`);
-      // fetchData();
+      fetchData();
     } catch (error) {
       /**
        * //TODO: Notify the user that the deployment failed
@@ -114,8 +116,8 @@ const HomePage = () => {
   return (
     <Main>
       <Layouts.Content>
-        <Flex style={{ justifyContent: 'end', marginTop: '100px' }}>
-          <Button>Trigger deployment</Button>
+        <Flex style={{ justifyContent: 'end', marginTop: '100px', marginBottom: '20px' }}>
+          <Button onClick={onTriggerDeploy}>Trigger deployment</Button>
         </Flex>
         <HomePageContent
           pagination={pagination}
