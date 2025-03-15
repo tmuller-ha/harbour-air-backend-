@@ -437,6 +437,7 @@ export interface ApiAerospaceCareerAerospaceCareer
     footermap: Schema.Attribute.Component<'footer.footer-map-links', false>;
     headerlink: Schema.Attribute.Component<'header.media-links', true>;
     img: Schema.Attribute.Component<'elements.instagram-images', false>;
+    link: Schema.Attribute.Component<'elements.title-with-youtube-link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

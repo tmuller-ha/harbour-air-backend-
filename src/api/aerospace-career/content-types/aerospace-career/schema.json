@@ -56,6 +56,11 @@
       "type": "component",
       "repeatable": false,
       "component": "footer.bottom-content"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-youtube-link"
     }
   }
 }
