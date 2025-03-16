@@ -17,7 +17,7 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "body": {
+    "description": {
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-ck-editor"
