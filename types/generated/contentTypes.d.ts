@@ -428,11 +428,14 @@ export interface ApiAerospaceCapabiliteAerospaceCapabilite
       'elements.accordian-with-image',
       true
     >;
-    body: Schema.Attribute.Component<'elements.title-with-ck-editor', false>;
     carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

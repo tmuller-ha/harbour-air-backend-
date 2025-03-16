@@ -9,7 +9,7 @@
     "label": {
       "type": "string"
     },
-    "Content": {
+    "content": {
       "type": "customField",
       "options": {
         "preset": "default"

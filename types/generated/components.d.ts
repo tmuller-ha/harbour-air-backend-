@@ -259,7 +259,7 @@ export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
   };
   attributes: {
     bool: Schema.Attribute.Boolean;
-    Content: Schema.Attribute.RichText &
+    content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
