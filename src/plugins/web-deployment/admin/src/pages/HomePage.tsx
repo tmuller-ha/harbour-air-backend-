@@ -77,7 +77,7 @@ const HomePage = () => {
   // TODO: Implement the fetchData function with react query
   const fetchData = async () => {
     deploymentService
-      .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}`)
+      .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}&sort[0]=id:desc`)
       .then((response: { data: { data: any } }) => {
         const { data } = response.data;
         setData(data);

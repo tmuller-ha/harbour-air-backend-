@@ -13,7 +13,7 @@ const HomePageContent = (props: HomePageContentProps) => {
       ) : (
         <>
           <Table data={data} />
-          {/* <TablePagination pagination={pagination} /> */}
+          <TablePagination pagination={pagination} />
         </>
       )}
     </>
