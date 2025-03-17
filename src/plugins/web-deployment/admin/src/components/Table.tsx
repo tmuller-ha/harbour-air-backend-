@@ -32,6 +32,7 @@ const TableBodyCell = ({ cellData }: any) => {
 
 const Table = (props: TableProps) => {
   const { data } = props;
+
   return (
     <StrapiTable>
       <Thead>
