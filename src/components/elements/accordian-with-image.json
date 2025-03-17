@@ -27,7 +27,7 @@
         "audios"
       ]
     },
-    "bool": {
+    "show": {
       "type": "boolean"
     }
   }
