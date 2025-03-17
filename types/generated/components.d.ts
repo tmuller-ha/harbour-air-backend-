@@ -377,7 +377,6 @@ export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
     displayName: 'Accordian-with-image';
   };
   attributes: {
-    bool: Schema.Attribute.Boolean;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -390,6 +389,7 @@ export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
       true
     >;
     label: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
   };
 }
 
