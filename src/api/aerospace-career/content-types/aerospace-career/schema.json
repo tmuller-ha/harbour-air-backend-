@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "headerlink": {
-      "type": "component",
-      "repeatable": true,
-      "component": "header.media-links"
-    },
     "titlewithimage": {
       "type": "component",
       "repeatable": false,
@@ -36,26 +31,6 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.instagram-images"
-    },
-    "footerlink": {
-      "type": "component",
-      "repeatable": true,
-      "component": "footer.footer-links"
-    },
-    "footermap": {
-      "type": "component",
-      "repeatable": false,
-      "component": "footer.footer-map-links"
-    },
-    "footerlogolink": {
-      "type": "component",
-      "repeatable": true,
-      "component": "footer.footer-logo-links"
-    },
-    "bottomfooter": {
-      "type": "component",
-      "repeatable": false,
-      "component": "footer.bottom-content"
     }
   }
 }
