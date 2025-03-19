@@ -9,6 +9,7 @@ export default {
     try {
       const { model, entry } = ctx.request.body;
       const pageContent = getPageContent(model, entry);
+      console.log(pageContent,"check page content")
       if (pageContent) {
         const { documentId } = pageContent;
         const response = await fetch(
@@ -23,6 +24,12 @@ export default {
             body: JSON.stringify(pageContent),
           }
         );
+
+        if (response.ok) {
+          console.log("Updated page in Algolia:", documentId);
+        } else {
+          console.error("Failed to update page in Algolia:", await response.json());
+        }
         return response;
       }
       return {};

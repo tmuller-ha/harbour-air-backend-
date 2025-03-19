@@ -225,11 +225,12 @@ export function getPageContent(pageContentModel: string, data: any) {
         slug: "/extra-assistance",
       };
     case PageContentModel.faq:
-      const { title: faqTitle } = data;
+      const { title: faqTitle, accordionSection } = data;
       return {
         documentId,
         publishedAt,
         title: faqTitle,
+        faqData: accordionSection,
         slug: "/faq",
       };
     case PageContentModel.contactUs:
