@@ -411,6 +411,48 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceBasePageAerospaceBasePage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'aerospace_base_pages';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Base Pages';
+    pluralName: 'aerospace-base-pages';
+    singularName: 'aerospace-base-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Accordion: Schema.Attribute.DynamicZone<
+      [
+        'elements.accordion',
+        'elements.title-with-ck-editor',
+        'elements.title-with-image',
+        'elements.tab',
+        'common.form-with-description',
+        'elements.image-text-block',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-base-page.aerospace-base-page'
+    > &
+      Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    Slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceFooterAerospaceFooter
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_footers';
@@ -3863,6 +3905,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-base-page.aerospace-base-page': ApiAerospaceBasePageAerospaceBasePage;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
