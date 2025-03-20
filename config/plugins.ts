@@ -1,3 +1,13 @@
+const metaData = [
+  "createdAt",
+  "createdBy",
+  "updatedAt",
+  "updatedBy",
+  "localizations",
+  "locale",
+];
+const fieldNames = [...metaData, "seo", "metaData"];
+
 export default ({ env }) => ({
   upload: {
     config: {
@@ -60,6 +70,93 @@ export default ({ env }) => ({
         tracing: false,
         introspection: true,
       },
+    },
+  },
+  "strapi-algolia": {
+    enabled: true,
+    config: {
+      apiKey: env("ALGOLIA_ADMIN_KEY"),
+      applicationId: env("ALGOLIA_APP_ID"),
+      contentTypes: [
+        {
+          name: "api::location.location",
+          hideFields: [
+            ...fieldNames,
+            "description",
+            "locationPhotos",
+            "locationVideo",
+            "learnMoreBtnText",
+            "guide",
+            "additionalInformation",
+            "address",
+            "opacity",
+            "mobileImagePosition",
+            "tileImage",
+          ],
+        },
+        {
+          name: "api::blog.blog",
+          hideFields: [
+            ...fieldNames,
+            "content",
+            "category",
+            "readingTime",
+            "bannerImage",
+            "mobileImagePosition",
+          ],
+        },
+        {
+          name: "api::news.news",
+          hideFields: [
+            ...fieldNames,
+            "content",
+            "category",
+            "readingTime",
+            "bannerImage",
+          ],
+        },
+        {
+          name: "api::tour-location.tour-location",
+          hideFields: [
+            ...fieldNames,
+            "show",
+            "tours",
+            "departure",
+            "opacity",
+            "mobileImagePosition",
+            "departureLocation",
+            "heroBackgroundImage"
+          ],
+          populate: {
+            components: {
+              on: {
+                "main-tours.tour-cards": {
+                  populate: {
+                    tourPlaces: {
+                      populate: "*",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        {
+          name: "api::base-page.base-page",
+          hideFields: [
+            ...fieldNames,
+          ],
+          populate: {
+            sections: {
+              on: {
+                "elements.title-with-image": {
+                  populate: "*",
+                },
+              },
+            },
+          },
+        },
+      ],
     },
   },
 });
