@@ -12487,6 +12487,11 @@ stdin-discarder@^0.2.2:
   resolved "https://registry.yarnpkg.com/stdin-discarder/-/stdin-discarder-0.2.2.tgz#390037f44c4ae1a1ae535c5fe38dc3aba8d997be"
   integrity sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==
 
+strapi-plugin-algolia@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-algolia/-/strapi-plugin-algolia-0.0.0.tgz#19e44259091331c16d27db9f9714d9f0d114bab7"
+  integrity sha512-RTowEJkhmBmiBN6zkNXL7f8p6C9yJecj5pd3q0B7zDoQtoNVNeJVrW4zk5WP61SwhHeWFhKNjcv1SNz0NJ5qmA==
+
 strapi-plugin-strapi-algolia@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strapi-plugin-strapi-algolia/-/strapi-plugin-strapi-algolia-2.0.1.tgz#0d538648884a69c2c99c1b92bba39db7f665633c"
