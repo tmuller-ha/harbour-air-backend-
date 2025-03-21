@@ -50,7 +50,7 @@ jobs:
         run: yarn build
 
   deploy_dev:
-    runs-on: self-hosted
+    runs-on: [self-hosted ,aerospace]
     needs: build
     steps:
       - name: Checkout repository
