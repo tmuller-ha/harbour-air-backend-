@@ -411,6 +411,45 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceCareerAerospaceCareer
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_careers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-career';
+    pluralName: 'aerospace-careers';
+    singularName: 'aerospace-career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.button', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    img: Schema.Attribute.Component<'elements.instagram-images', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-career.aerospace-career'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titlewithckeditor: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      true
+    >;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceFooterAerospaceFooter
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_footers';
@@ -2057,6 +2096,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locations: Schema.Attribute.Component<'home.home-locations', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     news: Schema.Attribute.Component<'home.news', false>;
+    promotiontitle: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      true
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     serviceHighlights: Schema.Attribute.Component<'home.description', false>;
@@ -3863,6 +3906,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-career.aerospace-career': ApiAerospaceCareerAerospaceCareer;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
