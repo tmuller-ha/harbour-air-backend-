@@ -521,6 +521,7 @@ export interface ElementsTitleWithCkEditor extends Struct.ComponentSchema {
     displayName: 'Title With CKEditor';
   };
   attributes: {
+    buttonpromotion: Schema.Attribute.Component<'elements.button', true>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

@@ -1906,9 +1906,13 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<"oneToMany", "api::home.home"> &
       Schema.Attribute.Private;
-    locations: Schema.Attribute.Component<"home.home-locations", false>;
-    metaData: Schema.Attribute.Component<"meta-data.meta-data", false>;
-    news: Schema.Attribute.Component<"home.news", false>;
+    locations: Schema.Attribute.Component<'home.home-locations', false>;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    news: Schema.Attribute.Component<'home.news', false>;
+    promotiontitle: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      true
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<"seo.seo", false>;
     serviceHighlights: Schema.Attribute.Component<"home.description", false>;
