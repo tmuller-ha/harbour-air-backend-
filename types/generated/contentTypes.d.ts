@@ -1909,6 +1909,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locations: Schema.Attribute.Component<'home.home-locations', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     news: Schema.Attribute.Component<'home.news', false>;
+    promotionimage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     promotiontitle: Schema.Attribute.Component<
       'elements.title-with-ck-editor',
       true
