@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_aerospace_home_stc_kits",
+  "info": {
+    "displayName": "STCKits",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "KitsCards": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main-tours.tour-cards"
+    }
+  }
+}

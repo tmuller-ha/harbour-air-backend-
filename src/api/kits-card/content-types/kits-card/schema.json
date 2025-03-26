@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kits_cards",
+  "info": {
+    "singularName": "kits-card",
+    "pluralName": "kits-cards",
+    "displayName": "Aerospace-stcKit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "kitsCards": {
+      "displayName": "kitsCards",
+      "type": "component",
+      "repeatable": false,
+      "component": "aerospace-home.kits-cards"
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

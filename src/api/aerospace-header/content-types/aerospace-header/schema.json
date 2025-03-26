@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_headers",
+  "info": {
+    "singularName": "aerospace-header",
+    "pluralName": "aerospace-headers",
+    "displayName": "Aerospace-Header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navTitle": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.button"
+    },
+    "contactNo": {
+      "type": "string"
+    },
+    "quoteText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    }
+  }
+}

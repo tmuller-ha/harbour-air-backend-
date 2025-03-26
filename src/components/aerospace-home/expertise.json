@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_aerospace_home_expertise",
+  "info": {
+    "displayName": "Expertise",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ExpertiseSection": {
+      "displayName": "expertiseSection",
+      "type": "component",
+      "repeatable": true,
+      "component": "expertise-section.expertise-section"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}
