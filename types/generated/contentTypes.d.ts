@@ -1900,23 +1900,25 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
+<<<<<<< Updated upstream
     deals: Schema.Attribute.Component<"home.grab-deals", false>;
     homePageCarousel: Schema.Attribute.Component<"home.hero-carousel", false>;
     instagramSection: Schema.Attribute.Component<"home.home-instagram", false>;
+=======
+    deals: Schema.Attribute.Component<'home.grab-deals', false>;
+    homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
+    homepromotionscarousel: Schema.Attribute.Component<
+      'home.hero-carousel',
+      true
+    >;
+    instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
+>>>>>>> Stashed changes
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<"oneToMany", "api::home.home"> &
       Schema.Attribute.Private;
     locations: Schema.Attribute.Component<'home.home-locations', false>;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     news: Schema.Attribute.Component<'home.news', false>;
-    promotionimage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    promotiontitle: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      true
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<"seo.seo", false>;
     serviceHighlights: Schema.Attribute.Component<"home.description", false>;

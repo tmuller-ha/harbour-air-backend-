@@ -60,20 +60,10 @@
       "repeatable": false,
       "component": "home.news"
     },
-    "promotiontitle": {
+    "homepromotionscarousel": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.title-with-ck-editor"
-    },
-    "promotionimage": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      "component": "home.hero-carousel"
     }
   }
 }
