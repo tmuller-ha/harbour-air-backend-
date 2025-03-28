@@ -370,9 +370,33 @@ export interface CommunityInvolvementCommunityTabs
   };
 }
 
+export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_accordian_with_images';
+  info: {
+    description: '';
+    displayName: 'Accordian-with-image';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    label: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ElementsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_elements_accordions';
   info: {
+    description: '';
     displayName: 'Accordion';
   };
   attributes: {
@@ -2307,6 +2331,7 @@ declare module '@strapi/strapi' {
       'common.form-with-description': CommonFormWithDescription;
       'common.help': CommonHelp;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
+      'elements.accordian-with-image': ElementsAccordianWithImage;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
