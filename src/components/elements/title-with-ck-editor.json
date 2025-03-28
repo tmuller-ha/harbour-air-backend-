@@ -20,6 +20,11 @@
         "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "stcbutton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-media-and-button"
     }
   }
 }

@@ -563,6 +563,48 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceStckitAerospaceStckit
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_stckits';
+  info: {
+    description: '';
+    displayName: 'Aerospace-stckit';
+    pluralName: 'aerospace-stckits';
+    singularName: 'aerospace-stckit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aerospace_stc_kits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-stckit.aerospace-stckit'
+    > &
+      Schema.Attribute.Private;
+    pdf: Schema.Attribute.Component<
+      'elements.title-desc-with-image-links',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    stctitle: Schema.Attribute.Component<'elements.title-with-ck-editor', true>;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceTestimonialAerospaceTestimonial
   extends Struct.CollectionTypeSchema {
   collectionName: 'aerospace_testimonials';
@@ -3905,6 +3947,7 @@ declare module '@strapi/strapi' {
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
+      'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;

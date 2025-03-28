@@ -672,6 +672,10 @@ export interface ElementsTitleWithCkEditor extends Struct.ComponentSchema {
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    stcbutton: Schema.Attribute.Component<
+      'elements.title-with-media-and-button',
+      true
+    >;
     title: Schema.Attribute.String;
   };
 }
