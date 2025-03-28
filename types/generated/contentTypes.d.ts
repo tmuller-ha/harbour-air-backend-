@@ -411,6 +411,44 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceCapabiliteAerospaceCapabilite
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_capabilites';
+  info: {
+    description: '';
+    displayName: 'Aerospace-capabilites';
+    pluralName: 'aerospace-capabilites';
+    singularName: 'aerospace-capabilite';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accordian: Schema.Attribute.Component<
+      'elements.accordian-with-image',
+      true
+    >;
+    carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-capabilite.aerospace-capabilite'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceCareerAerospaceCareer
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_careers';
@@ -3902,6 +3940,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-capabilite.aerospace-capabilite': ApiAerospaceCapabiliteAerospaceCapabilite;
       'api::aerospace-career.aerospace-career': ApiAerospaceCareerAerospaceCareer;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
