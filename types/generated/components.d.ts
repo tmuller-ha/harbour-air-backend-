@@ -180,6 +180,39 @@ export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
   };
 }
 
+export interface CareersBuildCareer extends Struct.ComponentSchema {
+  collectionName: 'components_careers_build_careers';
+  info: {
+    displayName: 'BuildCareer';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    ButtonURL: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface CareersCareerImage extends Struct.ComponentSchema {
+  collectionName: 'components_careers_career_images';
+  info: {
+    displayName: 'CareerImage';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface CareersCareersTable extends Struct.ComponentSchema {
   collectionName: 'components_careers_careers_tables';
   info: {
@@ -2320,6 +2353,8 @@ declare module '@strapi/strapi' {
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
+      'careers.build-career': CareersBuildCareer;
+      'careers.career-image': CareersCareerImage;
       'careers.careers-table': CareersCareersTable;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;

@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_careers",
+  "info": {
+    "singularName": "aerospace-career",
+    "pluralName": "aerospace-careers",
+    "displayName": "Aerospace-career",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titlewithimage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "BuildCareer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.build-career"
+    },
+    "Openings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.build-career"
+    },
+    "CareerImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.career-image"
+    }
+  }
+}

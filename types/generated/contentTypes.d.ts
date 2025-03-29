@@ -449,6 +449,42 @@ export interface ApiAerospaceCapabiliteAerospaceCapabilite
   };
 }
 
+export interface ApiAerospaceCareerAerospaceCareer
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_careers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-career';
+    pluralName: 'aerospace-careers';
+    singularName: 'aerospace-career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BuildCareer: Schema.Attribute.Component<'careers.build-career', false>;
+    CareerImage: Schema.Attribute.Component<'careers.career-image', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-career.aerospace-career'
+    > &
+      Schema.Attribute.Private;
+    Openings: Schema.Attribute.Component<'careers.build-career', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceFooterAerospaceFooter
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_footers';
@@ -3902,6 +3938,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::aerospace-capabilite.aerospace-capabilite': ApiAerospaceCapabiliteAerospaceCapabilite;
+      'api::aerospace-career.aerospace-career': ApiAerospaceCareerAerospaceCareer;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
