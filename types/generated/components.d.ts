@@ -442,7 +442,21 @@ export interface ElementsButton extends Struct.ComponentSchema {
     displayName: 'Button';
   };
   attributes: {
+    buttonstc: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     buttonText: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
   };
@@ -2256,6 +2270,17 @@ export interface StcKitsStcKits extends Struct.ComponentSchema {
   };
 }
 
+export interface StcKitsStcbutton extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_stcbuttons';
+  info: {
+    displayName: 'stcbutton';
+  };
+  attributes: {
+    Button: Schema.Attribute.Component<'elements.button', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface TestimonialsTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_testimonials_testimonials';
   info: {
@@ -2449,6 +2474,7 @@ declare module '@strapi/strapi' {
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'stc-kits.stc-kits': StcKitsStcKits;
+      'stc-kits.stcbutton': StcKitsStcbutton;
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;

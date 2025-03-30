@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_stc_kits_stcbuttons",
+  "info": {
+    "displayName": "stcbutton"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.button"
+    }
+  }
+}

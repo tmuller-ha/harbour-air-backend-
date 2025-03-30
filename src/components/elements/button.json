@@ -17,6 +17,20 @@
     "show": {
       "type": "boolean",
       "default": true
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "buttonstc": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

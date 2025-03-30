@@ -589,12 +589,12 @@ export interface ApiAerospaceStckitAerospaceStckit
       'api::aerospace-stckit.aerospace-stckit'
     > &
       Schema.Attribute.Private;
-    pdf: Schema.Attribute.Component<
-      'elements.title-desc-with-image-links',
+    publishedAt: Schema.Attribute.DateTime;
+    stcbrochure: Schema.Attribute.Component<
+      'elements.title-with-youtube-link',
       false
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    stctitle: Schema.Attribute.Component<'elements.title-with-ck-editor', true>;
+    stcbutton: Schema.Attribute.Component<'stc-kits.stcbutton', true>;
     titlewithimage: Schema.Attribute.Component<
       'elements.title-with-image',
       false

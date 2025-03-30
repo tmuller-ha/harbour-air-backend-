@@ -22,15 +22,15 @@
       "relation": "oneToMany",
       "target": "api::kits-card.kits-card"
     },
-    "stctitle": {
+    "stcbutton": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.title-with-ck-editor"
+      "component": "stc-kits.stcbutton"
     },
-    "pdf": {
+    "stcbrochure": {
       "type": "component",
       "repeatable": false,
-      "component": "elements.title-desc-with-image-links"
+      "component": "elements.title-with-youtube-link"
     }
   }
 }
