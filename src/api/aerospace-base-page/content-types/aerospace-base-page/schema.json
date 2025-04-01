@@ -12,8 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Slug": {
-      "type": "uid"
+    "slug": {
+      "type": "uid",
+      "required": true
     },
     "seo": {
       "type": "component",
@@ -25,7 +26,7 @@
       "repeatable": false,
       "component": "meta-data.meta-data"
     },
-    "Accordion": {
+    "sections": {
       "type": "dynamiczone",
       "components": [
         "elements.accordion",
