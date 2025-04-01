@@ -17,17 +17,17 @@
       "repeatable": false,
       "component": "elements.title-with-image"
     },
-    "BuildCareer": {
+    "buildCareer": {
       "type": "component",
       "repeatable": false,
       "component": "careers.build-career"
     },
-    "Openings": {
+    "openings": {
       "type": "component",
       "repeatable": false,
       "component": "careers.build-career"
     },
-    "CareerImage": {
+    "careerImage": {
       "type": "component",
       "repeatable": false,
       "component": "careers.career-image"
