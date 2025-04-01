@@ -552,7 +552,6 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       'aerospace-home.service-insights',
       true
     >;
-    stcKits: Schema.Attribute.Component<'stc-kits.stc-kits', false>;
     testimonials: Schema.Attribute.Component<
       'testimonials.testimonials',
       false
