@@ -58,10 +58,10 @@ export default [
     },
   },
   {
-    // custom resolve to find a package or a path
-    resolve: "./src/middlewares/upload.js",
-  },
-  {
+     // custom resolve to find a package or a path
+     resolve: "./src/middlewares/upload.js",
+   },
+   {
     resolve: "./src/api/schedule/middlewares/titleUpdater.js",
   },
   {

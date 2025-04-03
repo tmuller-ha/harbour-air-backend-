@@ -46,7 +46,7 @@ export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     hiringTitle: Schema.Attribute.String;
@@ -92,7 +92,7 @@ export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -177,6 +177,39 @@ export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
       false
     > &
       Schema.Attribute.Required;
+  };
+}
+
+export interface CareersBuildCareer extends Struct.ComponentSchema {
+  collectionName: 'components_careers_build_careers';
+  info: {
+    displayName: 'BuildCareer';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    ButtonURL: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface CareersCareerImage extends Struct.ComponentSchema {
+  collectionName: 'components_careers_career_images';
+  info: {
+    displayName: 'CareerImage';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -381,7 +414,7 @@ export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     image: Schema.Attribute.Media<
@@ -896,7 +929,7 @@ export interface ExpertiseSectionExpertiseSection
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     expertiseTitle: Schema.Attribute.String;
@@ -2246,6 +2279,32 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
+export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_button_st_ckits';
+  info: {
+    displayName: 'ButtonSTCkit';
+  };
+  attributes: {
+    buttonstc: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    buttonText: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Schema.Attribute.Boolean;
+    slug: Schema.Attribute.String;
+  };
+}
+
 export interface StcKitsStcKits extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_stc_kits';
   info: {
@@ -2260,10 +2319,22 @@ export interface StcKitsStcKits extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface StcKitsStcbutton extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_stcbuttons';
+  info: {
+    description: '';
+    displayName: 'stcbutton';
+  };
+  attributes: {
+    Button: Schema.Attribute.Component<'stc-kits.button-st-ckit', true>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -2335,6 +2406,8 @@ declare module '@strapi/strapi' {
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
+      'careers.build-career': CareersBuildCareer;
+      'careers.career-image': CareersCareerImage;
       'careers.careers-table': CareersCareersTable;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
@@ -2460,7 +2533,9 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
+      'stc-kits.button-st-ckit': StcKitsButtonStCkit;
       'stc-kits.stc-kits': StcKitsStcKits;
+      'stc-kits.stcbutton': StcKitsStcbutton;
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
