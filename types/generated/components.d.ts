@@ -559,6 +559,21 @@ export interface ElementsPricingTable extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsProfileWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_profile_with_images';
+  info: {
+    displayName: 'profile-with-image';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    profilePicture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    role: Schema.Attribute.String;
+  };
+}
+
 export interface ElementsTab extends Struct.ComponentSchema {
   collectionName: 'components_elements_tabs';
   info: {
@@ -2343,6 +2358,7 @@ declare module '@strapi/strapi' {
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
+      'elements.profile-with-image': ElementsProfileWithImage;
       'elements.tab': ElementsTab;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;

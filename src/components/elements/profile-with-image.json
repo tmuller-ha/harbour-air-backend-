@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_profile_with_images",
+  "info": {
+    "displayName": "profile-with-image"
+  },
+  "options": {},
+  "attributes": {
+    "profilePicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}
