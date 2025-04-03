@@ -411,6 +411,48 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceBasePageAerospaceBasePage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'aerospace_base_pages';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Base Pages';
+    pluralName: 'aerospace-base-pages';
+    singularName: 'aerospace-base-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-base-page.aerospace-base-page'
+    > &
+      Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'elements.accordion',
+        'elements.title-with-ck-editor',
+        'elements.title-with-image',
+        'elements.tab',
+        'common.form-with-description',
+        'elements.image-text-block',
+      ]
+    >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceCapabiliteAerospaceCapabilite
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_capabilites';
@@ -443,6 +485,42 @@ export interface ApiAerospaceCapabiliteAerospaceCapabilite
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceCareerAerospaceCareer
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_careers';
+  info: {
+    description: '';
+    displayName: 'Aerospace-career';
+    pluralName: 'aerospace-careers';
+    singularName: 'aerospace-career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buildCareer: Schema.Attribute.Component<'careers.build-career', false>;
+    careerImage: Schema.Attribute.Component<'careers.career-image', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-career.aerospace-career'
+    > &
+      Schema.Attribute.Private;
+    openings: Schema.Attribute.Component<'careers.build-career', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -555,6 +633,48 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
     stcKits: Schema.Attribute.Component<'stc-kits.stc-kits', false>;
     testimonials: Schema.Attribute.Component<
       'testimonials.testimonials',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceStckitAerospaceStckit
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_stckits';
+  info: {
+    description: '';
+    displayName: 'Aerospace-stckit';
+    pluralName: 'aerospace-stckits';
+    singularName: 'aerospace-stckit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aerospace_stc_kits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-stckit.aerospace-stckit'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    stcbrochure: Schema.Attribute.Component<
+      'elements.title-with-youtube-link',
+      false
+    >;
+    stcbutton: Schema.Attribute.Component<'stc-kits.stcbutton', true>;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
       false
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -3945,10 +4065,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::aerospace-base-page.aerospace-base-page': ApiAerospaceBasePageAerospaceBasePage;
       'api::aerospace-capabilite.aerospace-capabilite': ApiAerospaceCapabiliteAerospaceCapabilite;
+      'api::aerospace-career.aerospace-career': ApiAerospaceCareerAerospaceCareer;
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
+      'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;

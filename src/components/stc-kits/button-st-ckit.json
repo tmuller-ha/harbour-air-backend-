@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_stc_kits_button_st_ckits",
+  "info": {
+    "displayName": "ButtonSTCkit"
+  },
+  "options": {},
+  "attributes": {
+    "buttonText": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "buttonstc": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

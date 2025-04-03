@@ -4720,9 +4720,11 @@
   integrity sha512-6kamFHcsoFpffp96HmFGgpM8FDezwb86sJ4c3Ydp7+eTgtEsHd8yLekAQhpaWXd2ZsHwRDbLLR0Tu1orgvRVYg==
 
 "@strapi/icons@^2.0.0-rc.11":
+
   version "2.0.0-rc.18"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-2.0.0-rc.18.tgz#32649132d7a6e46abe6f0f49d4ac44a1c9b672ac"
   integrity sha512-OPMoSeZzTBqU35OOK9fA8iiKhKk8TIaDIzI0+r7mgoD9bP35GaZ+AAZQpFOfQjwguJeKYkFagAoYiWYwAgxkPg==
+
 
 "@strapi/logger@5.8.1":
   version "5.8.1"
@@ -5125,10 +5127,11 @@
     zod "^3.22.4"
 
 "@strapi/utils@^5.1.1":
+
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-5.12.0.tgz#29ff6ffac3534f456d56a3615e8b21f32b553195"
   integrity sha512-I2Wyx4Err9l4h6kV+SA5+03FhBhJcWUf8eckc5jiOQpYxgF+Lr0Wq4se56zSWoDB7kinLJdHloVRjgj1X4BTnQ==
-  dependencies:
+
     "@sindresorhus/slugify" "1.1.0"
     date-fns "2.30.0"
     execa "5.1.1"
