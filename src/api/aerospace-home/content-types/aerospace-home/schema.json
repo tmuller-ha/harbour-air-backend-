@@ -37,6 +37,12 @@
       "repeatable": false,
       "component": "aerospace-home.hiring-section"
     },
+    "stcKits": {
+      "displayName": "stcKits",
+      "type": "component",
+      "repeatable": false,
+      "component": "stc-kits.stc-kits"
+    },
     "testimonials": {
       "displayName": "testimonials",
       "type": "component",

@@ -424,16 +424,6 @@ export interface ApiAerospaceBasePageAerospaceBasePage
     draftAndPublish: true;
   };
   attributes: {
-    Accordion: Schema.Attribute.DynamicZone<
-      [
-        'elements.accordion',
-        'elements.title-with-ck-editor',
-        'elements.title-with-image',
-        'elements.tab',
-        'common.form-with-description',
-        'elements.image-text-block',
-      ]
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -445,8 +435,18 @@ export interface ApiAerospaceBasePageAerospaceBasePage
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'meta-data.meta-data', false>;
     publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'elements.accordion',
+        'elements.title-with-ck-editor',
+        'elements.title-with-image',
+        'elements.tab',
+        'common.form-with-description',
+        'elements.image-text-block',
+      ]
+    >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
-    Slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -630,6 +630,7 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       'aerospace-home.service-insights',
       true
     >;
+    stcKits: Schema.Attribute.Component<'stc-kits.stc-kits', false>;
     testimonials: Schema.Attribute.Component<
       'testimonials.testimonials',
       false

@@ -46,7 +46,7 @@ export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     hiringTitle: Schema.Attribute.String;
@@ -92,7 +92,7 @@ export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -192,7 +192,7 @@ export interface CareersBuildCareer extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     Title: Schema.Attribute.String;
@@ -414,7 +414,7 @@ export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     image: Schema.Attribute.Media<
@@ -914,7 +914,7 @@ export interface ExpertiseSectionExpertiseSection
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     expertiseTitle: Schema.Attribute.String;
@@ -2274,7 +2274,7 @@ export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     buttonText: Schema.Attribute.String;
@@ -2282,11 +2282,32 @@ export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     show: Schema.Attribute.Boolean;
     slug: Schema.Attribute.String;
+  };
+}
+
+export interface StcKitsStcKits extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_stc_kits';
+  info: {
+    displayName: 'stcKits';
+  };
+  attributes: {
+    aerospace_stc_kits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2497,6 +2518,7 @@ declare module '@strapi/strapi' {
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'stc-kits.button-st-ckit': StcKitsButtonStCkit;
+      'stc-kits.stc-kits': StcKitsStcKits;
       'stc-kits.stcbutton': StcKitsStcbutton;
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
