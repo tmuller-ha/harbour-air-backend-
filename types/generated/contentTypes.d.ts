@@ -597,6 +597,50 @@ export interface ApiAerospaceTestimonialAerospaceTestimonial
   };
 }
 
+export interface ApiAerospaceWhoWeAerospaceWhoWe
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_who_wes';
+  info: {
+    description: '';
+    displayName: 'Aerospace-WhoWe';
+    pluralName: 'aerospace-who-wes';
+    singularName: 'aerospace-who-we';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'common.help', false>;
+    carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
+    contactInputs: Schema.Attribute.Component<
+      'further-questions.contact-form',
+      false
+    >;
+    contactsList: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-who-we.aerospace-who-we'
+    > &
+      Schema.Attribute.Private;
+    map: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAirCraftFleetAirCraftFleet extends Struct.SingleTypeSchema {
   collectionName: 'air_craft_fleets';
   info: {
@@ -3906,6 +3950,7 @@ declare module '@strapi/strapi' {
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
+      'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
       'api::assistance.assistance': ApiAssistanceAssistance;
       'api::award.award': ApiAwardAward;
