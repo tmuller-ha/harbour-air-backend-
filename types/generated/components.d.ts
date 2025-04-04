@@ -46,7 +46,11 @@ export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
+          preset: 'default';
+=======
           preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     hiringTitle: Schema.Attribute.String;
@@ -92,7 +96,11 @@ export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
+          preset: 'default';
+=======
           preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -914,7 +922,11 @@ export interface ExpertiseSectionExpertiseSection
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
+          preset: 'default';
+=======
           preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     expertiseTitle: Schema.Attribute.String;
@@ -2264,6 +2276,8 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
+<<<<<<< HEAD
+=======
 export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_button_st_ckits';
   info: {
@@ -2290,6 +2304,7 @@ export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
   };
 }
 
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
 export interface StcKitsStcKits extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_stc_kits';
   info: {
@@ -2304,13 +2319,19 @@ export interface StcKitsStcKits extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
+          preset: 'default';
+=======
           preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     title: Schema.Attribute.String;
   };
 }
 
+<<<<<<< HEAD
+=======
 export interface StcKitsStcbutton extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_stcbuttons';
   info: {
@@ -2323,6 +2344,7 @@ export interface StcKitsStcbutton extends Struct.ComponentSchema {
   };
 }
 
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
 export interface TestimonialsTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_testimonials_testimonials';
   info: {
@@ -2517,9 +2539,13 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
+<<<<<<< HEAD
+      'stc-kits.stc-kits': StcKitsStcKits;
+=======
       'stc-kits.button-st-ckit': StcKitsButtonStCkit;
       'stc-kits.stc-kits': StcKitsStcKits;
       'stc-kits.stcbutton': StcKitsStcbutton;
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
