@@ -481,6 +481,19 @@ export interface ElementsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsCkEditorContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_elements_ck_editor_content_blocks';
+  info: {
+    displayName: 'CKEditor Content Block';
+  };
+  attributes: {
+    TitleWithCKEditor: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+  };
+}
+
 export interface ElementsDropDownData extends Struct.ComponentSchema {
   collectionName: 'components_elements_drop_down_data';
   info: {
@@ -552,6 +565,17 @@ export interface ElementsImageTextBlock extends Struct.ComponentSchema {
     mediaPosition: Schema.Attribute.Enumeration<['left', 'right']>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsImageWithLabel extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_with_labels';
+  info: {
+    description: '';
+    displayName: 'Image With Label';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'elements.title-with-image', true>;
   };
 }
 
@@ -2408,11 +2432,13 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
+      'elements.ck-editor-content-block': ElementsCkEditorContentBlock;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.image-text-block': ElementsImageTextBlock;
+      'elements.image-with-label': ElementsImageWithLabel;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
