@@ -36,7 +36,8 @@
         "common.form-with-description",
         "elements.image-text-block",
         "elements.image-with-label",
-        "elements.ck-editor-content-block"
+        "elements.ck-editor-content-block",
+        "elements.title-with-pdf"
       ]
     }
   }

@@ -591,6 +591,17 @@ export interface ElementsInstagramImages extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsPdfDetails extends Struct.ComponentSchema {
+  collectionName: 'components_elements_pdf_details';
+  info: {
+    displayName: 'PdfDetails';
+  };
+  attributes: {
+    fileName: Schema.Attribute.String;
+    pdfFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ElementsPdfLinks extends Struct.ComponentSchema {
   collectionName: 'components_elements_pdf_links';
   info: {
@@ -881,6 +892,19 @@ export interface ElementsTitleWithMediaAndButton
     show: Schema.Attribute.Boolean;
     showButton: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsTitleWithPdf extends Struct.ComponentSchema {
+  collectionName: 'components_elements_title_with_pdfs';
+  info: {
+    description: '';
+    displayName: 'Title with PDF';
+  };
+  attributes: {
+    PdfDetails: Schema.Attribute.Component<'elements.pdf-details', false>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -2440,6 +2464,7 @@ declare module '@strapi/strapi' {
       'elements.image-text-block': ElementsImageTextBlock;
       'elements.image-with-label': ElementsImageWithLabel;
       'elements.instagram-images': ElementsInstagramImages;
+      'elements.pdf-details': ElementsPdfDetails;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
       'elements.tab': ElementsTab;
@@ -2454,6 +2479,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'elements.title-with-media-and-button': ElementsTitleWithMediaAndButton;
+      'elements.title-with-pdf': ElementsTitleWithPdf;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;

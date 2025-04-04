@@ -445,6 +445,7 @@ export interface ApiAerospaceBasePageAerospaceBasePage
         'elements.image-text-block',
         'elements.image-with-label',
         'elements.ck-editor-content-block',
+        'elements.title-with-pdf',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

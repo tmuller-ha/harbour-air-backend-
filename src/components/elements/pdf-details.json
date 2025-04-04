@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_pdf_details",
+  "info": {
+    "displayName": "PdfDetails"
+  },
+  "options": {},
+  "attributes": {
+    "fileName": {
+      "type": "string"
+    },
+    "pdfFile": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
