@@ -6,6 +6,7 @@ import HomePageContent from './HomePageContent';
 import deploymentService from '../api/deployment';
 import { columns, ColumnType } from '../types';
 import { useFetchClient } from '@strapi/strapi/admin';
+import { Typography } from '@strapi/design-system';
 
 interface Role {
   code: string;
@@ -42,7 +43,7 @@ const HomePage = () => {
   const startingPage = useMemo(() => pageSize * paginationNumber, [pageSize, paginationNumber]);
 
   const totalPageCount = useMemo(
-    () => Math.ceil(totalWorkFlowCount / pageSize),
+    () => Math.ceil(totalWorkFlowCount % pageSize),
     [totalWorkFlowCount, pageSize]
   );
 
@@ -77,11 +78,13 @@ const HomePage = () => {
   // TODO: Implement the fetchData function with react query
   const fetchData = async () => {
     deploymentService
-      .getDeployments(`start=${(page - 1) * pageSize}&limit=${pageSize}&sort[0]=id:desc`)
-      .then((response: { data: { data: any } }) => {
-        const { data } = response.data;
+      .getDeployments(
+        `pagination[start]=${(page - 1) * pageSize}&pagination[limit]=${pageSize}&sort[0]=id:desc`
+      )
+      .then((response: { data: { data: any; meta: any } }) => {
+        const { data, meta } = response.data;
         setData(data);
-        setTotalWorkFlowCount(data.length || 0);
+        setTotalWorkFlowCount(meta.pagination.total || 0);
         getAllWorkFlowPagination();
       });
   };
@@ -114,10 +117,13 @@ const HomePage = () => {
     }
   };
 
+  console.log('homepage', pagination);
+
   return (
     <Main>
       <Layouts.Content>
-        <Flex style={{ justifyContent: 'end', marginTop: '100px', marginBottom: '20px' }}>
+        <Flex style={{ justifyContent: 'space-between', marginTop: '100px', marginBottom: '20px' }}>
+          <Typography style={{ fontSize: '20px' }}>Aerospace Dev Deployment</Typography>
           <Button onClick={onTriggerDeploy}>Trigger deployment</Button>
         </Flex>
         <HomePageContent
