@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_accordions",
   "info": {
-    "displayName": "Accordion"
+    "displayName": "Accordion",
+    "description": ""
   },
   "options": {},
   "attributes": {

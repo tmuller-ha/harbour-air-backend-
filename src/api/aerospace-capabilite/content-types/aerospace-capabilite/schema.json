@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "aerospace_capabilites",
+  "info": {
+    "singularName": "aerospace-capabilite",
+    "pluralName": "aerospace-capabilites",
+    "displayName": "Aerospace-capabilites",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-image"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    },
+    "accordian": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.accordian-with-image"
+    }
+  }
+}

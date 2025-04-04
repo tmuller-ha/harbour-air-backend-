@@ -46,7 +46,11 @@ export interface AerospaceHomeHiringSection extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
           preset: 'default';
+=======
+          preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     hiringTitle: Schema.Attribute.String;
@@ -92,7 +96,11 @@ export interface AerospaceHomeServiceOverview extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
           preset: 'default';
+=======
+          preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -177,6 +185,39 @@ export interface CanadianPassengerRightsTariffs extends Struct.ComponentSchema {
       false
     > &
       Schema.Attribute.Required;
+  };
+}
+
+export interface CareersBuildCareer extends Struct.ComponentSchema {
+  collectionName: 'components_careers_build_careers';
+  info: {
+    displayName: 'BuildCareer';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    ButtonURL: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface CareersCareerImage extends Struct.ComponentSchema {
+  collectionName: 'components_careers_career_images';
+  info: {
+    displayName: 'CareerImage';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -370,9 +411,33 @@ export interface CommunityInvolvementCommunityTabs
   };
 }
 
+export interface ElementsAccordianWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_accordian_with_images';
+  info: {
+    description: '';
+    displayName: 'Accordian-with-image';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    label: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ElementsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_elements_accordions';
   info: {
+    description: '';
     displayName: 'Accordion';
   };
   attributes: {
@@ -857,7 +922,11 @@ export interface ExpertiseSectionExpertiseSection
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
           preset: 'default';
+=======
+          preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     expertiseTitle: Schema.Attribute.String;
@@ -1328,15 +1397,12 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
   attributes: {
     btnText: Schema.Attribute.String;
     description: Schema.Attribute.String;
-    desktopImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    desktopImg: Schema.Attribute.Media<'images' | 'videos'>;
     imageLink: Schema.Attribute.String;
-    mobileImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    mobileImg: Schema.Attribute.Media<'images' | 'videos'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
-    tabletImg: Schema.Attribute.Media<'images' | 'videos'> &
-      Schema.Attribute.Required;
+    tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
   };
 }
@@ -2210,6 +2276,35 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
+<<<<<<< HEAD
+=======
+export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_button_st_ckits';
+  info: {
+    displayName: 'ButtonSTCkit';
+  };
+  attributes: {
+    buttonstc: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    buttonText: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Schema.Attribute.Boolean;
+    slug: Schema.Attribute.String;
+  };
+}
+
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
 export interface StcKitsStcKits extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_stc_kits';
   info: {
@@ -2224,13 +2319,32 @@ export interface StcKitsStcKits extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
+<<<<<<< HEAD
           preset: 'default';
+=======
+          preset: 'toolbar';
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
         }
       >;
     title: Schema.Attribute.String;
   };
 }
 
+<<<<<<< HEAD
+=======
+export interface StcKitsStcbutton extends Struct.ComponentSchema {
+  collectionName: 'components_stc_kits_stcbuttons';
+  info: {
+    description: '';
+    displayName: 'stcbutton';
+  };
+  attributes: {
+    Button: Schema.Attribute.Component<'stc-kits.button-st-ckit', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
 export interface TestimonialsTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_testimonials_testimonials';
   info: {
@@ -2299,6 +2413,8 @@ declare module '@strapi/strapi' {
       'aircraft-fleet.aircraft-fleet-tabs': AircraftFleetAircraftFleetTabs;
       'aircraft-fleet.fleet-info': AircraftFleetFleetInfo;
       'canadian-passenger-rights.tariffs': CanadianPassengerRightsTariffs;
+      'careers.build-career': CareersBuildCareer;
+      'careers.career-image': CareersCareerImage;
       'careers.careers-table': CareersCareersTable;
       'careers.join-our-team': CareersJoinOurTeam;
       'careers.tab-with-youtube-link': CareersTabWithYoutubeLink;
@@ -2310,6 +2426,7 @@ declare module '@strapi/strapi' {
       'common.form-with-description': CommonFormWithDescription;
       'common.help': CommonHelp;
       'community-involvement.community-tabs': CommunityInvolvementCommunityTabs;
+      'elements.accordian-with-image': ElementsAccordianWithImage;
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
@@ -2422,7 +2539,13 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
+<<<<<<< HEAD
       'stc-kits.stc-kits': StcKitsStcKits;
+=======
+      'stc-kits.button-st-ckit': StcKitsButtonStCkit;
+      'stc-kits.stc-kits': StcKitsStcKits;
+      'stc-kits.stcbutton': StcKitsStcbutton;
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;

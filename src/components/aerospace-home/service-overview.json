@@ -22,14 +22,22 @@
     "description": {
       "type": "customField",
       "options": {
+<<<<<<< HEAD
         "preset": "default"
+=======
+        "preset": "toolbar"
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "BgImage": {
+<<<<<<< HEAD
       "allowedTypes": [
         "images"
       ],
+=======
+      "allowedTypes": ["images"],
+>>>>>>> f561457c8d75568e103dd39fb7c1d3a4b885315e
       "type": "media",
       "multiple": false
     }

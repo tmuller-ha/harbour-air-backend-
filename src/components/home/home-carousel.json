@@ -25,8 +25,11 @@
     "desktopImg": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": ["images", "videos"]
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "imageLink": {
       "type": "string"
@@ -34,14 +37,20 @@
     "tabletImg": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": ["images", "videos"]
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "mobileImg": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": ["images", "videos"]
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     }
   }
 }
