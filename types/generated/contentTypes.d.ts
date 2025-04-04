@@ -641,7 +641,6 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
   };
 }
 
-
 export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_meet_the_teams';
@@ -650,30 +649,67 @@ export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
     displayName: 'Aerospace-MeetTheTeam';
     pluralName: 'aerospace-meet-the-teams';
     singularName: 'aerospace-meet-the-team';
-
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-
     banner: Schema.Attribute.Component<'common.help', false>;
     carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
-
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-
       'api::aerospace-meet-the-team.aerospace-meet-the-team'
     > &
       Schema.Attribute.Private;
     profile: Schema.Attribute.Component<'elements.profile-with-image', true>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
 
+export interface ApiAerospaceStckitAerospaceStckit
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_stckits';
+  info: {
+    description: '';
+    displayName: 'Aerospace-stckit';
+    pluralName: 'aerospace-stckits';
+    singularName: 'aerospace-stckit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aerospace_stc_kits: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kits-card.kits-card'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-stckit.aerospace-stckit'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    stcbrochure: Schema.Attribute.Component<
+      'elements.title-with-youtube-link',
+      false
+    >;
+    stcbutton: Schema.Attribute.Component<'stc-kits.stcbutton', true>;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -4068,9 +4104,8 @@ declare module '@strapi/strapi' {
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
-
       'api::aerospace-meet-the-team.aerospace-meet-the-team': ApiAerospaceMeetTheTeamAerospaceMeetTheTeam;
-
+      'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;
       'api::air-craft-fleet.air-craft-fleet': ApiAirCraftFleetAirCraftFleet;
