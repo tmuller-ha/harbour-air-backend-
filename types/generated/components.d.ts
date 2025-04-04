@@ -594,11 +594,12 @@ export interface ElementsInstagramImages extends Struct.ComponentSchema {
 export interface ElementsPdfDetails extends Struct.ComponentSchema {
   collectionName: 'components_elements_pdf_details';
   info: {
+    description: '';
     displayName: 'PdfDetails';
   };
   attributes: {
     fileName: Schema.Attribute.String;
-    pdfFile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    pdfFile: Schema.Attribute.Media<'files'>;
   };
 }
 
