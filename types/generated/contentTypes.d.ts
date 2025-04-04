@@ -443,6 +443,8 @@ export interface ApiAerospaceBasePageAerospaceBasePage
         'elements.tab',
         'common.form-with-description',
         'elements.image-text-block',
+        'elements.image-with-label',
+        'elements.ck-editor-content-block',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
