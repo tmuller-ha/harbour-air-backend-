@@ -19,11 +19,8 @@
     },
     "profile": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "elements.profile-with-image"
-    },
-    "title": {
-      "type": "string"
     },
     "banner": {
       "type": "component",

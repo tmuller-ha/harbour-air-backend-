@@ -1,25 +1,21 @@
 {
   "collectionName": "components_elements_profile_with_images",
   "info": {
-    "displayName": "profile-with-image"
+    "displayName": "profile-with-image",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "profilePicture": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "name": {
+    "title": {
       "type": "string"
     },
-    "role": {
-      "type": "string"
+    "team_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-profile.team-profile"
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }

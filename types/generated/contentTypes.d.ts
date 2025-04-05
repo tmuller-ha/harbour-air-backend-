@@ -587,9 +587,8 @@ export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
       'api::aerospace-meet-the-team.aerospace-meet-the-team'
     > &
       Schema.Attribute.Private;
-    profile: Schema.Attribute.Component<'elements.profile-with-image', true>;
+    profile: Schema.Attribute.Component<'elements.profile-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3214,6 +3213,39 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
+  collectionName: 'team_profiles';
+  info: {
+    description: '';
+    displayName: 'Team Profile ';
+    pluralName: 'team-profiles';
+    singularName: 'team-profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-profile.team-profile'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    profilePicture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTourLocationTourLocation
   extends Struct.CollectionTypeSchema {
   collectionName: 'tour_locations';
@@ -4049,6 +4081,7 @@ declare module '@strapi/strapi' {
       'api::schedule.schedule': ApiScheduleSchedule;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::standby-travel.standby-travel': ApiStandbyTravelStandbyTravel;
+      'api::team-profile.team-profile': ApiTeamProfileTeamProfile;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

@@ -562,15 +562,16 @@ export interface ElementsPricingTable extends Struct.ComponentSchema {
 export interface ElementsProfileWithImage extends Struct.ComponentSchema {
   collectionName: 'components_elements_profile_with_images';
   info: {
+    description: '';
     displayName: 'profile-with-image';
   };
   attributes: {
-    name: Schema.Attribute.String;
-    profilePicture: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    show: Schema.Attribute.Boolean;
+    team_profiles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-profile.team-profile'
     >;
-    role: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
