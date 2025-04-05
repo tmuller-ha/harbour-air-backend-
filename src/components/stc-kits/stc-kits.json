@@ -11,7 +11,7 @@
     "description": {
       "type": "customField",
       "options": {
-        "preset": "default"
+        "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },

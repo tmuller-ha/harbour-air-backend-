@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aerospace_base_pages",
+  "info": {
+    "singularName": "aerospace-base-page",
+    "pluralName": "aerospace-base-pages",
+    "displayName": "Aerospace-Base Pages",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "metaData": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta-data.meta-data"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "elements.accordion",
+        "elements.title-with-ck-editor",
+        "elements.title-with-image",
+        "elements.tab",
+        "common.form-with-description",
+        "elements.image-text-block"
+      ]
+    }
+  }
+}
