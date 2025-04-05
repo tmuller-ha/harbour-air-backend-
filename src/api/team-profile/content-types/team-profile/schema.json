@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_profiles",
+  "info": {
+    "singularName": "team-profile",
+    "pluralName": "team-profiles",
+    "displayName": "Team Profile ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}
