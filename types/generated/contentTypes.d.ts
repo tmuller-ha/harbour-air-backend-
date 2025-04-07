@@ -643,6 +643,43 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAerospaceMeettheteamAerospaceMeettheteam
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_meettheteams';
+  info: {
+    description: '';
+    displayName: 'Aerospace-MeetTheTeam';
+    pluralName: 'aerospace-meettheteams';
+    singularName: 'aerospace-meettheteam';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    jobdescription: Schema.Attribute.Component<
+      'meet-the-team.meet-the-team',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-meettheteam.aerospace-meettheteam'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titlewithimage: Schema.Attribute.Component<
+      'elements.title-with-image',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceStckitAerospaceStckit
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_stckits';
@@ -4073,6 +4110,7 @@ declare module '@strapi/strapi' {
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
+      'api::aerospace-meettheteam.aerospace-meettheteam': ApiAerospaceMeettheteamAerospaceMeettheteam;
       'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;

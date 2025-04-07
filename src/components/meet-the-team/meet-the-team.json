@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_meet_the_team_meet_the_teams",
+  "info": {
+    "displayName": "meet-the-team",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "profile": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "jobtitle": {
+      "type": "text"
+    },
+    "jobdescription": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -1846,6 +1846,27 @@ export interface MainToursTourCards extends Struct.ComponentSchema {
   };
 }
 
+export interface MeetTheTeamMeetTheTeam extends Struct.ComponentSchema {
+  collectionName: 'components_meet_the_team_meet_the_teams';
+  info: {
+    description: '';
+    displayName: 'meet-the-team';
+  };
+  attributes: {
+    jobdescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    jobtitle: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    profile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface MetaDataMetaData extends Struct.ComponentSchema {
   collectionName: 'components_meta_data_meta_datas';
   info: {
@@ -2514,6 +2535,7 @@ declare module '@strapi/strapi' {
       'main-tours.fare-section': MainToursFareSection;
       'main-tours.featured-tours': MainToursFeaturedTours;
       'main-tours.tour-cards': MainToursTourCards;
+      'meet-the-team.meet-the-team': MeetTheTeamMeetTheTeam;
       'meta-data.meta-data': MetaDataMetaData;
       'mobility.hero-section': MobilityHeroSection;
       'mobility.images': MobilityImages;
