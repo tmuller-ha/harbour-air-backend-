@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_profile_with_images",
+  "info": {
+    "displayName": "profile-with-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "team_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-profile.team-profile"
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
