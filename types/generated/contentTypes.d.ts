@@ -3337,7 +3337,7 @@ export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
   collectionName: 'team_profiles';
   info: {
     description: '';
-    displayName: 'Team Profile ';
+    displayName: 'Aerospace-Team Profile ';
     pluralName: 'team-profiles';
     singularName: 'team-profile';
   };
