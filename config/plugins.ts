@@ -163,4 +163,8 @@ export default ({ env }) => ({
     enabled: true,
     resolve: './src/plugins/bulk-operator'
   },
+  'web-deployment': {
+    enabled: true,
+    resolve: './src/plugins/web-deployment'
+  },
 });
