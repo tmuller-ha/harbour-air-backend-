@@ -159,4 +159,8 @@ export default ({ env }) => ({
       ],
     },
   },
+  'bulk-operator': {
+    enabled: true,
+    resolve: './src/plugins/bulk-operator'
+  },
 });

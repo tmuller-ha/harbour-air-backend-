@@ -3096,6 +3096,39 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPartsSalePartsSale extends Struct.CollectionTypeSchema {
+  collectionName: 'parts_sales';
+  info: {
+    description: '';
+    displayName: 'PartsSales';
+    pluralName: 'parts-sales';
+    singularName: 'parts-sale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ALT: Schema.Attribute.String;
+    Condition: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parts-sale.parts-sale'
+    > &
+      Schema.Attribute.Private;
+    PartNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Qty: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   collectionName: 'private_tours';
   info: {
@@ -4201,6 +4234,7 @@ declare module '@strapi/strapi' {
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
+      'api::parts-sale.parts-sale': ApiPartsSalePartsSale;
       'api::private-tour.private-tour': ApiPrivateTourPrivateTour;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;
