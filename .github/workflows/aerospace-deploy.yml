@@ -104,6 +104,18 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Build Strapi Plugins
+        run: |
+          for plugin in src/plugin/*; do
+            if [ -d "$plugin" ]; then
+              echo "Building plugin: $(basename $plugin)"
+              cd "$plugin"
+              yarn install
+              yarn build
+              cd - || exit
+            fi
+          done
+
       - name: Build Strapi
         run: yarn build
 
