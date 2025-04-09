@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_image_with_labels",
+  "info": {
+    "displayName": "Image With Label",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title-with-image"
+    }
+  }
+}

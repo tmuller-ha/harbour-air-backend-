@@ -481,6 +481,19 @@ export interface ElementsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsCkEditorContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_elements_ck_editor_content_blocks';
+  info: {
+    displayName: 'CKEditor Content Block';
+  };
+  attributes: {
+    TitleWithCKEditor: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+  };
+}
+
 export interface ElementsDropDownData extends Struct.ComponentSchema {
   collectionName: 'components_elements_drop_down_data';
   info: {
@@ -555,6 +568,17 @@ export interface ElementsImageTextBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsImageWithLabel extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_with_labels';
+  info: {
+    description: '';
+    displayName: 'Image With Label';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'elements.title-with-image', true>;
+  };
+}
+
 export interface ElementsInstagramImages extends Struct.ComponentSchema {
   collectionName: 'components_elements_instagram_images';
   info: {
@@ -564,6 +588,18 @@ export interface ElementsInstagramImages extends Struct.ComponentSchema {
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     slug: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsPdfDetails extends Struct.ComponentSchema {
+  collectionName: 'components_elements_pdf_details';
+  info: {
+    description: '';
+    displayName: 'PdfDetails';
+  };
+  attributes: {
+    fileName: Schema.Attribute.String;
+    pdfFile: Schema.Attribute.Media<'files'>;
   };
 }
 
@@ -589,6 +625,22 @@ export interface ElementsPricingTable extends Struct.ComponentSchema {
   attributes: {
     destination_Column: Schema.Attribute.String;
     starting_At_Column: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsProfileWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_profile_with_images';
+  info: {
+    description: '';
+    displayName: 'profile-with-image';
+  };
+  attributes: {
+    show: Schema.Attribute.Boolean;
+    team_profiles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-profile.team-profile'
+    >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -857,6 +909,19 @@ export interface ElementsTitleWithMediaAndButton
     show: Schema.Attribute.Boolean;
     showButton: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsTitleWithPdf extends Struct.ComponentSchema {
+  collectionName: 'components_elements_title_with_pdfs';
+  info: {
+    description: '';
+    displayName: 'Title with PDF';
+  };
+  attributes: {
+    PdfDetails: Schema.Attribute.Component<'elements.pdf-details', false>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -2408,14 +2473,18 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
+      'elements.ck-editor-content-block': ElementsCkEditorContentBlock;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.image-text-block': ElementsImageTextBlock;
+      'elements.image-with-label': ElementsImageWithLabel;
       'elements.instagram-images': ElementsInstagramImages;
+      'elements.pdf-details': ElementsPdfDetails;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
+      'elements.profile-with-image': ElementsProfileWithImage;
       'elements.tab': ElementsTab;
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
@@ -2428,6 +2497,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-description': ElementsTitleWithDescription;
       'elements.title-with-image': ElementsTitleWithImage;
       'elements.title-with-media-and-button': ElementsTitleWithMediaAndButton;
+      'elements.title-with-pdf': ElementsTitleWithPdf;
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;

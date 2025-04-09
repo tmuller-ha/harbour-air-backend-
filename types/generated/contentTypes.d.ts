@@ -443,6 +443,9 @@ export interface ApiAerospaceBasePageAerospaceBasePage
         'elements.tab',
         'common.form-with-description',
         'elements.image-text-block',
+        'elements.image-with-label',
+        'elements.ck-editor-content-block',
+        'elements.title-with-pdf',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
@@ -635,6 +638,38 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
       'testimonials.testimonials',
       false
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_meet_the_teams';
+  info: {
+    description: '';
+    displayName: 'Aerospace-MeetTheTeam';
+    pluralName: 'aerospace-meet-the-teams';
+    singularName: 'aerospace-meet-the-team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'common.help', false>;
+    carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-meet-the-team.aerospace-meet-the-team'
+    > &
+      Schema.Attribute.Private;
+    profile: Schema.Attribute.Component<'elements.profile-with-image', false>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3342,6 +3377,39 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
+  collectionName: 'team_profiles';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Team Profile ';
+    pluralName: 'team-profiles';
+    singularName: 'team-profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-profile.team-profile'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    profilePicture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTourLocationTourLocation
   extends Struct.CollectionTypeSchema {
   collectionName: 'tour_locations';
@@ -4112,6 +4180,7 @@ declare module '@strapi/strapi' {
       'api::aerospace-footer.aerospace-footer': ApiAerospaceFooterAerospaceFooter;
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
+      'api::aerospace-meet-the-team.aerospace-meet-the-team': ApiAerospaceMeetTheTeamAerospaceMeetTheTeam;
       'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;
@@ -4180,6 +4249,7 @@ declare module '@strapi/strapi' {
       'api::schedule.schedule': ApiScheduleSchedule;
       'api::seating-option.seating-option': ApiSeatingOptionSeatingOption;
       'api::standby-travel.standby-travel': ApiStandbyTravelStandbyTravel;
+      'api::team-profile.team-profile': ApiTeamProfileTeamProfile;
       'api::tour-location.tour-location': ApiTourLocationTourLocation;
       'api::tours-detail.tours-detail': ApiToursDetailToursDetail;
       'api::trigger-build.trigger-build': ApiTriggerBuildTriggerBuild;

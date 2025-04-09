@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_elements_ck_editor_content_blocks",
+  "info": {
+    "displayName": "CKEditor Content Block"
+  },
+  "options": {},
+  "attributes": {
+    "TitleWithCKEditor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
+    }
+  }
+}
