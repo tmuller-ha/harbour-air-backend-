@@ -159,8 +159,4 @@ export default ({ env }) => ({
       ],
     },
   },
-  'web-deployment': {
-    enabled: true,
-    resolve: './src/plugins/web-deployment'
-  },
 });

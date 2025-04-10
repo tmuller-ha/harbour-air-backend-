@@ -4,11 +4,9 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "prebuild": "yarn build-web-deployment",
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
-    "build-web-deployment": "cd src/plugins/web-deployment && yarn install &&  yarn build",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
