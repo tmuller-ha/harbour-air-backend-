@@ -3355,7 +3355,7 @@ export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'default';
+          preset: 'toolbar';
         }
       >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
