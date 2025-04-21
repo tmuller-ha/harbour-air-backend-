@@ -4,6 +4,9 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "prebuild": "yarn build-web-deployment && yarn build-bulk-operator-plugin",
+    "build-bulk-operator-plugin": "cd src/plugins/plugins/bulk-operator && yarn build",
+    "build-web-deployment": "cd src/plugins/web-deployment && yarn build",
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
