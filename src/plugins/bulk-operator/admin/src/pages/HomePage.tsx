@@ -1,5 +1,6 @@
 import { Main } from '@strapi/design-system';
 import { Typography, Box, Button } from '@strapi/design-system';
+import axios from 'axios';
 import { useState } from 'react';
 import * as XLSX from 'xlsx';
 
@@ -64,21 +65,15 @@ const HomePage = () => {
           throw new Error('Unsupported file format. Please upload CSV or XLSX.');
         }
 
-        const response = await fetch('http://localhost:1337/api/parts-sales/bulk-upload', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ data: parsedData }),
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw new Error(result.message || 'Upload failed');
+        try {
+          const response = await axios.post('/api/parts-sales/bulk-upload', {
+            data: parsedData,
+          });
+          // alert(`Successfully uploaded ${response?.data?.count} records!`);
+        } catch (error) {
+          console.error('Error uploading data:', error);
+          alert('Failed to upload data.');
         }
-
-        alert(`Successfully uploaded ${result.count} records!`);
       } catch (err) {
         console.error('Error parsing/uploading:', err);
         alert('Failed to upload data.');
