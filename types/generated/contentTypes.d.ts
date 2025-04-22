@@ -3213,7 +3213,7 @@ export interface ApiPartsSalePartsSale extends Struct.CollectionTypeSchema {
   collectionName: 'parts_sales';
   info: {
     description: '';
-    displayName: 'PartsSales';
+    displayName: 'Aerospace-Parts';
     pluralName: 'parts-sales';
     singularName: 'parts-sale';
   };
