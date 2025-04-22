@@ -69,7 +69,7 @@ const HomePage = () => {
           const response = await axios.post('/api/parts-sales/bulk-upload', {
             data: parsedData,
           });
-          // alert(`Successfully uploaded ${response?.data?.count} records!`);
+          alert(`Successfully uploaded ${response?.data?.count} records!`);
         } catch (error) {
           console.error('Error uploading data:', error);
           alert('Failed to upload data.');
