@@ -5,9 +5,9 @@
   "description": "A Strapi application",
   "scripts": {
     "prebuild": "yarn build-web-deployment && yarn build-bulk-operator-plugin",
-    "build-bulk-operator-plugin": "cd src/plugins/plugins/bulk-operator && yarn build",
+    "build-bulk-operator-plugin": "cd src/plugins/bulk-operator && yarn build",
     "build-web-deployment": "cd src/plugins/web-deployment && yarn build",
-    "build": "strapi build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
@@ -41,6 +41,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
     "typescript": "^5"
   },
   "engines": {
