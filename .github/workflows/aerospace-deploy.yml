@@ -32,7 +32,7 @@ on:
       - aerospace-main
 
 jobs:
-  build:  
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -53,7 +53,7 @@ jobs:
         run: yarn build
 
   deploy_dev:
-    runs-on: [self-hosted ,aerospace]
+    runs-on: [self-hosted, aerospace]
     needs: build
     steps:
       - name: Checkout repository
@@ -103,6 +103,22 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+      
+      - name: Build Strapi Plugins
+        run: |
+          set -e  # Exit if any command fails
+
+          for plugin in src/plugin/*; do
+            if [ -d "$plugin" ]; then
+              echo "Building plugin: $(basename "$plugin")"
+              cd "$plugin"
+              yarn install
+              yarn build
+              cd - > /dev/null
+            else
+              echo "⚠️ Skipping non-directory: $plugin"
+            fi
+          done
 
       - name: Build Strapi
         run: yarn build

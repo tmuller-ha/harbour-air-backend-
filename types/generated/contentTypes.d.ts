@@ -2396,6 +2396,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     deals: Schema.Attribute.Component<'home.grab-deals', false>;
     homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
+    homepromotionscarousel: Schema.Attribute.Component<
+      'home.hero-carousel',
+      true
+    >;
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
