@@ -51,6 +51,9 @@
         "images",
         "videos"
       ]
+    },
+    "infoText": {
+      "type": "string"
     }
   }
 }
