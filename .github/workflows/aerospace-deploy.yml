@@ -104,21 +104,53 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
-      - name: Build Strapi Plugins
+      - name: Perform API call
+        id: api-call
         run: |
-          set -e  # Exit if any command fails
+          response=$(curl -s "$NEXT_PUBLIC_CMS_LINK/api/trigger-build")
+          echo "RESPONSE=$response" >> $GITHUB_ENV
+          isTriggerBuild=$(echo "$response" | jq -r '.isTriggerBuild')
+          echo "::set-output name=isTriggerBuild::$isTriggerBuild"
 
-          for plugin in src/plugin/*; do
-            if [ -d "$plugin" ]; then
-              echo "Building plugin: $(basename "$plugin")"
-              cd "$plugin"
-              yarn install
-              yarn build
-              cd - > /dev/null
-            else
-              echo "⚠️ Skipping non-directory: $plugin"
-            fi
-          done
+      - name: Check API response
+        id: check-api-response
+        run: |
+          if [[ "${{ steps.api-call.outputs.isTriggerBuild }}" == "true" ]]; then
+            echo "isTriggerBuild is true. Continuing workflow."
+          else
+            echo "isTriggerBuild is false. Skipping remaining steps."
+          fi
+      
+      - name: Delete .next folder
+        if: ${{ steps.api-call.outputs.isTriggerBuild == 'true' }}
+        run: rm -rf .next
+
+      - name: Build Next.js application
+        if: ${{ steps.api-call.outputs.isTriggerBuild == 'true' }}
+        env:
+          ENVIORNMENT: dev
+        run: yarn build
+
+      - name: Sync build to S3
+        if: ${{ steps.api-call.outputs.isTriggerBuild == 'true' }}
+        run: |
+          aws s3 sync ./out/ s3://$NEXT_PUBLIC_S3_BUCKET_NAME
+
+      - name: Notify CMS of successful build
+        if: ${{ steps.api-call.outputs.isTriggerBuild == 'true' }}
+        run: |
+          curl -s "$NEXT_PUBLIC_CMS_LINK/api/trigger-build/false"
+
+      - name: Trigger PUT API call on failure
+        if: ${{ failure() }}
+        run: |
+          curl -X PUT -H "Content-Type: application/json" -d '{"id": ${{ github.event.inputs.id }} , "status": "Failed"}' "$NEXT_PUBLIC_CMS_LINK/api/web-deployment/deployment"
+
+      - name: Trigger PUT API call on success
+        if: ${{ success() }}
+        run: |
+          curl -X PUT -H "Content-Type: application/json" -d '{"id": ${{ github.event.inputs.id }} , "status": "Deployed"}' "$NEXT_PUBLIC_CMS_LINK/api/web-deployment/deployment"
+
 
       - name: Build Strapi
         run: yarn build
