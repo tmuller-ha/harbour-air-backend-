@@ -689,6 +689,10 @@ export interface ApiAerospacePartSaleAerospacePartSale
     draftAndPublish: true;
   };
   attributes: {
+    aerospace_part: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::parts-sale.parts-sale'
+    >;
     aerospaceSalesItem: Schema.Attribute.Relation<
       'oneToMany',
       'api::aerospace-sales-item.aerospace-sales-item'
@@ -3497,6 +3501,7 @@ export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    id_profile: Schema.Attribute.BigInteger;
     jobdescription: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
