@@ -689,6 +689,10 @@ export interface ApiAerospacePartSaleAerospacePartSale
     draftAndPublish: true;
   };
   attributes: {
+    aerospace_part: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::parts-sale.parts-sale'
+    >;
     aerospaceSalesItem: Schema.Attribute.Relation<
       'oneToMany',
       'api::aerospace-sales-item.aerospace-sales-item'
