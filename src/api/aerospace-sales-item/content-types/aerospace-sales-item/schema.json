@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aerospace_sales_items",
+  "info": {
+    "singularName": "aerospace-sales-item",
+    "pluralName": "aerospace-sales-items",
+    "displayName": "Aerospace-SalesItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}

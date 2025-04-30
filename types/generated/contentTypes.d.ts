@@ -676,6 +676,74 @@ export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
   };
 }
 
+export interface ApiAerospacePartSaleAerospacePartSale
+  extends Struct.SingleTypeSchema {
+  collectionName: 'aerospace_part_sales';
+  info: {
+    description: '';
+    displayName: 'Aerospace-PartSale';
+    pluralName: 'aerospace-part-sales';
+    singularName: 'aerospace-part-sale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aerospaceSalesItem: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-sales-item.aerospace-sales-item'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-part-sale.aerospace-part-sale'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    viewMore: Schema.Attribute.Component<'elements.button', false>;
+  };
+}
+
+export interface ApiAerospaceSalesItemAerospaceSalesItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'aerospace_sales_items';
+  info: {
+    description: '';
+    displayName: 'Aerospace-SalesItem';
+    pluralName: 'aerospace-sales-items';
+    singularName: 'aerospace-sales-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aerospace-sales-item.aerospace-sales-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAerospaceStckitAerospaceStckit
   extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_stckits';
@@ -2328,6 +2396,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     deals: Schema.Attribute.Component<'home.grab-deals', false>;
     homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
+    homepromotionscarousel: Schema.Attribute.Component<
+      'home.hero-carousel',
+      true
+    >;
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
@@ -3131,6 +3203,39 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     rate: Schema.Attribute.Component<'parcel-express.rates', false>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPartsSalePartsSale extends Struct.CollectionTypeSchema {
+  collectionName: 'parts_sales';
+  info: {
+    description: '';
+    displayName: 'Aerospace-Parts';
+    pluralName: 'parts-sales';
+    singularName: 'parts-sale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ALT: Schema.Attribute.String;
+    Condition: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parts-sale.parts-sale'
+    > &
+      Schema.Attribute.Private;
+    PartNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Qty: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -4189,6 +4294,8 @@ declare module '@strapi/strapi' {
       'api::aerospace-header.aerospace-header': ApiAerospaceHeaderAerospaceHeader;
       'api::aerospace-home.aerospace-home': ApiAerospaceHomeAerospaceHome;
       'api::aerospace-meet-the-team.aerospace-meet-the-team': ApiAerospaceMeetTheTeamAerospaceMeetTheTeam;
+      'api::aerospace-part-sale.aerospace-part-sale': ApiAerospacePartSaleAerospacePartSale;
+      'api::aerospace-sales-item.aerospace-sales-item': ApiAerospaceSalesItemAerospaceSalesItem;
       'api::aerospace-stckit.aerospace-stckit': ApiAerospaceStckitAerospaceStckit;
       'api::aerospace-testimonial.aerospace-testimonial': ApiAerospaceTestimonialAerospaceTestimonial;
       'api::aerospace-who-we.aerospace-who-we': ApiAerospaceWhoWeAerospaceWhoWe;
@@ -4251,6 +4358,7 @@ declare module '@strapi/strapi' {
       'api::our-promise.our-promise': ApiOurPromiseOurPromise;
       'api::our-story.our-story': ApiOurStoryOurStory;
       'api::parcel-express.parcel-express': ApiParcelExpressParcelExpress;
+      'api::parts-sale.parts-sale': ApiPartsSalePartsSale;
       'api::private-tour.private-tour': ApiPrivateTourPrivateTour;
       'api::route.route': ApiRouteRoute;
       'api::safety-first.safety-first': ApiSafetyFirstSafetyFirst;

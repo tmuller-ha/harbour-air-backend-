@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parts_sales",
+  "info": {
+    "singularName": "parts-sale",
+    "pluralName": "parts-sales",
+    "displayName": "Aerospace-Parts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ALT": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Qty": {
+      "type": "integer"
+    },
+    "Condition": {
+      "type": "string"
+    },
+    "PartNumber": {
+      "type": "string"
+    }
+  }
+}
