@@ -1,14 +1,18 @@
 {
   "collectionName": "components_expertise_section_expertise_sections",
   "info": {
-    "displayName": "expertiseSection"
+    "displayName": "expertiseSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
-      "allowedTypes": ["images"],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "expertiseTitle": {
       "type": "string"
@@ -23,6 +27,9 @@
     "show": {
       "type": "boolean",
       "default": false
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

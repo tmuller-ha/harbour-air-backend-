@@ -972,6 +972,7 @@ export interface ExpertiseSectionExpertiseSection
   extends Struct.ComponentSchema {
   collectionName: 'components_expertise_section_expertise_sections';
   info: {
+    description: '';
     displayName: 'expertiseSection';
   };
   attributes: {
@@ -985,6 +986,7 @@ export interface ExpertiseSectionExpertiseSection
     expertiseTitle: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    slug: Schema.Attribute.String;
   };
 }
 
