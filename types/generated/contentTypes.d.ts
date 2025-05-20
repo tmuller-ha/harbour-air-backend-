@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -465,6 +469,8 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
         'elements.title-with-ck-editor',
         'extra-assistance.accordion-with-editor',
         'common.form-with-description',
+        'elements.tab',
+        'elements.image-text-block',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
