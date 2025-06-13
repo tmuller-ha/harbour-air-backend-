@@ -45,22 +45,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build Strapi Plugins
-        run: |
-          set -e  # Exit if any command fails
-
-          for plugin in src/plugin/*; do
-            if [ -d "$plugin" ]; then
-              echo "Building plugin: $(basename "$plugin")"
-              cd "$plugin"
-              yarn install
-              yarn build
-              cd - > /dev/null
-            else
-              echo "⚠️ Skipping non-directory: $plugin"
-            fi
-          done
-
-
       - name: Build Strapi
         run: yarn build
