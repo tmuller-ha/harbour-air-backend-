@@ -29,7 +29,9 @@
         "extra-assistance.files",
         "elements.title-with-ck-editor",
         "extra-assistance.accordion-with-editor",
-        "common.form-with-description"
+        "common.form-with-description",
+        "elements.tab",
+        "elements.image-text-block"
       ]
     }
   }

@@ -1,4 +1,4 @@
-name: Build & Dev Deployment
+name: Aerospace Dev Deployment
 env:
   HOST: ${{ secrets.HOST }}
   PORT: ${{ secrets.PORT }}
@@ -7,7 +7,7 @@ env:
   ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
   TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
   DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  DATABASE_URL: ${{ secrets.AERO_DATABASE_URL }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -27,6 +27,9 @@ env:
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - aerospace-main
 
 jobs:
   build:
@@ -50,7 +53,7 @@ jobs:
         run: yarn build
 
   deploy_dev:
-    runs-on: [self-hosted, strapi]
+    runs-on: [self-hosted, aerospace]
     needs: build
     steps:
       - name: Checkout repository
@@ -60,6 +63,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "20"
+
+      - name: Install pm2
+        run: npm install pm2 -g
 
       - name: Create .env file
         run: |
@@ -71,7 +77,7 @@ jobs:
           echo ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} >> .env
           echo TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }} >> .env
           echo DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }} >> .env
-          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          echo DATABASE_URL=${{ secrets.AERO_DATABASE_URL }} >> .env
           echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
           echo AWS_ACCESS_SECRET=${{ secrets.AWS_ACCESS_SECRET }} >> .env
           echo AWS_REGION=${{ secrets.AWS_REGION }} >> .env

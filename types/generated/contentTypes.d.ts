@@ -469,6 +469,8 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
         'elements.title-with-ck-editor',
         'extra-assistance.accordion-with-editor',
         'common.form-with-description',
+        'elements.tab',
+        'elements.image-text-block',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1906,6 +1908,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     deals: Schema.Attribute.Component<'home.grab-deals', false>;
     homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
+    homepromotionscarousel: Schema.Attribute.Component<
+      'home.hero-carousel',
+      true
+    >;
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &

@@ -59,6 +59,11 @@
       "type": "component",
       "repeatable": false,
       "component": "home.news"
+    },
+    "homepromotionscarousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-carousel"
     }
   }
 }
