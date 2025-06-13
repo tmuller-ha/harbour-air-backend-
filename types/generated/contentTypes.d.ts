@@ -1910,7 +1910,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
     homepromotionscarousel: Schema.Attribute.Component<
       'home.hero-carousel',
-      true
+      false
     >;
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
