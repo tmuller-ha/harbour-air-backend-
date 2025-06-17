@@ -54,6 +54,10 @@
     },
     "infoText": {
       "type": "string"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
