@@ -711,6 +711,8 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    showSpecialOffers: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     specialOffers: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     specialOffersTitle: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
