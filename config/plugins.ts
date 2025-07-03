@@ -125,7 +125,7 @@ export default ({ env }) => ({
             "opacity",
             "mobileImagePosition",
             "departureLocation",
-            "heroBackgroundImage"
+            "heroBackgroundImage",
           ],
           populate: {
             components: {
@@ -143,9 +143,7 @@ export default ({ env }) => ({
         },
         {
           name: "api::base-page.base-page",
-          hideFields: [
-            ...fieldNames,
-          ],
+          hideFields: [...fieldNames],
           populate: {
             sections: {
               on: {
@@ -159,12 +157,12 @@ export default ({ env }) => ({
       ],
     },
   },
-  'bulk-operator': {
+  "bulk-operator": {
     enabled: true,
-    resolve: './src/plugins/bulk-operator'
+    resolve: "./src/plugins/bulk-operator",
   },
-  'web-deployment': {
-    enabled: true,
-    resolve: './src/plugins/web-deployment'
-  },
+  // 'web-deployment': {
+  //   enabled: true,
+  //   resolve: './src/plugins/web-deployment'
+  // },
 });
