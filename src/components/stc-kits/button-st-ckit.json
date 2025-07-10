@@ -1,7 +1,8 @@
 {
   "collectionName": "components_stc_kits_button_st_ckits",
   "info": {
-    "displayName": "ButtonSTCkit"
+    "displayName": "ButtonSTCkit",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,19 +15,17 @@
     "show": {
       "type": "boolean"
     },
-    "Description": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
+    "description": {
+      "type": "string",
+      "required": true
     },
-    "buttonstc": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
+    "learnMoreButtonLink": {
+      "type": "string"
+    },
+    "showLearnMore": {
+      "type": "boolean",
+      "default": false,
+      "required": false
     }
   }
 }

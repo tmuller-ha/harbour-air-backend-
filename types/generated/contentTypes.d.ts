@@ -689,10 +689,6 @@ export interface ApiAerospacePartSaleAerospacePartSale
     draftAndPublish: true;
   };
   attributes: {
-    aerospace_part: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::parts-sale.parts-sale'
-    >;
     aerospaceSalesItem: Schema.Attribute.Relation<
       'oneToMany',
       'api::aerospace-sales-item.aerospace-sales-item'
@@ -707,6 +703,8 @@ export interface ApiAerospacePartSaleAerospacePartSale
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    showOtherSaleItems: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -774,6 +772,10 @@ export interface ApiAerospaceStckitAerospaceStckit
       'api::aerospace-stckit.aerospace-stckit'
     > &
       Schema.Attribute.Private;
+    pageDetails: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     stcbrochure: Schema.Attribute.Component<
       'elements.title-with-youtube-link',

@@ -25,10 +25,9 @@
       "repeatable": false,
       "component": "elements.button"
     },
-    "aerospace_part": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::parts-sale.parts-sale"
+    "showOtherSaleItems": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

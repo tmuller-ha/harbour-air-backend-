@@ -31,6 +31,11 @@
       "type": "component",
       "repeatable": false,
       "component": "elements.title-with-youtube-link"
+    },
+    "pageDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.title-with-ck-editor"
     }
   }
 }

@@ -476,6 +476,8 @@ export interface ElementsButton extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    headerLinks: Schema.Attribute.Component<'elements.header-links', true>;
+    isDropdown: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
   };
@@ -545,6 +547,17 @@ export interface ElementsHarbourAirServices extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsHeaderLinks extends Struct.ComponentSchema {
+  collectionName: 'components_elements_header_links';
+  info: {
+    displayName: 'Header Links';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -2335,25 +2348,15 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
 export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
   collectionName: 'components_stc_kits_button_st_ckits';
   info: {
+    description: '';
     displayName: 'ButtonSTCkit';
   };
   attributes: {
-    buttonstc: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
     buttonText: Schema.Attribute.String;
-    Description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    learnMoreButtonLink: Schema.Attribute.String;
     show: Schema.Attribute.Boolean;
+    showLearnMore: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.String;
   };
 }
@@ -2481,6 +2484,7 @@ declare module '@strapi/strapi' {
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
+      'elements.header-links': ElementsHeaderLinks;
       'elements.image-text-block': ElementsImageTextBlock;
       'elements.image-with-label': ElementsImageWithLabel;
       'elements.instagram-images': ElementsInstagramImages;

@@ -129,11 +129,11 @@ const HomePage = () => {
             <header>
               <h2 style={{ fontWeight: 500, fontSize: '18px' }}>Select File here</h2>
             </header>
-            <p style={{ fontSize: '12px' }}>Files Supported: PDF, TEXT, DOC , DOCX</p>
+            <p style={{ fontSize: '12px' }}>Supported file type: XLSX</p>
 
             <input
               type="file"
-              accept=".csv, .xlsx"
+              accept=".xlsx"
               onChange={handleFileChange}
               style={{ fontSize: '17px' }}
             />
