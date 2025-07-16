@@ -11,8 +11,8 @@
     },
     "Button": {
       "type": "component",
-      "repeatable": true,
-      "component": "stc-kits.button-st-ckit"
+      "component": "stc-kits.button-st-ckit",
+      "repeatable": true
     }
   }
 }

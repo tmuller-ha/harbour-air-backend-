@@ -4,7 +4,7 @@
   "info": {
     "singularName": "aerospace-who-we",
     "pluralName": "aerospace-who-wes",
-    "displayName": "Aerospace-WhoWe",
+    "displayName": "Aerospace-Contact-us",
     "description": ""
   },
   "options": {
@@ -12,41 +12,33 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "carousel": {
+    "pageTitle": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-image"
+      "component": "elements.title-with-image",
+      "repeatable": false
     },
-    "description": {
+    "pageDetails": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
+      "component": "elements.title-with-ck-editor",
+      "repeatable": false
     },
     "contactsList": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
-    },
-    "map": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "component": "elements.title-with-ck-editor",
+      "repeatable": false
     },
     "banner": {
       "type": "component",
-      "repeatable": false,
-      "component": "common.help"
+      "component": "common.help",
+      "repeatable": false
     },
     "contactInputs": {
       "type": "component",
-      "repeatable": false,
-      "component": "further-questions.contact-form"
+      "component": "further-questions.contact-form",
+      "repeatable": false
+    },
+    "mapurl": {
+      "type": "string"
     }
   }
 }
