@@ -19,13 +19,18 @@
       "type": "string",
       "required": true
     },
-    "learnMoreButtonLink": {
-      "type": "string"
-    },
     "showLearnMore": {
       "type": "boolean",
-      "default": false,
-      "required": false
+      "required": false,
+      "default": false
+    },
+    "learnMorePdf": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }

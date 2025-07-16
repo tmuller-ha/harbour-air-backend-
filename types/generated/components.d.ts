@@ -2354,7 +2354,7 @@ export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.String & Schema.Attribute.Required;
-    learnMoreButtonLink: Schema.Attribute.String;
+    learnMorePdf: Schema.Attribute.Media<'files'>;
     show: Schema.Attribute.Boolean;
     showLearnMore: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.String;

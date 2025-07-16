@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -831,7 +835,7 @@ export interface ApiAerospaceWhoWeAerospaceWhoWe
   collectionName: 'aerospace_who_wes';
   info: {
     description: '';
-    displayName: 'Aerospace-WhoWe';
+    displayName: 'Aerospace-Contact-us';
     pluralName: 'aerospace-who-wes';
     singularName: 'aerospace-who-we';
   };
@@ -840,7 +844,6 @@ export interface ApiAerospaceWhoWeAerospaceWhoWe
   };
   attributes: {
     banner: Schema.Attribute.Component<'common.help', false>;
-    carousel: Schema.Attribute.Component<'elements.title-with-image', false>;
     contactInputs: Schema.Attribute.Component<
       'further-questions.contact-form',
       false
@@ -852,17 +855,18 @@ export interface ApiAerospaceWhoWeAerospaceWhoWe
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Component<
-      'elements.title-with-ck-editor',
-      false
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::aerospace-who-we.aerospace-who-we'
     > &
       Schema.Attribute.Private;
-    map: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mapurl: Schema.Attribute.String;
+    pageDetails: Schema.Attribute.Component<
+      'elements.title-with-ck-editor',
+      false
+    >;
+    pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
