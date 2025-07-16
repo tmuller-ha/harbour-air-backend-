@@ -379,6 +379,25 @@ export interface ElementsImageTextBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsImageWithEditor extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_with_editors';
+  info: {
+    description: '';
+    displayName: 'Image-With-editor';
+  };
+  attributes: {
+    details: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsInstagramImages extends Struct.ComponentSchema {
   collectionName: 'components_elements_instagram_images';
   info: {
@@ -471,6 +490,28 @@ export interface ElementsTextWithImage extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface ElementsThreeColSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_three_col_sections';
+  info: {
+    description: '';
+    displayName: 'Three col section';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    items: Schema.Attribute.Component<'elements.image-with-editor', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 3;
+        },
+        number
+      >;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -2120,6 +2161,7 @@ declare module '@strapi/strapi' {
       'elements.harbour-air-article': ElementsHarbourAirArticle;
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.image-text-block': ElementsImageTextBlock;
+      'elements.image-with-editor': ElementsImageWithEditor;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-links': ElementsPdfLinks;
       'elements.pricing-table': ElementsPricingTable;
@@ -2127,6 +2169,7 @@ declare module '@strapi/strapi' {
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
+      'elements.three-col-section': ElementsThreeColSection;
       'elements.title-desc-with-from-url': ElementsTitleDescWithFromUrl;
       'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
