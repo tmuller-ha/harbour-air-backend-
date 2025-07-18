@@ -38,11 +38,11 @@ const HomePage = () => {
           parsedData = rows.slice(1).map((row) => {
             const columns = row.split(',').map((col) => col.trim());
             return {
-              PartNumber: columns[1].replace(/^"|"$/g, ''),
-              ALT: columns[2].replace(/^"|"$/g, ''),
-              Description: columns[3].replace(/^"|"$/g, ''),
-              Qty: Number(columns[4]),
-              Condition: columns[5].replace(/^"|"$/g, ''),
+              PartNumber: String(columns[1].replace(/^"|"$/g, '')),
+              ALT: String(columns[2].replace(/^"|"$/g, '')),
+              Description: String(columns[3].replace(/^"|"$/g, '')),
+              Qty: String(columns[4]),
+              Condition: String(columns[5].replace(/^"|"$/g, '')),
             };
           });
         } else if (ext === 'xlsx') {
@@ -53,12 +53,12 @@ const HomePage = () => {
           parsedData = parsedData.map((row) => {
             const { 's.no': _, ...rest } = row;
             return {
-              PartNumber: row.PartNumber ?? row['Part Number'] ?? '',
-              ALT: row.ALT ?? '',
-              Description: row.Description ?? '',
-              Qty: Number(row.Qty ?? 0),
-              Condition: row.Condition ?? '',
-              ...rest,
+              PartNumber: String(row.PartNumber ?? row['Part Number'] ?? ''),
+              ALT: String(row.ALT ?? ''),
+              Description: String(row.Description ?? ''),
+              Qty: String(row.Qty ?? ''),
+              Condition: String(row.Condition ?? ''),
+              ...Object.fromEntries(Object.entries(rest).map(([k, v]) => [k, String(v ?? '')])),
             };
           });
         } else {
