@@ -2097,6 +2097,105 @@ export interface StandbyTravelTravelTab extends Struct.ComponentSchema {
   };
 }
 
+export interface TableCell extends Struct.ComponentSchema {
+  collectionName: 'components_table_cells';
+  info: {
+    description: '';
+    displayName: 'Cell';
+  };
+  attributes: {
+    superScript: Schema.Attribute.String;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface TableFourColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_four_col_tables';
+  info: {
+    description: '';
+    displayName: 'Four Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol3: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol4: Schema.Attribute.String & Schema.Attribute.Required;
+    rows: Schema.Attribute.Component<'table.four-col-table-rows', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableFourColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_four_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Four Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+    col4: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
+export interface TableThreeColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_three_col_tables';
+  info: {
+    description: '';
+    displayName: 'Three Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol3: Schema.Attribute.String & Schema.Attribute.Required;
+    rows: Schema.Attribute.Component<'table.three-col-table-rows', true>;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableThreeColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_three_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Three Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
+export interface TableTwoColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_two_col_tables';
+  info: {
+    description: '';
+    displayName: 'Two Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
+    rows: Schema.Attribute.Component<'table.two-col-table-rows', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableTwoColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_two_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Two Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
 export interface ToursFareDetails extends Struct.ComponentSchema {
   collectionName: 'components_tours_fare_details';
   info: {
@@ -2267,6 +2366,13 @@ declare module '@strapi/strapi' {
       'standby-travel.microsoft-form': StandbyTravelMicrosoftForm;
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
+      'table.cell': TableCell;
+      'table.four-col-table': TableFourColTable;
+      'table.four-col-table-rows': TableFourColTableRows;
+      'table.three-col-table': TableThreeColTable;
+      'table.three-col-table-rows': TableThreeColTableRows;
+      'table.two-col-table': TableTwoColTable;
+      'table.two-col-table-rows': TableTwoColTableRows;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;
       'tours.hero-description': ToursHeroDescription;

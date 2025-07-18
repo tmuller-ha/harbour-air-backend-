@@ -559,6 +559,9 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'common.form-with-description',
         'elements.image-text-block',
         'elements.three-col-section',
+        'table.two-col-table',
+        'table.three-col-table',
+        'table.four-col-table',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

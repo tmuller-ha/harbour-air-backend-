@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_table_three_col_tables",
+  "info": {
+    "displayName": "Three Col Table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "headerCol1": {
+      "type": "string",
+      "required": true
+    },
+    "headerCol2": {
+      "type": "string",
+      "required": true
+    },
+    "headerCol3": {
+      "type": "string",
+      "required": true
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "rows": {
+      "displayName": "Three Col Table Rows",
+      "type": "component",
+      "repeatable": true,
+      "component": "table.three-col-table-rows"
+    }
+  }
+}
