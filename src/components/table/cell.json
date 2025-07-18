@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_table_cells",
+  "info": {
+    "displayName": "Cell",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "superScript": {
+      "type": "string"
+    }
+  }
+}

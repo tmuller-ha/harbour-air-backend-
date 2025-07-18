@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_table_four_col_tables",
+  "info": {
+    "displayName": "Four Col Table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "headerCol1": {
+      "type": "string",
+      "required": true
+    },
+    "headerCol2": {
+      "type": "string",
+      "required": true
+    },
+    "headerCol3": {
+      "type": "string",
+      "required": true
+    },
+    "headerCol4": {
+      "type": "string",
+      "required": true
+    },
+    "show": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.four-col-table-rows"
+    }
+  }
+}
