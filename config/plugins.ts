@@ -58,6 +58,9 @@ export default ({ env }) => ({
       },
     },
   },
+  "rgba-color-picker": {
+    enabled: true,
+  },
   graphql: {
     config: {
       endpoint: "/graphql",
@@ -125,7 +128,7 @@ export default ({ env }) => ({
             "opacity",
             "mobileImagePosition",
             "departureLocation",
-            "heroBackgroundImage"
+            "heroBackgroundImage",
           ],
           populate: {
             components: {
@@ -143,9 +146,7 @@ export default ({ env }) => ({
         },
         {
           name: "api::base-page.base-page",
-          hideFields: [
-            ...fieldNames,
-          ],
+          hideFields: [...fieldNames],
           populate: {
             sections: {
               on: {
