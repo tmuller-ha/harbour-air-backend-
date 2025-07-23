@@ -15,14 +15,13 @@
       "max": 3,
       "min": 3
     },
-    "backgroundColor": {
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "customField": "plugin::color-picker.color"
-    },
     "show": {
       "type": "boolean",
       "default": false
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
     }
   }
 }

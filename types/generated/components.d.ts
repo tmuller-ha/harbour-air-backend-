@@ -501,7 +501,7 @@ export interface ElementsThreeColSection extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
     items: Schema.Attribute.Component<'elements.image-with-editor', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -562,6 +562,8 @@ export interface ElementsTitleWithCkEditor extends Struct.ComponentSchema {
     displayName: 'Title With CKEditor';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
