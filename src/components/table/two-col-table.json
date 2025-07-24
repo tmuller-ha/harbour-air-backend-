@@ -11,11 +11,11 @@
     },
     "headerCol1": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "headerCol2": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "rows": {
       "displayName": "Two Col Table Rows",

@@ -11,15 +11,15 @@
     },
     "headerCol1": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "headerCol2": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "headerCol3": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "show": {
       "type": "boolean"

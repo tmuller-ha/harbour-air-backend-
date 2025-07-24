@@ -2105,7 +2105,7 @@ export interface TableCell extends Struct.ComponentSchema {
   };
   attributes: {
     superScript: Schema.Attribute.String;
-    value: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String;
   };
 }
 
@@ -2116,10 +2116,10 @@ export interface TableFourColTable extends Struct.ComponentSchema {
     displayName: 'Four Col Table';
   };
   attributes: {
-    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol3: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol4: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
+    headerCol4: Schema.Attribute.String;
     rows: Schema.Attribute.Component<'table.four-col-table-rows', true>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
@@ -2147,9 +2147,9 @@ export interface TableThreeColTable extends Struct.ComponentSchema {
     displayName: 'Three Col Table';
   };
   attributes: {
-    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol3: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
     rows: Schema.Attribute.Component<'table.three-col-table-rows', true>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
@@ -2176,8 +2176,8 @@ export interface TableTwoColTable extends Struct.ComponentSchema {
     displayName: 'Two Col Table';
   };
   attributes: {
-    headerCol1: Schema.Attribute.String & Schema.Attribute.Required;
-    headerCol2: Schema.Attribute.String & Schema.Attribute.Required;
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
     rows: Schema.Attribute.Component<'table.two-col-table-rows', true>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
