@@ -8,7 +8,7 @@
   "attributes": {
     "value": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "superScript": {
       "type": "string"
