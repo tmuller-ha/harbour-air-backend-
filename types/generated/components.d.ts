@@ -2104,6 +2104,7 @@ export interface TableCell extends Struct.ComponentSchema {
     displayName: 'Cell';
   };
   attributes: {
+    subLabel: Schema.Attribute.String;
     superScript: Schema.Attribute.String;
     value: Schema.Attribute.String;
   };

@@ -12,6 +12,9 @@
     },
     "superScript": {
       "type": "string"
+    },
+    "subLabel": {
+      "type": "string"
     }
   }
 }
