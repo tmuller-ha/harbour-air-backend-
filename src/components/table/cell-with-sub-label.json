@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_table_cell_with_sub_labels",
+  "info": {
+    "displayName": "Cell With SubLabel"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "superScript": {
+      "type": "string"
+    },
+    "subLabel": {
+      "type": "string"
+    }
+  }
+}

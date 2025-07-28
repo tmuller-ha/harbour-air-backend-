@@ -6,15 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "col1": {
-      "type": "component",
-      "repeatable": false,
-      "component": "table.cell"
-    },
     "col2": {
       "type": "component",
       "repeatable": false,
       "component": "table.cell"
+    },
+    "col1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell-with-sub-label"
     }
   }
 }

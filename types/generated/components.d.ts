@@ -2104,6 +2104,17 @@ export interface TableCell extends Struct.ComponentSchema {
     displayName: 'Cell';
   };
   attributes: {
+    superScript: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface TableCellWithSubLabel extends Struct.ComponentSchema {
+  collectionName: 'components_table_cell_with_sub_labels';
+  info: {
+    displayName: 'Cell With SubLabel';
+  };
+  attributes: {
     subLabel: Schema.Attribute.String;
     superScript: Schema.Attribute.String;
     value: Schema.Attribute.String;
@@ -2134,7 +2145,7 @@ export interface TableFourColTableRows extends Struct.ComponentSchema {
     displayName: 'Four Col Table Rows';
   };
   attributes: {
-    col1: Schema.Attribute.Component<'table.cell', false>;
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
     col2: Schema.Attribute.Component<'table.cell', false>;
     col3: Schema.Attribute.Component<'table.cell', false>;
     col4: Schema.Attribute.Component<'table.cell', false>;
@@ -2164,7 +2175,7 @@ export interface TableThreeColTableRows extends Struct.ComponentSchema {
     displayName: 'Three Col Table Rows';
   };
   attributes: {
-    col1: Schema.Attribute.Component<'table.cell', false>;
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
     col2: Schema.Attribute.Component<'table.cell', false>;
     col3: Schema.Attribute.Component<'table.cell', false>;
   };
@@ -2192,7 +2203,7 @@ export interface TableTwoColTableRows extends Struct.ComponentSchema {
     displayName: 'Two Col Table Rows';
   };
   attributes: {
-    col1: Schema.Attribute.Component<'table.cell', false>;
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
     col2: Schema.Attribute.Component<'table.cell', false>;
   };
 }
@@ -2368,6 +2379,7 @@ declare module '@strapi/strapi' {
       'standby-travel.standby-travel-info': StandbyTravelStandbyTravelInfo;
       'standby-travel.travel-tab': StandbyTravelTravelTab;
       'table.cell': TableCell;
+      'table.cell-with-sub-label': TableCellWithSubLabel;
       'table.four-col-table': TableFourColTable;
       'table.four-col-table-rows': TableFourColTableRows;
       'table.three-col-table': TableThreeColTable;
