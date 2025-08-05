@@ -25,7 +25,7 @@ module.exports = (config, { strapi }) => {
       const folder = fileInfo.folder;
       console.log("folder:", folder);
 
-      const shouldSkipConversion = folders[0]?.pathId === folder;
+      const shouldSkipConversion = folders[0]?.id === folder;
 
       console.log("Should skip conversion:", shouldSkipConversion);
 
