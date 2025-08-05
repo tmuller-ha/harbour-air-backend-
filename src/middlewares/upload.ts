@@ -18,10 +18,16 @@ module.exports = (config, { strapi }) => {
         }
       );
 
+      console.log("Folders found:", folders);
+      console.log("Raw images folder name:", rawImagesFolderName);
+
       const fileInfo = JSON.parse(context.request.body?.fileInfo || "{}");
       const folder = fileInfo.folder;
+      console.log("folder:", folder);
 
       const shouldSkipConversion = folders[0]?.pathId === folder;
+
+      console.log("Should skip conversion:", shouldSkipConversion);
 
       const convertImageToWebP = async (file) => {
         if (
