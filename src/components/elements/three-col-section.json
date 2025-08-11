@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_elements_three_col_sections",
+  "info": {
+    "displayName": "Three col section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "displayName": "Image-With-editor",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image-with-editor",
+      "required": true,
+      "max": 3,
+      "min": 3
+    },
+    "show": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  }
+}

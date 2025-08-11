@@ -20,6 +20,10 @@
         "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
     }
   }
 }

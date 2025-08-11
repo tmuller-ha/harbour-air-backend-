@@ -928,6 +928,8 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
         'elements.title-with-ck-editor',
         'extra-assistance.accordion-with-editor',
         'common.form-with-description',
+        'elements.tab',
+        'elements.image-text-block',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1015,6 +1017,11 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'elements.tab',
         'common.form-with-description',
         'elements.image-text-block',
+        'elements.three-col-section',
+        'table.two-col-table',
+        'table.three-col-table',
+        'table.four-col-table',
+        'table.six-col-table',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
@@ -1168,6 +1175,8 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    showSpecialOffers: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     specialOffers: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
     specialOffersTitle: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -2408,7 +2417,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     homePageCarousel: Schema.Attribute.Component<'home.hero-carousel', false>;
     homepromotionscarousel: Schema.Attribute.Component<
       'home.hero-carousel',
-      true
+      false
     >;
     instagramSection: Schema.Attribute.Component<'home.home-instagram', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

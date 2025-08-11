@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_elements_image_with_editors",
+  "info": {
+    "displayName": "Image-With-editor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "customField",
+      "required": true,
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

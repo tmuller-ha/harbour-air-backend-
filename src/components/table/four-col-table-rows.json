@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_table_four_col_table_rows",
+  "info": {
+    "displayName": "Four Col Table Rows",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "col2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col3": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col4": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col1": {
+      "displayName": "Cell With SubLabel",
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell-with-sub-label"
+    }
+  }
+}

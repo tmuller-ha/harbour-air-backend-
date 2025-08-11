@@ -9,18 +9,33 @@ module.exports = (config, { strapi }) => {
       context.request.method === "POST" &&
       context.request.url.startsWith("/upload")
     ) {
-      // Function to convert images to WebP format
+      const rawImagesFolderName = process.env.RAW_IMAGES_FOLDER_NAME;
+      const folders = await strapi.entityService.findMany(
+        "plugin::upload.folder",
+        {
+          filters: { name: rawImagesFolderName },
+          limit: 1,
+        }
+      );
+
+      const fileInfo = JSON.parse(context.request.body?.fileInfo || "{}");
+      const folder = fileInfo.folder;
+
+      const shouldSkipConversion = folders[0]?.id === folder;
+
       const convertImageToWebP = async (file) => {
         if (
           file.mimetype.startsWith("image/") &&
           !file.mimetype.includes("webp") &&
-          !file.mimetype.includes("gif")
+          !file.mimetype.includes("gif") &&
+          !shouldSkipConversion
         ) {
           try {
             const outputName = `${path.basename(
               file.originalFilename,
               path.extname(file.originalFilename)
             )}.webp`;
+
             const outputPath = file.filepath;
 
             const result = await convertToWebP(outputPath, image_handler_url);

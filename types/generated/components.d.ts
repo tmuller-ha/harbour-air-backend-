@@ -581,6 +581,25 @@ export interface ElementsImageTextBlock extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsImageWithEditor extends Struct.ComponentSchema {
+  collectionName: 'components_elements_image_with_editors';
+  info: {
+    description: '';
+    displayName: 'Image-With-editor';
+  };
+  attributes: {
+    details: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsImageWithLabel extends Struct.ComponentSchema {
   collectionName: 'components_elements_image_with_labels';
   info: {
@@ -715,6 +734,28 @@ export interface ElementsTextWithImage extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsThreeColSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_three_col_sections';
+  info: {
+    description: '';
+    displayName: 'Three col section';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    items: Schema.Attribute.Component<'elements.image-with-editor', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 3;
+        },
+        number
+      >;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ElementsTitleDescWithFromUrl extends Struct.ComponentSchema {
   collectionName: 'components_elements_title_desc_with_from_urls';
   info: {
@@ -762,6 +803,8 @@ export interface ElementsTitleWithCkEditor extends Struct.ComponentSchema {
     displayName: 'Title With CKEditor';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -1469,6 +1512,7 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     imageLink: Schema.Attribute.String;
     infoText: Schema.Attribute.String;
     mobileImg: Schema.Attribute.Media<'images' | 'videos'>;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
     tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
@@ -2394,6 +2438,151 @@ export interface StcKitsStcbutton extends Struct.ComponentSchema {
   };
 }
 
+export interface TableCell extends Struct.ComponentSchema {
+  collectionName: 'components_table_cells';
+  info: {
+    description: '';
+    displayName: 'Cell';
+  };
+  attributes: {
+    superScript: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface TableCellWithSubLabel extends Struct.ComponentSchema {
+  collectionName: 'components_table_cell_with_sub_labels';
+  info: {
+    displayName: 'Cell With SubLabel';
+  };
+  attributes: {
+    subLabel: Schema.Attribute.String;
+    superScript: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface TableFourColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_four_col_tables';
+  info: {
+    description: '';
+    displayName: 'Four Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
+    headerCol4: Schema.Attribute.String;
+    rows: Schema.Attribute.Component<'table.four-col-table-rows', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableFourColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_four_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Four Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+    col4: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
+export interface TableSixColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_six_col_tables';
+  info: {
+    description: '';
+    displayName: 'Six Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
+    headerCol4: Schema.Attribute.String;
+    headerCol5: Schema.Attribute.String;
+    headerCol6: Schema.Attribute.String;
+    rows: Schema.Attribute.Component<'table.six-col-table-rows', true>;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableSixColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_six_col_table_rows';
+  info: {
+    displayName: 'Six Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+    col4: Schema.Attribute.Component<'table.cell', false>;
+    col5: Schema.Attribute.Component<'table.cell', false>;
+    col6: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
+export interface TableThreeColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_three_col_tables';
+  info: {
+    description: '';
+    displayName: 'Three Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
+    rows: Schema.Attribute.Component<'table.three-col-table-rows', true>;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableThreeColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_three_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Three Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
+export interface TableTwoColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_two_col_tables';
+  info: {
+    description: '';
+    displayName: 'Two Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    rows: Schema.Attribute.Component<'table.two-col-table-rows', true>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableTwoColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_two_col_table_rows';
+  info: {
+    description: '';
+    displayName: 'Two Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
 export interface TestimonialsTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_testimonials_testimonials';
   info: {
@@ -2486,6 +2675,7 @@ declare module '@strapi/strapi' {
       'elements.harbour-air-services': ElementsHarbourAirServices;
       'elements.header-links': ElementsHeaderLinks;
       'elements.image-text-block': ElementsImageTextBlock;
+      'elements.image-with-editor': ElementsImageWithEditor;
       'elements.image-with-label': ElementsImageWithLabel;
       'elements.instagram-images': ElementsInstagramImages;
       'elements.pdf-details': ElementsPdfDetails;
@@ -2496,6 +2686,7 @@ declare module '@strapi/strapi' {
       'elements.table-details': ElementsTableDetails;
       'elements.table-fields': ElementsTableFields;
       'elements.text-with-image': ElementsTextWithImage;
+      'elements.three-col-section': ElementsThreeColSection;
       'elements.title-desc-with-from-url': ElementsTitleDescWithFromUrl;
       'elements.title-desc-with-image-links': ElementsTitleDescWithImageLinks;
       'elements.title-with-ck-editor': ElementsTitleWithCkEditor;
@@ -2597,6 +2788,16 @@ declare module '@strapi/strapi' {
       'stc-kits.button-st-ckit': StcKitsButtonStCkit;
       'stc-kits.stc-kits': StcKitsStcKits;
       'stc-kits.stcbutton': StcKitsStcbutton;
+      'table.cell': TableCell;
+      'table.cell-with-sub-label': TableCellWithSubLabel;
+      'table.four-col-table': TableFourColTable;
+      'table.four-col-table-rows': TableFourColTableRows;
+      'table.six-col-table': TableSixColTable;
+      'table.six-col-table-rows': TableSixColTableRows;
+      'table.three-col-table': TableThreeColTable;
+      'table.three-col-table-rows': TableThreeColTableRows;
+      'table.two-col-table': TableTwoColTable;
+      'table.two-col-table-rows': TableTwoColTableRows;
       'testimonials.testimonials': TestimonialsTestimonials;
       'tours.fare-details': ToursFareDetails;
       'tours.featured-tours': ToursFeaturedTours;

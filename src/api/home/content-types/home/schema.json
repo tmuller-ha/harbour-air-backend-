@@ -62,7 +62,7 @@
     },
     "homepromotionscarousel": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "home.hero-carousel"
     }
   }

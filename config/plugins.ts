@@ -58,6 +58,9 @@ export default ({ env }) => ({
       },
     },
   },
+  "rgba-color-picker": {
+    enabled: true,
+  },
   graphql: {
     config: {
       endpoint: "/graphql",

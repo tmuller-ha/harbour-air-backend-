@@ -35,7 +35,12 @@
         "elements.title-with-image",
         "elements.tab",
         "common.form-with-description",
-        "elements.image-text-block"
+        "elements.image-text-block",
+        "elements.three-col-section",
+        "table.two-col-table",
+        "table.three-col-table",
+        "table.four-col-table",
+        "table.six-col-table"
       ]
     }
   }
