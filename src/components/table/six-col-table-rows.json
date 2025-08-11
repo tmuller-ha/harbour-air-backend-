@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_table_six_col_table_rows",
+  "info": {
+    "displayName": "Six Col Table Rows"
+  },
+  "options": {},
+  "attributes": {
+    "col1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell-with-sub-label"
+    },
+    "col2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col3": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col4": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col5": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    },
+    "col6": {
+      "type": "component",
+      "repeatable": false,
+      "component": "table.cell"
+    }
+  }
+}

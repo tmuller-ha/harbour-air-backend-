@@ -39,7 +39,8 @@
         "elements.three-col-section",
         "table.two-col-table",
         "table.three-col-table",
-        "table.four-col-table"
+        "table.four-col-table",
+        "table.six-col-table"
       ]
     }
   }

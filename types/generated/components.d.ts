@@ -2152,6 +2152,40 @@ export interface TableFourColTableRows extends Struct.ComponentSchema {
   };
 }
 
+export interface TableSixColTable extends Struct.ComponentSchema {
+  collectionName: 'components_table_six_col_tables';
+  info: {
+    description: '';
+    displayName: 'Six Col Table';
+  };
+  attributes: {
+    headerCol1: Schema.Attribute.String;
+    headerCol2: Schema.Attribute.String;
+    headerCol3: Schema.Attribute.String;
+    headerCol4: Schema.Attribute.String;
+    headerCol5: Schema.Attribute.String;
+    headerCol6: Schema.Attribute.String;
+    rows: Schema.Attribute.Component<'table.six-col-table-rows', true>;
+    show: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TableSixColTableRows extends Struct.ComponentSchema {
+  collectionName: 'components_table_six_col_table_rows';
+  info: {
+    displayName: 'Six Col Table Rows';
+  };
+  attributes: {
+    col1: Schema.Attribute.Component<'table.cell-with-sub-label', false>;
+    col2: Schema.Attribute.Component<'table.cell', false>;
+    col3: Schema.Attribute.Component<'table.cell', false>;
+    col4: Schema.Attribute.Component<'table.cell', false>;
+    col5: Schema.Attribute.Component<'table.cell', false>;
+    col6: Schema.Attribute.Component<'table.cell', false>;
+  };
+}
+
 export interface TableThreeColTable extends Struct.ComponentSchema {
   collectionName: 'components_table_three_col_tables';
   info: {
@@ -2382,6 +2416,8 @@ declare module '@strapi/strapi' {
       'table.cell-with-sub-label': TableCellWithSubLabel;
       'table.four-col-table': TableFourColTable;
       'table.four-col-table-rows': TableFourColTableRows;
+      'table.six-col-table': TableSixColTable;
+      'table.six-col-table-rows': TableSixColTableRows;
       'table.three-col-table': TableThreeColTable;
       'table.three-col-table-rows': TableThreeColTableRows;
       'table.two-col-table': TableTwoColTable;
