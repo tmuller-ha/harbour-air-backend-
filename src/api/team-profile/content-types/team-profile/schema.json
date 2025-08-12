@@ -4,7 +4,7 @@
   "info": {
     "singularName": "team-profile",
     "pluralName": "team-profiles",
-    "displayName": "Aerospace-Team Profile ",
+    "displayName": "[AERO] - Team Profile ",
     "description": ""
   },
   "options": {
@@ -16,12 +16,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "name": {
       "type": "string"

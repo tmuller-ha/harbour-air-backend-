@@ -420,7 +420,7 @@ export interface ApiAerospaceBasePageAerospaceBasePage
   collectionName: 'aerospace_base_pages';
   info: {
     description: '';
-    displayName: 'Aerospace-Base Pages';
+    displayName: '[AERO] - Base Pages';
     pluralName: 'aerospace-base-pages';
     singularName: 'aerospace-base-page';
   };
@@ -465,7 +465,7 @@ export interface ApiAerospaceCapabiliteAerospaceCapabilite
   collectionName: 'aerospace_capabilites';
   info: {
     description: '';
-    displayName: 'Aerospace-capabilites';
+    displayName: '[AERO] - capabilites';
     pluralName: 'aerospace-capabilites';
     singularName: 'aerospace-capabilite';
   };
@@ -503,7 +503,7 @@ export interface ApiAerospaceCareerAerospaceCareer
   collectionName: 'aerospace_careers';
   info: {
     description: '';
-    displayName: 'Aerospace-career';
+    displayName: '[AERO] - career';
     pluralName: 'aerospace-careers';
     singularName: 'aerospace-career';
   };
@@ -539,7 +539,7 @@ export interface ApiAerospaceFooterAerospaceFooter
   collectionName: 'aerospace_footers';
   info: {
     description: '';
-    displayName: 'Aerospace-Footer';
+    displayName: '[AERO] - Footer';
     pluralName: 'aerospace-footers';
     singularName: 'aerospace-footer';
   };
@@ -572,7 +572,7 @@ export interface ApiAerospaceHeaderAerospaceHeader
   collectionName: 'aerospace_headers';
   info: {
     description: '';
-    displayName: 'Aerospace-Header';
+    displayName: '[AERO] - Header';
     pluralName: 'aerospace-headers';
     singularName: 'aerospace-header';
   };
@@ -603,7 +603,7 @@ export interface ApiAerospaceHomeAerospaceHome extends Struct.SingleTypeSchema {
   collectionName: 'aerospace_homes';
   info: {
     description: '';
-    displayName: 'Aerospace-Home';
+    displayName: '[AERO] - Home';
     pluralName: 'aerospace-homes';
     singularName: 'aerospace-home';
   };
@@ -653,7 +653,7 @@ export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
   collectionName: 'aerospace_meet_the_teams';
   info: {
     description: '';
-    displayName: 'Aerospace-MeetTheTeam';
+    displayName: '[AERO] - MeetTheTeam';
     pluralName: 'aerospace-meet-the-teams';
     singularName: 'aerospace-meet-the-team';
   };
@@ -685,7 +685,7 @@ export interface ApiAerospacePartSaleAerospacePartSale
   collectionName: 'aerospace_part_sales';
   info: {
     description: '';
-    displayName: 'Aerospace-PartSale';
+    displayName: '[AERO] - PartSale';
     pluralName: 'aerospace-part-sales';
     singularName: 'aerospace-part-sale';
   };
@@ -722,7 +722,7 @@ export interface ApiAerospaceSalesItemAerospaceSalesItem
   collectionName: 'aerospace_sales_items';
   info: {
     description: '';
-    displayName: 'Aerospace-SalesItem';
+    displayName: '[AERO] - SalesItem';
     pluralName: 'aerospace-sales-items';
     singularName: 'aerospace-sales-item';
   };
@@ -755,7 +755,7 @@ export interface ApiAerospaceStckitAerospaceStckit
   collectionName: 'aerospace_stckits';
   info: {
     description: '';
-    displayName: 'Aerospace-stckit';
+    displayName: '[AERO] - stckit';
     pluralName: 'aerospace-stckits';
     singularName: 'aerospace-stckit';
   };
@@ -801,7 +801,7 @@ export interface ApiAerospaceTestimonialAerospaceTestimonial
   collectionName: 'aerospace_testimonials';
   info: {
     description: '';
-    displayName: 'Aerospace-testimonial';
+    displayName: '[AERO] - testimonial';
     pluralName: 'aerospace-testimonials';
     singularName: 'aerospace-testimonial';
   };
@@ -835,7 +835,7 @@ export interface ApiAerospaceWhoWeAerospaceWhoWe
   collectionName: 'aerospace_who_wes';
   info: {
     description: '';
-    displayName: 'Aerospace-Contact-us';
+    displayName: '[AERO] - Contact-us';
     pluralName: 'aerospace-who-wes';
     singularName: 'aerospace-who-we';
   };
@@ -2441,7 +2441,7 @@ export interface ApiKitsCardKitsCard extends Struct.CollectionTypeSchema {
   collectionName: 'kits_cards';
   info: {
     description: '';
-    displayName: 'Aerospace-stcKit';
+    displayName: '[AERO] - stcKit';
     pluralName: 'kits-cards';
     singularName: 'kits-card';
   };
@@ -3232,7 +3232,7 @@ export interface ApiPartsSalePartsSale extends Struct.CollectionTypeSchema {
   collectionName: 'parts_sales';
   info: {
     description: '';
-    displayName: 'Aerospace-Parts';
+    displayName: '[AERO] - Parts';
     pluralName: 'parts-sales';
     singularName: 'parts-sale';
   };
@@ -3505,7 +3505,7 @@ export interface ApiTeamProfileTeamProfile extends Struct.CollectionTypeSchema {
   collectionName: 'team_profiles';
   info: {
     description: '';
-    displayName: 'Aerospace-Team Profile ';
+    displayName: '[AERO] - Team Profile ';
     pluralName: 'team-profiles';
     singularName: 'team-profile';
   };

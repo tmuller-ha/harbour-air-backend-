@@ -4,7 +4,7 @@
   "info": {
     "singularName": "aerospace-sales-item",
     "pluralName": "aerospace-sales-items",
-    "displayName": "Aerospace-SalesItem",
+    "displayName": "[AERO] - SalesItem",
     "description": ""
   },
   "options": {
@@ -22,12 +22,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "show": {
       "type": "boolean"
