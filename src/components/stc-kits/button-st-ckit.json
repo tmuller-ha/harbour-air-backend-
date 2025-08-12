@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_stc_kits_button_st_ckits",
+  "info": {
+    "displayName": "ButtonSTCkit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "buttonText": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "showLearnMore": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "learnMorePdf": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

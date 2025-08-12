@@ -160,4 +160,12 @@ export default ({ env }) => ({
       ],
     },
   },
+  "bulk-operator": {
+    enabled: true,
+    resolve: "./src/plugins/bulk-operator",
+  },
+  // 'web-deployment': {
+  //   enabled: true,
+  //   resolve: './src/plugins/web-deployment'
+  // },
 });

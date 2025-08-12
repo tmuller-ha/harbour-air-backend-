@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_profiles",
+  "info": {
+    "singularName": "team-profile",
+    "pluralName": "team-profiles",
+    "displayName": "[AERO] - Team Profile ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "jobdescription": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "id_profile": {
+      "type": "biginteger"
+    }
+  }
+}

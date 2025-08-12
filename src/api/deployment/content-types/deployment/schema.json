@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deployments",
+  "info": {
+    "singularName": "deployment",
+    "pluralName": "deployments",
+    "displayName": "Deployment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "user": {
+      "type": "string",
+      "required": true
+    },
+    "deploymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Failed",
+        "Deployed",
+        "In-progress"
+      ],
+      "default": "In-progress"
+    }
+  }
+}

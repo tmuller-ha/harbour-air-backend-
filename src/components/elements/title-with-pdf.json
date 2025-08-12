@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_title_with_pdfs",
+  "info": {
+    "displayName": "Title with PDF",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "PdfDetails": {
+      "displayName": "PdfDetails",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.pdf-details"
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

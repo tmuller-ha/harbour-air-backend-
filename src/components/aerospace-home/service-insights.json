@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_aerospace_home_service_insights",
+  "info": {
+    "displayName": "serviceInsights"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean",
+      "default": false
+    },
+    "coverage": {
+      "type": "string"
+    }
+  }
+}

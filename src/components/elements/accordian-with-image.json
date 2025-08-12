@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_elements_accordian_with_images",
+  "info": {
+    "displayName": "Accordian-with-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "show": {
+      "type": "boolean"
+    }
+  }
+}
