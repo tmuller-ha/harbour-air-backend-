@@ -2104,6 +2104,15 @@ export interface TableCell extends Struct.ComponentSchema {
     displayName: 'Cell';
   };
   attributes: {
+    richTextContent: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    showRichTextContent: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     superScript: Schema.Attribute.String;
     value: Schema.Attribute.String;
   };
@@ -2112,9 +2121,19 @@ export interface TableCell extends Struct.ComponentSchema {
 export interface TableCellWithSubLabel extends Struct.ComponentSchema {
   collectionName: 'components_table_cell_with_sub_labels';
   info: {
+    description: '';
     displayName: 'Cell With SubLabel';
   };
   attributes: {
+    richTextContent: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    showRichTextContent: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     subLabel: Schema.Attribute.String;
     superScript: Schema.Attribute.String;
     value: Schema.Attribute.String;
