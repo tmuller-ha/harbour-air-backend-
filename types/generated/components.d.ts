@@ -1214,6 +1214,8 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     displayName: 'HomeCarousel';
   };
   attributes: {
+    alignContentLeft: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     btnText: Schema.Attribute.String;
     description: Schema.Attribute.String;
     desktopImg: Schema.Attribute.Media<'images' | 'videos'>;
