@@ -26,10 +26,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "allowedTypes": ["images", "videos"]
     },
     "imageLink": {
       "type": "string"
@@ -38,24 +35,22 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "allowedTypes": ["images", "videos"]
     },
     "mobileImg": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "allowedTypes": ["images", "videos"]
     },
     "infoText": {
       "type": "string"
     },
     "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "alignContentLeft": {
       "type": "boolean",
       "default": false
     }
