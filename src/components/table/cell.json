@@ -12,6 +12,18 @@
     },
     "superScript": {
       "type": "string"
+    },
+    "richTextContent": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "showRichTextContent": {
+      "type": "boolean",
+      "default": false,
+      "required": false
     }
   }
 }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_table_cell_with_sub_labels",
   "info": {
-    "displayName": "Cell With SubLabel"
+    "displayName": "Cell With SubLabel",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,6 +14,17 @@
     },
     "subLabel": {
       "type": "string"
+    },
+    "richTextContent": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "showRichTextContent": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

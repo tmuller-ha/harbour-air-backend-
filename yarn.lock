@@ -6750,7 +6750,7 @@ color-parse@1.4.2:
   dependencies:
     color-name "^1.0.0"
 
-"color-picker@link:.yalc/color-picker":
+"color-picker@link:../../../.cache/yarn/v6/npm-rgba-color-picker-1.0.2-87cf4f7d2ba91067d0a13f21de5936fa4cf4e792-integrity/node_modules/rgba-color-picker/.yalc/color-picker":
   version "0.0.0"
   uid ""
 
