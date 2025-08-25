@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_stc_kits_stc_kits",
+  "info": {
+    "displayName": "stcKits"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "aerospace_stc_kits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kits-card.kits-card"
+    }
+  }
+}

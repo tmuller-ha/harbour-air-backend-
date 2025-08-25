@@ -17,6 +17,16 @@
     "show": {
       "type": "boolean",
       "default": true
+    },
+    "isDropdown": {
+      "type": "boolean",
+      "default": false
+    },
+    "headerLinks": {
+      "displayName": "Header Links",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.header-links"
     }
   }
 }

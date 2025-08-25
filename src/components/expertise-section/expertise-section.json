@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_expertise_section_expertise_sections",
+  "info": {
+    "displayName": "expertiseSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "expertiseTitle": {
+      "type": "string"
+    },
+    "expertiseDescription": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "show": {
+      "type": "boolean",
+      "default": false
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}
