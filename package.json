@@ -4,7 +4,7 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "prebuild": "yarn build-web-deployment && yarn build-bulk-operator",
+    "prebuild": "yarn build-bulk-operator",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
