@@ -10,7 +10,14 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
   "attributes": {
     "pageTitle": {
       "type": "component",
@@ -88,7 +95,11 @@
     },
     "mobileImagePosition": {
       "type": "enumeration",
-      "enum": ["left", "center", "right"]
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
     }
   }
 }
