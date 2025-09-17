@@ -1219,12 +1219,18 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     desktopImg: Schema.Attribute.Media<'images' | 'videos'>;
     imageLink: Schema.Attribute.String;
     infoText: Schema.Attribute.String;
+    isTextLeftAligned: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     mobileImg: Schema.Attribute.Media<'images' | 'videos'>;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
     tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
+    titleSize: Schema.Attribute.Enumeration<
+      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+    > &
+      Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
 }
 
