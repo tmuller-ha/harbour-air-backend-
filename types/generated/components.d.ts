@@ -673,7 +673,7 @@ export interface ElementsTitleWithImage extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'opacity-50'>;
     show: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -1189,9 +1189,11 @@ export interface HomeGrabDeals extends Struct.ComponentSchema {
   };
   attributes: {
     cardDeals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
+    customRedirectUrl: Schema.Attribute.String;
     moreDeals: Schema.Attribute.Component<'elements.button', false>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+    useCustomRedirectUrl: Schema.Attribute.Boolean;
   };
 }
 
