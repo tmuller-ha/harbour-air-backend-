@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_enhanced_components_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "buttonBgColors": {
+      "type": "enumeration",
+      "enum": [
+        "bg-#002d62",
+        "bg-#ffde00",
+        "bg-#00fe2"
+      ]
+    }
+  },
+  "config": {}
+}

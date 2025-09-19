@@ -501,7 +501,8 @@ export interface ElementsThreeColSection extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'> &
+      Schema.Attribute.DefaultTo<'rgba(255, 255, 255, 1)'>;
     items: Schema.Attribute.Component<'elements.image-with-editor', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -563,7 +564,8 @@ export interface ElementsTitleWithCkEditor extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'> &
+      Schema.Attribute.DefaultTo<'rgba(255, 255, 255, 1)'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -766,6 +768,37 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
     quoteImage: Schema.Attribute.Media<'images'>;
     tripAdvisorLogo: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface EnhancedComponentsButton extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_buttons';
+  info: {
+    displayName: 'Button';
+  };
+  attributes: {
+    buttonBgColors: Schema.Attribute.Enumeration<
+      ['bg-#002d62', 'bg-#ffde00', 'bg-#00fe2']
+    >;
+    buttonText: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    slug: Schema.Attribute.String;
+  };
+}
+
+export interface EnhancedComponentsHeroComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_hero_components';
+  info: {
+    displayName: 'Hero Component';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'enhanced-components.button', false>;
+    coverImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2349,6 +2382,8 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.button': EnhancedComponentsButton;
+      'enhanced-components.hero-component': EnhancedComponentsHeroComponent;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
