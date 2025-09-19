@@ -19,17 +19,17 @@
     "description": {
       "type": "text"
     },
-    "button": {
-      "type": "component",
-      "component": "elements.button",
-      "repeatable": false
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
+    },
+    "button": {
+      "type": "component",
+      "component": "enhanced-components.button",
+      "repeatable": false
     }
   },
   "config": {}
