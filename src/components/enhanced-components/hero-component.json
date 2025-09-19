@@ -23,6 +23,13 @@
       "type": "component",
       "component": "elements.button",
       "repeatable": false
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

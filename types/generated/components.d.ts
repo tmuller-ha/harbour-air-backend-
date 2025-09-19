@@ -779,6 +779,7 @@ export interface EnhancedComponentsHeroComponent
   };
   attributes: {
     button: Schema.Attribute.Component<'elements.button', false>;
+    coverImage: Schema.Attribute.Media<'images'>;
     description: Schema.Attribute.Text;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     subTitle: Schema.Attribute.String;
