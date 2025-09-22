@@ -564,6 +564,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'table.four-col-table',
         'table.six-col-table',
         'enhanced-components.hero-component',
+        'enhanced-components.multi-cards-section',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
