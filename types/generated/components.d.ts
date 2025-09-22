@@ -806,6 +806,45 @@ export interface EnhancedComponentsHeroComponent
   };
 }
 
+export interface EnhancedComponentsMultiCardComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_multi_card_components';
+  info: {
+    displayName: 'Multi Card Component';
+    icon: 'grid';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.button', false>;
+    cardBgcolor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface EnhancedComponentsMultiCardsSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_multi_cards_sections';
+  info: {
+    displayName: 'Multi Cards Section';
+    icon: 'apps';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    isScroll: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    multiCards: Schema.Attribute.Component<
+      'enhanced-components.multi-card-component',
+      true
+    >;
+    show: Schema.Attribute.Boolean;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2394,6 +2433,8 @@ declare module '@strapi/strapi' {
       'elements.trip-advisor': ElementsTripAdvisor;
       'enhanced-components.button': EnhancedComponentsButton;
       'enhanced-components.hero-component': EnhancedComponentsHeroComponent;
+      'enhanced-components.multi-card-component': EnhancedComponentsMultiCardComponent;
+      'enhanced-components.multi-cards-section': EnhancedComponentsMultiCardsSection;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
