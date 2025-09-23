@@ -673,7 +673,7 @@ export interface ElementsTitleWithImage extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'opacity-50'>;
     show: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     titleSize: Schema.Attribute.Enumeration<
       ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
     > &
