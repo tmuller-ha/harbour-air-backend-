@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_enhanced_components_multi_cards_sections",
+  "info": {
+    "displayName": "Multi Cards Section",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "isScroll": {
+      "type": "boolean",
+      "default": false
+    },
+    "multiCards": {
+      "type": "component",
+      "component": "enhanced-components.multi-card-component",
+      "repeatable": true
+    },
+    "bgColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  },
+  "config": {}
+}
