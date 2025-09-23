@@ -22,12 +22,17 @@
     },
     "viewMore": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
+      "component": "elements.button",
+      "repeatable": false
     },
     "showOtherSaleItems": {
       "type": "boolean",
       "default": false
+    },
+    "partsEnquiryForm": {
+      "type": "component",
+      "component": "further-questions.contact-form",
+      "repeatable": false
     }
   }
 }

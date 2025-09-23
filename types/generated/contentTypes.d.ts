@@ -384,6 +384,14 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     aboutDetails: Schema.Attribute.Component<
       'elements.harbour-air-article',
@@ -706,6 +714,10 @@ export interface ApiAerospacePartSaleAerospacePartSale
       'api::aerospace-part-sale.aerospace-part-sale'
     > &
       Schema.Attribute.Private;
+    partsEnquiryForm: Schema.Attribute.Component<
+      'further-questions.contact-form',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     showOtherSaleItems: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
@@ -885,6 +897,14 @@ export interface ApiAirCraftFleetAirCraftFleet extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -918,6 +938,14 @@ export interface ApiAssistanceAssistance extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     components: Schema.Attribute.DynamicZone<
@@ -961,6 +989,14 @@ export interface ApiAwardAward extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     about: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -996,6 +1032,14 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -1043,6 +1087,14 @@ export interface ApiBlogListBlogList extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     categories: Schema.Attribute.Relation<
       'oneToMany',
@@ -1078,6 +1130,14 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     bannerImage: Schema.Attribute.Media<'images'>;
@@ -1124,6 +1184,14 @@ export interface ApiBlogsAndNewBlogsAndNew extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     blogsCoverImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
@@ -1160,6 +1228,14 @@ export interface ApiBookFlightBookFlight extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1195,6 +1271,14 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
@@ -1239,6 +1323,14 @@ export interface ApiCanadianPassengerRightCanadianPassengerRight
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     contactDetailForm: Schema.Attribute.Component<
       'further-questions.contact-form',
@@ -1280,6 +1372,14 @@ export interface ApiCarServiceCarService extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     carHireRequestForm: Schema.Attribute.Component<
@@ -1325,6 +1425,14 @@ export interface ApiCareerOpportunityCareerOpportunity
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     applicationDeadline: Schema.Attribute.Date;
     careerDescription: Schema.Attribute.Media<'files'>;
@@ -1356,6 +1464,14 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     careerPage: Schema.Attribute.DynamicZone<
@@ -1395,6 +1511,14 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
@@ -1426,6 +1550,14 @@ export interface ApiCharteredFlightCharteredFlight
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     additionalInfo: Schema.Attribute.DynamicZone<
@@ -1473,6 +1605,14 @@ export interface ApiCommunityInvolvementCommunityInvolvement
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1508,6 +1648,14 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     contactCenter: Schema.Attribute.Component<
@@ -1564,6 +1712,14 @@ export interface ApiCorporateResposibilityCorporateResposibility
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -1645,6 +1801,14 @@ export interface ApiCourtesyShuttleCourtesyShuttle
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     courtesyShuttlePage: Schema.Attribute.DynamicZone<
       ['elements.title-with-image', 'elements.title-with-ck-editor']
@@ -1679,6 +1843,14 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     active: Schema.Attribute.Boolean;
@@ -1770,6 +1942,14 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     Category: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -1829,6 +2009,14 @@ export interface ApiDocumentDocument extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1859,6 +2047,14 @@ export interface ApiDropdownMenuDropdownMenu
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -1922,6 +2118,14 @@ export interface ApiEmergencyAlertEmergencyAlert
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1953,6 +2157,14 @@ export interface ApiExtraAssistanceExtraAssistance
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     cards: Schema.Attribute.DynamicZone<['extra-assistance.assistance']>;
@@ -1988,6 +2200,14 @@ export interface ApiFaqContentFaqContent extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     answer: Schema.Attribute.RichText &
@@ -2026,6 +2246,14 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     accordionSection: Schema.Attribute.Component<'faq.accordion', false>;
     contactDetails: Schema.Attribute.Component<
@@ -2061,6 +2289,14 @@ export interface ApiFeaturedTourFeaturedTour
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
@@ -2098,6 +2334,14 @@ export interface ApiFlightStatusFlightStatus extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2137,6 +2381,14 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     bottomLinks: Schema.Attribute.Component<'footer.link', true>;
     copyrights: Schema.Attribute.String;
@@ -2173,6 +2425,14 @@ export interface ApiGoingElectricGoingElectric extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2257,6 +2517,14 @@ export interface ApiGoogleAnlayticGoogleAnlaytic
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     analytics: Schema.Attribute.Component<'seo.analytics', false>;
     createdAt: Schema.Attribute.DateTime;
@@ -2285,6 +2553,14 @@ export interface ApiGroupBookingGroupBooking extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2331,6 +2607,14 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2366,6 +2650,14 @@ export interface ApiHighFlyerRewardHighFlyerReward
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2408,6 +2700,14 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2478,6 +2778,14 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2504,6 +2812,14 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     additionalInformation: Schema.Attribute.Component<
@@ -2580,6 +2896,14 @@ export interface ApiLoyaltyProgramLoyaltyProgram
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2634,6 +2958,14 @@ export interface ApiLuggageLuggage extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2679,6 +3011,14 @@ export interface ApiMainDealMainDeal extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     campaignSection: Schema.Attribute.Component<
       'main-deals.campaign-section',
@@ -2723,6 +3063,14 @@ export interface ApiMainLocationMainLocation extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2758,6 +3106,14 @@ export interface ApiMainTourMainTour extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2791,6 +3147,14 @@ export interface ApiMakeItPrivateModalMakeItPrivateModal
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2827,6 +3191,14 @@ export interface ApiMenuImageLinkMenuImageLink
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2860,6 +3232,14 @@ export interface ApiMobilityMobility extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -2901,6 +3281,14 @@ export interface ApiMovingPastCarbonNeutralMovingPastCarbonNeutral
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2934,6 +3322,14 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     categories: Schema.Attribute.Relation<
@@ -2969,6 +3365,14 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     bannerImage: Schema.Attribute.Media<'images'>;
@@ -3046,6 +3450,14 @@ export interface ApiOnAccountQuickTicketOnAccountQuickTicket
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     aboutPage: Schema.Attribute.Component<
       'elements.title-with-ck-editor',
@@ -3081,6 +3493,14 @@ export interface ApiOurFareOurFare extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -3126,6 +3546,14 @@ export interface ApiOurPromiseOurPromise extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3162,6 +3590,14 @@ export interface ApiOurStoryOurStory extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3193,6 +3629,14 @@ export interface ApiParcelExpressParcelExpress extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     additionalInfo: Schema.Attribute.DynamicZone<
@@ -3272,6 +3716,14 @@ export interface ApiPrivateTourPrivateTour extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     bookPrivateTour: Schema.Attribute.Component<
       'private-tours.book-private-tour',
@@ -3326,6 +3778,14 @@ export interface ApiRouteRoute extends Struct.CollectionTypeSchema {
     };
     draftAndPublish: false;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3352,6 +3812,14 @@ export interface ApiSafetyFirstSafetyFirst extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -3392,6 +3860,14 @@ export interface ApiScheduleSchedule extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     aboutPage: Schema.Attribute.Component<
@@ -3436,6 +3912,14 @@ export interface ApiSeatingOptionSeatingOption extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3472,6 +3956,14 @@ export interface ApiStandbyTravelStandbyTravel extends Struct.SingleTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -3554,6 +4046,14 @@ export interface ApiTourLocationTourLocation
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     components: Schema.Attribute.DynamicZone<
       [
@@ -3630,6 +4130,14 @@ export interface ApiToursDetailToursDetail extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     arrivalLocation: Schema.Attribute.Relation<
@@ -3730,6 +4238,14 @@ export interface ApiTripAdvisorCommentTripAdvisorComment
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
     comment: Schema.Attribute.String;
@@ -3768,6 +4284,14 @@ export interface ApiTurbobucksFlightCreditTurbobucksFlightCredit
   };
   options: {
     draftAndPublish: true;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
