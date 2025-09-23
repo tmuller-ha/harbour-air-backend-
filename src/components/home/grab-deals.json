@@ -14,13 +14,19 @@
     },
     "moreDeals": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.button"
+      "component": "elements.button",
+      "repeatable": false
     },
     "cardDeals": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::deal.deal"
+    },
+    "useCustomRedirectUrl": {
+      "type": "boolean"
+    },
+    "customRedirectUrl": {
+      "type": "string"
     }
   }
 }
