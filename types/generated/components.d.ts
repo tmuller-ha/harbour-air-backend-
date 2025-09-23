@@ -2401,7 +2401,7 @@ export interface StcKitsButtonStCkit extends Struct.ComponentSchema {
     learnMorePdf: Schema.Attribute.Media<'files'>;
     show: Schema.Attribute.Boolean;
     showLearnMore: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    slug: Schema.Attribute.String;
+    slug: Schema.Attribute.Text;
   };
 }
 

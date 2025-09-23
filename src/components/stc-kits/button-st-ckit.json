@@ -10,7 +10,7 @@
       "type": "string"
     },
     "slug": {
-      "type": "string"
+      "type": "text"
     },
     "show": {
       "type": "boolean"
