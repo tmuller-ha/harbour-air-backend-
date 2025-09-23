@@ -39,13 +39,13 @@
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.seo",
+      "repeatable": false
     },
     "metaData": {
       "type": "component",
-      "repeatable": false,
-      "component": "meta-data.meta-data"
+      "component": "meta-data.meta-data",
+      "repeatable": false
     },
     "opacity": {
       "type": "enumeration",
@@ -94,6 +94,16 @@
       "relation": "manyToOne",
       "target": "api::destination.destination",
       "inversedBy": "tourDepartures"
+    },
+    "titleSize": {
+      "type": "enumeration",
+      "default": "extraLarge (56px)",
+      "enum": [
+        "xxl (24px)",
+        "medium (36px)",
+        "large (48px)",
+        "extraLarge (56px)"
+      ]
     }
   }
 }
