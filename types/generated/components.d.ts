@@ -775,6 +775,28 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
+export interface EnhancedComponentsSingleColumnCkeditor
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_single_column_ckeditors';
+  info: {
+    displayName: 'Single Column Ckeditor';
+    icon: 'grid';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.button', false>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    show: Schema.Attribute.Boolean;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2361,6 +2383,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.single-column-ckeditor': EnhancedComponentsSingleColumnCkeditor;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
