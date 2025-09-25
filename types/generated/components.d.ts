@@ -784,6 +784,7 @@ export interface EnhancedComponentsSingleColumnCkeditor
   };
   attributes: {
     button: Schema.Attribute.Component<'elements.button', false>;
+    customWidth: Schema.Attribute.String & Schema.Attribute.DefaultTo<'964px'>;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
