@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_enhanced_components_single_column_ckeditors",
+  "info": {
+    "displayName": "Single Column Ckeditor",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "toolbar"
+      }
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.button",
+      "repeatable": false
+    },
+    "customWidth": {
+      "type": "string",
+      "default": "964px",
+      "regex": "^\\d+(\\.\\d+)?px$"
+    }
+  },
+  "config": {}
+}
