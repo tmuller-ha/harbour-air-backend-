@@ -122,8 +122,6 @@ export interface AerospaceHomeTestimonials extends Struct.ComponentSchema {
     designation: Schema.Attribute.String;
     profileImage: Schema.Attribute.Media<'images'>;
     profileName: Schema.Attribute.String;
-    quotesDownLogo: Schema.Attribute.Media<'images'>;
-    quotesUpLogo: Schema.Attribute.Media<'images'>;
     ratings: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
