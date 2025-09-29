@@ -41,7 +41,8 @@
         "table.three-col-table",
         "table.four-col-table",
         "table.six-col-table",
-        "enhanced-components.single-column-ckeditor"
+        "enhanced-components.single-column-ckeditor",
+        "enhanced-components.two-column-component"
       ]
     }
   }

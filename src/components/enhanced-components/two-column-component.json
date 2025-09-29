@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_enhanced_components_two_column_components",
+  "info": {
+    "displayName": "Two Column Component",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "component",
+      "component": "enhanced-components.single-column-ckeditor",
+      "repeatable": false
+    },
+    "bgColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    },
+    "isImageLeftAlign": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}
