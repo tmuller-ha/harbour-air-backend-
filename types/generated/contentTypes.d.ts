@@ -564,6 +564,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'table.four-col-table',
         'table.six-col-table',
         'enhanced-components.single-column-ckeditor',
+        'enhanced-components.two-column-component',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;

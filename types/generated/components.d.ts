@@ -779,7 +779,7 @@ export interface EnhancedComponentsSingleColumnCkeditor
   extends Struct.ComponentSchema {
   collectionName: 'components_enhanced_components_single_column_ckeditors';
   info: {
-    displayName: 'Single Column Ckeditor';
+    displayName: 'Single Column Component';
     icon: 'grid';
   };
   attributes: {
@@ -795,6 +795,27 @@ export interface EnhancedComponentsSingleColumnCkeditor
     show: Schema.Attribute.Boolean;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface EnhancedComponentsTwoColumnComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_two_column_components';
+  info: {
+    displayName: 'Two Column Component';
+    icon: 'dashboard';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    content: Schema.Attribute.Component<
+      'enhanced-components.single-column-ckeditor',
+      false
+    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isImageLeftAlign: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    show: Schema.Attribute.Boolean;
   };
 }
 
@@ -2385,6 +2406,7 @@ declare module '@strapi/strapi' {
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
       'enhanced-components.single-column-ckeditor': EnhancedComponentsSingleColumnCkeditor;
+      'enhanced-components.two-column-component': EnhancedComponentsTwoColumnComponent;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
