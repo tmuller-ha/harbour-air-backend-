@@ -986,6 +986,7 @@ export interface ElementsTitleWithYoutubeLink extends Struct.ComponentSchema {
     displayName: 'Titlewith Link';
   };
   attributes: {
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     tabName: Schema.Attribute.String;
     url: Schema.Attribute.String;
   };
