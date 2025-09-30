@@ -14,18 +14,23 @@
   "attributes": {
     "carousel": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-image"
+      "component": "elements.title-with-image",
+      "repeatable": false
     },
     "profile": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.profile-with-image"
+      "component": "elements.profile-with-image",
+      "repeatable": false
     },
     "banner": {
       "type": "component",
-      "repeatable": false,
-      "component": "common.help"
+      "component": "common.help",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

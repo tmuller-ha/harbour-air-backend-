@@ -33,6 +33,11 @@
       "type": "component",
       "component": "further-questions.contact-form",
       "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

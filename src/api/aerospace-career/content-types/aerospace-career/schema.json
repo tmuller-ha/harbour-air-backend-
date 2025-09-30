@@ -14,23 +14,28 @@
   "attributes": {
     "titlewithimage": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-image"
+      "component": "elements.title-with-image",
+      "repeatable": false
     },
     "buildCareer": {
       "type": "component",
-      "repeatable": false,
-      "component": "careers.build-career"
+      "component": "careers.build-career",
+      "repeatable": false
     },
     "openings": {
       "type": "component",
-      "repeatable": false,
-      "component": "careers.build-career"
+      "component": "careers.build-career",
+      "repeatable": false
     },
     "careerImage": {
       "type": "component",
-      "repeatable": false,
-      "component": "careers.career-image"
+      "component": "careers.career-image",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

@@ -14,8 +14,8 @@
   "attributes": {
     "titlewithimage": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-image"
+      "component": "elements.title-with-image",
+      "repeatable": false
     },
     "aerospace_stc_kits": {
       "type": "relation",
@@ -24,18 +24,23 @@
     },
     "stcbutton": {
       "type": "component",
-      "repeatable": true,
-      "component": "stc-kits.stcbutton"
+      "component": "stc-kits.stcbutton",
+      "repeatable": true
     },
     "stcbrochure": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-youtube-link"
+      "component": "elements.title-with-youtube-link",
+      "repeatable": false
     },
     "pageDetails": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
+      "component": "elements.title-with-ck-editor",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

@@ -500,6 +500,7 @@ export interface ApiAerospaceCapabiliteAerospaceCapabilite
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -532,6 +533,7 @@ export interface ApiAerospaceCareerAerospaceCareer
       Schema.Attribute.Private;
     openings: Schema.Attribute.Component<'careers.build-career', false>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     titlewithimage: Schema.Attribute.Component<
       'elements.title-with-image',
       false
@@ -682,6 +684,7 @@ export interface ApiAerospaceMeetTheTeamAerospaceMeetTheTeam
       Schema.Attribute.Private;
     profile: Schema.Attribute.Component<'elements.profile-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -719,6 +722,7 @@ export interface ApiAerospacePartSaleAerospacePartSale
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     showOtherSaleItems: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
@@ -793,6 +797,7 @@ export interface ApiAerospaceStckitAerospaceStckit
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     stcbrochure: Schema.Attribute.Component<
       'elements.title-with-youtube-link',
       false
@@ -880,6 +885,7 @@ export interface ApiAerospaceWhoWeAerospaceWhoWe
     >;
     pageTitle: Schema.Attribute.Component<'elements.title-with-image', false>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

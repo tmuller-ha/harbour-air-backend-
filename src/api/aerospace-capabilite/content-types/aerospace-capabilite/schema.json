@@ -14,18 +14,23 @@
   "attributes": {
     "carousel": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-image"
+      "component": "elements.title-with-image",
+      "repeatable": false
     },
     "description": {
       "type": "component",
-      "repeatable": false,
-      "component": "elements.title-with-ck-editor"
+      "component": "elements.title-with-ck-editor",
+      "repeatable": false
     },
     "accordian": {
       "type": "component",
-      "repeatable": true,
-      "component": "elements.accordian-with-image"
+      "component": "elements.accordian-with-image",
+      "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
