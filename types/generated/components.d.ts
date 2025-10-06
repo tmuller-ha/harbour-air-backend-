@@ -305,6 +305,20 @@ export interface ElementsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsDealsSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_deals_sections';
+  info: {
+    displayName: 'Deals Section';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    deals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
+    moreDeals: Schema.Attribute.Component<'elements.button', false>;
+    sectionTitle: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsDropDownData extends Struct.ComponentSchema {
   collectionName: 'components_elements_drop_down_data';
   info: {
@@ -2336,6 +2350,7 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
+      'elements.deals-section': ElementsDealsSection;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
