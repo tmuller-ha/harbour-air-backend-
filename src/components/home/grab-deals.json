@@ -21,12 +21,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::deal.deal"
-    },
-    "useCustomRedirectUrl": {
-      "type": "boolean"
-    },
-    "customRedirectUrl": {
-      "type": "string"
     }
   }
 }
