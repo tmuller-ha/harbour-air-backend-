@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_enhanced_components_three_column_components",
+  "info": {
+    "displayName": "Three Column Component",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "contents": {
+      "type": "component",
+      "component": "elements.title-with-ck-editor",
+      "repeatable": true
+    },
+    "sectionBgColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  },
+  "config": {}
+}

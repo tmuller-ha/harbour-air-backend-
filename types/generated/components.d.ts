@@ -775,6 +775,24 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
+export interface EnhancedComponentsThreeColumnComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_three_column_components';
+  info: {
+    displayName: 'Three Column Component';
+    icon: 'apps';
+  };
+  attributes: {
+    contents: Schema.Attribute.Component<'elements.title-with-ck-editor', true>;
+    description: Schema.Attribute.Text;
+    sectionBgColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    show: Schema.Attribute.Boolean;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2361,6 +2379,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.three-column-component': EnhancedComponentsThreeColumnComponent;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
