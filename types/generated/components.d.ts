@@ -775,6 +775,31 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
+export interface EnhancedComponentsCtaCard extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_cta_cards';
+  info: {
+    displayName: 'CTA Card';
+    icon: 'calendar';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.button', false>;
+    cardBgColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    infoText: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2361,6 +2386,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.cta-card': EnhancedComponentsCtaCard;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;

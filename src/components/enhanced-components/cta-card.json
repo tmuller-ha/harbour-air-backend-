@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_enhanced_components_cta_cards",
+  "info": {
+    "displayName": "CTA Card",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "toolbar"
+      }
+    },
+    "infoText": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.button",
+      "repeatable": false
+    },
+    "cardBgColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  },
+  "config": {}
+}
