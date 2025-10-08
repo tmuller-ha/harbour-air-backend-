@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_enhanced_components_tabs",
+  "info": {
+    "displayName": "Tabs",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "tabContents": {
+      "type": "component",
+      "component": "enhanced-components.tab-component",
+      "repeatable": true
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_enhanced_components_tabs_with_accordions",
+  "info": {
+    "displayName": "Tabs With Accordion",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean"
+    },
+    "tabContents": {
+      "type": "component",
+      "component": "enhanced-components.tab-with-accordion-component",
+      "repeatable": true
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_enhanced_components_tab_with_accordion_components",
+  "info": {
+    "displayName": "Tab with Accordion Component",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "toolbar"
+      }
+    },
+    "accordion": {
+      "type": "component",
+      "component": "elements.accordion-with-ck-editor",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
