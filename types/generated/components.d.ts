@@ -816,7 +816,8 @@ export interface EnhancedComponentsMultiCardComponent
   attributes: {
     button: Schema.Attribute.Component<'elements.button', false>;
     cardBgcolor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'> &
+      Schema.Attribute.DefaultTo<'rgba(255, 255, 255, 1)'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
@@ -833,7 +834,8 @@ export interface EnhancedComponentsMultiCardsSection
   };
   attributes: {
     bgColor: Schema.Attribute.String &
-      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'> &
+      Schema.Attribute.DefaultTo<'rgba(255, 255, 255, 1)'>;
     isScroll: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     multiCards: Schema.Attribute.Component<
       'enhanced-components.multi-card-component',

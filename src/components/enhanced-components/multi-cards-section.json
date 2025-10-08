@@ -26,7 +26,8 @@
     },
     "bgColor": {
       "type": "customField",
-      "customField": "plugin::rgba-color-picker.rgba-color-picker"
+      "customField": "plugin::rgba-color-picker.rgba-color-picker",
+      "default": "rgba(255, 255, 255, 1)"
     }
   },
   "config": {}
