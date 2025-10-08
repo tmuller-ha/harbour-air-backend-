@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_enhanced_components_hero_components",
+  "info": {
+    "displayName": "Hero Component"
+  },
+  "options": {},
+  "attributes": {
+    "show": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

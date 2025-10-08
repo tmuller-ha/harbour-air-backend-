@@ -775,6 +775,21 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
+export interface EnhancedComponentsHeroComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_hero_components';
+  info: {
+    displayName: 'Hero Component';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'elements.button', false>;
+    description: Schema.Attribute.Text;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2361,6 +2376,7 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.hero-component': EnhancedComponentsHeroComponent;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;
