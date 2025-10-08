@@ -775,6 +775,81 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
   };
 }
 
+export interface EnhancedComponentsTabComponent extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_tab_components';
+  info: {
+    displayName: 'Tab Component';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface EnhancedComponentsTabWithAccordionComponent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_tab_with_accordion_components';
+  info: {
+    displayName: 'Tab with Accordion Component';
+    icon: 'cog';
+  };
+  attributes: {
+    accordion: Schema.Attribute.Component<
+      'elements.accordion-with-ck-editor',
+      true
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface EnhancedComponentsTabs extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_tabs';
+  info: {
+    displayName: 'Tabs';
+    icon: 'bulletList';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    show: Schema.Attribute.Boolean;
+    tabContents: Schema.Attribute.Component<
+      'enhanced-components.tab-component',
+      true
+    >;
+  };
+}
+
+export interface EnhancedComponentsTabsWithAccordion
+  extends Struct.ComponentSchema {
+  collectionName: 'components_enhanced_components_tabs_with_accordions';
+  info: {
+    displayName: 'Tabs With Accordion';
+    icon: 'server';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::rgba-color-picker.rgba-color-picker'>;
+    show: Schema.Attribute.Boolean;
+    tabContents: Schema.Attribute.Component<
+      'enhanced-components.tab-with-accordion-component',
+      true
+    >;
+  };
+}
+
 export interface ExtraAssistanceAccordionWithEditor
   extends Struct.ComponentSchema {
   collectionName: 'components_extra_assistance_accordion_with_editors';
@@ -2361,6 +2436,10 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
+      'enhanced-components.tab-component': EnhancedComponentsTabComponent;
+      'enhanced-components.tab-with-accordion-component': EnhancedComponentsTabWithAccordionComponent;
+      'enhanced-components.tabs': EnhancedComponentsTabs;
+      'enhanced-components.tabs-with-accordion': EnhancedComponentsTabsWithAccordion;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
       'extra-assistance.assistance': ExtraAssistanceAssistance;
       'extra-assistance.cards': ExtraAssistanceCards;

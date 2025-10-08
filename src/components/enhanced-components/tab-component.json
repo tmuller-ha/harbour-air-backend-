@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_enhanced_components_tab_components",
+  "info": {
+    "displayName": "Tab Component"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "toolbar"
+      }
+    }
+  },
+  "config": {}
+}

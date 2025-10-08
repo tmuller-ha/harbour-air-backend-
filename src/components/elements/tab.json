@@ -11,8 +11,8 @@
     },
     "tabDetails": {
       "type": "component",
-      "repeatable": true,
-      "component": "elements.accordion-with-ck-editor"
+      "component": "elements.accordion-with-ck-editor",
+      "repeatable": true
     }
   }
 }
