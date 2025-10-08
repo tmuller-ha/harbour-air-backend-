@@ -563,8 +563,6 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'table.three-col-table',
         'table.four-col-table',
         'table.six-col-table',
-        'enhanced-components.hero-component',
-        'enhanced-components.multi-cards-section',
       ]
     >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
@@ -2034,6 +2032,10 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     tileImage: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
+    titleSize: Schema.Attribute.Enumeration<
+      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+    > &
+      Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3008,6 +3010,10 @@ export interface ApiTourLocationTourLocation
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     slug: Schema.Attribute.UID<'name'>;
+    titleSize: Schema.Attribute.Enumeration<
+      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+    > &
+      Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
     tours: Schema.Attribute.Relation<
       'oneToMany',
       'api::tours-detail.tours-detail'

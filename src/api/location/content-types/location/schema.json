@@ -14,8 +14,8 @@
   "attributes": {
     "slug": {
       "type": "uid",
-      "required": true,
       "targetField": "name",
+      "required": true,
       "regex": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
     "name": {
@@ -59,28 +59,28 @@
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.seo",
+      "repeatable": false
     },
     "metaData": {
       "type": "component",
-      "repeatable": false,
-      "component": "meta-data.meta-data"
+      "component": "meta-data.meta-data",
+      "repeatable": false
     },
     "guide": {
       "type": "component",
-      "repeatable": false,
-      "component": "inside-location.guide"
+      "component": "inside-location.guide",
+      "repeatable": false
     },
     "additionalInformation": {
       "type": "component",
-      "repeatable": true,
-      "component": "inside-location.additionalinfo-details"
+      "component": "inside-location.additionalinfo-details",
+      "repeatable": true
     },
     "address": {
       "type": "component",
-      "repeatable": false,
-      "component": "inside-location.address"
+      "component": "inside-location.address",
+      "repeatable": false
     },
     "opacity": {
       "type": "enumeration",
@@ -123,6 +123,16 @@
       "allowedTypes": [
         "images",
         "files"
+      ]
+    },
+    "titleSize": {
+      "type": "enumeration",
+      "default": "extraLarge (56px)",
+      "enum": [
+        "xxl (24px)",
+        "medium (36px)",
+        "large (48px)",
+        "extraLarge (56px)"
       ]
     }
   }
