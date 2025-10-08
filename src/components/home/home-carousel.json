@@ -58,6 +58,20 @@
     "openInNewTab": {
       "type": "boolean",
       "default": false
+    },
+    "isTextLeftAligned": {
+      "type": "boolean",
+      "default": false
+    },
+    "titleSize": {
+      "type": "enumeration",
+      "default": "extraLarge (56px)",
+      "enum": [
+        "xxl (24px)",
+        "medium (36px)",
+        "large (48px)",
+        "extraLarge (56px)"
+      ]
     }
   }
 }

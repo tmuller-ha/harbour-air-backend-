@@ -19,13 +19,13 @@
     },
     "seo": {
       "type": "component",
-      "component": "seo.seo",
-      "repeatable": false
+      "repeatable": false,
+      "component": "seo.seo"
     },
     "metaData": {
       "type": "component",
-      "component": "meta-data.meta-data",
-      "repeatable": false
+      "repeatable": false,
+      "component": "meta-data.meta-data"
     },
     "sections": {
       "type": "dynamiczone",
@@ -40,9 +40,7 @@
         "table.two-col-table",
         "table.three-col-table",
         "table.four-col-table",
-        "table.six-col-table",
-        "enhanced-components.hero-component",
-        "enhanced-components.multi-cards-section"
+        "table.six-col-table"
       ]
     }
   }

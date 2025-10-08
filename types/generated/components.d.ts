@@ -676,6 +676,10 @@ export interface ElementsTitleWithImage extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'opacity-50'>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+    titleSize: Schema.Attribute.Enumeration<
+      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+    > &
+      Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
 }
 
@@ -768,37 +772,6 @@ export interface ElementsTripAdvisor extends Struct.ComponentSchema {
     quoteImage: Schema.Attribute.Media<'images'>;
     tripAdvisorLogo: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
-  };
-}
-
-export interface EnhancedComponentsButton extends Struct.ComponentSchema {
-  collectionName: 'components_enhanced_components_buttons';
-  info: {
-    displayName: 'Button';
-  };
-  attributes: {
-    buttonBgColors: Schema.Attribute.Enumeration<
-      ['bg-#002d62', 'bg-#ffde00', 'bg-#00fe2']
-    >;
-    buttonText: Schema.Attribute.String;
-    show: Schema.Attribute.Boolean;
-    slug: Schema.Attribute.String;
-  };
-}
-
-export interface EnhancedComponentsHeroComponent
-  extends Struct.ComponentSchema {
-  collectionName: 'components_enhanced_components_hero_components';
-  info: {
-    displayName: 'Hero Component';
-  };
-  attributes: {
-    button: Schema.Attribute.Component<'enhanced-components.button', false>;
-    coverImage: Schema.Attribute.Media<'images'>;
-    description: Schema.Attribute.Text;
-    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -1295,12 +1268,18 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     desktopImg: Schema.Attribute.Media<'images' | 'videos'>;
     imageLink: Schema.Attribute.String;
     infoText: Schema.Attribute.String;
+    isTextLeftAligned: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     mobileImg: Schema.Attribute.Media<'images' | 'videos'>;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     slug: Schema.Attribute.String;
     tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
+    titleSize: Schema.Attribute.Enumeration<
+      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+    > &
+      Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
 }
 
@@ -2423,8 +2402,6 @@ declare module '@strapi/strapi' {
       'elements.title-with-youtube-link': ElementsTitleWithYoutubeLink;
       'elements.tour-card': ElementsTourCard;
       'elements.trip-advisor': ElementsTripAdvisor;
-      'enhanced-components.button': EnhancedComponentsButton;
-      'enhanced-components.hero-component': EnhancedComponentsHeroComponent;
       'enhanced-components.multi-card-component': EnhancedComponentsMultiCardComponent;
       'enhanced-components.multi-cards-section': EnhancedComponentsMultiCardsSection;
       'extra-assistance.accordion-with-editor': ExtraAssistanceAccordionWithEditor;
