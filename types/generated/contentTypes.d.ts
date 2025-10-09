@@ -563,6 +563,7 @@ export interface ApiBasePageBasePage extends Struct.CollectionTypeSchema {
         'table.three-col-table',
         'table.four-col-table',
         'table.six-col-table',
+        'elements.deals-section',
         'enhanced-components.hero-component',
         'enhanced-components.multi-cards-section',
       ]
@@ -1234,6 +1235,7 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customRedirectUrl: Schema.Attribute.String;
     date: Schema.Attribute.String & Schema.Attribute.Required;
     dealImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     departureLocation: Schema.Attribute.Relation<
@@ -1258,6 +1260,8 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    useCustomRedirectUrl: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 

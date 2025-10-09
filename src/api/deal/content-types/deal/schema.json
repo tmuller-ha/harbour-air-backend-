@@ -16,7 +16,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "title": {
       "type": "string",
@@ -40,8 +42,8 @@
     },
     "bookNowButton": {
       "type": "component",
-      "repeatable": false,
       "component": "elements.button",
+      "repeatable": false,
       "required": true
     },
     "route": {
@@ -79,6 +81,13 @@
     "travelStartDate": {
       "type": "date",
       "required": false
+    },
+    "useCustomRedirectUrl": {
+      "type": "boolean",
+      "default": false
+    },
+    "customRedirectUrl": {
+      "type": "string"
     }
   }
 }

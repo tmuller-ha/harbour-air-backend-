@@ -41,6 +41,7 @@
         "table.three-col-table",
         "table.four-col-table",
         "table.six-col-table",
+        "elements.deals-section",
         "enhanced-components.hero-component",
         "enhanced-components.multi-cards-section"
       ]

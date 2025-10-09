@@ -305,6 +305,20 @@ export interface ElementsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsDealsSection extends Struct.ComponentSchema {
+  collectionName: 'components_elements_deals_sections';
+  info: {
+    displayName: 'Deals Section';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    deals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
+    moreDeals: Schema.Attribute.Component<'elements.button', false>;
+    sectionTitle: Schema.Attribute.String;
+    show: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
 export interface ElementsDropDownData extends Struct.ComponentSchema {
   collectionName: 'components_elements_drop_down_data';
   info: {
@@ -677,7 +691,7 @@ export interface ElementsTitleWithImage extends Struct.ComponentSchema {
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
     titleSize: Schema.Attribute.Enumeration<
-      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+      ['small (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
     > &
       Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
@@ -1267,11 +1281,9 @@ export interface HomeGrabDeals extends Struct.ComponentSchema {
   };
   attributes: {
     cardDeals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
-    customRedirectUrl: Schema.Attribute.String;
     moreDeals: Schema.Attribute.Component<'elements.button', false>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
-    useCustomRedirectUrl: Schema.Attribute.Boolean;
   };
 }
 
@@ -1308,7 +1320,7 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
     titleSize: Schema.Attribute.Enumeration<
-      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+      ['small (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
     > &
       Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
@@ -2408,6 +2420,7 @@ declare module '@strapi/strapi' {
       'elements.accordion': ElementsAccordion;
       'elements.accordion-with-ck-editor': ElementsAccordionWithCkEditor;
       'elements.button': ElementsButton;
+      'elements.deals-section': ElementsDealsSection;
       'elements.drop-down-data': ElementsDropDownData;
       'elements.gallery': ElementsGallery;
       'elements.harbour-air-article': ElementsHarbourAirArticle;
