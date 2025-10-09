@@ -677,7 +677,7 @@ export interface ElementsTitleWithImage extends Struct.ComponentSchema {
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
     titleSize: Schema.Attribute.Enumeration<
-      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+      ['small (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
     > &
       Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };
@@ -1195,11 +1195,9 @@ export interface HomeGrabDeals extends Struct.ComponentSchema {
   };
   attributes: {
     cardDeals: Schema.Attribute.Relation<'oneToMany', 'api::deal.deal'>;
-    customRedirectUrl: Schema.Attribute.String;
     moreDeals: Schema.Attribute.Component<'elements.button', false>;
     show: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
-    useCustomRedirectUrl: Schema.Attribute.Boolean;
   };
 }
 
@@ -1236,7 +1234,7 @@ export interface HomeHomeCarousel extends Struct.ComponentSchema {
     tabletImg: Schema.Attribute.Media<'images' | 'videos'>;
     title: Schema.Attribute.String;
     titleSize: Schema.Attribute.Enumeration<
-      ['xxl (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
+      ['small (24px)', 'medium (36px)', 'large (48px)', 'extraLarge (56px)']
     > &
       Schema.Attribute.DefaultTo<'extraLarge (56px)'>;
   };

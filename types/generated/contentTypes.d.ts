@@ -1232,6 +1232,7 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customRedirectUrl: Schema.Attribute.String;
     date: Schema.Attribute.String & Schema.Attribute.Required;
     dealImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     departureLocation: Schema.Attribute.Relation<
@@ -1256,6 +1257,8 @@ export interface ApiDealDeal extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    useCustomRedirectUrl: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 
